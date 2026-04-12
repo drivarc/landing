@@ -1,0 +1,27 @@
+{
+  "name": "Drivarc",
+  "short_name": "Drivarc",
+  "description": "Dijital araç yönetimi - Yakıt takibi, bakım hatırlatıcıları, maliyet analizleri",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#111318",
+  "theme_color": "#1a73e8",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "images/harflogo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ],
+  "categories": ["utilities", "productivity"],
+  "lang": "tr",
+  "dir": "ltr"
+}
