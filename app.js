@@ -304,6 +304,19 @@ function getCurrentSectionIndex() {
     return index;
 }
 
+// Handle logo link - prevent page reload on index pages, navigate to home on other pages
+const logoLink = document.querySelector('.logo[href^="index.html"], .logo[href="/"], .logo[href="../en/"], .logo[href="../de/"], .logo[href="../ru/"], .logo[href="../ar/"]');
+if (logoLink) {
+    logoLink.addEventListener('click', (e) => {
+        // If we're on index.html and sections exist, prevent navigation and scroll to hero
+        if (allSectionsExist) {
+            e.preventDefault();
+            scrollToSection(0);
+        }
+        // If on another page (privacy/terms), let the link navigate normally
+    });
+}
+
 if (allSectionsExist) {
 
 // Initialize: find current section
@@ -596,30 +609,30 @@ function showHolidayText() {
     const ataturkPortrait = document.getElementById('ataturkPortrait');
     const headerInner = document.querySelector('.header-inner');
     const footerHoliday = document.getElementById('footerHoliday');
-    
+
     if (!holidayText) return;
-    
+
     const htmlLang = document.documentElement.lang;
     if (htmlLang !== 'tr') {
         holidayText.classList.add('is-hidden');
         if (footerHoliday) footerHoliday.classList.add('is-hidden');
         return;
     }
-    
+
     const holidays = [
         { name: '23 Nisan', message: '23 Nisan Ulusal Egemenlik ve<br>Çocuk Bayramımız Kutlu Olsun!' },
         { name: '19 Mayıs', message: '19 Mayıs Atatürk\'ü Anma, Gençlik ve<br>Spor Bayramımız Kutlu Olsun!', showAtaturk: true },
         { name: '30 Ağustos', message: '30 Ağustos Zafer Bayramımız<br>Kutlu Olsun!' },
         { name: '29 Ekim', message: '29 Ekim Cumhuriyet Bayramımız<br>Kutlu Olsun!' }
     ];
-    
+
     const now = new Date();
     const month = now.getMonth(); // 0-11
     const day = now.getDate(); // 1-31
     const hours = now.getHours(); // 0-23
-    
+
     let holiday = null;
-    
+
     // 23 Nisan: 23 Nisan 00:00 - 24 Nisan 00:00
     if (month === 3 && day === 23) {
         holiday = holidays[0];
@@ -639,7 +652,7 @@ function showHolidayText() {
     ) {
         holiday = holidays[3];
     }
-    
+
     if (holiday) {
         holidayText.innerHTML = holiday.message;
         holidayText.classList.remove('is-hidden');
@@ -648,15 +661,18 @@ function showHolidayText() {
         if (footerHoliday) footerHoliday.classList.remove('is-hidden');
 
         if (holiday.showAtaturk) {
+            ataturkPortrait.classList.remove('is-hidden');
             ataturkPortrait.style.display = 'block';
             headerInner.classList.add('has-ataturk');
         } else {
+            ataturkPortrait.classList.add('is-hidden');
             ataturkPortrait.style.display = 'none';
             headerInner.classList.remove('has-ataturk');
         }
     } else {
         holidayText.classList.add('is-hidden');
         if (footerHoliday) footerHoliday.classList.add('is-hidden');
+        ataturkPortrait.classList.add('is-hidden');
         ataturkPortrait.style.display = 'none';
         headerInner.classList.remove('has-ataturk');
     }
@@ -800,3 +816,365 @@ document.addEventListener('DOMContentLoaded', initAnimations);
 if (document.readyState !== 'loading') {
     initAnimations();
 }
+
+// ===== Cookie Consent Management (GDPR/KVKK Compliant) =====
+(function() {
+    'use strict';
+
+    // === Tutarlı, global key - tüm dillerde aynı ===
+    var COOKIE_KEY = 'drivarc-cookie-consent';
+    var CONSENT_COOKIE_NAME = 'cookie_policy';
+    var CONSENT_COOKIE_DAYS = 365;
+    var CONSENT_VERSION = '2';
+
+    // === Helper: Cookie Okuma ===
+    function readCookie(name) {
+        var match = document.cookie.match(new RegExp('(^| )' + name + '=([^;]+)'));
+        return match ? decodeURIComponent(match[2]) : null;
+    }
+
+    // === Helper: Cookie Yazma (güvenli, SameSite=Lax) ===
+    function writeCookie(name, value, days) {
+        var expires = '';
+        if (days) {
+            var date = new Date();
+            date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+            expires = '; expires=' + date.toUTCString();
+        }
+        document.cookie = name + '=' + encodeURIComponent(value) + expires + '; path=/; SameSite=Lax; Secure';
+    }
+
+    // === Helper: Consent Cookie Parse ===
+    function parseConsentCookie(value) {
+        try {
+            return JSON.parse(decodeURIComponent(value));
+        } catch (e) {
+            return null;
+        }
+    }
+
+    // === Helper: gtag-safe call ===
+    function gtagConsentUpdate(granted) {
+        // Race condition koruması: gtag yüklenene kadar bekle
+        function applyConsent() {
+            if (typeof window.gtag === 'function') {
+                window.gtag('consent', 'update', {
+                    'analytics_storage': granted ? 'granted' : 'denied'
+                });
+                console.log('[CookieConsent] Analytics storage:', granted ? 'GRANTED' : 'DENIED');
+            } else {
+                // gtag henüz yüklenmediyse dataLayer'a push et
+                window.dataLayer.push({
+                    'event': 'consent_update',
+                    'analytics_storage': granted ? 'granted' : 'denied'
+                });
+                console.log('[CookieConsent] gtag not ready, pushed to dataLayer');
+                // Tekrar dene
+                setTimeout(applyConsent, 100);
+            }
+        }
+        applyConsent();
+    }
+
+    // === Helper: Event Tracking ===
+    function trackEvent(eventName, params) {
+        if (typeof window.gtag === 'function') {
+            window.gtag('event', eventName, params || {});
+        } else {
+            window.dataLayer.push({
+                'event': eventName,
+                ...params
+            });
+        }
+    }
+
+    // === Helper: Store Consent (localStorage + Cookie) ===
+    function saveConsent(preferences) {
+        // localStorage
+        try {
+            localStorage.setItem(COOKIE_KEY, JSON.stringify(preferences));
+        } catch (e) {
+            console.warn('[CookieConsent] localStorage write failed:', e);
+        }
+        // Cookie (yedek + sunucu tarafı okuma için)
+        writeCookie(CONSENT_COOKIE_NAME, JSON.stringify(preferences), CONSENT_COOKIE_DAYS);
+    }
+
+    // === Helper: Read Consent ===
+    function readConsent() {
+        // Önce localStorage'dan oku
+        try {
+            var saved = localStorage.getItem(COOKIE_KEY);
+            if (saved) {
+                var prefs = JSON.parse(saved);
+                if (prefs.version === CONSENT_VERSION) {
+                    return prefs;
+                }
+            }
+        } catch (e) { /* ignore */ }
+
+        // Cookie'den oku (fallback)
+        var cookieVal = readCookie(CONSENT_COOKIE_NAME);
+        if (cookieVal) {
+            var prefs = parseConsentCookie(cookieVal);
+            if (prefs && prefs.version === CONSENT_VERSION) {
+                return prefs;
+            }
+        }
+        return null;
+    }
+
+    // === Helper: Get Page Language ===
+    function getPageLang() {
+        var html = document.documentElement;
+        return (html.getAttribute('lang') || 'tr').substring(0, 2);
+    }
+
+    // === Helper: Get Privacy Link ===
+    function getPrivacyLink() {
+        var lang = getPageLang();
+        if (lang === 'tr') return 'privacy.html';
+        // en, de, ru, ar için dil bazlı link
+        return '../privacy.html';
+    }
+
+    // === Helper: Show Banner ===
+    function showBanner() {
+        var banner = document.querySelector('.cookie-consent');
+        if (banner) {
+            // Privacy link'i güncelle
+            var descLink = banner.querySelector('.cookie-consent-description a');
+            if (descLink) {
+                descLink.href = getPrivacyLink();
+            }
+            // 1 saniye sonra göster
+            setTimeout(function() {
+                banner.classList.add('show');
+            }, 1000);
+        }
+    }
+
+    // === Helper: Hide Banner ===
+    function hideBanner() {
+        var banner = document.querySelector('.cookie-consent');
+        if (banner) {
+            banner.classList.remove('show');
+            banner.classList.add('hide');
+        }
+    }
+
+    // === Accept All ===
+    function acceptAll() {
+        var prefs = {
+            version: CONSENT_VERSION,
+            timestamp: new Date().toISOString(),
+            necessary: true,
+            analytics: true,
+            marketing: false
+        };
+        saveConsent(prefs);
+        gtagConsentUpdate(true);
+        hideBanner();
+        trackEvent('cookie_consent', { action: 'accept_all' });
+    }
+
+    // === Decline Non-Essential ===
+    function declineAll() {
+        var prefs = {
+            version: CONSENT_VERSION,
+            timestamp: new Date().toISOString(),
+            necessary: true,
+            analytics: false,
+            marketing: false
+        };
+        saveConsent(prefs);
+        gtagConsentUpdate(false);
+        hideBanner();
+        trackEvent('cookie_consent', { action: 'decline_all' });
+    }
+
+    // === Open Settings Modal ===
+    function openSettingsModal() {
+        var modal = document.getElementById('cookieSettingsModal');
+        if (modal) {
+            // Mevcut tercihi toggle'a yansıt
+            var prefs = readConsent();
+            var toggle = document.getElementById('cookieAnalyticsToggle');
+            if (toggle && prefs) {
+                toggle.checked = !!prefs.analytics;
+            }
+            modal.classList.add('show');
+        }
+    }
+
+    // === Close Settings Modal ===
+    function closeSettingsModal() {
+        var modal = document.getElementById('cookieSettingsModal');
+        if (modal) {
+            modal.classList.remove('show');
+        }
+    }
+
+    // === Save Modal Settings ===
+    function saveModalSettings() {
+        var toggle = document.getElementById('cookieAnalyticsToggle');
+        var analyticsEnabled = toggle ? toggle.checked : false;
+        var prefs = {
+            version: CONSENT_VERSION,
+            timestamp: new Date().toISOString(),
+            necessary: true,
+            analytics: analyticsEnabled,
+            marketing: false
+        };
+        saveConsent(prefs);
+        gtagConsentUpdate(analyticsEnabled);
+        closeSettingsModal();
+        hideBanner();
+        trackEvent('cookie_consent', {
+            action: 'custom',
+            analytics: analyticsEnabled
+        });
+    }
+
+    // === Google Play / App Store Click Tracking ===
+    function initStoreClickTracking() {
+        // Google Play butonu
+        var gpBtn = document.querySelector('[data-modal="beta"]');
+        if (gpBtn) {
+            gpBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                trackEvent('store_click', {
+                    'store': 'google_play',
+                    'page_language': getPageLang()
+                });
+                // Mevcut modal açma davranışını koru
+                if (typeof window.openBetaModal === 'function') {
+                    window.openBetaModal();
+                }
+            });
+        }
+
+        // App Store butonu
+        var asBtn = document.querySelector('[data-modal="appstore"]');
+        if (asBtn) {
+            asBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                trackEvent('store_click', {
+                    'store': 'app_store',
+                    'page_language': getPageLang()
+                });
+                // Mevcut modal açma davranışını koru
+                var modal = document.getElementById('appStoreModal');
+                if (modal) {
+                    modal.style.display = 'flex';
+                    requestAnimationFrame(function() { modal.classList.add('show'); });
+                }
+            });
+        }
+    }
+
+    // === Footer'dan tercihleri açma butonu ekle ===
+    function addFooterCookieLink() {
+        var footer = document.querySelector('.footer-inner, .site-footer');
+        if (!footer) return;
+        // Zaten varsa ekleme
+        if (footer.querySelector('.cookie-preferences-link')) return;
+
+        var link = document.createElement('a');
+        link.href = '#';
+        link.className = 'footer-link cookie-preferences-link';
+        link.textContent = 'Cookie Preferences';
+        link.setAttribute('data-cookie-preferences', 'true');
+
+        // Dil bazlı metin
+        var lang = getPageLang();
+        var labels = {
+            'tr': 'Çerez Tercihleri',
+            'en': 'Cookie Preferences',
+            'de': 'Cookie-Einstellungen',
+            'ru': 'Настройки cookie',
+            'ar': 'تفضيلات ملفات تعريف الارتباط'
+        };
+        link.textContent = labels[lang] || labels['en'];
+
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            openSettingsModal();
+        });
+
+        // Footer links'in sonuna ekle
+        var footerLinks = footer.querySelector('.footer-links');
+        if (footerLinks) {
+            footerLinks.appendChild(link);
+        }
+    }
+
+    // === RTL Layout Desteği (Arapça) ===
+    // Not: Tüm RTL stilleri artık CSS'te [dir="rtl"] selector'leri ile yönetiliyor.
+    // JS tarafında ekstra bir şey yapmaya gerek yok.
+    function applyRTLLayout() {
+        // CSS handles everything, this is a no-op now
+    }
+
+    // === Initialize ===
+    function init() {
+        var prefs = readConsent();
+
+        if (!prefs) {
+            // İlk ziyaret - banner göster
+            showBanner();
+        } else {
+            // Kayıtlı tercih var - uygula
+            if (prefs.analytics) {
+                gtagConsentUpdate(true);
+            } else {
+                gtagConsentUpdate(false);
+            }
+        }
+
+        // Buton eventleri
+        var acceptBtn = document.querySelector('.cookie-consent-btn.accept:not(.cookie-settings-save)');
+        if (acceptBtn) acceptBtn.addEventListener('click', acceptAll);
+
+        var declineBtn = document.querySelector('.cookie-consent-btn.decline:not(.cookie-settings-close)');
+        if (declineBtn) declineBtn.addEventListener('click', declineAll);
+
+        var settingsBtn = document.querySelector('.cookie-consent-btn.settings');
+        if (settingsBtn) settingsBtn.addEventListener('click', openSettingsModal);
+
+        var closeBtn = document.querySelector('.cookie-settings-close');
+        if (closeBtn) closeBtn.addEventListener('click', closeSettingsModal);
+
+        var saveBtn = document.querySelector('.cookie-settings-save');
+        if (saveBtn) saveBtn.addEventListener('click', saveModalSettings);
+
+        // Modal dışına tıklayınca kapat
+        var modal = document.getElementById('cookieSettingsModal');
+        if (modal) {
+            modal.addEventListener('click', function(e) {
+                if (e.target === modal) closeSettingsModal();
+            });
+        }
+
+        // ESC ile kapat
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') closeSettingsModal();
+        });
+
+        // Store click tracking
+        initStoreClickTracking();
+
+        // Footer'dan tercihleri açma linki
+        addFooterCookieLink();
+
+        // RTL layout desteği
+        applyRTLLayout();
+    }
+
+    // DOM ready'de çalıştır
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', init);
+    } else {
+        init();
+    }
+})();

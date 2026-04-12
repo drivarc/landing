@@ -6,6 +6,38 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Drivarc - Araç Takip ve Yönetim</title>
     <meta name="description" content="Drivarc ile tüm araçlarınızı tek uygulamadan yönetin. Yakıt takibi, bakım hatırlatıcıları, maliyet analizleri ve çok daha fazlası.">
+
+    <!-- Google Analytics 4 with Consent Mode -->
+    <script>
+      // Step 1: Initialize dataLayer and gtag function IMMEDIATELY (sync)
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+
+      // Step 2: Set DEFAULT consent to DENIED before GTM loads
+      gtag('consent', 'default', {
+        'analytics_storage': 'denied',
+        'ad_storage': 'denied',
+        'ad_user_data': 'denied',
+        'ad_personalization': 'denied',
+        'wait_for_update': 500
+      });
+
+      // Step 3: Load GA4 script async
+      (function() {
+        var script = document.createElement('script');
+        script.async = true;
+        script.src = 'https://www.googletagmanager.com/gtag/js?id=G-28CR3Y25R3';
+        document.head.appendChild(script);
+      })();
+
+      // Step 4: Configure GA4 with IP anonymization
+      gtag('js', new Date());
+      gtag('config', 'G-28CR3Y25R3', {
+        'anonymize_ip': true,
+        'allow_google_signals': false
+      });
+    </script>
+
     <meta name="keywords" content="araç takip, bakım hatırlatıcı, yakıt takibi, araç yönetim, Drivarc">
     <meta name="author" content="Drivarc">
     <meta name="robots" content="index, follow">
@@ -131,8 +163,8 @@
         <header class="header">
             <div class="header-inner">
                 <!-- TÜRKÇE İÇERİK: Atatürk portresi yalnızca Türkçe versiyona özeldir. Diğer dil versiyonlarına (en, de, ru, ar) EKLEMEYİN! -->
-                <img src="images/ataturk.png" alt="Mustafa Kemal Atatürk" class="ataturk-portrait" id="ataturkPortrait">
-                <a href="index.html" class="logo"><img src="images/logoxxxhdpi.png" alt="Drivarc Logo" class="logo-img" width="150" height="40" loading="eager" fetchpriority="high"></a>
+                <img src="images/ataturk.png" alt="Mustafa Kemal Atatürk" class="ataturk-portrait is-hidden" id="ataturkPortrait">
+                <a href="#hero" class="logo"><img src="images/logoxxxhdpi.png" alt="Drivarc Logo" class="logo-img" width="150" height="40" loading="eager" fetchpriority="high"></a>
                 <nav class="nav" aria-label="Ana menü">
                     <a href="#hero" class="active">Ana Sayfa</a>
                     <a href="#features">Özellikler</a>
@@ -169,7 +201,7 @@
                     </div>
                 </div>
                 <!-- TÜRKÇE İÇERİK: Zafer text'i yalnızca Türkçe versiyona özeldir. Diğer dil versiyonlarına (en, de, ru, ar) EKLEMEYİN! -->
-                <span class="zafer-text" id="zaferText">19 Mayıs Atatürk'ü Anma, Gençlik ve<br>Spor Bayramımız Kutlu Olsun!</span>
+                <span class="zafer-text is-hidden" id="zaferText"></span>
             </div>
         </header>
 
@@ -887,6 +919,65 @@
             <h3 class="beta-modal-title">App Store Yakında!</h3>
             <p class="beta-modal-text">iOS versiyonumuzu geliştirmeye devam ediyoruz. App Store'da yayımlandığında sizi bilgilendireceğiz. Takipte kalın!</p>
             <button class="beta-modal-close" data-close-modal="appstore">Tamam</button>
+        </div>
+    </div>
+
+    <!-- Cookie Consent Banner -->
+    <div class="cookie-consent" id="cookieConsent" role="dialog" aria-label="Çerez Onayı" aria-describedby="cookieConsentDesc">
+        <div class="cookie-consent-content">
+            <div class="cookie-consent-text">
+                <h3 class="cookie-consent-title">Çerez Tercihleriniz</h3>
+                <p class="cookie-consent-description" id="cookieConsentDesc">
+                    Size daha iyi bir deneyim sunmak için çerezler kullanıyoruz. Detaylı bilgi için 
+                    <a href="privacy.html">Gizlilik Politikası</a>'mızı inceleyebilirsiniz.
+                </p>
+            </div>
+            <div class="cookie-consent-actions">
+                <button class="cookie-consent-btn accept" aria-label="Tüm çerezleri kabul et">Kabul Et</button>
+                <button class="cookie-consent-btn decline" aria-label="Sadece gerekli çerezleri kabul et">Reddet</button>
+                <button class="cookie-consent-btn settings" aria-label="Çerez ayarlarını özelleştir">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M19.14,12.94c0.04-0.3,0.06-0.61,0.06-0.94c0-0.32-0.02-0.64-0.07-0.94l2.03-1.58c0.18-0.14,0.23-0.41,0.12-0.61 l-1.92-3.32c-0.12-0.22-0.37-0.29-0.59-0.22l-2.39,0.96c-0.5-0.38-1.03-0.7-1.62-0.94L14.4,2.81c-0.04-0.24-0.24-0.41-0.48-0.41 h-3.84c-0.24,0-0.43,0.17-0.47,0.41L9.25,5.35C8.66,5.59,8.12,5.92,7.63,6.29L5.24,5.33c-0.22-0.08-0.47,0-0.59,0.22L2.74,8.87 C2.62,9.08,2.66,9.34,2.86,9.48l2.03,1.58C4.84,11.36,4.8,11.69,4.8,12s0.02,0.64,0.07,0.94l-2.03,1.58 c-0.18,0.14-0.23,0.41-0.12,0.61l1.92,3.32c0.12,0.22,0.37,0.29,0.59,0.22l2.39-0.96c0.5,0.38,1.03,0.7,1.62,0.94l0.36,2.54 c0.05,0.24,0.24,0.41,0.48,0.41h3.84c0.24,0,0.44-0.17,0.47-0.41l0.36-2.54c0.59-0.24,1.13-0.56,1.62-0.94l2.39,0.96 c0.22,0.08,0.47,0,0.59-0.22l1.92-3.32c0.12-0.22,0.07-0.47-0.12-0.61L19.14,12.94z M12,15.6c-1.98,0-3.6-1.62-3.6-3.6 s1.62-3.6,3.6-3.6s3.6,1.62,3.6,3.6S13.98,15.6,12,15.6z"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cookie Settings Modal -->
+    <div class="cookie-settings-modal" id="cookieSettingsModal" role="dialog" aria-label="Çerez Ayarları" aria-modal="true">
+        <div class="cookie-settings-modal-content">
+            <h3 class="cookie-settings-title">Çerez Tercihleri</h3>
+            <p class="cookie-settings-description">
+                Size daha iyi bir deneyim sunmak için hangi çerezlere izin vereceğinizi seçebilirsiniz.
+            </p>
+
+            <div class="cookie-option">
+                <div class="cookie-option-header">
+                    <span class="cookie-option-title">Zorunlu Çerezler</span>
+                    <label class="cookie-option-toggle">
+                        <input type="checkbox" checked disabled>
+                        <span class="toggle-slider"></span>
+                    </label>
+                </div>
+                <p class="cookie-option-description">Bu çerezler sitenin düzgün çalışması için gereklidir ve kapatılamaz.</p>
+            </div>
+
+            <div class="cookie-option">
+                <div class="cookie-option-header">
+                    <span class="cookie-option-title">Analitik Çerezler</span>
+                    <label class="cookie-option-toggle">
+                        <input type="checkbox" id="cookieAnalyticsToggle">
+                        <span class="toggle-slider"></span>
+                    </label>
+                </div>
+                <p class="cookie-option-description">Kullanıcıların siteyi nasıl kullandığını anlamamıza yardımcı olur. Sadece siz izin verirseniz etkinleşir.</p>
+            </div>
+
+            <div class="cookie-settings-actions">
+                <button class="cookie-consent-btn decline cookie-settings-close">Kapat</button>
+                <button class="cookie-consent-btn accept cookie-settings-save">Kaydet</button>
+            </div>
         </div>
     </div>
 </body>
