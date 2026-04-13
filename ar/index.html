@@ -108,34 +108,56 @@
     <!-- Structured Data (JSON-LD) -->
     <script type="application/ld+json">
     {
-        "@context": "https://schema.org",
-        "@type": "SoftwareApplication",
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Drivarc",
+      "alternateName": "Drivarc - تتبع وإدارة المركبات",
+      "description": "إدارة جميع مركباتك من تطبيق واحد مع Drivarc. تتبع الوقود، تذكير بالصيانة، تحليل التكاليف وأكثر.",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "Android, iOS",
+      "url": "https://drivarc.com/ar/",
+      "image": "https://drivarc.com/images/harflogo.png",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "TRY",
+        "description": "Free to download with optional Premium subscription"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.5",
+        "ratingCount": "100",
+        "bestRating": "5",
+        "worstRating": "1"
+      },
+      "author": {
+        "@type": "Organization",
         "name": "Drivarc",
-        "description": "إدارة جميع مركباتك من تطبيق واحد مع Drivarc. تتبع الوقود، تذكير بالصيانة، تحليل التكاليف وأكثر.",
-        "url": "https://drivarc.com/ar/",
-        "image": "https://drivarc.com/og-image.png",
-        "applicationCategory": "UtilitiesApplication",
-        "operatingSystem": "Android, iOS",
-        "offers": {
-            "@type": "Offer",
-            "price": "0",
-            "priceCurrency": "TRY"
+        "url": "https://drivarc.com/",
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "email": "contact@drivarc.com",
+          "contactType": "customer support",
+          "availableLanguage": ["Turkish", "English", "German", "Russian", "Arabic"]
         },
-        "aggregateRating": {
-            "@type": "AggregateRating",
-            "ratingValue": "4.5",
-            "ratingCount": "1250"
-        },
-        "author": {
-            "@type": "Organization",
-            "name": "Drivarc",
-            "url": "https://drivarc.com/",
-            "contactPoint": {
-                "@type": "ContactPoint",
-                "email": "contact@drivarc.com",
-                "contactType": "customer support"
-            }
-        }
+        "sameAs": []
+      }
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Drivarc",
+      "url": "https://drivarc.com/ar/",
+      "description": "تطبيق تتبع وإدارة المركبات",
+      "inLanguage": ["ar"],
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://drivarc.com/ar/?s={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
     }
     </script>
 

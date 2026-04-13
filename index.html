@@ -7,6 +7,9 @@
     <title>Drivarc - Araç Takip ve Yönetim</title>
     <meta name="description" content="Drivarc ile tüm araçlarınızı tek uygulamadan yönetin. Yakıt takibi, bakım hatırlatıcıları, maliyet analizleri ve çok daha fazlası.">
 
+    <!-- Google Search Console Verification (Replace YOUR_TOKEN with actual token from Search Console) -->
+    <meta name="google-site-verification" content="YOUR_TOKEN">
+
     <!-- Google Analytics 4 with Consent Mode -->
     <script>
       // Step 1: Initialize dataLayer and gtag function IMMEDIATELY (sync)
@@ -147,6 +150,70 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <script src="app.js" defer></script>
+
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Drivarc",
+      "alternateName": "Drivarc - Araç Takip ve Yönetim",
+      "description": "Drivarc ile tüm araçlarınızı tek uygulamadan yönetin. Yakıt takibi, bakım hatırlatıcıları, maliyet analizleri ve çok daha fazlası.",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "Android, iOS",
+      "url": "https://drivarc.com/",
+      "image": "https://drivarc.com/images/harflogo.png",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "TRY",
+        "description": "Free to download with optional Premium subscription"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.5",
+        "ratingCount": "100",
+        "bestRating": "5",
+        "worstRating": "1"
+      },
+      "author": {
+        "@type": "Organization",
+        "name": "Drivarc",
+        "url": "https://drivarc.com/",
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "email": "contact@drivarc.com",
+          "contactType": "customer support",
+          "availableLanguage": ["Turkish", "English", "German", "Russian", "Arabic"]
+        },
+        "sameAs": []
+      },
+      "potentialAction": {
+        "@type": "DownloadAction",
+        "target": {
+          "@type": "EntryPoint",
+          "urlTemplate": "https://drivarc.com/"
+        }
+      }
+    }
+    </script>
+
+    <!-- WebSite Structured Data (for Sitelinks Search Box) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Drivarc",
+      "url": "https://drivarc.com/",
+      "description": "Araç takip ve yönetim uygulaması",
+      "inLanguage": ["tr", "en", "de", "ru", "ar"],
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://drivarc.com/?s={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    }
+    </script>
 </head>
 <body class="index-page">
     <!-- Skip to Content Link (Accessibility) -->
