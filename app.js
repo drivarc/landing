@@ -859,13 +859,19 @@ if (document.readyState !== 'loading') {
         function applyConsent() {
             if (typeof window.gtag === 'function') {
                 window.gtag('consent', 'update', {
+                    'ad_storage': granted ? 'granted' : 'denied',
+                    'ad_user_data': granted ? 'granted' : 'denied',
+                    'ad_personalization': granted ? 'granted' : 'denied',
                     'analytics_storage': granted ? 'granted' : 'denied'
                 });
-                console.log('[CookieConsent] Analytics storage:', granted ? 'GRANTED' : 'DENIED');
+                console.log('[CookieConsent] All consent parameters:', granted ? 'GRANTED' : 'DENIED');
             } else {
                 // gtag henüz yüklenmediyse dataLayer'a push et
                 window.dataLayer.push({
                     'event': 'consent_update',
+                    'ad_storage': granted ? 'granted' : 'denied',
+                    'ad_user_data': granted ? 'granted' : 'denied',
+                    'ad_personalization': granted ? 'granted' : 'denied',
                     'analytics_storage': granted ? 'granted' : 'denied'
                 });
                 console.log('[CookieConsent] gtag not ready, pushed to dataLayer');

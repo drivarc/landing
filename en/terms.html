@@ -14,6 +14,32 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../styles.css">
+
+    <!-- Google Analytics 4 with Consent Mode -->
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('consent', 'default', {
+        'analytics_storage': 'denied',
+        'ad_storage': 'denied',
+        'ad_user_data': 'denied',
+        'ad_personalization': 'denied',
+        'wait_for_update': 500
+      });
+      (function() {
+        var s = document.createElement('script');
+        s.async = true;
+        s.src = 'https://www.googletagmanager.com/gtag/js?id=G-28CR3Y25R3';
+        document.head.appendChild(s);
+      })();
+      gtag('js', new Date());
+      gtag('config', 'G-28CR3Y25R3', {
+        'anonymize_ip': true,
+        'allow_google_signals': false
+      });
+      gtag('set', 'url_passthrough', true);
+      gtag('set', 'ads_data_redaction', true);
+    </script>
     <script src="../app.js" defer></script>
 </head>
 <body>
@@ -289,5 +315,62 @@ Email: contact@drivarc.com</div>
             <p class="footer-copy">© 2026 Drivarc. All rights reserved.</p>
         </div>
     </footer>
+
+    <!-- Cookie Consent Banner -->
+    <div class="cookie-consent" id="cookieConsent" role="dialog" aria-label="Cookie Consent" aria-describedby="cookieConsentDesc">
+        <div class="cookie-consent-content">
+            <div class="cookie-consent-text">
+                <h3 class="cookie-consent-title">Your Cookie Preferences</h3>
+                <p class="cookie-consent-description" id="cookieConsentDesc">
+                    We use cookies to enhance your experience and analyze site usage. <a href="../en/privacy.html">Learn more</a>.
+                </p>
+            </div>
+            <div class="cookie-consent-actions">
+                <button class="cookie-consent-btn accept" aria-label="Accept all cookies">Accept</button>
+                <button class="cookie-consent-btn decline" aria-label="Accept only essential cookies">Decline</button>
+                <button class="cookie-consent-btn settings" aria-label="Customize cookie settings">
+                    <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M19.14 12.94c.04-.3.06-.61.06-.94 0-.32-.02-.64-.07-.94l2.03-1.58a.49.49 0 0 0 .12-.61l-1.92-3.32a.488.488 0 0 0-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54a.484.484 0 0 0-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22L2.74 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.05.3-.09.63-.09.94s.02.64.07.94l-2.03 1.58a.49.49 0 0 0-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.47-.12-.61l-2.01-1.58zM12 15.6c-1.98 0-3.6-1.62-3.6-3.6s1.62-3.6 3.6-3.6 3.6 1.62 3.6 3.6-1.62 3.6-3.6 3.6z"/></svg>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cookie Settings Modal -->
+    <div class="cookie-settings-overlay" id="cookieSettingsModal">
+        <div class="cookie-settings-modal">
+            <div class="cookie-settings-header">
+                <h3 class="cookie-settings-title">Cookie Settings</h3>
+                <button class="cookie-settings-close-btn" aria-label="Close settings">
+                    <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+                </button>
+            </div>
+            <div class="cookie-settings-body">
+                <div class="cookie-option">
+                    <div class="cookie-option-info">
+                        <h4>Necessary Cookies</h4>
+                        <p class="cookie-option-description">Required for the website to function properly. Cannot be disabled.</p>
+                    </div>
+                    <label class="toggle-switch">
+                        <input type="checkbox" checked disabled>
+                        <span class="toggle-slider"></span>
+                    </label>
+                </div>
+                <div class="cookie-option">
+                    <div class="cookie-option-info">
+                        <h4>Analytics Cookies</h4>
+                        <p class="cookie-option-description">Help us understand how visitors interact with our website. Only enabled when you give consent.</p>
+                    </div>
+                    <label class="toggle-switch">
+                        <input type="checkbox" id="cookieAnalyticsToggle">
+                        <span class="toggle-slider"></span>
+                    </label>
+                </div>
+            </div>
+            <div class="cookie-settings-footer">
+                <button class="cookie-consent-btn decline cookie-settings-close">Close</button>
+                <button class="cookie-consent-btn accept cookie-settings-save">Save</button>
+            </div>
+        </div>
+    </div>
 </body>
 </html>

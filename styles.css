@@ -3300,10 +3300,17 @@ body::before {
     .features-title { font-size: 26px; }
 
     /* Disable hover effects on touch devices */
+    .feature-card,
+    .feature-card.visible {
+        transform: none !important;
+        backface-visibility: visible !important;
+        -webkit-backface-visibility: visible !important;
+    }
     .feature-card:hover,
     .feature-card.visible:hover {
         transform: none !important;
         box-shadow: none !important;
+        border-color: var(--border) !important;
     }
 
     /* Problems Section */
@@ -3389,10 +3396,17 @@ body::before {
     }
 
     /* Disable hover effects on mobile to prevent scroll locking */
+    .feature-card,
+    .feature-card.visible {
+        transform: none !important;
+        backface-visibility: visible !important;
+        -webkit-backface-visibility: visible !important;
+    }
     .feature-card:hover,
     .feature-card.visible:hover {
         transform: none !important;
         box-shadow: none !important;
+        border-color: var(--border) !important;
     }
 
     .problem-card:hover {
@@ -3568,12 +3582,16 @@ body::before {
     }
 
     /* Disable hover effects on mobile */
+    .feature-card,
+    .feature-card.visible,
     .feature-card:hover,
     .feature-card.visible:hover,
     .problem-card:hover,
     .faq-item:hover {
         transform: none !important;
         box-shadow: none !important;
+        backface-visibility: visible !important;
+        -webkit-backface-visibility: visible !important;
     }
 
     .logo-img { height: 32px; }
