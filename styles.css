@@ -121,13 +121,30 @@ html::-webkit-scrollbar {
     html {
         overflow: auto !important;
         overflow-x: hidden !important;
+        scrollbar-width: none !important;
+        -ms-overflow-style: none !important;
+    }
+
+    html::-webkit-scrollbar {
+        display: none !important;
+        width: 0 !important;
+        height: 0 !important;
     }
 
     body {
         overflow-x: hidden !important;
+        overflow-y: auto !important;
         min-height: auto !important;
         display: block !important;
         max-width: 100vw !important;
+        scrollbar-width: none !important;
+        -ms-overflow-style: none !important;
+    }
+
+    body::-webkit-scrollbar {
+        display: none !important;
+        width: 0 !important;
+        height: 0 !important;
     }
 
     body.index-page {
@@ -3269,11 +3286,11 @@ body::before {
     }
     .hero-title { font-size: 36px; }
     .hero-subtitle { font-size: 15px; }
-    
+
     .hero-phone {
         transform: scale(0.7);
     }
-    
+
     /* Features Section */
     .features-grid {
         grid-template-columns: repeat(2, 1fr);
@@ -3281,16 +3298,32 @@ body::before {
     }
     .features-section { padding: 50px 32px 60px; }
     .features-title { font-size: 26px; }
-    
+
+    /* Disable hover effects on touch devices */
+    .feature-card:hover,
+    .feature-card.visible:hover {
+        transform: none !important;
+        box-shadow: none !important;
+    }
+
     /* Problems Section */
     .problems-section { padding: 50px 32px 60px; }
     .problems-title { font-size: 26px; }
     .problems-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; }
     
+    .problem-card:hover {
+        transform: none !important;
+        box-shadow: none !important;
+    }
+
     /* FAQ Section */
     .faq-section { padding: 50px 32px 80px; }
     .faq-title { font-size: 26px; }
     .faq-inner { max-width: 680px; }
+    
+    .faq-item:hover {
+        transform: none !important;
+    }
 }
 
 /* ========================================
@@ -3327,19 +3360,59 @@ body::before {
     .nav { display: none; }
     /* zafer-text is now responsive in its own media queries */
     .header-inner { padding: 0 16px; }
-    
+
     /* Disable scroll snapping on mobile */
     html {
         scroll-snap-type: none !important;
         overflow-y: auto !important;
-        overflow-x: auto !important;
+        overflow-x: hidden !important;
+        scrollbar-width: none !important;
+        -ms-overflow-style: none !important;
+    }
+
+    html::-webkit-scrollbar {
+        display: none !important;
+    }
+
+    body {
+        scrollbar-width: none !important;
+        -ms-overflow-style: none !important;
+    }
+
+    body::-webkit-scrollbar {
+        display: none !important;
     }
 
     /* Show scroll progress bar on mobile */
     .scroll-progress-bar {
         display: block;
     }
-    
+
+    /* Disable hover effects on mobile to prevent scroll locking */
+    .feature-card:hover,
+    .feature-card.visible:hover {
+        transform: none !important;
+        box-shadow: none !important;
+    }
+
+    .problem-card:hover {
+        transform: none !important;
+        box-shadow: none !important;
+    }
+
+    .problem-card:hover .problem-icon.solution {
+        animation: none !important;
+    }
+
+    .problem-icon.pain,
+    .problem-icon.solution {
+        animation: none !important;
+    }
+
+    .faq-item:hover {
+        transform: none !important;
+    }
+
     /* Ensure ALL sections collapse to content height on mobile */
     .hero-section,
     .features-section,
@@ -3485,14 +3558,24 @@ body::before {
    ======================================== */
 @media (max-width: 480px) {
     /* Header */
-    .header-inner { 
-        padding: 0 12px; 
+    .header-inner {
+        padding: 0 12px;
         height: 56px;
         overflow: visible !important;
     }
     .header-actions {
         overflow: visible !important;
     }
+
+    /* Disable hover effects on mobile */
+    .feature-card:hover,
+    .feature-card.visible:hover,
+    .problem-card:hover,
+    .faq-item:hover {
+        transform: none !important;
+        box-shadow: none !important;
+    }
+
     .logo-img { height: 32px; }
     .ataturk-portrait { width: 36px; height: 36px; }
     .control-btn { height: 44px; min-height: 44px; padding: 0 8px; }
