@@ -27,6 +27,12 @@
         var script = document.createElement('script');
         script.async = true;
         script.src = 'https://www.googletagmanager.com/gtag/js?id=G-28CR3Y25R3';
+        script.onload = function() {
+          console.log('[GA] gtag.js loaded successfully');
+        };
+        script.onerror = function() {
+          console.error('[GA] gtag.js failed to load');
+        };
         document.head.appendChild(script);
       })();
 
@@ -39,7 +45,7 @@
 
       // Step 5: URL Passthrough & Ads Data Redaction (Consent Mode v2)
       gtag('set', 'url_passthrough', true);
-      gtag('set', 'ads_data_redaction', true);
+      gtag('set', 'ads_data_redaction', false);
     </script>
 
     <meta name="keywords" content="araç takip, bakım hatırlatıcı, yakıt takibi, araç yönetim, Drivarc">

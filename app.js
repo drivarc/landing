@@ -869,11 +869,12 @@ if (document.readyState !== 'loading') {
                 // Eğer consent granted ise, GA4 config'i yeniden çağır (veri gönderimini başlatmak için)
                 if (granted) {
                     setTimeout(function() {
-                        window.gtag('config', 'G-28CR3Y25R3', {
-                            'anonymize_ip': true,
-                            'allow_google_signals': false
+                        window.gtag('event', 'page_view', {
+                            page_title: document.title,
+                            page_location: window.location.href,
+                            page_path: window.location.pathname
                         });
-                        console.log('[CookieConsent] GA4 config re-triggered');
+                        console.log('[CookieConsent] page_view event sent');
                     }, 200);
                 }
             } else {
