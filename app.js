@@ -247,7 +247,7 @@ if (financeTotal) {
 // ===== Scroll Animations =====
 const observerOptions = {
     threshold: 0.1,
-    rootMargin: '0px 0px -50px 0px'
+    rootMargin: isMobile ? '0px 0px -20px 0px' : '0px 0px -50px 0px'
 };
 
 const observer = new IntersectionObserver((entries) => {
@@ -945,6 +945,7 @@ if (document.readyState !== 'loading') {
     // === Helper: Show Banner ===
     function showBanner() {
         var banner = document.querySelector('.cookie-consent');
+        var overlay = document.getElementById('cookieOverlay');
         if (banner) {
             // Privacy link'i güncelle
             var descLink = banner.querySelector('.cookie-consent-description a');
@@ -954,6 +955,7 @@ if (document.readyState !== 'loading') {
             // 1 saniye sonra göster
             setTimeout(function() {
                 banner.classList.add('show');
+                if (overlay) overlay.classList.add('show');
             }, 1000);
         }
     }
@@ -961,9 +963,14 @@ if (document.readyState !== 'loading') {
     // === Helper: Hide Banner ===
     function hideBanner() {
         var banner = document.querySelector('.cookie-consent');
+        var overlay = document.getElementById('cookieOverlay');
         if (banner) {
             banner.classList.remove('show');
             banner.classList.add('hide');
+        }
+        if (overlay) {
+            overlay.classList.remove('show');
+            overlay.classList.add('hide');
         }
     }
 
@@ -995,6 +1002,35 @@ if (document.readyState !== 'loading') {
         gtagConsentUpdate(false);
         hideBanner();
         trackEvent('cookie_consent', { action: 'decline_all' });
+    }
+
+    // === Open Decline Re-prompt Modal ===
+    function openDeclineRepromptModal() {
+        hideBanner();
+        var modal = document.getElementById('declineRepromptModal');
+        if (modal) {
+            modal.classList.add('show');
+        }
+    }
+
+    // === Close Decline Re-prompt Modal ===
+    function closeDeclineRepromptModal() {
+        var modal = document.getElementById('declineRepromptModal');
+        if (modal) {
+            modal.classList.remove('show');
+        }
+    }
+
+    // === Decline Confirmed (user really wants to decline) ===
+    function declineConfirmed() {
+        closeDeclineRepromptModal();
+        declineAll();
+    }
+
+    // === Accept Instead (user changed their mind) ===
+    function acceptInstead() {
+        closeDeclineRepromptModal();
+        acceptAll();
     }
 
     // === Open Settings Modal ===
@@ -1141,7 +1177,10 @@ if (document.readyState !== 'loading') {
         if (acceptBtn) acceptBtn.addEventListener('click', acceptAll);
 
         var declineBtn = document.querySelector('.cookie-consent-btn.decline:not(.cookie-settings-close)');
-        if (declineBtn) declineBtn.addEventListener('click', declineAll);
+        if (declineBtn) declineBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            openDeclineRepromptModal();
+        });
 
         var settingsBtn = document.querySelector('.cookie-consent-btn.settings');
         if (settingsBtn) settingsBtn.addEventListener('click', openSettingsModal);
@@ -1152,17 +1191,36 @@ if (document.readyState !== 'loading') {
         var saveBtn = document.querySelector('.cookie-settings-save');
         if (saveBtn) saveBtn.addEventListener('click', saveModalSettings);
 
+        // Decline re-prompt modal buttons
+        var declineConfirmedBtn = document.getElementById('declineConfirmed');
+        if (declineConfirmedBtn) declineConfirmedBtn.addEventListener('click', declineConfirmed);
+
+        var acceptInsteadBtn = document.getElementById('acceptInstead');
+        if (acceptInsteadBtn) acceptInsteadBtn.addEventListener('click', acceptInstead);
+
         // Modal dışına tıklayınca kapat
-        var modal = document.getElementById('cookieSettingsModal');
-        if (modal) {
-            modal.addEventListener('click', function(e) {
-                if (e.target === modal) closeSettingsModal();
+        var cookieModal = document.getElementById('cookieSettingsModal');
+        if (cookieModal) {
+            cookieModal.addEventListener('click', function(e) {
+                if (e.target === cookieModal) closeSettingsModal();
+            });
+        }
+
+        var declineModal = document.getElementById('declineRepromptModal');
+        if (declineModal) {
+            declineModal.addEventListener('click', function(e) {
+                if (e.target === declineModal) {
+                    closeDeclineRepromptModal();
+                }
             });
         }
 
         // ESC ile kapat
         document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape') closeSettingsModal();
+            if (e.key === 'Escape') {
+                closeSettingsModal();
+                closeDeclineRepromptModal();
+            }
         });
 
         // Store click tracking

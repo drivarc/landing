@@ -398,6 +398,9 @@
         </div>
     </footer>
 
+    <!-- Cookie Overlay -->
+    <div class="cookie-overlay" id="cookieOverlay"></div>
+
     <!-- Cookie Consent Banner -->
     <div class="cookie-consent" id="cookieConsent" role="dialog" aria-label="موافقة ملفات تعريف الارتباط" aria-describedby="cookieConsentDesc">
         <div class="cookie-consent-content">
@@ -451,6 +454,25 @@
             <div class="cookie-settings-footer">
                 <button class="cookie-consent-btn decline cookie-settings-close">إغلاق</button>
                 <button class="cookie-consent-btn accept cookie-settings-save">حفظ</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Decline Re-prompt Modal -->
+    <div class="decline-reprompt-modal" id="declineRepromptModal" role="dialog" aria-label="هل أنت متأكد؟" aria-modal="true">
+        <div class="decline-reprompt-modal-content">
+            <div class="decline-reprompt-icon">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                </svg>
+            </div>
+            <h3 class="decline-reprompt-title">هل أنت متأكد؟</h3>
+            <p class="decline-reprompt-description" dir="rtl">
+                قد لا تعمل بعض الميزات بشكل صحيح إذا رفضت ملفات تعريف الارتباط. نوصي ب<strong>قبول جميع ملفات تعريف الارتباط</strong> للحصول على تجربة مخصصة وتحليلات.
+            </p>
+            <div class="decline-reprompt-actions">
+                <button class="decline-reprompt-btn decline-confirmed" id="declineConfirmed">رفض على أي حال</button>
+                <button class="decline-reprompt-btn accept-instead" id="acceptInstead">قبول جميع ملفات تعريف الارتباط</button>
             </div>
         </div>
     </div>

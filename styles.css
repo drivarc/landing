@@ -824,9 +824,10 @@ body::before {
     border-radius: 16px;
     padding: 24px;
     text-align: center;
-    transition: opacity 0.35s ease-out, transform 0.35s ease-out;
+    transition: opacity 0.25s ease-out, transform 0.25s ease-out;
     opacity: 0;
     transform: translateY(20px);
+    will-change: opacity, transform;
     backface-visibility: hidden;
     -webkit-backface-visibility: hidden;
 }
@@ -942,8 +943,8 @@ body::before {
     -webkit-backface-visibility: hidden;
     display: flex;
     flex-direction: column;
-    transition: opacity 0.5s cubic-bezier(0.22, 1, 0.36, 1), 
-                transform 0.5s cubic-bezier(0.22, 1, 0.36, 1),
+    transition: opacity 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+                transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
                 box-shadow 0.3s ease,
                 border-color 0.3s ease;
 }
@@ -1181,12 +1182,13 @@ body::before {
 .animate-on-scroll {
     opacity: 0;
     transform: translateY(30px);
+    will-change: opacity, transform;
 }
 
 .animate-on-scroll.visible {
     opacity: 1;
     transform: translateY(0);
-    transition: opacity 0.35s ease-out, transform 0.35s ease-out;
+    transition: opacity 0.25s ease-out, transform 0.25s ease-out;
 }
 
 .btn {
@@ -3050,7 +3052,8 @@ body::before {
     border-top: 1px solid var(--border);
     opacity: 0;
     transform: translateY(20px);
-    transition: opacity 0.35s ease-out, transform 0.35s ease-out;
+    will-change: opacity, transform;
+    transition: opacity 0.25s ease-out, transform 0.25s ease-out;
 }
 
 .faq-cta.visible {
@@ -4256,6 +4259,163 @@ body::before {
 }
 
 /* ========================================
+   COOKIE OVERLAY (dims page until consent)
+   ======================================== */
+.cookie-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 9998;
+    background: rgba(0, 0, 0, 0.55);
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s ease;
+}
+
+.cookie-overlay.show {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.cookie-overlay.hide {
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* ========================================
+   DECLINE RE-PROMPT MODAL
+   ======================================== */
+.decline-reprompt-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 10001;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    padding: 20px;
+}
+
+.decline-reprompt-modal.show {
+    display: flex;
+    animation: fadeIn 0.3s ease forwards;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.decline-reprompt-modal-content {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    max-width: 480px;
+    width: 100%;
+    padding: 32px 28px;
+    box-sizing: border-box;
+    box-shadow: 0 24px 80px rgba(0, 0, 0, 0.6);
+    text-align: center;
+    animation: slideUp 0.35s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px) scale(0.96);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.decline-reprompt-icon {
+    width: 64px;
+    height: 64px;
+    margin: 0 auto 20px;
+    border-radius: 50%;
+    background: var(--accent-glow);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.decline-reprompt-icon svg {
+    width: 32px;
+    height: 32px;
+    fill: var(--accent);
+}
+
+.decline-reprompt-title {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 12px;
+}
+
+.decline-reprompt-description {
+    font-size: 14px;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: 28px;
+}
+
+.decline-reprompt-description strong {
+    color: var(--text-primary);
+    font-weight: 600;
+}
+
+.decline-reprompt-actions {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.decline-reprompt-btn {
+    padding: 12px 24px;
+    border-radius: 10px;
+    border: none;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-family: inherit;
+    white-space: nowrap;
+}
+
+.decline-reprompt-btn.decline-confirmed {
+    background: transparent;
+    color: var(--text-secondary);
+    border: 1px solid var(--border);
+}
+
+.decline-reprompt-btn.decline-confirmed:hover {
+    background: var(--hover-bg);
+    border-color: var(--text-muted);
+}
+
+.decline-reprompt-btn.accept-instead {
+    background: var(--accent);
+    color: var(--bg-primary);
+}
+
+.decline-reprompt-btn.accept-instead:hover {
+    opacity: 0.9;
+    transform: translateY(-1px);
+}
+
+/* ========================================
    COOKIE CONSENT BANNER
    ======================================== */
 .cookie-consent {
@@ -4666,6 +4826,52 @@ body::before {
 
     .cookie-option-description {
         font-size: 11px;
+    }
+
+    /* Decline Re-prompt Mobile */
+    .decline-reprompt-modal-content {
+        padding: 24px 20px;
+    }
+
+    .decline-reprompt-icon {
+        width: 52px;
+        height: 52px;
+        margin-bottom: 16px;
+    }
+
+    .decline-reprompt-icon svg {
+        width: 26px;
+        height: 26px;
+    }
+
+    .decline-reprompt-title {
+        font-size: 18px;
+    }
+
+    .decline-reprompt-description {
+        font-size: 13px;
+        margin-bottom: 20px;
+    }
+
+    .decline-reprompt-actions {
+        flex-direction: column-reverse;
+    }
+
+    .decline-reprompt-btn {
+        width: 100%;
+        min-height: 48px;
+    }
+}
+
+/* Decline Re-prompt Responsive - Tablet */
+@media (max-width: 768px) {
+    .decline-reprompt-modal-content {
+        max-width: 420px;
+        padding: 28px 24px;
+    }
+
+    .decline-reprompt-title {
+        font-size: 20px;
     }
 }
 

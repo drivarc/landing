@@ -949,6 +949,9 @@
         </div>
     </div>
 
+    <!-- Cookie Overlay -->
+    <div class="cookie-overlay" id="cookieOverlay"></div>
+
     <!-- Cookie Consent Banner -->
     <div class="cookie-consent" id="cookieConsent" role="dialog" aria-label="Согласие на использование файлов cookie" aria-describedby="cookieConsentDesc">
         <div class="cookie-consent-content">
@@ -1004,6 +1007,25 @@
             <div class="cookie-settings-actions">
                 <button class="cookie-consent-btn decline cookie-settings-close">Закрыть</button>
                 <button class="cookie-consent-btn accept cookie-settings-save">Сохранить</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Decline Re-prompt Modal -->
+    <div class="decline-reprompt-modal" id="declineRepromptModal" role="dialog" aria-label="Вы уверены?" aria-modal="true">
+        <div class="decline-reprompt-modal-content">
+            <div class="decline-reprompt-icon">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                </svg>
+            </div>
+            <h3 class="decline-reprompt-title">Вы уверены?</h3>
+            <p class="decline-reprompt-description">
+                Некоторые функции могут работать некорректно, если вы отклоните файлы cookie. Мы рекомендуем <strong>принять все файлы cookie</strong> для персонализированного опыта и аналитики.
+            </p>
+            <div class="decline-reprompt-actions">
+                <button class="decline-reprompt-btn decline-confirmed" id="declineConfirmed">Всё Равно Отклонить</button>
+                <button class="decline-reprompt-btn accept-instead" id="acceptInstead">Принять Все Файлы Cookie</button>
             </div>
         </div>
     </div>

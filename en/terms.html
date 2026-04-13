@@ -326,6 +326,9 @@ Email: contact@drivarc.com</div>
         </div>
     </footer>
 
+    <!-- Cookie Overlay -->
+    <div class="cookie-overlay" id="cookieOverlay"></div>
+
     <!-- Cookie Consent Banner -->
     <div class="cookie-consent" id="cookieConsent" role="dialog" aria-label="Cookie Consent" aria-describedby="cookieConsentDesc">
         <div class="cookie-consent-content">
@@ -379,6 +382,25 @@ Email: contact@drivarc.com</div>
             <div class="cookie-settings-footer">
                 <button class="cookie-consent-btn decline cookie-settings-close">Close</button>
                 <button class="cookie-consent-btn accept cookie-settings-save">Save</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Decline Re-prompt Modal -->
+    <div class="decline-reprompt-modal" id="declineRepromptModal" role="dialog" aria-label="Are you sure?" aria-modal="true">
+        <div class="decline-reprompt-modal-content">
+            <div class="decline-reprompt-icon">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                </svg>
+            </div>
+            <h3 class="decline-reprompt-title">Are you sure?</h3>
+            <p class="decline-reprompt-description">
+                Some features may not work properly if you decline cookies. We recommend <strong>accepting all cookies</strong> for a personalized experience and analytics.
+            </p>
+            <div class="decline-reprompt-actions">
+                <button class="decline-reprompt-btn decline-confirmed" id="declineConfirmed">Decline Anyway</button>
+                <button class="decline-reprompt-btn accept-instead" id="acceptInstead">Accept All Cookies</button>
             </div>
         </div>
     </div>
