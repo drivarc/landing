@@ -13,13 +13,22 @@
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
 
-      // Step 2: Set DEFAULT consent to DENIED before GTM loads
+      // Step 2a: Set DEFAULT consent to GRANTED for non-restricted regions (global default)
+      gtag('consent', 'default', {
+        'analytics_storage': 'granted',
+        'ad_storage': 'granted',
+        'ad_user_data': 'granted',
+        'ad_personalization': 'granted'
+      });
+
+      // Step 2b: Set DEFAULT consent to DENIED for EEA regions + Turkey + UK + Brazil + South Korea (GDPR/KVKK/UK-GDPR/LGPD/PIPA compliance)
       gtag('consent', 'default', {
         'analytics_storage': 'denied',
         'ad_storage': 'denied',
         'ad_user_data': 'denied',
         'ad_personalization': 'denied',
-        'wait_for_update': 500
+        'wait_for_update': 500,
+        'region': ['AT','BE','BG','HR','CY','CZ','DK','EE','FI','FR','DE','GR','HU','IS','IE','IT','LV','LI','LT','LU','MT','NL','NO','PL','PT','RO','SK','SI','ES','SE','TR','GB','BR','KR']
       });
 
       // Step 3: Load GA4 script async
@@ -27,12 +36,6 @@
         var script = document.createElement('script');
         script.async = true;
         script.src = 'https://www.googletagmanager.com/gtag/js?id=G-28CR3Y25R3';
-        script.onload = function() {
-          console.log('[GA] gtag.js loaded successfully');
-        };
-        script.onerror = function() {
-          console.error('[GA] gtag.js failed to load');
-        };
         document.head.appendChild(script);
       })();
 

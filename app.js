@@ -864,19 +864,6 @@ if (document.readyState !== 'loading') {
                     'ad_personalization': granted ? 'granted' : 'denied',
                     'analytics_storage': granted ? 'granted' : 'denied'
                 });
-                console.log('[CookieConsent] All consent parameters:', granted ? 'GRANTED' : 'DENIED');
-                
-                // Eğer consent granted ise, GA4 config'i yeniden çağır (veri gönderimini başlatmak için)
-                if (granted) {
-                    setTimeout(function() {
-                        window.gtag('event', 'page_view', {
-                            page_title: document.title,
-                            page_location: window.location.href,
-                            page_path: window.location.pathname
-                        });
-                        console.log('[CookieConsent] page_view event sent');
-                    }, 200);
-                }
             } else {
                 // gtag henüz yüklenmediyse dataLayer'a push et
                 window.dataLayer.push({
@@ -886,7 +873,6 @@ if (document.readyState !== 'loading') {
                     'ad_personalization': granted ? 'granted' : 'denied',
                     'analytics_storage': granted ? 'granted' : 'denied'
                 });
-                console.log('[CookieConsent] gtag not ready, pushed to dataLayer');
                 // Tekrar dene
                 setTimeout(applyConsent, 100);
             }

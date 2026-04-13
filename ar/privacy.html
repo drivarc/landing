@@ -74,12 +74,22 @@
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
+      // Set DEFAULT consent to GRANTED for non-restricted regions (global default)
+      gtag('consent', 'default', {
+        'analytics_storage': 'granted',
+        'ad_storage': 'granted',
+        'ad_user_data': 'granted',
+        'ad_personalization': 'granted'
+      });
+
+      // Set DEFAULT consent to DENIED for EEA regions + Turkey (GDPR/KVKK compliance)
       gtag('consent', 'default', {
         'analytics_storage': 'denied',
         'ad_storage': 'denied',
         'ad_user_data': 'denied',
         'ad_personalization': 'denied',
-        'wait_for_update': 500
+        'wait_for_update': 500,
+        'region': ['AT','BE','BG','HR','CY','CZ','DK','EE','FI','FR','DE','GR','HU','IS','IE','IT','LV','LI','LT','LU','MT','NL','NO','PL','PT','RO','SK','SI','ES','SE','TR','GB','BR','KR']
       });
       (function() {
         var s = document.createElement('script');
@@ -93,7 +103,7 @@
         'allow_google_signals': false
       });
       gtag('set', 'url_passthrough', true);
-      gtag('set', 'ads_data_redaction', true);
+      gtag('set', 'ads_data_redaction', false);
     </script>
     <style>
         /* Arabic Font Support */
