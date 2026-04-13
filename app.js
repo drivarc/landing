@@ -865,6 +865,17 @@ if (document.readyState !== 'loading') {
                     'analytics_storage': granted ? 'granted' : 'denied'
                 });
                 console.log('[CookieConsent] All consent parameters:', granted ? 'GRANTED' : 'DENIED');
+                
+                // Eğer consent granted ise, GA4 config'i yeniden çağır (veri gönderimini başlatmak için)
+                if (granted) {
+                    setTimeout(function() {
+                        window.gtag('config', 'G-28CR3Y25R3', {
+                            'anonymize_ip': true,
+                            'allow_google_signals': false
+                        });
+                        console.log('[CookieConsent] GA4 config re-triggered');
+                    }, 200);
+                }
             } else {
                 // gtag henüz yüklenmediyse dataLayer'a push et
                 window.dataLayer.push({
