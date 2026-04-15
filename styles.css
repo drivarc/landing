@@ -252,7 +252,7 @@ body::before {
     transition: opacity 0.4s ease;
     opacity: 0;
     pointer-events: none;
-    will-change: opacity;
+    /* will-change removed to avoid large layer allocations; applied dynamically via JS */
 }
 
 /* Hero section visible by default */
@@ -827,7 +827,7 @@ body::before {
     transition: opacity 0.25s ease-out, transform 0.25s ease-out;
     opacity: 0;
     transform: translateY(20px);
-    will-change: opacity, transform;
+    /* will-change removed; will be applied dynamically when needed */
     backface-visibility: hidden;
     -webkit-backface-visibility: hidden;
 }
@@ -936,7 +936,6 @@ body::before {
     border-radius: 14px;
     padding: 18px;
     border: 1px solid var(--border);
-    will-change: transform, opacity;
     opacity: 0;
     transform: translateY(30px) scale(0.97);
     backface-visibility: hidden;
@@ -1182,7 +1181,7 @@ body::before {
 .animate-on-scroll {
     opacity: 0;
     transform: translateY(30px);
-    will-change: opacity, transform;
+    /* will-change removed; managed by JS to reduce memory usage */
 }
 
 .animate-on-scroll.visible {
@@ -3052,7 +3051,7 @@ body::before {
     border-top: 1px solid var(--border);
     opacity: 0;
     transform: translateY(20px);
-    will-change: opacity, transform;
+    /* will-change removed; applied dynamically via JS */
     transition: opacity 0.25s ease-out, transform 0.25s ease-out;
 }
 

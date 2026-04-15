@@ -253,8 +253,29 @@ const observerOptions = {
 const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
         if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-            observer.unobserve(entry.target);
+            const el = entry.target;
+
+            // Apply will-change only briefly and only when appropriate
+            if (!prefersReducedMotion && !isMobile) {
+                el.style.willChange = 'opacity, transform';
+
+                let timeoutId = null;
+                function cleanup(e) {
+                    // If called via transitionend, or via timeout (e undefined)
+                    if (!e || e.propertyName === 'opacity' || e.propertyName === 'transform' || e.propertyName === 'box-shadow') {
+                        try { el.style.willChange = ''; } catch (err) {}
+                        el.removeEventListener('transitionend', cleanup);
+                        if (timeoutId) clearTimeout(timeoutId);
+                    }
+                }
+
+                el.addEventListener('transitionend', cleanup);
+                // Fallback: remove will-change after 1s in case transitionend doesn't fire
+                timeoutId = setTimeout(() => cleanup(), 1000);
+            }
+
+            el.classList.add('visible');
+            observer.unobserve(el);
         }
     });
 }, observerOptions);
