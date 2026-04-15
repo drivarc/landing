@@ -1,6 +1,6 @@
-// ===== Mobile Detection =====
-const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) 
-    || window.innerWidth <= 768;
+// ===== Mobile / Touch Detection =====
+const isTouchCapable = 'ontouchstart' in window || navigator.maxTouchPoints > 0 || navigator.msMaxTouchPoints > 0;
+const isMobile = isTouchCapable || /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || window.innerWidth <= 768;
 
 // ===== Detect Reduced Motion Preference =====
 const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -285,7 +285,7 @@ const allSectionsExist = sectionIds.every(id => document.getElementById(id));
 
 let currentSectionIndex = 0;
 let isScrolling = false;
-const SCROLL_COOLDOWN = 800; // ms
+const SCROLL_COOLDOWN = isMobile ? 350 : 800; // ms (shorter cooldown on touch/mobile devices)
 
 // Helper: find current section index based on viewport
 function getCurrentSectionIndex() {
