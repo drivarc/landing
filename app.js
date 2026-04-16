@@ -831,7 +831,7 @@ if (document.readyState !== 'loading') {
                     return prefs;
                 }
             }
-        } catch (e) { /* ignore */ }
+        } catch (e) { }
 
         var cookieVal = readCookie(CONSENT_COOKIE_NAME);
         if (cookieVal) {
