@@ -1,11 +1,8 @@
-// ===== Mobile / Touch Detection =====
 const isTouchCapable = 'ontouchstart' in window || navigator.maxTouchPoints > 0 || navigator.msMaxTouchPoints > 0;
 const isMobile = isTouchCapable || /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || window.innerWidth <= 768;
 
-// ===== Detect Reduced Motion Preference =====
 const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-// ===== Theme Toggle =====
 const themeToggle = document.querySelector('.theme-toggle');
 const iconMoon = document.querySelector('.icon-moon');
 const iconSun = document.querySelector('.icon-sun');
@@ -29,7 +26,6 @@ if (themeToggle) {
     });
 }
 
-// ===== Language Dropdown Toggle =====
 const langToggle = document.querySelector('.lang-toggle');
 const langDropdown = document.getElementById('langDropdown');
 
@@ -39,7 +35,6 @@ if (langToggle) {
 document.addEventListener('click', () => { if (langDropdown) langDropdown.classList.remove('open'); });
 if (langDropdown) langDropdown.addEventListener('click', (e) => e.stopPropagation());
 
-// ===== Beta Modal =====
 const betaModal = document.getElementById('betaModal');
 function openBetaModal() {
     if (!betaModal) return;
@@ -52,7 +47,6 @@ function closeBetaModal() {
     setTimeout(() => betaModal.style.display = 'none', 300);
 }
 
-// ===== App Store Modal =====
 const appStoreModal = document.getElementById('appStoreModal');
 function openAppStoreModal() {
     if (!appStoreModal) return;
@@ -65,12 +59,10 @@ function closeAppStoreModal() {
     setTimeout(() => appStoreModal.style.display = 'none', 300);
 }
 
-// ===== Scroll Progress Indicator =====
 const scrollProgress = document.getElementById('scrollProgress');
 function updateScrollProgress() {
     if (!scrollProgress) return;
 
-    // Mobilde her zaman normal scroll kullan
     if (isMobile) {
         const scrollTop = window.scrollY;
         const docHeight = document.documentElement.scrollHeight - window.innerHeight;
@@ -79,9 +71,7 @@ function updateScrollProgress() {
         return;
     }
 
-    // Eğer section-based scroll kullanılıyorsa (index.html)
     if (allSectionsExist && sectionIds.length > 0) {
-        // Mevcut section index'ine göre progress hesapla
         const totalSections = sectionIds.length;
         const currentSection = getCurrentSectionIndex();
         const progress = totalSections > 1 ? (currentSection / (totalSections - 1)) * 100 : 0;
@@ -89,14 +79,12 @@ function updateScrollProgress() {
         return;
     }
 
-    // Normal scroll davranışı (diğer sayfalar için)
     const scrollTop = window.scrollY;
     const docHeight = document.documentElement.scrollHeight - window.innerHeight;
     const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
     scrollProgress.style.width = progress + '%';
 }
 
-// ===== Grid Background Parallax =====
 const gridBg = document.querySelector('.grid-background');
 function updateGridParallax(e) {
     if (!gridBg || prefersReducedMotion) return;
@@ -105,7 +93,6 @@ function updateGridParallax(e) {
     gridBg.style.transform = `translate(${x}px, ${y}px)`;
 }
 
-// ===== Button Ripple Effect =====
 function createRipple(event) {
     if (prefersReducedMotion) return;
     const button = event.currentTarget;
@@ -119,22 +106,18 @@ function createRipple(event) {
     circle.style.top = (event.clientY - rect.top - radius) + 'px';
     circle.classList.add('ripple');
 
-    // Remove existing ripples
     const existing = button.querySelector('.ripple');
     if (existing) existing.remove();
 
     button.appendChild(circle);
 
-    // Clean up after animation
     setTimeout(() => circle.remove(), 600);
 }
 
-// Attach ripple to all buttons
 document.querySelectorAll('.btn-google-play, .btn-app-store, .btn-faq-cta, .btn-primary').forEach(btn => {
     btn.addEventListener('click', createRipple);
 });
 
-// ===== Phone Mockup 3D Mouse Follow =====
 function initPhone3D() {
     const heroSection = document.getElementById('hero');
     const phone = document.querySelector('.phone');
@@ -160,7 +143,6 @@ function initPhone3D() {
             phone.style.animation = 'none';
             phone.style.transform = `rotateY(${currentY}deg) rotateX(${currentX}deg)`;
         } else {
-            // Return to default CSS animation
             phone.style.transform = '';
             phone.style.animation = '';
         }
@@ -173,11 +155,9 @@ function initPhone3D() {
         const centerX = rect.left + rect.width / 2;
         const centerY = rect.top + rect.height / 2;
 
-        // Normalize to -1 to 1 range
         const mouseX = ((e.clientX - centerX) / (rect.width / 2));
         const mouseY = ((e.clientY - centerY) / (rect.height / 2));
 
-        // Max rotation angles
         const maxRotX = mouseY * -15; // Invert Y axis
         const maxRotY = mouseX * 15;
 
@@ -192,11 +172,9 @@ function initPhone3D() {
         targetY = 0;
     });
 
-    // Start animation loop
     rafId = requestAnimationFrame(animate);
 }
 
-// ===== Finance Counter Animation =====
 function animateCounter(element, target, duration = 1500) {
     if (prefersReducedMotion) {
         element.textContent = target.toLocaleString('tr-TR') + ' TL';
@@ -229,7 +207,6 @@ function animateCounter(element, target, duration = 1500) {
     requestAnimationFrame(update);
 }
 
-// Observe finance card for counter
 const financeTotal = document.querySelector('.finance-total');
 if (financeTotal) {
     const targetValue = 14150;
@@ -244,7 +221,6 @@ if (financeTotal) {
     counterObserver.observe(financeTotal);
 }
 
-// ===== Scroll Animations =====
 const observerOptions = {
     threshold: 0.1,
     rootMargin: isMobile ? '0px 0px -20px 0px' : '0px 0px -50px 0px'
@@ -255,13 +231,11 @@ const observer = new IntersectionObserver((entries) => {
         if (entry.isIntersecting) {
             const el = entry.target;
 
-            // Apply will-change only briefly and only when appropriate
             if (!prefersReducedMotion && !isMobile) {
                 el.style.willChange = 'opacity, transform';
 
                 let timeoutId = null;
                 function cleanup(e) {
-                    // If called via transitionend, or via timeout (e undefined)
                     if (!e || e.propertyName === 'opacity' || e.propertyName === 'transform' || e.propertyName === 'box-shadow') {
                         try { el.style.willChange = ''; } catch (err) {}
                         el.removeEventListener('transitionend', cleanup);
@@ -270,7 +244,6 @@ const observer = new IntersectionObserver((entries) => {
                 }
 
                 el.addEventListener('transitionend', cleanup);
-                // Fallback: remove will-change after 1s in case transitionend doesn't fire
                 timeoutId = setTimeout(() => cleanup(), 1000);
             }
 
@@ -284,7 +257,6 @@ document.querySelectorAll('.animate-on-scroll, .problem-card, .feature-card, .fa
     observer.observe(el);
 });
 
-// Stagger cards
 document.querySelectorAll('.problem-card').forEach((card, index) => {
     card.style.transitionDelay = `${index * 0.15}s`;
 });
@@ -292,23 +264,19 @@ document.querySelectorAll('.feature-card').forEach((card, index) => {
     card.style.transitionDelay = `${index * 0.1}s`;
 });
 
-// FAQ stagger
 document.querySelectorAll('.faq-item').forEach((item, index) => {
     item.style.transitionDelay = `${index * 0.08}s`;
 });
 
-// ===== Smooth Scroll Navigation =====
 const navLinks = document.querySelectorAll('.nav a[href^="#"]');
 const sectionIds = ['hero', 'features', 'problems', 'faq'];
 
-// Only enable section scroll if all sections exist (index.html)
 const allSectionsExist = sectionIds.every(id => document.getElementById(id));
 
 let currentSectionIndex = 0;
 let isScrolling = false;
 const SCROLL_COOLDOWN = isMobile ? 350 : 800; // ms (shorter cooldown on touch/mobile devices)
 
-// Helper: find current section index based on viewport
 function getCurrentSectionIndex() {
     if (!allSectionsExist) return 0;
     let index = 0;
@@ -325,25 +293,20 @@ function getCurrentSectionIndex() {
     return index;
 }
 
-// Handle logo link - prevent page reload on index pages, navigate to home on other pages
 const logoLink = document.querySelector('.logo[href^="index.html"], .logo[href="/"], .logo[href="../en/"], .logo[href="../de/"], .logo[href="../ru/"], .logo[href="../ar/"]');
 if (logoLink) {
     logoLink.addEventListener('click', (e) => {
-        // If we're on index.html and sections exist, prevent navigation and scroll to hero
         if (allSectionsExist) {
             e.preventDefault();
             scrollToSection(0);
         }
-        // If on another page (privacy/terms), let the link navigate normally
     });
 }
 
 if (allSectionsExist) {
 
-// Initialize: find current section
 currentSectionIndex = getCurrentSectionIndex();
 
-// Scroll to section with smooth animation
 function scrollToSection(index) {
     if (index < 0 || index >= sectionIds.length || isScrolling) return;
 
@@ -356,10 +319,8 @@ function scrollToSection(index) {
         return;
     }
 
-    // Update section visibility FIRST: hide all sections first, then show active one
     updateSectionVisibility(index);
 
-    // Small delay before scrolling to ensure visibility changes are applied
     requestAnimationFrame(() => {
         section.scrollIntoView({ behavior: 'smooth', block: 'start' });
     });
@@ -373,7 +334,6 @@ function scrollToSection(index) {
     }, SCROLL_COOLDOWN);
 }
 
-// Update section visibility - only active section is visible
 function updateSectionVisibility(activeIndex) {
     sectionIds.forEach((id, index) => {
         const section = document.getElementById(id);
@@ -387,17 +347,14 @@ function updateSectionVisibility(activeIndex) {
     });
 }
 
-// Wheel event handler - intercept scroll (only on index.html)
 let wheelAccumulator = 0;
 const WHEEL_THRESHOLD = 50;
 let isMouseButtonDown = false;
 
-// Track mouse button state to prevent scroll issues during drag/selection
 window.addEventListener('mousedown', () => { isMouseButtonDown = true; });
 window.addEventListener('mouseup', () => { isMouseButtonDown = false; });
 
 if (allSectionsExist) {
-    // Wheel event handler - intercept scroll (DESKTOP ONLY - mobile gets free scroll)
     if (!isMobile) {
         window.addEventListener('wheel', (e) => {
             e.preventDefault();
@@ -409,19 +366,15 @@ if (allSectionsExist) {
 
             if (Math.abs(wheelAccumulator) >= WHEEL_THRESHOLD) {
                 if (wheelAccumulator > 0) {
-                    // Scroll down - next section
                     scrollToSection(currentSectionIndex + 1);
                 } else {
-                    // Scroll up - previous section
                     scrollToSection(currentSectionIndex - 1);
                 }
-                // Reset accumulator after triggering scroll
                 wheelAccumulator = 0;
             }
         }, { passive: false });
     }
 
-    // Touch support for mobile - DISABLED on mobile for free scrolling
     if (!isMobile) {
         let touchStartY = 0;
         let touchEndY = 0;
@@ -443,10 +396,8 @@ if (allSectionsExist) {
 
             if (Math.abs(diff) >= TOUCH_THRESHOLD) {
                 if (diff > 0) {
-                    // Swipe up - next section
                     scrollToSection(currentSectionIndex + 1);
                 } else {
-                    // Swipe down - previous section
                     scrollToSection(currentSectionIndex - 1);
                 }
             }
@@ -456,7 +407,6 @@ if (allSectionsExist) {
         });
     }
 
-    // Click navigation with smooth scroll
     navLinks.forEach(link => {
         link.addEventListener('click', (e) => {
             const href = link.getAttribute('href');
@@ -472,11 +422,9 @@ if (allSectionsExist) {
         });
     });
 
-    // Keyboard navigation - Arrow keys, Page Up/Down, Home/End
     window.addEventListener('keydown', (e) => {
         if (isScrolling) return;
 
-        // Check if user is in an input/textarea to avoid interfering with typing
         const activeElement = document.activeElement;
         if (activeElement && (activeElement.tagName === 'INPUT' || 
             activeElement.tagName === 'TEXTAREA' || 
@@ -486,22 +434,18 @@ if (allSectionsExist) {
 
         const key = e.key;
 
-        // Arrow Down or Page Down - next section
         if (key === 'ArrowDown' || key === 'PageDown') {
             e.preventDefault();
             scrollToSection(currentSectionIndex + 1);
         }
-        // Arrow Up or Page Up - previous section
         else if (key === 'ArrowUp' || key === 'PageUp') {
             e.preventDefault();
             scrollToSection(currentSectionIndex - 1);
         }
-        // Home - go to first section
         else if (key === 'Home') {
             e.preventDefault();
             scrollToSection(0);
         }
-        // End - go to last section
         else if (key === 'End') {
             e.preventDefault();
             scrollToSection(sectionIds.length - 1);
@@ -509,7 +453,6 @@ if (allSectionsExist) {
     });
 }
 
-// Update active nav link on scroll
 function updateActiveNavLink() {
     const currentId = sectionIds[currentSectionIndex];
 
@@ -520,33 +463,27 @@ function updateActiveNavLink() {
     });
 }
 
-// Show footer only in FAQ section (desktop) or always (mobile)
 function updateFooterVisibility() {
     const footer = document.querySelector('.site-footer');
     if (!footer) return;
     
-    // On mobile, always show footer
     if (isMobile) {
         footer.classList.add('visible');
         return;
     }
     
-    // On desktop, only show in FAQ section
     const isFaqSection = currentSectionIndex === 3;
     footer.classList.toggle('visible', isFaqSection);
 }
 
-// Initialize
 currentSectionIndex = getCurrentSectionIndex();
 updateActiveNavLink();
 updateFooterVisibility();
 
-// Set initial section visibility - only current section visible
 updateSectionVisibility(currentSectionIndex);
 
 } // end if (allSectionsExist)
 
-// ===== FAQ Toggle (Event Delegation) =====
 document.addEventListener('click', (e) => {
     const faqBtn = e.target.closest('.faq-question');
     if (faqBtn) {
@@ -557,7 +494,6 @@ document.addEventListener('click', (e) => {
         return;
     }
 
-    // Modal open buttons
     const modalOpenBtn = e.target.closest('[data-modal]');
     if (modalOpenBtn) {
         e.preventDefault();
@@ -567,7 +503,6 @@ document.addEventListener('click', (e) => {
         return;
     }
 
-    // Modal close buttons
     const modalCloseBtn = e.target.closest('[data-close-modal]');
     if (modalCloseBtn) {
         const modalType = modalCloseBtn.getAttribute('data-close-modal');
@@ -576,7 +511,6 @@ document.addEventListener('click', (e) => {
         return;
     }
 
-    // Modal overlay clicks (close when clicking outside modal content)
     const modalOverlay = e.target.closest('.beta-modal-overlay');
     if (modalOverlay) {
         const overlayId = modalOverlay.id;
@@ -585,7 +519,6 @@ document.addEventListener('click', (e) => {
     }
 });
 
-// ===== Legal Modals =====
 function openLegalModal(id) {
     const modal = document.getElementById(id);
     if (!modal) return;
@@ -607,24 +540,18 @@ function closeLegalModal(id) {
 function openTermsModal() { openLegalModal('termsModal'); }
 function openPrivacyModal() { openLegalModal('privacyModal'); }
 
-// ===== Initialize All Animations =====
 function initAnimations() {
-    // 3D Phone mockup mouse follow
     initPhone3D();
 
-    // Grid parallax on mouse move
     if (!prefersReducedMotion) {
         window.addEventListener('mousemove', updateGridParallax);
     }
 
-    // Scroll progress on scroll
     window.addEventListener('scroll', updateScrollProgress, { passive: true });
 
-    // Initial scroll progress
     updateScrollProgress();
 }
 
-// ===== Resmi Bayramlar Banner (Sadece Türkçe) =====
 function showHolidayText() {
     const holidayText = document.getElementById('zaferText');
     const ataturkPortrait = document.getElementById('ataturkPortrait');
@@ -654,19 +581,15 @@ function showHolidayText() {
 
     let holiday = null;
 
-    // 23 Nisan: 23 Nisan 00:00 - 24 Nisan 00:00
     if (month === 3 && day === 23) {
         holiday = holidays[0];
     }
-    // 19 Mayıs: 19 Mayıs 00:00 - 20 Mayıs 00:00
     else if (month === 4 && day === 19) {
         holiday = holidays[1];
     }
-    // 30 Ağustos: 30 Ağustos 00:00 - 31 Ağustos 00:00
     else if (month === 7 && day === 30) {
         holiday = holidays[2];
     }
-    // 29 Ekim: 29 Ekim 13:00 - 30 Ekim 13:00
     else if (
         (month === 9 && day === 29 && hours >= 13) ||
         (month === 9 && day === 30 && hours < 13)
@@ -678,7 +601,6 @@ function showHolidayText() {
         holidayText.innerHTML = holiday.message;
         holidayText.classList.remove('is-hidden');
 
-        // Footer'da da göster
         if (footerHoliday) footerHoliday.classList.remove('is-hidden');
 
         if (holiday.showAtaturk) {
@@ -704,7 +626,6 @@ if (document.readyState !== 'loading') {
     showHolidayText();
 }
 
-// ===== Yeni Yıl Kar Efekti (31 Aralık - 1 Ocak) =====
 let isSnowVisible = true;
 let snowToggleInitialized = false;
 
@@ -718,13 +639,10 @@ function showSnowEffect() {
     const month = now.getMonth(); // 0-11
     const day = now.getDate(); // 1-31
 
-    // 31 Aralık veya 1 Ocak
     if ((month === 11 && day === 31) || (month === 0 && day === 1)) {
-        // LocalStorage'dan kullanıcı tercihini kontrol et
         const savedPreference = localStorage.getItem('snowEnabled');
         
         if (savedPreference === 'false') {
-            // Kullanıcı karı kapatmış - container'ı temizle
             snowContainer.innerHTML = '';
             snowContainer.classList.add('is-hidden');
             isSnowVisible = false;
@@ -733,7 +651,6 @@ function showSnowEffect() {
                 updateSnowIcons(false);
             }
         } else {
-            // Karı göster
             snowContainer.classList.remove('is-hidden');
             isSnowVisible = true;
             if (snowToggle) {
@@ -745,11 +662,9 @@ function showSnowEffect() {
             }
         }
 
-        // Toggle butonunu göster
         if (snowToggle) {
             snowToggle.classList.remove('is-hidden');
             
-            // Event listener'ı sadece bir kez ekle
             if (!snowToggleInitialized) {
                 snowToggle.addEventListener('click', function() {
                     const container = document.getElementById('snowContainer');
@@ -758,7 +673,6 @@ function showSnowEffect() {
                     if (!container || !btn) return;
                     
                     if (isSnowVisible) {
-                        // Karı kapat - içeriği temizle ve gizle
                         container.innerHTML = '';
                         container.classList.add('is-hidden');
                         btn.classList.add('snow-off');
@@ -766,7 +680,6 @@ function showSnowEffect() {
                         localStorage.setItem('snowEnabled', 'false');
                         isSnowVisible = false;
                     } else {
-                        // Karı aç - yeniden oluştur
                         container.classList.remove('is-hidden');
                         btn.classList.remove('snow-off');
                         updateSnowIcons(true);
@@ -807,7 +720,6 @@ function createSnowflakes(container) {
         const snowflake = document.createElement('div');
         snowflake.className = 'snowflake';
         
-        // Rastgele özellikler
         const size = Math.random() * 5 + 2; // 2-7px arası
         const left = Math.random() * 100; // 0-100% arası
         const duration = Math.random() * 8 + 5; // 5-13 saniye arası
@@ -830,31 +742,25 @@ if (document.readyState !== 'loading') {
     showSnowEffect();
 }
 
-// Run on DOM ready
 document.addEventListener('DOMContentLoaded', initAnimations);
 
-// Also run immediately if DOM is already ready
 if (document.readyState !== 'loading') {
     initAnimations();
 }
 
-// ===== Cookie Consent Management (GDPR/KVKK Compliant) =====
 (function() {
     'use strict';
 
-    // === Tutarlı, global key - tüm dillerde aynı ===
     var COOKIE_KEY = 'drivarc-cookie-consent';
     var CONSENT_COOKIE_NAME = 'cookie_policy';
     var CONSENT_COOKIE_DAYS = 365;
     var CONSENT_VERSION = '2';
 
-    // === Helper: Cookie Okuma ===
     function readCookie(name) {
         var match = document.cookie.match(new RegExp('(^| )' + name + '=([^;]+)'));
         return match ? decodeURIComponent(match[2]) : null;
     }
 
-    // === Helper: Cookie Yazma (güvenli, SameSite=Lax) ===
     function writeCookie(name, value, days) {
         var expires = '';
         if (days) {
@@ -865,7 +771,6 @@ if (document.readyState !== 'loading') {
         document.cookie = name + '=' + encodeURIComponent(value) + expires + '; path=/; SameSite=Lax; Secure';
     }
 
-    // === Helper: Consent Cookie Parse ===
     function parseConsentCookie(value) {
         try {
             return JSON.parse(decodeURIComponent(value));
@@ -874,9 +779,7 @@ if (document.readyState !== 'loading') {
         }
     }
 
-    // === Helper: gtag-safe call ===
     function gtagConsentUpdate(granted) {
-        // Race condition koruması: gtag yüklenene kadar bekle
         function applyConsent() {
             if (typeof window.gtag === 'function') {
                 window.gtag('consent', 'update', {
@@ -886,7 +789,6 @@ if (document.readyState !== 'loading') {
                     'analytics_storage': granted ? 'granted' : 'denied'
                 });
             } else {
-                // gtag henüz yüklenmediyse dataLayer'a push et
                 window.dataLayer.push({
                     'event': 'consent_update',
                     'ad_storage': granted ? 'granted' : 'denied',
@@ -894,14 +796,12 @@ if (document.readyState !== 'loading') {
                     'ad_personalization': granted ? 'granted' : 'denied',
                     'analytics_storage': granted ? 'granted' : 'denied'
                 });
-                // Tekrar dene
                 setTimeout(applyConsent, 100);
             }
         }
         applyConsent();
     }
 
-    // === Helper: Event Tracking ===
     function trackEvent(eventName, params) {
         if (typeof window.gtag === 'function') {
             window.gtag('event', eventName, params || {});
@@ -913,21 +813,16 @@ if (document.readyState !== 'loading') {
         }
     }
 
-    // === Helper: Store Consent (localStorage + Cookie) ===
     function saveConsent(preferences) {
-        // localStorage
         try {
             localStorage.setItem(COOKIE_KEY, JSON.stringify(preferences));
         } catch (e) {
             console.warn('[CookieConsent] localStorage write failed:', e);
         }
-        // Cookie (yedek + sunucu tarafı okuma için)
         writeCookie(CONSENT_COOKIE_NAME, JSON.stringify(preferences), CONSENT_COOKIE_DAYS);
     }
 
-    // === Helper: Read Consent ===
     function readConsent() {
-        // Önce localStorage'dan oku
         try {
             var saved = localStorage.getItem(COOKIE_KEY);
             if (saved) {
@@ -938,7 +833,6 @@ if (document.readyState !== 'loading') {
             }
         } catch (e) { /* ignore */ }
 
-        // Cookie'den oku (fallback)
         var cookieVal = readCookie(CONSENT_COOKIE_NAME);
         if (cookieVal) {
             var prefs = parseConsentCookie(cookieVal);
@@ -949,31 +843,25 @@ if (document.readyState !== 'loading') {
         return null;
     }
 
-    // === Helper: Get Page Language ===
     function getPageLang() {
         var html = document.documentElement;
         return (html.getAttribute('lang') || 'tr').substring(0, 2);
     }
 
-    // === Helper: Get Privacy Link ===
     function getPrivacyLink() {
         var lang = getPageLang();
         if (lang === 'tr') return 'privacy.html';
-        // en, de, ru, ar için dil bazlı link
         return '../privacy.html';
     }
 
-    // === Helper: Show Banner ===
     function showBanner() {
         var banner = document.querySelector('.cookie-consent');
         var overlay = document.getElementById('cookieOverlay');
         if (banner) {
-            // Privacy link'i güncelle
             var descLink = banner.querySelector('.cookie-consent-description a');
             if (descLink) {
                 descLink.href = getPrivacyLink();
             }
-            // 1 saniye sonra göster
             setTimeout(function() {
                 banner.classList.add('show');
                 if (overlay) overlay.classList.add('show');
@@ -981,7 +869,6 @@ if (document.readyState !== 'loading') {
         }
     }
 
-    // === Helper: Hide Banner ===
     function hideBanner() {
         var banner = document.querySelector('.cookie-consent');
         var overlay = document.getElementById('cookieOverlay');
@@ -995,7 +882,6 @@ if (document.readyState !== 'loading') {
         }
     }
 
-    // === Accept All ===
     function acceptAll() {
         var prefs = {
             version: CONSENT_VERSION,
@@ -1010,7 +896,6 @@ if (document.readyState !== 'loading') {
         trackEvent('cookie_consent', { action: 'accept_all' });
     }
 
-    // === Decline Non-Essential ===
     function declineAll() {
         var prefs = {
             version: CONSENT_VERSION,
@@ -1025,7 +910,6 @@ if (document.readyState !== 'loading') {
         trackEvent('cookie_consent', { action: 'decline_all' });
     }
 
-    // === Open Decline Re-prompt Modal ===
     function openDeclineRepromptModal() {
         hideBanner();
         var modal = document.getElementById('declineRepromptModal');
@@ -1034,7 +918,6 @@ if (document.readyState !== 'loading') {
         }
     }
 
-    // === Close Decline Re-prompt Modal ===
     function closeDeclineRepromptModal() {
         var modal = document.getElementById('declineRepromptModal');
         if (modal) {
@@ -1042,23 +925,19 @@ if (document.readyState !== 'loading') {
         }
     }
 
-    // === Decline Confirmed (user really wants to decline) ===
     function declineConfirmed() {
         closeDeclineRepromptModal();
         declineAll();
     }
 
-    // === Accept Instead (user changed their mind) ===
     function acceptInstead() {
         closeDeclineRepromptModal();
         acceptAll();
     }
 
-    // === Open Settings Modal ===
     function openSettingsModal() {
         var modal = document.getElementById('cookieSettingsModal');
         if (modal) {
-            // Mevcut tercihi toggle'a yansıt
             var prefs = readConsent();
             var toggle = document.getElementById('cookieAnalyticsToggle');
             if (toggle && prefs) {
@@ -1068,7 +947,6 @@ if (document.readyState !== 'loading') {
         }
     }
 
-    // === Close Settings Modal ===
     function closeSettingsModal() {
         var modal = document.getElementById('cookieSettingsModal');
         if (modal) {
@@ -1076,7 +954,6 @@ if (document.readyState !== 'loading') {
         }
     }
 
-    // === Save Modal Settings ===
     function saveModalSettings() {
         var toggle = document.getElementById('cookieAnalyticsToggle');
         var analyticsEnabled = toggle ? toggle.checked : false;
@@ -1097,9 +974,7 @@ if (document.readyState !== 'loading') {
         });
     }
 
-    // === Google Play / App Store Click Tracking ===
     function initStoreClickTracking() {
-        // Google Play butonu
         var gpBtn = document.querySelector('[data-modal="beta"]');
         if (gpBtn) {
             gpBtn.addEventListener('click', function(e) {
@@ -1108,14 +983,12 @@ if (document.readyState !== 'loading') {
                     'store': 'google_play',
                     'page_language': getPageLang()
                 });
-                // Mevcut modal açma davranışını koru
                 if (typeof window.openBetaModal === 'function') {
                     window.openBetaModal();
                 }
             });
         }
 
-        // App Store butonu
         var asBtn = document.querySelector('[data-modal="appstore"]');
         if (asBtn) {
             asBtn.addEventListener('click', function(e) {
@@ -1124,7 +997,6 @@ if (document.readyState !== 'loading') {
                     'store': 'app_store',
                     'page_language': getPageLang()
                 });
-                // Mevcut modal açma davranışını koru
                 var modal = document.getElementById('appStoreModal');
                 if (modal) {
                     modal.style.display = 'flex';
@@ -1134,11 +1006,9 @@ if (document.readyState !== 'loading') {
         }
     }
 
-    // === Footer'dan tercihleri açma butonu ekle ===
     function addFooterCookieLink() {
         var footer = document.querySelector('.footer-inner, .site-footer');
         if (!footer) return;
-        // Zaten varsa ekleme
         if (footer.querySelector('.cookie-preferences-link')) return;
 
         var link = document.createElement('a');
@@ -1147,7 +1017,6 @@ if (document.readyState !== 'loading') {
         link.textContent = 'Cookie Preferences';
         link.setAttribute('data-cookie-preferences', 'true');
 
-        // Dil bazlı metin
         var lang = getPageLang();
         var labels = {
             'tr': 'Çerez Tercihleri',
@@ -1163,29 +1032,21 @@ if (document.readyState !== 'loading') {
             openSettingsModal();
         });
 
-        // Footer links'in sonuna ekle
         var footerLinks = footer.querySelector('.footer-links');
         if (footerLinks) {
             footerLinks.appendChild(link);
         }
     }
 
-    // === RTL Layout Desteği (Arapça) ===
-    // Not: Tüm RTL stilleri artık CSS'te [dir="rtl"] selector'leri ile yönetiliyor.
-    // JS tarafında ekstra bir şey yapmaya gerek yok.
     function applyRTLLayout() {
-        // CSS handles everything, this is a no-op now
     }
 
-    // === Initialize ===
     function init() {
         var prefs = readConsent();
 
         if (!prefs) {
-            // İlk ziyaret - banner göster
             showBanner();
         } else {
-            // Kayıtlı tercih var - uygula
             if (prefs.analytics) {
                 gtagConsentUpdate(true);
             } else {
@@ -1193,7 +1054,6 @@ if (document.readyState !== 'loading') {
             }
         }
 
-        // Buton eventleri
         var acceptBtn = document.querySelector('.cookie-consent-btn.accept:not(.cookie-settings-save)');
         if (acceptBtn) acceptBtn.addEventListener('click', acceptAll);
 
@@ -1212,14 +1072,12 @@ if (document.readyState !== 'loading') {
         var saveBtn = document.querySelector('.cookie-settings-save');
         if (saveBtn) saveBtn.addEventListener('click', saveModalSettings);
 
-        // Decline re-prompt modal buttons
         var declineConfirmedBtn = document.getElementById('declineConfirmed');
         if (declineConfirmedBtn) declineConfirmedBtn.addEventListener('click', declineConfirmed);
 
         var acceptInsteadBtn = document.getElementById('acceptInstead');
         if (acceptInsteadBtn) acceptInsteadBtn.addEventListener('click', acceptInstead);
 
-        // Modal dışına tıklayınca kapat
         var cookieModal = document.getElementById('cookieSettingsModal');
         if (cookieModal) {
             cookieModal.addEventListener('click', function(e) {
@@ -1236,7 +1094,6 @@ if (document.readyState !== 'loading') {
             });
         }
 
-        // ESC ile kapat
         document.addEventListener('keydown', function(e) {
             if (e.key === 'Escape') {
                 closeSettingsModal();
@@ -1244,17 +1101,13 @@ if (document.readyState !== 'loading') {
             }
         });
 
-        // Store click tracking
         initStoreClickTracking();
 
-        // Footer'dan tercihleri açma linki
         addFooterCookieLink();
 
-        // RTL layout desteği
         applyRTLLayout();
     }
 
-    // DOM ready'de çalıştır
     if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', init);
     } else {

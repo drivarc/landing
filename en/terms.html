@@ -15,45 +15,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../styles.css">
 
-    <!-- Google Analytics 4 with Consent Mode -->
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      // Set DEFAULT consent to GRANTED for non-restricted regions (global default)
-      gtag('consent', 'default', {
-        'analytics_storage': 'granted',
-        'ad_storage': 'granted',
-        'ad_user_data': 'granted',
-        'ad_personalization': 'granted'
-      });
-
-      // Set DEFAULT consent to DENIED for EEA regions + Turkey (GDPR/KVKK compliance)
-      gtag('consent', 'default', {
-        'analytics_storage': 'denied',
-        'ad_storage': 'denied',
-        'ad_user_data': 'denied',
-        'ad_personalization': 'denied',
-        'wait_for_update': 500,
-        'region': ['AT','BE','BG','HR','CY','CZ','DK','EE','FI','FR','DE','GR','HU','IS','IE','IT','LV','LI','LT','LU','MT','NL','NO','PL','PT','RO','SK','SI','ES','SE','TR','GB','BR','KR']
-      });
-      (function() {
-        var s = document.createElement('script');
-        s.async = true;
-        s.src = 'https://www.googletagmanager.com/gtag/js?id=G-28CR3Y25R3';
-        document.head.appendChild(s);
-      })();
-      gtag('js', new Date());
-      gtag('config', 'G-28CR3Y25R3', {
-        'anonymize_ip': true,
-        'allow_google_signals': false
-      });
-      gtag('set', 'url_passthrough', true);
-      gtag('set', 'ads_data_redaction', false);
-    </script>
+        <script src="../analytics.js" defer></script>
     <script src="../app.js" defer></script>
+    <link rel="canonical" href="https://drivarc.com/en/terms.html">
 </head>
 <body>
-    <!-- Header -->
     <header class="header">
         <div class="header-inner">
             <a href="../en/" class="logo"><img src="../images/logoxxxhdpi.png" alt="Drivarc Logo" class="logo-img" width="150" height="40" loading="eager" fetchpriority="high"></a>
@@ -71,7 +37,6 @@
         </div>
     </header>
 
-    <!-- Terms Content -->
     <div class="terms-container">
         <div class="legal-last-updated">Last Updated: April 10, 2026</div>
 
@@ -315,7 +280,6 @@ Email: contact@drivarc.com</div>
         </div>
     </div>
 
-    <!-- Footer -->
     <footer class="site-footer">
         <div class="footer-inner">
             <div class="footer-links">
@@ -326,10 +290,8 @@ Email: contact@drivarc.com</div>
         </div>
     </footer>
 
-    <!-- Cookie Overlay -->
     <div class="cookie-overlay" id="cookieOverlay"></div>
 
-    <!-- Cookie Consent Banner -->
     <div class="cookie-consent" id="cookieConsent" role="dialog" aria-label="Cookie Consent" aria-describedby="cookieConsentDesc">
         <div class="cookie-consent-content">
             <div class="cookie-consent-text">
@@ -348,7 +310,6 @@ Email: contact@drivarc.com</div>
         </div>
     </div>
 
-    <!-- Cookie Settings Modal -->
     <div class="cookie-settings-overlay" id="cookieSettingsModal">
         <div class="cookie-settings-modal">
             <div class="cookie-settings-header">
@@ -386,7 +347,6 @@ Email: contact@drivarc.com</div>
         </div>
     </div>
 
-    <!-- Decline Re-prompt Modal -->
     <div class="decline-reprompt-modal" id="declineRepromptModal" role="dialog" aria-label="Are you sure?" aria-modal="true">
         <div class="decline-reprompt-modal-content">
             <div class="decline-reprompt-icon">

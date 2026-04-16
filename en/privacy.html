@@ -12,7 +12,6 @@
     <meta name="googlebot" content="index, follow">
     <link rel="canonical" href="https://drivarc.com/en/privacy.html">
 
-    <!-- hreflang - Multi-language Support -->
     <link rel="alternate" hreflang="tr" href="https://drivarc.com/privacy.html">
     <link rel="alternate" hreflang="en" href="https://drivarc.com/en/privacy.html">
     <link rel="alternate" hreflang="de" href="https://drivarc.com/de/privacy.html">
@@ -20,60 +19,22 @@
     <link rel="alternate" hreflang="ar" href="https://drivarc.com/ar/privacy.html">
     <link rel="alternate" hreflang="x-default" href="https://drivarc.com/privacy.html">
 
-    <!-- Icons -->
     <link rel="icon" type="image/png" href="../images/Harflogo.png">
     <link rel="icon" type="image/png" sizes="512x512" href="../images/harflogo.png">
     <link rel="shortcut icon" type="image/png" href="../images/harflogo.png">
     <link rel="apple-touch-icon" sizes="512x512" href="../images/harflogo.png">
     <link rel="apple-touch-icon-precomposed" sizes="512x512" href="../images/harflogo.png">
 
-    <!-- PWA Support -->
     <link rel="manifest" href="../manifest.json">
     <meta name="theme-color" content="#1a73e8">
     <meta name="msapplication-TileColor" content="#1a73e8">
 
-    <!-- Google Analytics 4 with Consent Mode -->
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      // Set DEFAULT consent to GRANTED for non-restricted regions (global default)
-      gtag('consent', 'default', {
-        'analytics_storage': 'granted',
-        'ad_storage': 'granted',
-        'ad_user_data': 'granted',
-        'ad_personalization': 'granted'
-      });
+        <script src="../analytics.js" defer></script>
 
-      // Set DEFAULT consent to DENIED for EEA regions + Turkey (GDPR/KVKK compliance)
-      gtag('consent', 'default', {
-        'analytics_storage': 'denied',
-        'ad_storage': 'denied',
-        'ad_user_data': 'denied',
-        'ad_personalization': 'denied',
-        'wait_for_update': 500,
-        'region': ['AT','BE','BG','HR','CY','CZ','DK','EE','FI','FR','DE','GR','HU','IS','IE','IT','LV','LI','LT','LU','MT','NL','NO','PL','PT','RO','SK','SI','ES','SE','TR','GB','BR','KR']
-      });
-      (function() {
-        var s = document.createElement('script');
-        s.async = true;
-        s.src = 'https://www.googletagmanager.com/gtag/js?id=G-28CR3Y25R3';
-        document.head.appendChild(s);
-      })();
-      gtag('js', new Date());
-      gtag('config', 'G-28CR3Y25R3', {
-        'anonymize_ip': true,
-        'allow_google_signals': false
-      });
-      gtag('set', 'url_passthrough', true);
-      gtag('set', 'ads_data_redaction', false);
-    </script>
-
-    <!-- Security Headers via Meta -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.gstatic.com https://firebaseapp.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: https: blob:; font-src 'self' https://fonts.gstatic.com; connect-src 'self' https://*.firebaseio.com https://*.firebase.com https://firestore.googleapis.com https://*.google-analytics.com https://*.analytics.google.com https://stats.g.doubleclick.net https://*.googletagmanager.com ; frame-src https://*.firebaseapp.com; media-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self';">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://www.googletagmanager.com https://www.gstatic.com https://firebaseapp.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: https: blob:; font-src 'self' https://fonts.gstatic.com; connect-src 'self' https://*.firebaseio.com https://*.firebase.com https://firestore.googleapis.com https://*.google-analytics.com https://*.analytics.google.com https://stats.g.doubleclick.net https://*.googletagmanager.com ; frame-src https://*.firebaseapp.com; media-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self';">
     <meta name="referrer" content="strict-origin-when-cross-origin">
     <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(), payment=(), usb=(), magnetometer=(), gyroscope=(), accelerometer=()">
 
-    <!-- Open Graph -->
     <meta property="og:type" content="website">
     <meta property="og:title" content="Drivarc - Privacy Policy">
     <meta property="og:description" content="Drivarc privacy policy. Collected data, data security, user rights, and KVKK/GDPR compliance.">
@@ -85,14 +46,12 @@
     <meta property="og:site_name" content="Drivarc">
     <meta property="og:locale" content="en_US">
 
-    <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Drivarc - Privacy Policy">
     <meta name="twitter:description" content="Drivarc privacy policy. Collected data, data security, and user rights.">
     <meta name="twitter:image" content="https://drivarc.com/og-image.svg">
     <meta name="twitter:site" content="@drivarc_app">
 
-    <!-- Preconnect & Preload for Performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://www.googletagmanager.com">
@@ -101,10 +60,8 @@
     <link rel="stylesheet" href="../styles.css">
 </head>
 <body class="page-content">
-    <!-- Grid Background -->
     <div class="grid-background"></div>
 
-    <!-- Header -->
     <header class="header">
         <div class="header-inner">
             <a href="../en/index.html" class="logo"><img src="../images/logoxxxhdpi.png" alt="Drivarc Logo" class="logo-img" width="150" height="40"></a>
@@ -133,7 +90,6 @@
         </div>
     </header>
 
-    <!-- Page Content -->
     <div class="terms-container">
         <h1>Privacy Policy</h1>
         <p class="last-updated">Last Updated: 1 January 2025</p>
@@ -203,39 +159,18 @@
         </ul>
     </div>
 
-    <!-- Footer -->
-    <footer class="site-footer" role="contentinfo">
+    <footer class="site-footer">
         <div class="footer-inner">
             <div class="footer-links">
-                <button onclick="openTermsModal()">Terms of Service</button>
-                <button onclick="openPrivacyModal()">Privacy Policy</button>
+                <a href="terms.html" class="footer-link">Terms of Service</a>
+                <a href="privacy.html" class="footer-link">Privacy Policy</a>
             </div>
-            <p class="footer-copyright">&copy; 2025 Drivarc. All rights reserved.</p>
+            <p class="footer-copy">&copy; 2026 Drivarc. All rights reserved.</p>
         </div>
     </footer>
 
-    <!-- Terms Modal -->
-    <div class="beta-modal-overlay" id="termsModal">
-        <div class="beta-modal">
-            <h2>Terms of Service</h2>
-            <p>Terms of Service content is available on the <a href="../en/terms.html">Terms of Service page</a>.</p>
-            <button class="beta-modal-close" data-close-modal="terms">Close</button>
-        </div>
-    </div>
-
-    <!-- Privacy Modal -->
-    <div class="beta-modal-overlay" id="privacyModal">
-        <div class="beta-modal">
-            <h2>Privacy Policy</h2>
-            <p>You are currently viewing the Privacy Policy page.</p>
-            <button class="beta-modal-close" data-close-modal="privacy">Close</button>
-        </div>
-    </div>
-
-    <!-- Cookie Overlay -->
     <div class="cookie-overlay" id="cookieOverlay"></div>
 
-    <!-- Cookie Consent Banner -->
     <div class="cookie-consent" id="cookieConsent" role="dialog" aria-label="Cookie Consent" aria-describedby="cookieConsentDesc">
         <div class="cookie-consent-content">
             <div class="cookie-consent-text">
@@ -254,7 +189,6 @@
         </div>
     </div>
 
-    <!-- Cookie Settings Modal -->
     <div class="cookie-settings-overlay" id="cookieSettingsModal">
         <div class="cookie-settings-modal">
             <div class="cookie-settings-header">
@@ -292,7 +226,6 @@
         </div>
     </div>
 
-    <!-- Decline Re-prompt Modal -->
     <div class="decline-reprompt-modal" id="declineRepromptModal" role="dialog" aria-label="Are you sure?" aria-modal="true">
         <div class="decline-reprompt-modal-content">
             <div class="decline-reprompt-icon">

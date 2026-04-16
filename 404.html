@@ -7,52 +7,14 @@
     <title>404 - Sayfa Bulunamadı | Drivarc</title>
     <meta name="description" content="Aradığınız sayfa bulunamadı. Drivarc ana sayfasına dönün.">
 
-    <!-- Google Analytics 4 with Consent Mode -->
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      // Set DEFAULT consent to GRANTED for non-restricted regions (global default)
-      gtag('consent', 'default', {
-        'analytics_storage': 'granted',
-        'ad_storage': 'granted',
-        'ad_user_data': 'granted',
-        'ad_personalization': 'granted'
-      });
-
-      // Set DEFAULT consent to DENIED for EEA regions + Turkey (GDPR/KVKK compliance)
-      gtag('consent', 'default', {
-        'analytics_storage': 'denied',
-        'ad_storage': 'denied',
-        'ad_user_data': 'denied',
-        'ad_personalization': 'denied',
-        'wait_for_update': 500,
-        'region': ['AT','BE','BG','HR','CY','CZ','DK','EE','FI','FR','DE','GR','HU','IS','IE','IT','LV','LI','LT','LU','MT','NL','NO','PL','PT','RO','SK','SI','ES','SE','TR','GB','BR','KR']
-      });
-      (function() {
-        var s = document.createElement('script');
-        s.async = true;
-        s.src = 'https://www.googletagmanager.com/gtag/js?id=G-28CR3Y25R3';
-        document.head.appendChild(s);
-      })();
-      gtag('js', new Date());
-      gtag('config', 'G-28CR3Y25R3', {
-        'anonymize_ip': true,
-        'allow_google_signals': false
-      });
-
-      // URL Passthrough & Ads Data Redaction (Consent Mode v2)
-      gtag('set', 'url_passthrough', true);
-      gtag('set', 'ads_data_redaction', false);
-    </script>
+        <script src="analytics.js" defer></script>
 
     <meta name="robots" content="noindex, follow">
     <link rel="canonical" href="https://drivarc.com/404.html">
 
-    <!-- Icons -->
     <link rel="icon" type="image/png" href="images/Harflogo.png">
     <link rel="icon" type="image/png" sizes="512x512" href="images/harflogo.png">
 
-    <!-- Security Headers via Meta -->
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: https: blob:; font-src 'self' https://fonts.gstatic.com; object-src 'none'; base-uri 'self';">
     <meta name="referrer" content="strict-origin-when-cross-origin">
 

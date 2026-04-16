@@ -7,49 +7,7 @@
     <title>Drivarc - Fahrzeugverfolgung & Verwaltung</title>
     <meta name="description" content="Verwalten Sie alle Ihre Fahrzeuge aus einer einzigen App mit Drivarc. Kraftstoffverfolgung, Wartungserinnerungen, Kostenanalyse und vieles mehr.">
 
-    <!-- Google Analytics 4 with Consent Mode -->
-    <script>
-      // Step 1: Initialize dataLayer and gtag function IMMEDIATELY (sync)
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-
-      // Step 2a: Set DEFAULT consent to GRANTED for non-restricted regions (global default)
-      gtag('consent', 'default', {
-        'analytics_storage': 'granted',
-        'ad_storage': 'granted',
-        'ad_user_data': 'granted',
-        'ad_personalization': 'granted'
-      });
-
-      // Step 2b: Set DEFAULT consent to DENIED for EEA regions + Turkey (GDPR/KVKK compliance)
-      gtag('consent', 'default', {
-        'analytics_storage': 'denied',
-        'ad_storage': 'denied',
-        'ad_user_data': 'denied',
-        'ad_personalization': 'denied',
-        'wait_for_update': 500,
-        'region': ['AT','BE','BG','HR','CY','CZ','DK','EE','FI','FR','DE','GR','HU','IS','IE','IT','LV','LI','LT','LU','MT','NL','NO','PL','PT','RO','SK','SI','ES','SE','TR','GB','BR','KR']
-      });
-
-      // Step 3: Load GA4 script async
-      (function() {
-        var script = document.createElement('script');
-        script.async = true;
-        script.src = 'https://www.googletagmanager.com/gtag/js?id=G-28CR3Y25R3';
-        document.head.appendChild(script);
-      })();
-
-      // Step 4: Configure GA4 with IP anonymization
-      gtag('js', new Date());
-      gtag('config', 'G-28CR3Y25R3', {
-        'anonymize_ip': true,
-        'allow_google_signals': false
-      });
-
-      // Step 5: URL Passthrough & Ads Data Redaction (Consent Mode v2)
-      gtag('set', 'url_passthrough', true);
-      gtag('set', 'ads_data_redaction', false);
-    </script>
+        <script src="../analytics.js" defer></script>
 
     <meta name="keywords" content="Fahrzeugverfolgung, Wartungserinnerung, Kraftstoffverfolgung, Fahrzeugverwaltung, Drivarc">
     <meta name="author" content="Drivarc">
@@ -57,7 +15,6 @@
     <meta name="googlebot" content="index, follow">
     <link rel="canonical" href="https://drivarc.com/de/">
 
-    <!-- hreflang - Mehrsprachige Unterstützung -->
     <link rel="alternate" hreflang="tr" href="https://drivarc.com/">
     <link rel="alternate" hreflang="en" href="https://drivarc.com/en/">
     <link rel="alternate" hreflang="de" href="https://drivarc.com/de/">
@@ -65,14 +22,12 @@
     <link rel="alternate" hreflang="ar" href="https://drivarc.com/ar/">
     <link rel="alternate" hreflang="x-default" href="https://drivarc.com/">
 
-    <!-- Icons -->
     <link rel="icon" type="image/png" href="/images/Harflogo.png">
     <link rel="icon" type="image/png" sizes="512x512" href="/images/Harflogo.png">
     <link rel="shortcut icon" type="image/png" href="/images/Harflogo.png">
     <link rel="apple-touch-icon" sizes="512x512" href="/images/Harflogo.png">
     <link rel="apple-touch-icon-precomposed" sizes="512x512" href="/images/Harflogo.png">
 
-    <!-- PWA Support -->
     <link rel="manifest" href="../manifest.json">
     <meta name="theme-color" content="#1a73e8">
     <meta name="msapplication-TileColor" content="#1a73e8">
@@ -81,12 +36,10 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="apple-mobile-web-app-title" content="Drivarc">
 
-    <!-- Security Headers via Meta -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.gstatic.com https://firebaseapp.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: https: blob:; font-src 'self' https://fonts.gstatic.com; connect-src 'self' https://*.firebaseio.com https://*.firebase.com https://firestore.googleapis.com https://*.google-analytics.com https://*.analytics.google.com https://stats.g.doubleclick.net https://*.googletagmanager.com ; frame-src https://*.firebaseapp.com; media-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self';">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://www.googletagmanager.com https://www.gstatic.com https://firebaseapp.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: https: blob:; font-src 'self' https://fonts.gstatic.com; connect-src 'self' https://*.firebaseio.com https://*.firebase.com https://firestore.googleapis.com https://*.google-analytics.com https://*.analytics.google.com https://stats.g.doubleclick.net https://*.googletagmanager.com ; frame-src https://*.firebaseapp.com; media-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self';">
     <meta name="referrer" content="strict-origin-when-cross-origin">
     <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(), payment=(), usb=(), magnetometer=(), gyroscope=(), accelerometer=()">
 
-    <!-- Open Graph -->
     <meta property="og:type" content="website">
     <meta property="og:title" content="Drivarc - Fahrzeugverfolgung & Verwaltung">
     <meta property="og:description" content="Verwalten Sie alle Ihre Fahrzeuge aus einer einzigen App mit Drivarc. Kraftstoffverfolgung, Wartungserinnerungen, Kostenanalyse und vieles mehr.">
@@ -98,80 +51,22 @@
     <meta property="og:site_name" content="Drivarc">
     <meta property="og:locale" content="de_DE">
 
-    <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Drivarc - Fahrzeugverfolgung & Verwaltung">
     <meta name="twitter:description" content="Verwalten Sie alle Ihre Fahrzeuge aus einer einzigen App mit Drivarc.">
     <meta name="twitter:image" content="https://drivarc.com/twitter-image.png">
     <meta name="twitter:site" content="@drivarc_app">
 
-    <!-- Structured Data (JSON-LD) -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "SoftwareApplication",
-      "name": "Drivarc",
-      "alternateName": "Drivarc - Fahrzeugverfolgung & Verwaltung",
-      "description": "Verwalten Sie alle Ihre Fahrzeuge aus einer einzigen App mit Drivarc. Kraftstoffverfolgung, Wartungserinnerungen, Kostenanalyse und vieles mehr.",
-      "applicationCategory": "UtilitiesApplication",
-      "operatingSystem": "Android, iOS",
-      "url": "https://drivarc.com/de/",
-      "image": "https://drivarc.com/images/harflogo.png",
-      "offers": {
-        "@type": "Offer",
-        "price": "0",
-        "priceCurrency": "TRY",
-        "description": "Free to download with optional Premium subscription"
-      },
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": "4.5",
-        "ratingCount": "100",
-        "bestRating": "5",
-        "worstRating": "1"
-      },
-      "author": {
-        "@type": "Organization",
-        "name": "Drivarc",
-        "url": "https://drivarc.com/",
-        "contactPoint": {
-          "@type": "ContactPoint",
-          "email": "contact@drivarc.com",
-          "contactType": "customer support",
-          "availableLanguage": ["Turkish", "English", "German", "Russian", "Arabic"]
-        },
-        "sameAs": []
-      }
-    }
-    </script>
-
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebSite",
-      "name": "Drivarc",
-      "url": "https://drivarc.com/de/",
-      "description": "Fahrzeugverfolgung und Verwaltungsanwendung",
-      "inLanguage": ["de"],
-      "potentialAction": {
-        "@type": "SearchAction",
-        "target": "https://drivarc.com/de/?s={search_term_string}",
-        "query-input": "required name=search_term_string"
-      }
-    }
-    </script>
-
-    <!-- Preconnect & Preload for Performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://www.googletagmanager.com">
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" as="style">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../styles.css">
+    <script src="../seo-jsonld.js" defer></script>
     <script src="../app.js" defer></script>
 </head>
 <body class="index-page">
-    <!-- NoScript Fallback -->
     <noscript>
         <div style="text-align:center; padding:40px 20px; font-family:system-ui,sans-serif; max-width:600px; margin:0 auto;">
             <h1 style="font-size:24px; margin-bottom:16px;">JavaScript erforderlich</h1>
@@ -179,19 +74,15 @@
         </div>
     </noscript>
 
-    <!-- Global Grid Background -->
     <div class="grid-background"></div>
 
-    <!-- Snow Container (Neujahr Special) -->
     <div class="snow-container is-hidden" id="snowContainer"></div>
 
     <div class="hero-section" id="hero" role="banner" aria-label="Startseite Hero-Bereich">
-        <!-- Scroll Progress Bar -->
         <div class="scroll-progress-bar">
             <div class="scroll-progress-bar-fill" id="scrollProgress"></div>
         </div>
 
-        <!-- Header -->
         <header class="header">
             <div class="header-inner">
                 <a href="../de/" class="logo"><img src="../images/logoxxxhdpi.png" alt="Drivarc Logo" class="logo-img" width="150" height="40" loading="eager" fetchpriority="high"></a>
@@ -234,11 +125,8 @@
             </div>
         </header>
 
-        <!-- Hero Content -->
         <div class="hero-content">
-            <!-- Floating Particles -->
             <div class="hero-particles">
-                <!-- Small particles -->
                 <div class="hero-particle" style="--delay:0s;--dur:9s;--x:5%;--y:10%;--size:2px;--drift:-22px"></div>
                 <div class="hero-particle" style="--delay:1s;--dur:12s;--x:15%;--y:25%;--size:3px;--drift:30px"></div>
                 <div class="hero-particle" style="--delay:2s;--dur:8s;--x:25%;--y:80%;--size:2px;--drift:-15px"></div>
@@ -257,7 +145,6 @@
                 <div class="hero-particle" style="--delay:1.8s;--dur:13s;--x:80%;--y:75%;--size:2px;--drift:26px"></div>
                 <div class="hero-particle" style="--delay:2.8s;--dur:8s;--x:95%;--y:35%;--size:4px;--drift:-22px"></div>
                 <div class="hero-particle" style="--delay:3.8s;--dur:12s;--x:30%;--y:65%;--size:3px;--drift:38px"></div>
-                <!-- Medium glow particles -->
                 <div class="hero-particle hero-particle-glow" style="--delay:0s;--dur:15s;--x:12%;--y:20%;--size:6px;--drift:-45px"></div>
                 <div class="hero-particle hero-particle-glow" style="--delay:3.5s;--dur:19s;--x:38%;--y:70%;--size:8px;--drift:52px"></div>
                 <div class="hero-particle hero-particle-glow" style="--delay:7s;--dur:17s;--x:62%;--y:15%;--size:5px;--drift:-38px"></div>
@@ -313,7 +200,6 @@
                 </div>
             </div>
             <div class="hero-phone">
-                <!-- Phone Mockup - Drivarc Dashboard -->
                 <div class="phone-container">
                 <div class="phone">
                     <div class="phone-frame">
@@ -321,7 +207,6 @@
                         <div class="phone-screen">
                             <div class="phone-screen-content">
                             <div class="camera-notch"></div>
-                            <!-- Status Bar -->
                             <div class="status-bar">
                                 <div class="status-bar-left">
                                     <span>9:41</span>
@@ -343,18 +228,15 @@
                                     </div>
                                 </div>
                                 <div class="status-bar-right">
-                                    <!-- Signal Bars Icon -->
                                     <svg class="status-icon" viewBox="0 0 16 12">
                                         <rect x="0" y="8" width="3" height="4" rx="0.5" fill="currentColor" opacity="0.4"/>
                                         <rect x="4.5" y="5" width="3" height="7" rx="0.5" fill="currentColor" opacity="0.6"/>
                                         <rect x="9" y="2" width="3" height="10" rx="0.5" fill="currentColor" opacity="0.8"/>
                                         <rect x="13.5" y="0" width="2.5" height="12" rx="0.5" fill="currentColor"/>
                                     </svg>
-                                    <!-- WiFi Icon -->
                                     <svg class="status-icon" viewBox="0 0 24 24">
                                         <path d="M1 9l2 2c4.97-4.97 13.03-4.97 18 0l2-2C16.93 2.93 7.08 2.93 1 9zm8 8l3 3 3-3c-1.65-1.66-4.34-1.66-6 0zm-4-4l2 2c2.76-2.76 7.24-2.76 10 0l2-2C15.14 9.14 8.87 9.14 5 13z"/>
                                     </svg>
-                                    <!-- Battery Icon (Horizontal) -->
                                     <svg class="status-icon" viewBox="0 0 26 13">
                                         <rect x="1" y="3" width="20" height="8" rx="2" fill="none" stroke="currentColor" stroke-width="1.5"/>
                                         <rect x="22" y="5" width="2" height="4" rx="1" fill="currentColor"/>
@@ -363,7 +245,6 @@
                                 </div>
                             </div>
 
-                            <!-- App Bar -->
                             <div class="app-bar">
                                 <div class="app-bar-menu">
                                     <svg viewBox="0 0 24 24"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/></svg>
@@ -372,7 +253,6 @@
                                 <div style="width:36px"></div>
                             </div>
 
-                            <!-- Cinematic Header (Vehicle) -->
                             <div class="cinematic-header">
                                 <div class="cinematic-header-bg"></div>
                                 <div class="cinematic-header-img">
@@ -388,7 +268,6 @@
                                 </div>
                             </div>
 
-                            <!-- Finance Hero Card -->
                             <div class="finance-card">
                                 <div class="finance-card-bg"></div>
                                 <div class="finance-wave">
@@ -416,7 +295,6 @@
                                 </div>
                             </div>
 
-                            <!-- Maintenance Status Section -->
                             <div class="section-title">Warnungen</div>
                             <div class="app-card alert-card overdue">
                                 <div class="alert-icon overdue">
@@ -431,7 +309,6 @@
                                 </div>
                             </div>
 
-                            <!-- Recent Activity -->
                             <div class="section-title">Letzte Aktivitäten</div>
                             <div class="app-card activity-card">
                                 <div class="activity-icon-wrapper">
@@ -456,7 +333,6 @@
                                 </div>
                             </div>
 
-                            <!-- Bottom Navigation -->
                             <div class="bottom-nav">
                                 <div class="nav-item active">
                                     <svg viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
@@ -468,17 +344,14 @@
                                     <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/></svg>
                                 </div>
                             </div>
-                            </div><!-- .phone-screen-content -->
-                        </div>
+                            </div>                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Features Section -->
     <section class="features-section" id="features" aria-labelledby="features-title">
-        <!-- Floating Particles -->
         <div class="section-particles">
             <div class="section-particle" style="--delay:0s;--dur:9s;--x:5%;--y:10%;--size:2px;--drift:-22px"></div>
             <div class="section-particle" style="--delay:1s;--dur:12s;--x:15%;--y:25%;--size:3px;--drift:30px"></div>
@@ -509,7 +382,6 @@
                 <p class="features-subtitle">Alle Ihre Fahrzeugbedürfnisse in einer App mit Drivarc.</p>
             </div>
             <div class="features-grid">
-                <!-- Feature 1: Kraftstoffverfolgung -->
                 <div class="feature-card" data-feature="fuel">
                     <div class="feature-icon">
                         <svg viewBox="0 0 24 24"><path d="M19.77 7.23l.01-.01-3.72-3.72L15 4.56l2.11 2.11c-.94.36-1.61 1.26-1.61 2.33 0 1.38 1.12 2.5 2.5 2.5.36 0 .69-.08 1-.21v7.21c0 .55-.45 1-1 1s-1-.45-1-1V14c0-1.1-.9-2-2-2h-1V5c0-1.1-.9-2-2-2H6c-1.1 0-2 .9-2 2v16h10v-7.5h1.5v5c0 1.38 1.12 2.5 2.5 2.5s2.5-1.12 2.5-2.5V9c0-.69-.28-1.32-.73-1.77zM18 10c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1z"/></svg>
@@ -518,7 +390,6 @@
                     <div class="feature-desc">Erfassen Sie jede Kraftstofffüllung und sehen Sie Ihren Durchschnittsverbrauch und Kraftstoffkosten in Diagrammen.</div>
                 </div>
 
-                <!-- Feature 2: Intelligente Beleg-Scan -->
                 <div class="feature-card" data-feature="receipt">
                     <div class="feature-icon">
                         <svg viewBox="0 0 24 24"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg>
@@ -527,7 +398,6 @@
                     <div class="feature-desc">Scannen Sie Ihre Tankbelege mit der Kamera, speichern Sie Informationen automatisch. Sparen Sie Zeit, vermeiden Sie Fehler.</div>
                 </div>
 
-                <!-- Feature 3: Wartungserinnerungen -->
                 <div class="feature-card" data-feature="maintenance">
                     <div class="feature-icon">
                         <svg viewBox="0 0 24 24"><path d="M17 12h-5v5h5v-5zM16 1v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2h-1V1h-2zm3 18H5V8h14v11z"/></svg>
@@ -536,7 +406,6 @@
                     <div class="feature-desc">Ölwechsel, Filterwartung, Reifenrotation... Verpassen Sie keinen Wartungstermin dank intelligenter Benachrichtigungen.</div>
                 </div>
 
-                <!-- Feature 4: Kostenverfolgung -->
                 <div class="feature-card" data-feature="expense">
                     <div class="feature-icon">
                         <svg viewBox="0 0 24 24"><path d="M11.8 10.9c-2.27-.59-3-1.2-3-2.15 0-1.09 1.01-1.85 2.7-1.85 1.78 0 2.44.85 2.5 2.1h2.21c-.07-1.72-1.12-3.3-3.21-3.81V3h-3v2.16c-1.94.42-3.5 1.68-3.5 3.61 0 2.31 1.91 3.46 4.7 4.13 2.5.6 3 1.48 3 2.41 0 .69-.49 1.79-2.7 1.79-2.06 0-2.87-.92-2.98-2.1h-2.2c.12 2.19 1.76 3.42 3.68 3.83V21h3v-2.15c1.95-.37 3.5-1.5 3.5-3.55 0-2.84-2.43-3.81-4.7-4.4z"/></svg>
@@ -545,7 +414,6 @@
                     <div class="feature-desc">Erfassen Sie alle Fahrzeugkosten nach Kategorien. Versicherung, Inspektion, Parkplatz, Strafen und mehr zur detaillierten Verfolgung.</div>
                 </div>
 
-                <!-- Feature 5: Detaillierte Berichte -->
                 <div class="feature-card" data-feature="reports">
                     <div class="feature-icon">
                         <svg viewBox="0 0 24 24"><path d="M5 9.2h3V19H5zM10.6 5h2.8v14h-2.8zm5.6 8H19v6h-2.8z"/></svg>
@@ -554,7 +422,6 @@
                     <div class="feature-desc">Sehen Sie Ihre Kostenverteilung mit visuellen Diagrammen. Erstellen Sie monatliche und jährliche Berichte, exportieren Sie als PDF.</div>
                 </div>
 
-                <!-- Feature 6: Mehrere Fahrzeuge -->
                 <div class="feature-card" data-feature="multi-vehicle">
                     <div class="feature-icon">
                         <svg viewBox="0 0 48 48" style="width:28px;height:28px;">
@@ -567,7 +434,6 @@
                     <div class="feature-desc">Verwalten Sie mehrere Fahrzeuge in einem Konto. Verfolgen Sie Kraftstoff, Wartung und Kosten für jedes Fahrzeug separat.</div>
                 </div>
 
-                <!-- Feature 7: Zukunftsvorhersage -->
                 <div class="feature-card" data-feature="ai-predict">
                     <div class="feature-icon">
                         <svg viewBox="0 0 24 24"><path d="M16 6l2.29 2.29-4.88 4.88-4-4L2 16.59 3.41 18l6-6 4 4 6.3-6.29L22 12V6z"/></svg>
@@ -576,7 +442,6 @@
                     <div class="feature-desc">Sagen Sie zukünftige Kraftstoff- und Wartungskosten mit KI-gestützten Vorhersagen voraus und planen Sie Ihr Budget.</div>
                 </div>
 
-                <!-- Feature 8: Offline-Modus -->
                 <div class="feature-card" data-feature="offline">
                     <div class="feature-icon">
                         <svg viewBox="0 0 24 24"><path d="M1 9l2 2c4.97-4.97 13.03-4.97 18 0l2-2C16.93 2.93 7.08 2.93 1 9zm8 8l3 3 3-3c-1.65-1.66-4.34-1.66-6 0zm-4-4l2 2c2.76-2.76 7.24-2.76 10 0l2-2C15.14 9.14 8.87 9.14 5 13z"/><line x1="21.7" y1="2.3" x2="2.3" y2="21.7" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
@@ -585,7 +450,6 @@
                     <div class="feature-desc">Nutzen Sie die App auch ohne Internetverbindung. Ihre Daten werden sicher auf Ihrem Gerät gespeichert und bei Verbindung automatisch synchronisiert.</div>
                 </div>
 
-                <!-- Feature 9: PDF-Export -->
                 <div class="feature-card" data-feature="pdf-export">
                     <div class="feature-icon">
                         <svg viewBox="0 0 24 24"><path d="M20 2H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-8.5 7.5c0 .83-.67 1.5-1.5 1.5H9v2H7.5V7H10c.83 0 1.5.67 1.5 1.5v1zm5 2c0 .83-.67 1.5-1.5 1.5h-2.5V7H15c.83 0 1.5.67 1.5 1.5v3zm4-3H19v1h1.5V11H19v2h-1.5V7h3v1.5zM9 9.5h1v-1H9v1zM4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6zm10 5.5h1v-3h-1v3z"/></svg>
@@ -597,9 +461,7 @@
         </div>
     </section>
 
-    <!-- Problems Section -->
     <section class="problems-section" id="problems" aria-labelledby="problems-title">
-        <!-- Floating Particles -->
         <div class="section-particles">
             <div class="section-particle" style="--delay:0.2s;--dur:10s;--x:8%;--y:15%;--size:3px;--drift:-28px"></div>
             <div class="section-particle" style="--delay:1.2s;--dur:13s;--x:18%;--y:30%;--size:2px;--drift:34px"></div>
@@ -630,7 +492,6 @@
                 <p class="problems-subtitle">Entdecken Sie, wie wir häufige Probleme mit Drivarc lösen.</p>
             </div>
             <div class="problems-grid">
-                <!-- Problem 1: Kraftstoffverfolgung -->
                 <div class="problem-card animate-on-scroll">
                     <div class="problem-layout">
                         <div class="problem-panel problem-panel--pain">
@@ -660,7 +521,6 @@
                     </div>
                 </div>
 
-                <!-- Problem 2: Wartungserinnerung -->
                 <div class="problem-card animate-on-scroll">
                     <div class="problem-layout">
                         <div class="problem-panel problem-panel--pain">
@@ -690,7 +550,6 @@
                     </div>
                 </div>
 
-                <!-- Problem 3: Kostenverfolgung -->
                 <div class="problem-card animate-on-scroll">
                     <div class="problem-layout">
                         <div class="problem-panel problem-panel--pain">
@@ -720,7 +579,6 @@
                     </div>
                 </div>
 
-                <!-- Problem 4: Papierbasierte Verfolgung -->
                 <div class="problem-card animate-on-scroll">
                     <div class="problem-layout">
                         <div class="problem-panel problem-panel--pain">
@@ -750,7 +608,6 @@
                     </div>
                 </div>
 
-                <!-- Problem 5: Kraftstoffverbrauchsanalyse -->
                 <div class="problem-card animate-on-scroll">
                     <div class="problem-layout">
                         <div class="problem-panel problem-panel--pain">
@@ -780,7 +637,6 @@
                     </div>
                 </div>
 
-                <!-- Problem 6: Fahrzeugverkauf -->
                 <div class="problem-card animate-on-scroll">
                     <div class="problem-layout">
                         <div class="problem-panel problem-panel--pain">
@@ -813,9 +669,7 @@
         </div>
     </section>
 
-    <!-- FAQ Section -->
     <section class="faq-section" id="faq" aria-labelledby="faq-title">
-        <!-- Floating Particles -->
         <div class="section-particles">
             <div class="section-particle" style="--delay:0.1s;--dur:10s;--x:7%;--y:12%;--size:2px;--drift:-24px"></div>
             <div class="section-particle" style="--delay:1.1s;--dur:13s;--x:17%;--y:28%;--size:3px;--drift:32px"></div>
@@ -901,7 +755,6 @@
                     </div>
                 </div>
             </div>
-            <!-- FAQ CTA -->
             <div class="faq-cta animate-on-scroll">
                 <p class="faq-cta-text">Noch eine Frage?</p>
                 <a href="mailto:contact@drivarc.com" class="btn btn-faq-cta">
@@ -912,7 +765,6 @@
 
             </div>
 
-            <!-- Footer -->
             <footer class="site-footer" role="contentinfo" aria-label="Site-Fußzeile">
                 <div class="footer-inner">
                     <div class="footer-links">
@@ -925,7 +777,6 @@
         </div>
     </section>
 
-    <!-- Beta Modal -->
     <div class="beta-modal-overlay" id="betaModal">
         <div class="beta-modal">
             <div class="beta-modal-icon">
@@ -937,7 +788,6 @@
         </div>
     </div>
 
-    <!-- App Store Modal -->
     <div class="beta-modal-overlay" id="appStoreModal">
         <div class="beta-modal">
             <div class="beta-modal-icon">
@@ -949,10 +799,8 @@
         </div>
     </div>
 
-    <!-- Cookie Overlay -->
     <div class="cookie-overlay" id="cookieOverlay"></div>
 
-    <!-- Cookie Consent Banner -->
     <div class="cookie-consent" id="cookieConsent" role="dialog" aria-label="Cookie-Einwilligung" aria-describedby="cookieConsentDesc">
         <div class="cookie-consent-content">
             <div class="cookie-consent-text">
@@ -974,7 +822,6 @@
         </div>
     </div>
 
-    <!-- Cookie Settings Modal -->
     <div class="cookie-settings-modal" id="cookieSettingsModal" role="dialog" aria-label="Cookie-Einstellungen" aria-modal="true">
         <div class="cookie-settings-modal-content">
             <h3 class="cookie-settings-title">Cookie-Einstellungen</h3>
@@ -1011,7 +858,6 @@
         </div>
     </div>
 
-    <!-- Decline Re-prompt Modal -->
     <div class="decline-reprompt-modal" id="declineRepromptModal" role="dialog" aria-label="Sind Sie sicher?" aria-modal="true">
         <div class="decline-reprompt-modal-content">
             <div class="decline-reprompt-icon">
