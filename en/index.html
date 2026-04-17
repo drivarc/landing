@@ -36,7 +36,7 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="apple-mobile-web-app-title" content="Drivarc">
 
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://www.google-analytics.com; connect-src 'self' https://www.googletagmanager.com https://www.google-analytics.com; font-src 'self'; object-src 'none'; base-uri 'self'; frame-src 'none'; frame-ancestors 'none';">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://www.google-analytics.com; connect-src 'self' https://www.googletagmanager.com https://www.google-analytics.com; font-src 'self'; object-src 'none'; base-uri 'self'; frame-src 'none';">
     <meta name="referrer" content="strict-origin-when-cross-origin">
     <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(), payment=(), usb=(), magnetometer=(), gyroscope=(), accelerometer=()">
 
@@ -57,10 +57,10 @@
     <meta name="twitter:image" content="https://drivarc.com/images/logoxxxhdpi.png">
     <meta name="twitter:site" content="@drivarc_app">
 
-    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../styles.min.css">
     <script src="../seo-jsonld.js" defer></script>
     <script src="../analytics.js" defer></script>
-    <script src="../app.js" defer></script>
+    <script src="../app.min.js" defer></script>
 </head>
 <body class="index-page">
     <noscript>
@@ -81,7 +81,7 @@
 
         <header class="header">
             <div class="header-inner">
-                <a href="../en/" class="logo"><img src="../images/logoxxxhdpi.png" alt="Drivarc Logo" class="logo-img" width="150" height="40" loading="eager" fetchpriority="high"></a>
+                <a href="../en/" class="logo"><img src="../images/logo-256.png" srcset="../images/logo-256.png 1x, ../images/logo-512.png 2x" alt="Drivarc Logo" class="logo-img" width="128" height="36" loading="eager" fetchpriority="high"></a>
                 <nav class="nav" aria-label="Main menu">
                     <a href="#hero" class="active">Home</a>
                     <a href="#features">Features</a>

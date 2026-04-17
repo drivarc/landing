@@ -8,6 +8,14 @@ const iconMoon = document.querySelector('.icon-moon');
 const iconSun = document.querySelector('.icon-sun');
 const html = document.documentElement;
 
+function ensureAnalyticsLoaded() {
+    if (typeof window.drivarcEnsureAnalyticsLoaded === 'function') {
+        try {
+            window.drivarcEnsureAnalyticsLoaded();
+        } catch (e) { }
+    }
+}
+
 // Para birimi haritası: her dil için gösterilecek kod ve sayısal format locale
 const currencyMapping = {
     'tr': { code: 'TL', locale: 'tr-TR' },
@@ -910,6 +918,7 @@ if (document.readyState !== 'loading') {
             marketing: false
         };
         saveConsent(prefs);
+        ensureAnalyticsLoaded();
         gtagConsentUpdate(true);
         hideBanner();
         trackEvent('cookie_consent', { action: 'accept_all' });
@@ -984,6 +993,9 @@ if (document.readyState !== 'loading') {
             marketing: false
         };
         saveConsent(prefs);
+        if (analyticsEnabled) {
+            ensureAnalyticsLoaded();
+        }
         gtagConsentUpdate(analyticsEnabled);
         closeSettingsModal();
         hideBanner();
@@ -1067,6 +1079,7 @@ if (document.readyState !== 'loading') {
             showBanner();
         } else {
             if (prefs.analytics) {
+                ensureAnalyticsLoaded();
                 gtagConsentUpdate(true);
             } else {
                 gtagConsentUpdate(false);

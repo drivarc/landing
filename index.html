@@ -35,7 +35,7 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="apple-mobile-web-app-title" content="Drivarc">
 
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://www.google-analytics.com; connect-src 'self' https://www.googletagmanager.com https://www.google-analytics.com; font-src 'self'; object-src 'none'; base-uri 'self'; frame-src 'none'; frame-ancestors 'none';">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://www.google-analytics.com; connect-src 'self' https://www.googletagmanager.com https://www.google-analytics.com; font-src 'self'; object-src 'none'; base-uri 'self'; frame-src 'none';">
     <meta name="referrer" content="strict-origin-when-cross-origin">
     <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(), payment=(), usb=(), magnetometer=(), gyroscope=(), accelerometer=()">
 
@@ -56,10 +56,10 @@
     <meta name="twitter:image" content="https://drivarc.com/images/logoxxxhdpi.png">
     <meta name="twitter:site" content="@drivarc_app">
 
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.min.css">
         <script src="seo-jsonld.js" defer></script>
     <script src="analytics.js" defer></script>
-    <script src="app.js" defer></script>
+    <script src="app.min.js" defer></script>
 </head>
 <body class="index-page">
     <a href="#main-content" class="skip-link" aria-label="İçeriğe atla">İçeriğe atla</a>
@@ -83,7 +83,7 @@
         <header class="header">
             <div class="header-inner">
                 <img src="images/ataturk.png" alt="Mustafa Kemal Atatürk" class="ataturk-portrait is-hidden" id="ataturkPortrait">
-                <a href="#hero" class="logo"><img src="images/logoxxxhdpi.png" alt="Drivarc Logo" class="logo-img" width="150" height="40" loading="eager" fetchpriority="high"></a>
+                <a href="#hero" class="logo"><img src="images/logo-256.png" srcset="images/logo-256.png 1x, images/logo-512.png 2x" alt="Drivarc Logo" class="logo-img" width="128" height="36" loading="eager" fetchpriority="high"></a>
                 <nav class="nav" aria-label="Ana menü">
                     <a href="#hero" class="active">Ana Sayfa</a>
                     <a href="#features">Özellikler</a>
@@ -124,7 +124,7 @@
             </div>
         </header>
 
-        <div class="hero-content" id="main-content">
+        <main class="hero-content" id="main-content">
             <div class="hero-particles">
                 <div class="hero-particle" style="--delay:0s;--dur:9s;--x:5%;--y:10%;--size:2px;--drift:-22px"></div>
                 <div class="hero-particle" style="--delay:1s;--dur:12s;--x:15%;--y:25%;--size:3px;--drift:30px"></div>
@@ -346,7 +346,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </main>
     </div>
 
     <section class="features-section" id="features" aria-labelledby="features-title">
