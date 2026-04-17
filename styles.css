@@ -3228,6 +3228,12 @@ html.touch-device .maintenance-status-card .status-item:hover {
     }
 }
 
+@media (min-width: 1025px) {
+    .faq-section {
+        padding-bottom: 180px;
+    }
+}
+
 .footer-inner {
     max-width: 100%;
     margin: 0 24px;
