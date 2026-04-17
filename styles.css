@@ -3210,7 +3210,7 @@ html.touch-device .maintenance-status-card .status-item:hover {
     bottom: 0;
     left: 0;
     right: 0;
-    z-index: 100;
+    z-index: 9999;
     border-top: 1px solid var(--border);
     padding: 12px 24px;
     background: var(--bg-primary);
