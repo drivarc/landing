@@ -372,6 +372,7 @@ const allSectionsExist = sectionIds.every(id => document.getElementById(id));
 
 let currentSectionIndex = 0;
 let isScrolling = false;
+let scrollUnlockTimeout = null;
 const SCROLL_COOLDOWN = isMobile ? 350 : 800; // ms (shorter cooldown on touch/mobile devices)
 
 function getCurrentSectionIndex() {
@@ -391,11 +392,59 @@ function getCurrentSectionIndex() {
 }
 
 const logoLink = document.querySelector('.logo[href^="index.html"], .logo[href="/"], .logo[href="../en/"], .logo[href="../de/"], .logo[href="../ru/"], .logo[href="../ar/"]');
+const scrollLockTargets = [document.querySelector('.nav'), logoLink].filter(Boolean);
+
+function setHeaderScrollLocked(isLocked) {
+    scrollLockTargets.forEach((element) => {
+        element.style.pointerEvents = isLocked ? 'none' : '';
+        element.style.cursor = isLocked ? 'progress' : '';
+    });
+}
+
+function unlockScrolling() {
+    if (scrollUnlockTimeout) {
+        clearTimeout(scrollUnlockTimeout);
+        scrollUnlockTimeout = null;
+    }
+
+    isScrolling = false;
+    setHeaderScrollLocked(false);
+}
+
+function scheduleScrollUnlock() {
+    if (scrollUnlockTimeout) {
+        clearTimeout(scrollUnlockTimeout);
+    }
+
+    const unlock = () => {
+        if (!isScrolling) return;
+        unlockScrolling();
+    };
+
+    if ('onscrollend' in window) {
+        const onScrollEnd = () => {
+            window.removeEventListener('scrollend', onScrollEnd);
+            unlock();
+        };
+
+        window.addEventListener('scrollend', onScrollEnd, { once: true });
+        scrollUnlockTimeout = setTimeout(() => {
+            window.removeEventListener('scrollend', onScrollEnd);
+            unlock();
+        }, SCROLL_COOLDOWN + 250);
+        return;
+    }
+
+    scrollUnlockTimeout = setTimeout(unlock, SCROLL_COOLDOWN);
+}
+
 if (logoLink) {
     logoLink.addEventListener('click', (e) => {
-        if (allSectionsExist) {
+        if (allSectionsExist && !isScrolling) {
             e.preventDefault();
             scrollToSection(0);
+        } else if (isScrolling) {
+            e.preventDefault();
         }
     });
 }
@@ -404,16 +453,25 @@ if (allSectionsExist) {
 
 currentSectionIndex = getCurrentSectionIndex();
 
-function scrollToSection(index) {
-    if (index < 0 || index >= sectionIds.length || isScrolling) return;
+function scrollToSection(index, options = {}) {
+    const { updateHistory = false } = options;
+
+    if (index < 0 || index >= sectionIds.length) return;
+
+    if (isScrolling) return;
 
     isScrolling = true;
+    setHeaderScrollLocked(true);
     currentSectionIndex = index;
 
     const section = document.getElementById(sectionIds[index]);
     if (!section) {
-        isScrolling = false;
+        unlockScrolling();
         return;
+    }
+
+    if (updateHistory) {
+        history.pushState(null, null, `#${sectionIds[index]}`);
     }
 
     updateSectionVisibility(index);
@@ -426,9 +484,7 @@ function scrollToSection(index) {
     updateFooterVisibility();
     updateScrollProgress(); // Progress bar'ı güncelle
 
-    setTimeout(() => {
-        isScrolling = false;
-    }, SCROLL_COOLDOWN);
+    scheduleScrollUnlock();
 }
 
 function updateSectionVisibility(activeIndex) {
@@ -509,11 +565,12 @@ if (allSectionsExist) {
             const href = link.getAttribute('href');
             if (href && href.startsWith('#')) {
                 e.preventDefault();
+                if (isScrolling) return;
+
                 const sectionId = href.substring(1);
                 const index = sectionIds.indexOf(sectionId);
                 if (index !== -1) {
-                    scrollToSection(index);
-                    history.pushState(null, null, href);
+                    scrollToSection(index, { updateHistory: true });
                 }
             }
         });
