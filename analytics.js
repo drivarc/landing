@@ -40,4 +40,11 @@
   // Additional consent-related settings
   gtag('set', 'url_passthrough', true);
   gtag('set', 'ads_data_redaction', false);
+
+  // Expose an event tracker helper for desktop_signup CTA
+  window.drivarcTrack = function(eventName, params) {
+    if (window.gtag) {
+      window.gtag('event', eventName, params || {});
+    }
+  };
 })();

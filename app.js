@@ -8,6 +8,20 @@ const iconMoon = document.querySelector('.icon-moon');
 const iconSun = document.querySelector('.icon-sun');
 const html = document.documentElement;
 
+// Para birimi haritası: her dil için gösterilecek kod ve sayısal format locale
+const currencyMapping = {
+    'tr': { code: 'TL', locale: 'tr-TR' },
+    'en': { code: 'USD', locale: 'en-US' },
+    'de': { code: 'EUR', locale: 'de-DE' },
+    'ru': { code: 'RUB', locale: 'ru-RU' },
+    'ar': { code: 'SAR', locale: 'ar-SA' }
+};
+
+function getCurrencyInfo() {
+    const lang = document.documentElement.lang || 'tr';
+    return currencyMapping[lang] || { code: 'USD', locale: 'en-US' };
+}
+
 if (isMobile) {
     html.classList.add('touch-device');
 }
@@ -180,8 +194,9 @@ function initPhone3D() {
 }
 
 function animateCounter(element, target, duration = 1500) {
+    const currencyInfo = getCurrencyInfo();
     if (prefersReducedMotion) {
-        element.textContent = target.toLocaleString('tr-TR') + ' TL';
+        element.textContent = target.toLocaleString(currencyInfo.locale) + ' ' + currencyInfo.code;
         return;
     }
 
@@ -198,7 +213,7 @@ function animateCounter(element, target, duration = 1500) {
         const easedProgress = easeOutExpo(progress);
         const currentValue = Math.round(start + (target - start) * easedProgress);
 
-        element.textContent = currentValue.toLocaleString('tr-TR') + ' TL';
+        element.textContent = currentValue.toLocaleString(currencyInfo.locale) + ' ' + currencyInfo.code;
         element.classList.add('counting');
 
         if (progress < 1) {
