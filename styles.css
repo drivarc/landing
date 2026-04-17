@@ -5079,3 +5079,34 @@ html.touch-device .maintenance-status-card .status-item:hover {
     opacity: 1;
     text-decoration: none;
 }
+
+/* Language dropdown: prevent highlight overflow and long-text overflow */
+.lang-dropdown {
+    right: 0;
+    left: auto;
+    box-sizing: border-box;
+    max-width: calc(100vw - 32px);
+    overflow: hidden;
+}
+
+.lang-option {
+    box-sizing: border-box;
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.lang-option.active {
+    border-radius: 8px;
+    background-clip: padding-box;
+    color: var(--accent-light);
+    background: var(--active-bg);
+}
+
+/* Make active language option non-interactive */
+.lang-option[aria-disabled="true"] {
+    pointer-events: none;
+    cursor: default;
+    opacity: 0.95;
+}
