@@ -8,6 +8,10 @@ const iconMoon = document.querySelector('.icon-moon');
 const iconSun = document.querySelector('.icon-sun');
 const html = document.documentElement;
 
+if (isMobile) {
+    html.classList.add('touch-device');
+}
+
 const savedTheme = localStorage.getItem('theme') || 'dark';
 if (savedTheme === 'light') {
     html.setAttribute('data-theme', 'light');

@@ -15,6 +15,18 @@
       "purpose": "any maskable"
     }
   ],
+  "screenshots": [
+    {
+      "src": "/og-image.svg",
+      "sizes": "1200x630",
+      "type": "image/svg+xml"
+    },
+    {
+      "src": "/images/logoxxxhdpi.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
   "categories": ["utilities", "productivity"],
   "lang": "tr",
   "dir": "ltr"

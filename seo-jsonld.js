@@ -80,7 +80,9 @@
     applicationCategory: 'UtilitiesApplication',
     operatingSystem: 'Android, iOS',
     url: siteUrl,
-    image: 'https://drivarc.com/images/harflogo.png',
+    image: 'https://drivarc.com/images/Harflogo.png',
+    softwareVersion: '1.0.0',
+    isAccessibleForFree: true,
     offers: {
       '@type': 'Offer',
       price: '0',
