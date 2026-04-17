@@ -28,6 +28,10 @@
     <link rel="apple-touch-icon" sizes="512x512" href="/images/Harflogo.png">
     <link rel="apple-touch-icon-precomposed" sizes="512x512" href="/images/Harflogo.png">
 
+    <link rel="preload" href="/fonts/Inter-400.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/fonts/Inter-500.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/fonts/Inter-600.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/fonts/Inter-700.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="manifest" href="../manifest.json">
     <meta name="theme-color" content="#1a73e8">
     <meta name="msapplication-TileColor" content="#1a73e8">
@@ -57,12 +61,15 @@
     <meta name="twitter:image" content="https://drivarc.com/images/logoxxxhdpi.png">
     <meta name="twitter:site" content="@drivarc_app">
 
-    <link rel="stylesheet" href="../styles.min.css">
+    <link rel="preload" href="../styles.min.css" as="style">
+    <link rel="stylesheet" href="../styles.min.css" media="print" id="siteStyles">
+    <noscript><link rel="stylesheet" href="../styles.min.css"></noscript>
     <script src="../seo-jsonld.js" defer></script>
     <script src="../analytics.js" defer></script>
     <script src="../app.min.js" defer></script>
 </head>
 <body class="index-page">
+    <a href="#main-content" class="skip-link" aria-label="Перейти к содержимому">Перейти к содержимому</a>
     <noscript>
         <div style="text-align:center; padding:40px 20px; font-family:'Inter',system-ui,sans-serif; max-width:600px; margin:0 auto;">
             <h1 style="font-size:24px; margin-bottom:16px;">Требуется JavaScript</h1>
@@ -121,7 +128,7 @@
             </div>
         </header>
 
-        <div class="hero-content">
+        <div class="hero-content" id="main-content" role="main">
             <div class="hero-particles">
                 <div class="hero-particle" style="--delay:0s;--dur:9s;--x:5%;--y:10%;--size:2px;--drift:-22px"></div>
                 <div class="hero-particle" style="--delay:1s;--dur:12s;--x:15%;--y:25%;--size:3px;--drift:30px"></div>

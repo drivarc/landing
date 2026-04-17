@@ -5177,3 +5177,9 @@ html.touch-device .maintenance-status-card .status-item:hover {
         padding-bottom: 180px;
     }
 }
+
+/* Performance optimization */
+.features-section, .problems-section, .faq-section {
+    content-visibility: auto;
+    contain-intrinsic-size: 100vh;
+}
