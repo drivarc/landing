@@ -64,6 +64,17 @@
     <link rel="preload" href="../styles.min.css" as="style">
     <link rel="stylesheet" href="../styles.min.css" media="print" id="siteStyles">
     <noscript><link rel="stylesheet" href="../styles.min.css"></noscript>
+    <style>
+        /* Override: disable CSS-based slide for finance wave to avoid double-transform artifacts */
+        .finance-wave svg {
+            animation: none !important;
+            width: 100% !important;
+            height: 100% !important;
+            display: block !important;
+            will-change: transform;
+            transform-origin: 0 0;
+        }
+    </style>
     <script src="../seo-jsonld.js" defer></script>
     <script src="../analytics.js" defer></script>
     <script src="../app.min.js" defer></script>
@@ -274,17 +285,23 @@
                             <div class="finance-card">
                                 <div class="finance-card-bg"></div>
                                 <div class="finance-wave">
-                                    <svg viewBox="0 0 560 80" preserveAspectRatio="none">
-                                        <defs>
-                                            <linearGradient id="waveGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-                                                <stop offset="0%" stop-color="rgba(169,199,255,0.4)"/>
-                                                <stop offset="100%" stop-color="transparent"/>
-                                            </linearGradient>
-                                        </defs>
-                                        <path d="M0,60 Q35,50 70,55 T140,60 T210,65 T280,60 Q315,50 350,55 T420,60 T490,65 T560,60 L560,80 L0,80 Z" fill="url(#waveGrad)"/>
-                                        <path d="M0,60 Q35,50 70,55 T140,60 T210,65 T280,60 Q315,50 350,55 T420,60 T490,65 T560,60" fill="none" stroke="rgba(169,199,255,0.6)" stroke-width="1.5"/>
-                                    </svg>
-                                </div>
+                                        <svg viewBox="0 0 560 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+                                            <defs>
+                                                <linearGradient id="waveGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                                                    <stop offset="0%" stop-color="rgba(169,199,255,0.4)"/>
+                                                    <stop offset="100%" stop-color="transparent"/>
+                                                </linearGradient>
+                                                <pattern id="wavePattern" patternUnits="userSpaceOnUse" width="560" height="80">
+                                                    <g>
+                                                        <path d="M0,60 Q35,50 70,55 T140,60 T210,65 T280,60 Q315,50 350,55 T420,60 T490,65 T560,60 L560,80 L0,80 Z" fill="url(#waveGrad)"/>
+                                                        <path d="M0,60 Q35,50 70,55 T140,60 T210,65 T280,60 Q315,50 350,55 T420,60 T490,65 T560,60" fill="none" stroke="rgba(169,199,255,0.6)" stroke-width="1.5"/>
+                                                    </g>
+                                                    <animateTransform attributeName="patternTransform" type="translate" from="0 0" to="-560 0" dur="6s" repeatCount="indefinite" />
+                                                </pattern>
+                                            </defs>
+                                            <rect x="0" y="0" width="100%" height="100%" fill="url(#wavePattern)" />
+                                        </svg>
+                                    </div>
                                 <div class="finance-card-overlay"></div>
                                 <div class="finance-card-content">
                                     <div class="finance-card-header">
