@@ -16,6 +16,57 @@ function ensureAnalyticsLoaded() {
     }
 }
 
+let analyticsLoadHandle = null;
+
+function scheduleAnalyticsLoad() {
+    if (analyticsLoadHandle !== null) return;
+
+    if (typeof window.requestIdleCallback === 'function') {
+        analyticsLoadHandle = window.requestIdleCallback(() => {
+            analyticsLoadHandle = null;
+            ensureAnalyticsLoaded();
+        }, { timeout: 5000 });
+        return;
+    }
+
+    analyticsLoadHandle = window.setTimeout(() => {
+        analyticsLoadHandle = null;
+        ensureAnalyticsLoaded();
+    }, 3000);
+}
+
+let webpSupportChecked = false;
+let webpSupported = false;
+
+function supportsWebp() {
+    if (webpSupportChecked) return webpSupported;
+
+    webpSupportChecked = true;
+
+    try {
+        const canvas = document.createElement('canvas');
+        webpSupported = !!(canvas.getContext && canvas.toDataURL('image/webp').indexOf('data:image/webp') === 0);
+    } catch (e) {
+        webpSupported = false;
+    }
+
+    return webpSupported;
+}
+
+function shouldLoadAtaturkPortrait() {
+    return window.matchMedia('(min-width: 1025px)').matches;
+}
+
+function getAtaturkPortraitSrc(ataturkPortrait) {
+    if (!ataturkPortrait) return '';
+
+    if (supportsWebp()) {
+        return ataturkPortrait.dataset.srcWebp || ataturkPortrait.dataset.srcPng || '';
+    }
+
+    return ataturkPortrait.dataset.srcPng || ataturkPortrait.dataset.srcWebp || '';
+}
+
 // Para birimi haritası: her dil için gösterilecek kod ve sayısal format locale
 const currencyMapping = {
     'tr': { code: 'TL', locale: 'tr-TR' },
@@ -630,7 +681,11 @@ function showHolidayText() {
 
         if (footerHoliday) footerHoliday.classList.remove('is-hidden');
 
-        if (holiday.showAtaturk) {
+        if (holiday.showAtaturk && ataturkPortrait && shouldLoadAtaturkPortrait()) {
+            var ataturkSrc = getAtaturkPortraitSrc(ataturkPortrait);
+            if (ataturkSrc && ataturkPortrait.getAttribute('src') !== ataturkSrc) {
+                ataturkPortrait.src = ataturkSrc;
+            }
             ataturkPortrait.classList.remove('is-hidden');
             ataturkPortrait.style.display = 'block';
             headerInner.classList.add('has-ataturk');
@@ -1079,8 +1134,8 @@ if (document.readyState !== 'loading') {
             showBanner();
         } else {
             if (prefs.analytics) {
-                ensureAnalyticsLoaded();
                 gtagConsentUpdate(true);
+                scheduleAnalyticsLoad();
             } else {
                 gtagConsentUpdate(false);
             }
