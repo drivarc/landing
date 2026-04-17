@@ -17,22 +17,41 @@ function ensureAnalyticsLoaded() {
 }
 
 let analyticsLoadHandle = null;
+let analyticsLoadArmed = false;
 
-function scheduleAnalyticsLoad() {
-    if (analyticsLoadHandle !== null) return;
+function activateDeferredStylesheet() {
+    const siteStyles = document.getElementById('siteStyles');
+    if (siteStyles && siteStyles.media !== 'all') {
+        siteStyles.media = 'all';
+    }
+}
 
-    if (typeof window.requestIdleCallback === 'function') {
-        analyticsLoadHandle = window.requestIdleCallback(() => {
-            analyticsLoadHandle = null;
-            ensureAnalyticsLoaded();
-        }, { timeout: 5000 });
-        return;
+activateDeferredStylesheet();
+
+function loadAnalyticsNow() {
+    if (analyticsLoadHandle !== null) {
+        window.clearTimeout(analyticsLoadHandle);
+        analyticsLoadHandle = null;
     }
 
-    analyticsLoadHandle = window.setTimeout(() => {
-        analyticsLoadHandle = null;
-        ensureAnalyticsLoaded();
-    }, 3000);
+    analyticsLoadArmed = false;
+    ensureAnalyticsLoaded();
+}
+
+function scheduleAnalyticsLoad() {
+    if (analyticsLoadHandle !== null || analyticsLoadArmed) return;
+
+    analyticsLoadArmed = true;
+
+    const triggerAnalyticsLoad = () => {
+        loadAnalyticsNow();
+    };
+
+    ['pointerdown', 'keydown', 'touchstart', 'wheel'].forEach((eventName) => {
+        window.addEventListener(eventName, triggerAnalyticsLoad, { once: true, passive: true });
+    });
+
+    analyticsLoadHandle = window.setTimeout(loadAnalyticsNow, 30000);
 }
 
 let webpSupportChecked = false;
@@ -171,7 +190,7 @@ function updateGridParallax(e) {
 }
 
 function createRipple(event) {
-    if (prefersReducedMotion) return;
+    if (prefersReducedMotion || isMobile) return;
     const button = event.currentTarget;
     const circle = document.createElement('span');
     const diameter = Math.max(button.clientWidth, button.clientHeight);
@@ -199,7 +218,7 @@ function initPhone3D() {
     const heroSection = document.getElementById('hero');
     const phone = document.querySelector('.phone');
 
-    if (!heroSection || !phone || prefersReducedMotion) return;
+    if (isMobile || !heroSection || !phone || prefersReducedMotion) return;
 
     let isMouseOverHero = false;
     let rafId = null;

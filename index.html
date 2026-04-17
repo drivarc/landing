@@ -56,8 +56,269 @@
     <meta name="twitter:image" content="https://drivarc.com/images/logoxxxhdpi.png">
     <meta name="twitter:site" content="@drivarc_app">
 
-    <link rel="stylesheet" href="styles.min.css">
-        <script src="seo-jsonld.js" defer></script>
+    <style>
+        :root {
+            color-scheme: dark;
+        }
+
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            background: #111318;
+            color: #e2e2e9;
+            font-family: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        }
+
+        body.index-page {
+            min-height: 100dvh;
+        }
+
+        .skip-link {
+            position: absolute;
+            top: -100%;
+            left: 16px;
+            z-index: 10000;
+            padding: 12px 24px;
+            background: #a9c7ff;
+            color: #111318;
+            font-weight: 600;
+            font-size: 14px;
+            border-radius: 0 0 8px 8px;
+            text-decoration: none;
+            transition: top 0.2s ease;
+        }
+
+        .skip-link:focus {
+            top: 0;
+        }
+
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: transparent;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: rgba(17, 19, 24, 0.8);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(142, 144, 153, 0.3);
+            z-index: -1;
+        }
+
+        .header-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+            height: 64px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: relative;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+
+        .logo-img {
+            height: 36px;
+            width: auto;
+            display: block;
+        }
+
+        .hero-section {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            z-index: 3;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 120px 24px 120px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 100px;
+            flex: 1;
+            min-height: 0;
+        }
+
+        .hero-text {
+            flex: 1;
+        }
+
+        .hero-phone {
+            flex: 0 0 auto;
+        }
+
+        .hero-title {
+            font-size: clamp(32px, 4vw, 48px);
+            font-weight: 700;
+            line-height: 1.15;
+            letter-spacing: -0.02em;
+            color: #e2e2e9;
+            margin-bottom: 16px;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(14px, 1.5vw, 16px);
+            font-weight: 400;
+            line-height: 1.6;
+            color: #c4c6cf;
+            max-width: 480px;
+            margin: 0 0 32px 0;
+        }
+
+        .hero-actions {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .trust-badges {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-top: 32px;
+        }
+
+        .hero-particles {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            position: relative;
+        }
+
+        .control-btn {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            height: 36px;
+            padding: 0 12px;
+            border-radius: 10px;
+            border: 1px solid rgba(142, 144, 153, 0.3);
+            background: transparent;
+            color: #c4c6cf;
+            font: inherit;
+        }
+
+        .lang-wrapper {
+            position: relative;
+        }
+
+        .lang-dropdown {
+            position: absolute;
+            top: calc(100% + 8px);
+            right: 0;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-8px);
+        }
+
+        .lang-dropdown.open {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .nav a {
+            color: #c4c6cf;
+            text-decoration: none;
+        }
+
+        @media (max-width: 800px) {
+            .nav,
+            .phone-container,
+            .hero-phone,
+            .hero-particles {
+                display: none;
+            }
+
+            .hero-section {
+                padding-top: 64px;
+            }
+
+            .header-inner {
+                padding: 0 16px;
+            }
+
+            .hero-content {
+                flex-direction: column;
+                text-align: center;
+                padding: 80px 20px 40px;
+                gap: 32px;
+            }
+
+            .hero-subtitle {
+                margin-left: auto;
+                margin-right: auto;
+                max-width: 100%;
+            }
+
+            .hero-actions {
+                justify-content: center;
+                width: 100%;
+            }
+
+            .trust-badges {
+                justify-content: center;
+                flex-wrap: wrap;
+                gap: 12px;
+            }
+        }
+
+        @media (min-width: 1025px) {
+            .hero-content {
+                align-items: center;
+                padding: 120px 24px 120px;
+            }
+
+            .features-section,
+            .problems-section,
+            .faq-section {
+                padding-top: 50px;
+                scroll-margin-top: 50px;
+            }
+        }
+
+    </style>
+    <link rel="preload" href="styles.min.css" as="style">
+    <link rel="stylesheet" href="styles.min.css" media="print" id="siteStyles">
+    <noscript><link rel="stylesheet" href="styles.min.css"></noscript>
+    <script src="seo-jsonld.js" defer></script>
     <script src="analytics.js" defer></script>
     <script src="app.min.js" defer></script>
 </head>

@@ -295,7 +295,7 @@ body::before {
         linear-gradient(90deg, var(--grid-color) 1px, transparent 1px);
     background-size: 40px 40px;
     pointer-events: none;
-    z-index: -1;
+    z-index: 0;
 }
 
 .grid-background::after {
@@ -318,7 +318,7 @@ body::before {
     background: transparent;
     display: flex;
     flex-direction: column;
-    z-index: 1;
+    z-index: 3;
 }
 
 
@@ -395,7 +395,7 @@ body::before {
 }
 
 .grid-background {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     right: 0;
@@ -405,6 +405,7 @@ body::before {
         linear-gradient(90deg, var(--grid-color) 1px, transparent 1px);
     background-size: 40px 40px;
     pointer-events: none;
+    z-index: 0;
 }
 
 .grid-background::after {
@@ -425,7 +426,7 @@ body::before {
     top: 0;
     left: 0;
     right: 0;
-    z-index: 100;
+    z-index: 1000;
     background: transparent;
     transition: background 0.3s ease, border-color 0.3s ease;
 }
@@ -639,8 +640,8 @@ body::before {
 
 @media (max-width: 480px) {
     .zafer-text {
-        font-size: 8px;
-        max-width: 170px;
+    padding-top: 68px;
+    scroll-margin-top: 68px;
         position: absolute;
         right: auto;
         left: 50%;
@@ -3237,6 +3238,18 @@ html.touch-device .maintenance-status-card .status-item:hover {
 }
 
 @media (min-width: 1025px) {
+    .hero-content {
+        align-items: flex-start;
+        padding-top: 68px;
+    }
+
+    .features-section,
+    .problems-section,
+    .faq-section {
+        padding-top: 68px;
+        scroll-margin-top: 68px;
+    }
+
     .faq-section {
         padding-bottom: 180px;
     }
@@ -3453,6 +3466,26 @@ html.touch-device .maintenance-status-card .status-item:hover {
     
     .phone-container { display: none; }
     .hero-phone { display: none; }
+    .hero-particles,
+    .hero-particle,
+    .hero-particle-glow {
+        display: none;
+    }
+    .hero-title,
+    .hero-subtitle,
+    .hero-actions,
+    .trust-badges {
+        animation: none;
+        opacity: 1;
+        transform: none;
+    }
+    .scroll-progress-bar-fill {
+        animation: none;
+    }
+
+    .hero-section {
+        padding-top: 64px;
+    }
     
     
     .hero-content {
@@ -3680,7 +3713,6 @@ html.touch-device .maintenance-status-card .status-item:hover {
 
 
 @media (max-width: 480px) {
-    
     .header-inner {
         padding: 0 12px;
         height: 56px;
@@ -5044,6 +5076,14 @@ html.touch-device .maintenance-status-card .status-item:hover {
 }
 
 
+.features-section,
+.problems-section,
+.faq-section {
+    padding-top: 50px;
+    scroll-margin-top: 50px;
+}
+
+
 @media (max-width: 768px) {
     [dir="rtl"] .cookie-consent-content {
         flex-direction: column;
@@ -5109,4 +5149,31 @@ html.touch-device .maintenance-status-card .status-item:hover {
     pointer-events: none;
     cursor: default;
     opacity: 0.95;
+}
+
+
+@media (max-width: 800px) {
+    .features-section {
+        padding-top: 68px;
+        scroll-margin-top: 68px;
+    }
+}
+
+
+@media (min-width: 1025px) {
+    .hero-content {
+        align-items: center;
+        padding: 120px 24px 120px;
+    }
+
+    .features-section,
+    .problems-section,
+    .faq-section {
+        padding-top: 50px;
+        scroll-margin-top: 50px;
+    }
+
+    .faq-section {
+        padding-bottom: 180px;
+    }
 }
