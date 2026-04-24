@@ -1,0 +1,874 @@
+<!DOCTYPE html>
+
+<html lang="zh">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+<title>Drivarc - 车辆跟踪和管理</title>
+<meta content="使用 Drivarc 通过单个应用程序管理您的所有车辆。燃油跟踪、维护提醒、成本分析等等。" name="description"/>
+<meta content="车辆追踪、保养提醒、燃油追踪、车辆管理、Drivarc" name="keywords"/>
+<meta content="Drivarc" name="author"/>
+<meta content="index, follow" name="robots"/>
+<meta content="index, follow" name="googlebot"/>
+<link href="https://drivarc.com/zh/" rel="canonical"/>
+<link href="https://drivarc.com/" hreflang="tr" rel="alternate"/>
+<link href="https://drivarc.com/en/" hreflang="en" rel="alternate"/>
+<link href="https://drivarc.com/de/" hreflang="de" rel="alternate"/>
+<link href="https://drivarc.com/ru/" hreflang="ru" rel="alternate"/>
+<link href="https://drivarc.com/ar/" hreflang="ar" rel="alternate"/>
+<link href="https://drivarc.com/" hreflang="x-default" rel="alternate"/>
+<link href="/images/Harflogo.png" rel="icon" type="image/png"/>
+<link href="/images/Harflogo.png" rel="icon" sizes="512x512" type="image/png"/>
+<link href="/images/Harflogo.png" rel="shortcut icon" type="image/png"/>
+<link href="/images/Harflogo.png" rel="apple-touch-icon" sizes="512x512"/>
+<link href="/images/Harflogo.png" rel="apple-touch-icon-precomposed" sizes="512x512"/>
+<link as="font" crossorigin="" href="/fonts/Inter-400.woff2" rel="preload" type="font/woff2"/>
+<link as="font" crossorigin="" href="/fonts/Inter-500.woff2" rel="preload" type="font/woff2"/>
+<link as="font" crossorigin="" href="/fonts/Inter-600.woff2" rel="preload" type="font/woff2"/>
+<link as="font" crossorigin="" href="/fonts/Inter-700.woff2" rel="preload" type="font/woff2"/>
+<link href="../manifest.json" rel="manifest"/>
+<meta content="#1a73e8" name="theme-color"/>
+<meta content="#1a73e8" name="msapplication-TileColor"/>
+<meta content="no" name="msapplication-tap-highlight"/>
+<meta content="yes" name="apple-mobile-web-app-capable"/>
+<meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"/>
+<meta content="Drivarc" name="apple-mobile-web-app-title"/>
+<meta content="default-src 'self'; script-src 'self' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://www.google-analytics.com; connect-src 'self' https://www.googletagmanager.com https://www.google-analytics.com; font-src 'self'; object-src 'none'; base-uri 'self'; frame-src 'none';" http-equiv="Content-Security-Policy"/>
+<meta content="strict-origin-when-cross-origin" name="referrer"/>
+<meta content="camera=(), microphone=(), geolocation=(), payment=(), usb=(), magnetometer=(), gyroscope=(), accelerometer=()" http-equiv="Permissions-Policy"/>
+<meta content="website" property="og:type"/>
+<meta content="Drivarc - Vehicle Tracking &amp; Management" property="og:title"/>
+<meta content="Manage all your vehicles from a single app with Drivarc. Fuel tracking, maintenance reminders, cost analysis and much more." property="og:description"/>
+<meta content="https://drivarc.com/zh/" property="og:url"/>
+<meta content="https://drivarc.com/OG-IMAGE.png" property="og:image"/>
+<meta content="1200" property="og:image:width"/>
+<meta content="630" property="og:image:height"/>
+<meta content="Drivarc - Digital Vehicle Management" property="og:image:alt"/>
+<meta content="Drivarc" property="og:site_name"/>
+<meta content="en_US" property="og:locale"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="Drivarc - Vehicle Tracking &amp; Management" name="twitter:title"/>
+<meta content="Manage all your vehicles from a single app with Drivarc." name="twitter:description"/>
+<meta content="https://drivarc.com/images/logoxxxhdpi.png" name="twitter:image"/>
+<meta content="@drivarc_app" name="twitter:site"/>
+<style>
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            background: #111318;
+            color: #e2e2e9;
+            overflow-x: hidden;
+        }
+
+        .is-hidden {
+            display: none !important;
+        }
+    </style>
+<link as="style" href="../styles.min.css" rel="preload"/>
+<link href="../styles.min.css" id="siteStyles" rel="stylesheet"/>
+<style>
+        /* Override: disable CSS-based slide for finance wave to avoid double-transform artifacts */
+        .finance-wave svg {
+            animation: none !important;
+            width: 100% !important;
+            height: 100% !important;
+            display: block !important;
+            will-change: transform;
+            transform-origin: 0 0;
+        }
+    </style>
+<script defer="" src="../seo-jsonld.js"></script>
+<script defer="" src="../analytics.js"></script>
+<script defer="" src="../app.min.js"></script>
+</head>
+<body class="index-page">
+<a aria-label="Skip to content" class="skip-link" href="#main-content">跳至内容</a>
+<noscript>
+<div style="text-align:center; padding:40px 20px; font-family:'Inter',system-ui,sans-serif; max-width:600px; margin:0 auto;">
+<h1 style="font-size:24px; margin-bottom:16px;">需要 JavaScript</h1>
+<p style="font-size:16px; color:#666;">Drivarc 网站需要 JavaScript。请在您的浏览器中启用 JavaScript 并重新加载页面。</p>
+</div>
+</noscript>
+<div class="grid-background"></div>
+<div class="snow-container is-hidden" id="snowContainer"></div>
+<div aria-label="Homepage hero section" class="hero-section" id="hero" role="banner">
+<div class="scroll-progress-bar">
+<div class="scroll-progress-bar-fill" id="scrollProgress"></div>
+</div>
+<header class="header">
+<div class="header-inner">
+<a class="logo" href="../zh/"><img alt="Drivarc Logo" class="logo-img" fetchpriority="high" height="36" loading="eager" src="../images/logo-256.png" srcset="../images/logo-256.png 1x" width="128"/></a>
+<nav aria-label="Main menu" class="nav">
+<a class="active" href="#hero">主页</a>
+<a href="#features">特征</a>
+<a href="#problems">问题</a>
+<a href="#faq">常问问题</a>
+</nav>
+<div class="header-actions">
+<button aria-label="Toggle Snow Effect" class="control-btn snow-toggle is-hidden" id="snowToggle">
+<svg class="icon-snow-on" fill="currentColor" viewbox="0 0 24 24">
+<circle cx="12" cy="12" r="1.5"></circle>
+<path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83" stroke="currentColor" stroke-linecap="round" stroke-width="2"></path>
+</svg>
+<svg class="icon-snow-off is-hidden" fill="currentColor" viewbox="0 0 24 24">
+<circle cx="12" cy="12" r="1.5"></circle>
+<path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83" stroke="currentColor" stroke-dasharray="2 3" stroke-linecap="round" stroke-width="2"></path>
+<line stroke="currentColor" stroke-linecap="round" stroke-width="2" x1="3" x2="21" y1="3" y2="21"></line>
+</svg>
+</button>
+<button aria-label="Toggle Theme" class="control-btn theme-toggle">
+<svg class="icon-moon" viewbox="0 0 24 24"><path d="M12 3a9 9 0 1 0 9 9c0-.46-.04-.92-.1-1.36a5.389 5.389 0 0 1-4.4 2.26 5.403 5.403 0 0 1-3.14-9.8c-.44-.06-.9-.1-1.36-.1z"></path></svg>
+<svg class="icon-sun is-hidden" viewbox="0 0 24 24"><path d="M12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zM2 13h2c.55 0 1-.45 1-1s-.45-1-1-1H2c-.55 0-1 .45-1 1s.45 1 1 1zm18 0h2c.55 0 1-.45 1-1s-.45-1-1-1h-2c-.55 0-1 .45-1 1s.45 1 1 1zM11 2v2c0 .55.45 1 1 1s1-.45 1-1V2c0-.55-.45-1-1-1s-1 .45-1 1zm0 18v2c0 .55.45 1 1 1s1-.45 1-1v-2c0-.55-.45-1-1-1s-1 .45-1 1zM5.99 4.58a.996.996 0 0 0-1.41 0 .996.996 0 0 0 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41L5.99 4.58zm12.37 12.37a.996.996 0 0 0-1.41 0 .996.996 0 0 0 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0a.996.996 0 0 0 0-1.41l-1.06-1.06zm1.06-10.96a.996.996 0 0 0 0-1.41.996.996 0 0 0-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06zM7.05 18.36a.996.996 0 0 0 0-1.41.996.996 0 0 0-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06z"></path></svg>
+</button>
+<div class="lang-wrapper">
+<button aria-label="Change Language" class="control-btn lang-toggle">
+<span class="btn-label lang-flag-icon">🇨🇳</span>
+<span class="btn-label lang-code-text">ZH</span>
+</button>
+<div class="lang-dropdown" id="langDropdown">
+<a class="lang-option" href="../" hreflang="tr" rel="noopener noreferrer"><span class="lang-flag">🇹🇷</span> Türkçe</a>
+<a class="lang-option" href="../en/" hreflang="en" rel="noopener noreferrer"><span class="lang-flag">🇬🇧</span> English</a>
+<a class="lang-option" href="../de/" hreflang="de" rel="noopener noreferrer"><span class="lang-flag">🇩🇪</span> Deutsch</a>
+<a class="lang-option" href="../ru/" hreflang="ru" rel="noopener noreferrer"><span class="lang-flag">🇷🇺</span> Русский</a>
+<a class="lang-option" href="../ar/" hreflang="ar" rel="noopener noreferrer"><span class="lang-flag">🇸🇦</span> العربية</a>
+<a class="lang-option active" href="../zh/" hreflang="zh" rel="noopener noreferrer"><span class="lang-flag">🇨🇳</span> 中文</a>
+</div>
+</div>
+</div>
+</div>
+</header>
+<div class="hero-content" id="main-content" role="main">
+<div class="hero-particles">
+<div class="hero-particle" style="--delay:0s;--dur:9s;--x:5%;--y:10%;--size:2px;--drift:-22px"></div>
+<div class="hero-particle" style="--delay:1s;--dur:12s;--x:15%;--y:25%;--size:3px;--drift:30px"></div>
+<div class="hero-particle" style="--delay:2s;--dur:8s;--x:25%;--y:80%;--size:2px;--drift:-15px"></div>
+<div class="hero-particle" style="--delay:3s;--dur:14s;--x:35%;--y:45%;--size:4px;--drift:38px"></div>
+<div class="hero-particle" style="--delay:4s;--dur:10s;--x:45%;--y:15%;--size:3px;--drift:-34px"></div>
+<div class="hero-particle" style="--delay:5s;--dur:13s;--x:55%;--y:70%;--size:2px;--drift:26px"></div>
+<div class="hero-particle" style="--delay:6s;--dur:9s;--x:65%;--y:30%;--size:5px;--drift:-18px"></div>
+<div class="hero-particle" style="--delay:0.5s;--dur:15s;--x:75%;--y:85%;--size:3px;--drift:30px"></div>
+<div class="hero-particle" style="--delay:1.5s;--dur:7s;--x:85%;--y:20%;--size:2px;--drift:-38px"></div>
+<div class="hero-particle" style="--delay:2.5s;--dur:11s;--x:90%;--y:55%;--size:4px;--drift:22px"></div>
+<div class="hero-particle" style="--delay:3.5s;--dur:10s;--x:10%;--y:60%;--size:3px;--drift:-26px"></div>
+<div class="hero-particle" style="--delay:4.5s;--dur:14s;--x:20%;--y:40%;--size:2px;--drift:34px"></div>
+<div class="hero-particle" style="--delay:5.5s;--dur:8s;--x:40%;--y:90%;--size:4px;--drift:-30px"></div>
+<div class="hero-particle" style="--delay:6.5s;--dur:12s;--x:50%;--y:5%;--size:2px;--drift:18px"></div>
+<div class="hero-particle" style="--delay:0.8s;--dur:9s;--x:60%;--y:50%;--size:3px;--drift:-42px"></div>
+<div class="hero-particle" style="--delay:1.8s;--dur:13s;--x:80%;--y:75%;--size:2px;--drift:26px"></div>
+<div class="hero-particle" style="--delay:2.8s;--dur:8s;--x:95%;--y:35%;--size:4px;--drift:-22px"></div>
+<div class="hero-particle" style="--delay:3.8s;--dur:12s;--x:30%;--y:65%;--size:3px;--drift:38px"></div>
+<div class="hero-particle hero-particle-glow" style="--delay:0s;--dur:15s;--x:12%;--y:20%;--size:6px;--drift:-45px"></div>
+<div class="hero-particle hero-particle-glow" style="--delay:3.5s;--dur:19s;--x:38%;--y:70%;--size:8px;--drift:52px"></div>
+<div class="hero-particle hero-particle-glow" style="--delay:7s;--dur:17s;--x:62%;--y:15%;--size:5px;--drift:-38px"></div>
+<div class="hero-particle hero-particle-glow" style="--delay:10.5s;--dur:21s;--x:88%;--y:60%;--size:7px;--drift:42px"></div>
+</div>
+<div class="hero-text">
+<h1 class="hero-title">发现自由<br/>数字化车辆管理</h1>
+<p class="hero-subtitle">一款适用于您所有车辆的应用程序。燃油跟踪、维护提醒、成本分析等等，Drivarc 触手可及。</p>
+<div class="hero-actions">
+<a class="btn btn-google-play" data-modal="beta" href="#">
+<svg class="google-play-icon" fill="currentColor" height="20" viewbox="0 0 24 24" width="20">
+<path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 0 1-.61-.92V2.734a1 1 0 0 1 .609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-3.199l2.302 2.302a1 1 0 0 1 0 1.38l-2.302 2.302L15.396 13l2.302-2.492zM5.864 2.658L16.8 8.99l-2.302 2.302L5.864 2.658z"></path>
+</svg>
+<span class="google-play-text">
+<span class="google-play-store">谷歌游戏</span>
+</span>
+</a>
+<a class="btn btn-app-store" data-modal="appstore" href="#">
+<svg class="app-store-icon" fill="currentColor" height="20" viewbox="0 0 24 24" width="20">
+<path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"></path>
+</svg>
+<span class="app-store-text">
+<span class="app-store-name">应用商店</span>
+</span>
+</a>
+</div>
+<div class="trust-badges">
+<div class="trust-badge">
+<div class="trust-badge-icon secure">
+<svg viewbox="0 0 24 24"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"></path></svg>
+</div>
+<span class="trust-badge-text">安全数据</span>
+</div>
+<div class="trust-badge">
+<div class="trust-badge-icon free">
+<svg viewbox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"></path></svg>
+</div>
+<span class="trust-badge-text">离线模式</span>
+</div>
+<div class="trust-badge">
+<div class="trust-badge-icon no-ads">
+<svg viewbox="0 0 24 24"><path d="M13 2.05v3.03c3.39.49 6 3.39 6 6.92 0 .9-.18 1.75-.48 2.54l2.6 1.53c.56-1.24.88-2.62.88-4.07 0-5.18-3.95-9.45-9-9.95zM12 19c-3.87 0-7-3.13-7-7 0-3.53 2.61-6.43 6-6.92V2.05c-5.06.5-9 4.76-9 9.95 0 5.52 4.47 10 9.99 10 3.31 0 6.24-1.61 8.06-4.09l-2.6-1.53C16.17 17.98 14.21 19 12 19z"></path></svg>
+</div>
+<span class="trust-badge-text">简单快捷</span>
+</div>
+<div class="trust-badge">
+<div class="trust-badge-icon secure">
+<svg viewbox="0 0 24 24"><path d="M21 3H3c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H3V5h18v14zM5 15h14v3H5zm0-4h4v3H5zm6 0h8v3h-8z"></path></svg>
+</div>
+<span class="trust-badge-text">方便使用的</span>
+</div>
+</div>
+</div>
+<div class="hero-phone">
+<div class="phone-container">
+<div class="phone">
+<div class="phone-frame">
+<div class="phone-side-button"></div>
+<div class="phone-screen">
+<div class="phone-screen-content">
+<div class="camera-notch"></div>
+<div class="status-bar">
+<div class="status-bar-left">
+<span>9:41</span>
+<div class="status-logo">
+<svg viewbox="0 0 1025 1025" xmlns="http://www.w3.org/2000/svg">
+<rect fill="#fff" height="6.41" width="213.52" x="265.55" y="267.3"></rect>
+<rect fill="#fff" height="6.41" width="213.52" x="230.04" y="772.52"></rect>
+<rect fill="#fff" height="6.41" width="213.52" x="245.66" y="575.87"></rect>
+<rect fill="#fff" height="6.41" width="173.75" x="285.43" y="531.12"></rect>
+<rect fill="#fff" height="6.41" width="173.75" x="253.52" y="494.94"></rect>
+<rect fill="#fff" height="6.41" width="173.75" x="327.3" y="298.24"></rect>
+<rect fill="#fff" height="6.41" width="173.75" x="322.38" y="379.22"></rect>
+<rect fill="#fff" height="6.41" width="173.75" x="301.72" y="447.46"></rect>
+<rect fill="#fff" height="6.41" width="173.75" x="275.16" y="627.62"></rect>
+<rect fill="#fff" height="6.41" width="173.75" x="261.39" y="692.31"></rect>
+<rect fill="#fff" height="6.41" width="173.75" x="249.92" y="740.56"></rect>
+<text fill="#fff" font-family="Inter, sans-serif" font-size="703.23" font-weight="800" x="288.83" y="778.93">D</text>
+</svg>
+</div>
+</div>
+<div class="status-bar-right">
+<svg class="status-icon" viewbox="0 0 16 12">
+<rect fill="currentColor" height="4" opacity="0.4" rx="0.5" width="3" x="0" y="8"></rect>
+<rect fill="currentColor" height="7" opacity="0.6" rx="0.5" width="3" x="4.5" y="5"></rect>
+<rect fill="currentColor" height="10" opacity="0.8" rx="0.5" width="3" x="9" y="2"></rect>
+<rect fill="currentColor" height="12" rx="0.5" width="2.5" x="13.5" y="0"></rect>
+</svg>
+<svg class="status-icon" viewbox="0 0 24 24">
+<path d="M1 9l2 2c4.97-4.97 13.03-4.97 18 0l2-2C16.93 2.93 7.08 2.93 1 9zm8 8l3 3 3-3c-1.65-1.66-4.34-1.66-6 0zm-4-4l2 2c2.76-2.76 7.24-2.76 10 0l2-2C15.14 9.14 8.87 9.14 5 13z"></path>
+</svg>
+<svg class="status-icon" viewbox="0 0 26 13">
+<rect fill="none" height="8" rx="2" stroke="currentColor" stroke-width="1.5" width="20" x="1" y="3"></rect>
+<rect fill="currentColor" height="4" rx="1" width="2" x="22" y="5"></rect>
+<rect fill="currentColor" height="4" rx="1" width="16" x="3" y="5"></rect>
+</svg>
+</div>
+</div>
+<div class="app-bar">
+<div class="app-bar-menu">
+<svg viewbox="0 0 24 24"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path></svg>
+</div>
+<div class="app-bar-title">主页</div>
+<div style="width:36px"></div>
+</div>
+<div class="cinematic-header">
+<div class="cinematic-header-bg"></div>
+<div class="cinematic-header-img">
+<svg viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path d="M1.04,28.62c-1.94-7.23,7.33-6.93,12.04-7.44,1.78.01,2.75-.64,4.36-1.61,2.3-1.44,4.44-2.48,7.1-2.63,4.14-.34,8.78-.22,12.56,1.12,1.8.68,3.68,1.74,5.54,2.2,1.19.4,3.11.02,3.54,1.27.18.6.09,1.28.24,1.9.34,1.26,1.22,2.44.57,3.82-.42,1.19-1.91,1.34-3.32,1.54-1.73.33-2.14-.11-2.55-1.74-.79-2.92-4.97-3.49-6.67-1.05-.69.79-.82,2.53-.99,3.28-.15.51-.66.35-1.69.38-4.68-.08-16.57.15-19.67-.08-.56-.44-.34-1.21-.61-2.05-.36-1.82-2-3.26-3.9-3.17-1.95.01-3.64,1.58-3.69,3.55.1,1.73-1.89,1.92-2.78.87l-.09-.15Z"></path>
+<circle cx="7.61" cy="28.01" r="3.21"></circle>
+<circle cx="37.51" cy="28.01" r="3.21"></circle>
+</svg>
+</div>
+<div class="cinematic-header-bar">
+<span class="cinematic-header-title">2023款宝马320i</span>
+<span class="cinematic-header-plate">34 ABC 123</span>
+</div>
+</div>
+<div class="finance-card">
+<div class="finance-card-bg"></div>
+<div class="finance-wave">
+<svg preserveaspectratio="none" viewbox="0 0 560 80" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<lineargradient id="waveGrad" x1="0%" x2="0%" y1="0%" y2="100%">
+<stop offset="0%" stop-color="rgba(169,199,255,0.4)"></stop>
+<stop offset="100%" stop-color="transparent"></stop>
+</lineargradient>
+<pattern height="80" id="wavePattern" patternunits="userSpaceOnUse" width="560">
+<g>
+<path d="M0,60 Q35,50 70,55 T140,60 T210,65 T280,60 Q315,50 350,55 T420,60 T490,65 T560,60 L560,80 L0,80 Z" fill="url(#waveGrad)"></path>
+<path d="M0,60 Q35,50 70,55 T140,60 T210,65 T280,60 Q315,50 350,55 T420,60 T490,65 T560,60" fill="none" stroke="rgba(169,199,255,0.6)" stroke-width="1.5"></path>
+</g>
+<animatetransform attributename="patternTransform" dur="6s" from="0 0" repeatcount="indefinite" to="-560 0" type="translate"></animatetransform>
+</pattern>
+</defs>
+<rect fill="url(#wavePattern)" height="100%" width="100%" x="0" y="0"></rect>
+</svg>
+</div>
+<div class="finance-card-overlay"></div>
+<div class="finance-card-content">
+<div class="finance-card-header">
+<span class="finance-card-label">总支出</span>
+<span class="finance-trend-badge increasing">
+<svg viewbox="0 0 24 24"><path d="M16 6l2.29 2.29-4.88 4.88-4-4L2 16.59 3.41 18l6-6 4 4 6.3-6.29L22 12V6z"></path></svg>
+                                            +8.2%
+                                        </span>
+</div>
+<div class="finance-total">14,150 美元</div>
+</div>
+</div>
+<div class="section-title">维护状态</div>
+<div class="maintenance-status-card">
+<div class="status-item overdue">
+<div class="status-icon overdue">
+<svg viewbox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"></path></svg>
+</div>
+<div class="status-info">
+<span class="status-count">2</span>
+<span class="status-label">逾期</span>
+</div>
+</div>
+</div>
+<div class="section-title">最近的活动</div>
+<div class="activity-card">
+<div class="activity-icon-wrapper">
+<svg class="activity-icon-svg" viewbox="0 0 24 24">
+<path d="M19.77 7.23l.01-.01-3.72-3.72L15 4.56l2.11 2.11c-.94.36-1.61 1.26-1.61 2.33 0 1.38 1.12 2.5 2.5 2.5.36 0 .69-.08 1-.21v7.21c0 .55-.45 1-1 1s-1-.45-1-1V14c0-1.1-.9-2-2-2h-1V5c0-1.1-.9-2-2-2H6c-1.1 0-2 .9-2 2v16h10v-7.5h1.5v5c0 1.38 1.12 2.5 2.5 2.5s2.5-1.12 2.5-2.5V9c0-.69-.28-1.32-.73-1.77zM18 10c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1z"></path>
+</svg>
+</div>
+<div class="activity-content">
+<div class="activity-header">
+<span class="activity-title">添加燃油</span>
+</div>
+<div class="activity-subtitle">1,250 美元 - 40.0 长 x 31.25 美元</div>
+<div class="activity-date">
+<svg class="clock-icon" viewbox="0 0 24 24">
+<path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"></path>
+</svg>
+<span>2小时前</span>
+</div>
+</div>
+<div class="activity-trailing">
+<svg viewbox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg>
+</div>
+</div>
+<div class="bottom-nav">
+<div class="nav-item active">
+<svg viewbox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"></path></svg>
+</div>
+<div class="nav-fab">
+<svg viewbox="0 0 24 24"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"></path></svg>
+</div>
+<div class="nav-item">
+<svg viewbox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"></path></svg>
+</div>
+</div>
+</div> </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<section aria-labelledby="features-title" class="features-section" id="features">
+<div class="section-particles">
+<div class="section-particle" style="--delay:0s;--dur:9s;--x:5%;--y:10%;--size:2px;--drift:-22px"></div>
+<div class="section-particle" style="--delay:1s;--dur:12s;--x:15%;--y:25%;--size:3px;--drift:30px"></div>
+<div class="section-particle" style="--delay:2s;--dur:8s;--x:25%;--y:80%;--size:2px;--drift:-15px"></div>
+<div class="section-particle" style="--delay:3s;--dur:14s;--x:35%;--y:45%;--size:4px;--drift:38px"></div>
+<div class="section-particle" style="--delay:4s;--dur:10s;--x:45%;--y:15%;--size:3px;--drift:-34px"></div>
+<div class="section-particle" style="--delay:5s;--dur:13s;--x:55%;--y:70%;--size:2px;--drift:26px"></div>
+<div class="section-particle" style="--delay:6s;--dur:9s;--x:65%;--y:30%;--size:5px;--drift:-18px"></div>
+<div class="section-particle" style="--delay:0.5s;--dur:15s;--x:75%;--y:85%;--size:3px;--drift:30px"></div>
+<div class="section-particle" style="--delay:1.5s;--dur:7s;--x:85%;--y:20%;--size:2px;--drift:-38px"></div>
+<div class="section-particle" style="--delay:2.5s;--dur:11s;--x:90%;--y:55%;--size:4px;--drift:22px"></div>
+<div class="section-particle" style="--delay:3.5s;--dur:10s;--x:10%;--y:60%;--size:3px;--drift:-26px"></div>
+<div class="section-particle" style="--delay:4.5s;--dur:14s;--x:20%;--y:40%;--size:2px;--drift:34px"></div>
+<div class="section-particle" style="--delay:5.5s;--dur:8s;--x:40%;--y:90%;--size:4px;--drift:-30px"></div>
+<div class="section-particle" style="--delay:6.5s;--dur:12s;--x:50%;--y:5%;--size:2px;--drift:18px"></div>
+<div class="section-particle" style="--delay:0.8s;--dur:9s;--x:60%;--y:50%;--size:3px;--drift:-42px"></div>
+<div class="section-particle" style="--delay:1.8s;--dur:13s;--x:80%;--y:75%;--size:2px;--drift:26px"></div>
+<div class="section-particle" style="--delay:2.8s;--dur:8s;--x:95%;--y:35%;--size:4px;--drift:-22px"></div>
+<div class="section-particle" style="--delay:3.8s;--dur:12s;--x:30%;--y:65%;--size:3px;--drift:38px"></div>
+<div class="section-particle section-particle-glow" style="--delay:0s;--dur:15s;--x:12%;--y:20%;--size:6px;--drift:-45px"></div>
+<div class="section-particle section-particle-glow" style="--delay:3.5s;--dur:19s;--x:38%;--y:70%;--size:8px;--drift:52px"></div>
+<div class="section-particle section-particle-glow" style="--delay:7s;--dur:17s;--x:62%;--y:15%;--size:5px;--drift:-38px"></div>
+<div class="section-particle section-particle-glow" style="--delay:10.5s;--dur:21s;--x:88%;--y:60%;--size:7px;--drift:42px"></div>
+</div>
+<div class="features-inner">
+<div class="features-header animate-on-scroll">
+<h2 class="features-title" id="features-title">管理车辆的最简单方法</h2>
+<p class="features-subtitle">Drivarc 将您的所有车辆需求集中在一个应用程序中。</p>
+</div>
+<div class="features-grid">
+<div class="feature-card" data-feature="fuel">
+<div class="feature-icon">
+<svg viewbox="0 0 24 24"><path d="M19.77 7.23l.01-.01-3.72-3.72L15 4.56l2.11 2.11c-.94.36-1.61 1.26-1.61 2.33 0 1.38 1.12 2.5 2.5 2.5.36 0 .69-.08 1-.21v7.21c0 .55-.45 1-1 1s-1-.45-1-1V14c0-1.1-.9-2-2-2h-1V5c0-1.1-.9-2-2-2H6c-1.1 0-2 .9-2 2v16h10v-7.5h1.5v5c0 1.38 1.12 2.5 2.5 2.5s2.5-1.12 2.5-2.5V9c0-.69-.28-1.32-.73-1.77zM18 10c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1z"></path></svg>
+</div>
+<div class="feature-name">Fuel Tracking</div>
+<div class="feature-desc">快速记录燃油条目；查看汽油、柴油、液化石油气、压缩天然气和电力的消耗和成本报告。</div>
+</div>
+<div class="feature-card" data-feature="receipt">
+<div class="feature-icon">
+<svg viewbox="0 0 24 24"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"></path></svg>
+</div>
+<div class="feature-name">智能收据扫描</div>
+<div class="feature-desc">使用摄像头扫描您的燃油收据并自动保存信息。节省时间，避免错误。</div>
+</div>
+<div class="feature-card" data-feature="maintenance">
+<div class="feature-icon">
+<svg viewbox="0 0 24 24"><path d="M17 12h-5v5h5v-5zM16 1v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2h-1V1h-2zm3 18H5V8h14v11z"></path></svg>
+</div>
+<div class="feature-name">保养提醒</div>
+<div class="feature-desc">换油、滤清器维护、轮胎换位...通过智能通知，绝不会错过服务预约。</div>
+</div>
+<div class="feature-card" data-feature="expense">
+<div class="feature-icon">
+<svg viewbox="0 0 24 24"><path d="M11.8 10.9c-2.27-.59-3-1.2-3-2.15 0-1.09 1.01-1.85 2.7-1.85 1.78 0 2.44.85 2.5 2.1h2.21c-.07-1.72-1.12-3.3-3.21-3.81V3h-3v2.16c-1.94.42-3.5 1.68-3.5 3.61 0 2.31 1.91 3.46 4.7 4.13 2.5.6 3 1.48 3 2.41 0 .69-.49 1.79-2.7 1.79-2.06 0-2.87-.92-2.98-2.1h-2.2c.12 2.19 1.76 3.42 3.68 3.83V21h3v-2.15c1.95-.37 3.5-1.5 3.5-3.55 0-2.84-2.43-3.81-4.7-4.4z"></path></svg>
+</div>
+<div class="feature-name">费用追踪</div>
+<div class="feature-desc">按类别记录您的所有车辆费用。保险、检查、停车、罚款等的详细跟踪。</div>
+</div>
+<div class="feature-card" data-feature="reports">
+<div class="feature-icon">
+<svg viewbox="0 0 24 24"><path d="M5 9.2h3V19H5zM10.6 5h2.8v14h-2.8zm5.6 8H19v6h-2.8z"></path></svg>
+</div>
+<div class="feature-name">详细报告</div>
+<div class="feature-desc">使用可视化图表查看您的成本分布。生成月度和年度报告，导出为 PDF。</div>
+</div>
+<div class="feature-card" data-feature="multi-vehicle">
+<div class="feature-icon">
+<svg style="width:28px;height:28px;" viewbox="0 0 48 48">
+<path d="M2.81,29.01c.3-.41.32-1.13.49-1.65.73-3.06,4.62-4.26,6.94-2.26,1.6,1.04,1.41,3.97,2.87,4.66,1.36.53,2.87.02,4.27.08,2.84,0,10.8,0,14.57,0,.55-.01.82-.18.97-.65.23-.87.34-2.16.82-3.03,1.57-3.24,6.85-2.77,7.61.81.29,1.32.91,2.18,2.32,1.61,1.08-.49,2.38-.44,3.25-1.11.62-.56.25-1.39.12-2.09-.22-1.19.38-3.42-.58-4.5-.77-.95-1.9-.85-3.08-.87-1.54,0-3.68,0-5.28,0-1.36-.12-2.28.34-3.11-.51-.57-.83-1.02-2.09-2.02-2.47-.67-.3-1.47-.41-2.17-.63-1.07-.45-3.72-.3-5.44-.32-2.62-.07-4.71-.04-7.17,1.32-2.85,1.15-4.9,3.31-8.25,3.26-1.96.18-3.74.37-5.75.63-.81.12-1.73.36-2.22.85-.51.47-.74,1.17-.9,1.83-.32,1.53-.73,3.47,0,4.22.37.38,1.11,1.08,1.64.87l.05-.05Z"></path>
+<circle cx="7.55" cy="28.33" r="3.61"></circle>
+<circle cx="37.49" cy="28.33" r="3.61"></circle>
+</svg>
+</div>
+<div class="feature-name">多车辆支持</div>
+<div class="feature-desc">在一个帐户中管理多辆车辆。单独跟踪每辆车的燃油、维护和费用记录。</div>
+</div>
+<div class="feature-card" data-feature="trip-log">
+<div class="feature-icon">
+<svg viewbox="0 0 24 24"><path d="M12 2c-4.41 0-8 3.58-8 8 0 5.52 8 12 8 12s8-6.48 8-12c0-4.42-3.59-8-8-8zm0 11.5A3.5 3.5 0 1 1 12 6a3.5 3.5 0 0 1 0 7.5z"></path></svg>
+</div>
+<div class="feature-name">行程日志</div>
+<div class="feature-desc">记录商务和个人旅行的距离、目的和注释。将里程和旅行费用组织在一个地方。</div>
+</div>
+<div class="feature-card" data-feature="offline">
+<div class="feature-icon">
+<svg viewbox="0 0 24 24"><path d="M1 9l2 2c4.97-4.97 13.03-4.97 18 0l2-2C16.93 2.93 7.08 2.93 1 9zm8 8l3 3 3-3c-1.65-1.66-4.34-1.66-6 0zm-4-4l2 2c2.76-2.76 7.24-2.76 10 0l2-2C15.14 9.14 8.87 9.14 5 13z"></path><line stroke="currentColor" stroke-linecap="round" stroke-width="2" x1="21.7" x2="2.3" y1="2.3" y2="21.7"></line></svg>
+</div>
+<div class="feature-name">简单、快速且离线</div>
+<div class="feature-desc">优化的本地数据库即使在没有互联网的情况下也能确保闪电般的性能。在后台安全同步。</div>
+</div>
+<div class="feature-card" data-feature="pdf-export">
+<div class="feature-icon">
+<svg viewbox="0 0 24 24"><path d="M20 2H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-8.5 7.5c0 .83-.67 1.5-1.5 1.5H9v2H7.5V7H10c.83 0 1.5.67 1.5 1.5v1zm5 2c0 .83-.67 1.5-1.5 1.5h-2.5V7H15c.83 0 1.5.67 1.5 1.5v3zm4-3H19v1h1.5V11H19v2h-1.5V7h3v1.5zM9 9.5h1v-1H9v1zM4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6zm10 5.5h1v-3h-1v3z"></path></svg>
+</div>
+<div class="feature-name">PDF导出</div>
+<div class="feature-desc">将您的所有车辆数据导出为专业的 PDF 报告。非常适合保险、销售或个人档案。</div>
+</div>
+</div>
+</div>
+</section>
+<section aria-labelledby="problems-title" class="problems-section" id="problems">
+<div class="section-particles">
+<div class="section-particle" style="--delay:0.2s;--dur:10s;--x:8%;--y:15%;--size:3px;--drift:-28px"></div>
+<div class="section-particle" style="--delay:1.2s;--dur:13s;--x:18%;--y:30%;--size:2px;--drift:34px"></div>
+<div class="section-particle" style="--delay:2.2s;--dur:8s;--x:28%;--y:75%;--size:4px;--drift:-18px"></div>
+<div class="section-particle" style="--delay:3.2s;--dur:14s;--x:38%;--y:50%;--size:2px;--drift:42px"></div>
+<div class="section-particle" style="--delay:4.2s;--dur:9s;--x:48%;--y:20%;--size:3px;--drift:-30px"></div>
+<div class="section-particle" style="--delay:5.2s;--dur:11s;--x:58%;--y:65%;--size:2px;--drift:22px"></div>
+<div class="section-particle" style="--delay:6.2s;--dur:8s;--x:68%;--y:35%;--size:5px;--drift:-22px"></div>
+<div class="section-particle" style="--delay:0.4s;--dur:15s;--x:78%;--y:80%;--size:3px;--drift:34px"></div>
+<div class="section-particle" style="--delay:1.4s;--dur:9s;--x:88%;--y:25%;--size:2px;--drift:-42px"></div>
+<div class="section-particle" style="--delay:2.4s;--dur:12s;--x:92%;--y:60%;--size:4px;--drift:28px"></div>
+<div class="section-particle" style="--delay:3.4s;--dur:10s;--x:12%;--y:55%;--size:3px;--drift:-30px"></div>
+<div class="section-particle" style="--delay:4.4s;--dur:7s;--x:22%;--y:45%;--size:2px;--drift:38px"></div>
+<div class="section-particle" style="--delay:5.4s;--dur:13s;--x:42%;--y:85%;--size:4px;--drift:-34px"></div>
+<div class="section-particle" style="--delay:6.4s;--dur:10s;--x:52%;--y:10%;--size:2px;--drift:22px"></div>
+<div class="section-particle" style="--delay:0.8s;--dur:15s;--x:62%;--y:40%;--size:3px;--drift:-38px"></div>
+<div class="section-particle" style="--delay:1.8s;--dur:7s;--x:82%;--y:70%;--size:2px;--drift:30px"></div>
+<div class="section-particle" style="--delay:2.8s;--dur:11s;--x:98%;--y:30%;--size:4px;--drift:-26px"></div>
+<div class="section-particle" style="--delay:3.8s;--dur:12s;--x:32%;--y:75%;--size:3px;--drift:42px"></div>
+<div class="section-particle section-particle-glow" style="--delay:0.3s;--dur:16s;--x:15%;--y:25%;--size:6px;--drift:-48px"></div>
+<div class="section-particle section-particle-glow" style="--delay:3.8s;--dur:20s;--x:42%;--y:75%;--size:8px;--drift:56px"></div>
+<div class="section-particle section-particle-glow" style="--delay:7.3s;--dur:17s;--x:65%;--y:20%;--size:5px;--drift:-42px"></div>
+<div class="section-particle section-particle-glow" style="--delay:10.8s;--dur:22s;--x:85%;--y:65%;--size:7px;--drift:45px"></div>
+</div>
+<div class="problems-inner">
+<div class="problems-header animate-on-scroll">
+<h2 class="problems-title" id="problems-title">我们知道您在车辆管理方面面临的问题</h2>
+<p class="problems-subtitle">通过 Drivarc，我们为每个问题提供实用的解决方案。</p>
+</div>
+<div class="problems-grid">
+<div class="problem-card animate-on-scroll">
+<div class="problem-layout">
+<div class="problem-panel problem-panel--pain">
+<div class="problem-header">
+<div class="problem-icon pain">
+<svg viewbox="0 0 24 24"><path d="M19.77 7.23l.01-.01-3.72-3.72L15 4.56l2.11 2.11c-.94.36-1.61 1.26-1.61 2.33 0 1.38 1.12 2.5 2.5 2.5.36 0 .69-.08 1-.21v7.21c0 .55-.45 1-1 1s-1-.45-1-1V14c0-1.1-.9-2-2-2h-1V5c0-1.1-.9-2-2-2H6c-1.1 0-2 .9-2 2v16h10v-7.5h1.5v5c0 1.38 1.12 2.5 2.5 2.5s2.5-1.12 2.5-2.5V9c0-.69-.28-1.32-.73-1.77zM18 10c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1z"></path></svg>
+</div>
+<div>
+<span class="problem-tag pain">问题</span>
+<h3 class="problem-title">我无法追踪我的燃油费用</h3>
+<p class="problem-desc">为每次购买燃料做记录既困难又耗时。你不知道月底你在哪里花了多少钱。</p>
+</div>
+</div>
+</div>
+<div class="problem-panel problem-panel--solution">
+<div class="problem-header">
+<div class="problem-icon solution">
+<svg viewbox="0 0 24 24"><path d="M5 9.2h3V19H5zM10.6 5h2.8v14h-2.8zm5.6 8H19v6h-2.8z"></path></svg>
+</div>
+<div>
+<span class="problem-tag solution">解决方案</span>
+<h3 class="problem-title">自动燃油历史记录和分析</h3>
+<p class="problem-desc">在几秒钟内记录每次购买的燃料。通过月度和年度报告查看您的支出。</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="problem-card animate-on-scroll">
+<div class="problem-layout">
+<div class="problem-panel problem-panel--pain">
+<div class="problem-header">
+<div class="problem-icon pain">
+<svg viewbox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"></path></svg>
+</div>
+<div>
+<span class="problem-tag pain">问题</span>
+<h3 class="problem-title">我错过了维护期限</h3>
+<p class="problem-desc">Oil changes, tire rotation, filter maintenance... It's hard to remember which maintenance is due when.</p>
+</div>
+</div>
+</div>
+<div class="problem-panel problem-panel--solution">
+<div class="problem-header">
+<div class="problem-icon solution">
+<svg viewbox="0 0 24 24"><path d="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.9 2 2 2zm6-6v-5c0-3.07-1.63-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.64 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2zm-2 1H8v-6c0-2.48 1.51-4.5 4-4.5s4 2.02 4 4.5v6z"></path></svg>
+</div>
+<div>
+<span class="problem-tag solution">解决方案</span>
+<h3 class="problem-title">智能保养提醒</h3>
+<p class="problem-desc">基于里程和日期的智能提醒。没有错过维护的风险。</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="problem-card animate-on-scroll">
+<div class="problem-layout">
+<div class="problem-panel problem-panel--pain">
+<div class="problem-header">
+<div class="problem-icon pain">
+<svg viewbox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"></path></svg>
+</div>
+<div>
+<span class="problem-tag pain">问题</span>
+<h3 class="problem-title">我不知道我的车辆的总成本</h3>
+<p class="problem-desc">燃油、维护、保险、税……你不知道所有这些费用的总和。</p>
+</div>
+</div>
+</div>
+<div class="problem-panel problem-panel--solution">
+<div class="problem-header">
+<div class="problem-icon solution">
+<svg viewbox="0 0 24 24"><path d="M11.8 10.9c-2.27-.59-3-1.2-3-2.15 0-1.09 1.01-1.85 2.7-1.85 1.78 0 2.44.85 2.5 2.1h2.21c-.07-1.72-1.12-3.3-3.21-3.81V3h-3v2.16c-1.94.42-3.5 1.68-3.5 3.61 0 2.31 1.91 3.46 4.7 4.13 2.5.6 3 1.48 3 2.41 0 .69-.49 1.79-2.7 1.79-2.06 0-2.87-.92-2.98-2.1h-2.2c.12 2.19 1.76 3.42 3.68 3.83V21h3v-2.15c1.95-.37 3.5-1.5 3.5-3.55 0-2.84-2.43-3.81-4.7-4.4z"></path></svg>
+</div>
+<div>
+<span class="problem-tag solution">解决方案</span>
+<h3 class="problem-title">详细的成本分析</h3>
+<p class="problem-desc">对您的所有支出进行分类并通过图表查看它们。控制您的预算。</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="problem-card animate-on-scroll">
+<div class="problem-layout">
+<div class="problem-panel problem-panel--pain">
+<div class="problem-header">
+<div class="problem-icon pain">
+<svg viewbox="0 0 24 24"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"></path></svg>
+</div>
+<div>
+<span class="problem-tag pain">问题</span>
+<h3 class="problem-title">我用记事本记录一切</h3>
+<p class="problem-desc">在纸上做笔记并不可靠。它们可能会丢失、磨损或变得难以辨认。</p>
+</div>
+</div>
+</div>
+<div class="problem-panel problem-panel--solution">
+<div class="problem-header">
+<div class="problem-icon solution">
+<svg viewbox="0 0 24 24"><path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM17 13l-5 5-5-5h3V9h4v4h3z"></path></svg>
+</div>
+<div>
+<span class="problem-tag solution">解决方案</span>
+<h3 class="problem-title">数字化和安全存储</h3>
+<p class="problem-desc">您的数据安全地存储在云端。您可以随时访问它。</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="problem-card animate-on-scroll">
+<div class="problem-layout">
+<div class="problem-panel problem-panel--pain">
+<div class="problem-header">
+<div class="problem-icon pain">
+<svg viewbox="0 0 24 24"><path d="M3.5 18.49l6-6.01 4 4L22 6.92l-1.41-1.41-7.09 7.97-4-4L2 16.99z"></path></svg>
+</div>
+<div>
+<span class="problem-tag pain">问题</span>
+<h3 class="problem-title">我想知道我的油耗</h3>
+<p class="problem-desc">我不知道我的车辆的平均油耗。我是否有效地使用它？</p>
+</div>
+</div>
+</div>
+<div class="problem-panel problem-panel--solution">
+<div class="problem-header">
+<div class="problem-icon solution">
+<svg viewbox="0 0 24 24"><path d="M16 6l2.29 2.29-4.88 4.88-4-4L2 16.59 3.41 18l6-6 4 4 6.3-6.29L22 12V6z"></path></svg>
+</div>
+<div>
+<span class="problem-tag solution">解决方案</span>
+<h3 class="problem-title">自动消耗计算</h3>
+<p class="problem-desc">自动计算您每次购买燃料的平均消耗量。</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="problem-card animate-on-scroll">
+<div class="problem-layout">
+<div class="problem-panel problem-panel--pain">
+<div class="problem-header">
+<div class="problem-icon pain">
+<svg viewbox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"></path></svg>
+</div>
+<div>
+<span class="problem-tag pain">问题</span>
+<h3 class="problem-title">我在出售车辆时遇到麻烦</h3>
+<p class="problem-desc">我无法在出售车辆时提供有关维护历史和费用的信息。</p>
+</div>
+</div>
+</div>
+<div class="problem-panel problem-panel--solution">
+<div class="problem-header">
+<div class="problem-icon solution">
+<svg viewbox="0 0 24 24"><path d="M20 2H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-8.5 7.5c0 .83-.67 1.5-1.5 1.5H9v2H7.5V7H10c.83 0 1.5.67 1.5 1.5v1zm5 2c0 .83-.67 1.5-1.5 1.5h-2.5V7H15c.83 0 1.5.67 1.5 1.5v3zm4-3H19v1h1.5V11H19v2h-1.5V7h3v1.5zM9 9.5h1v-1H9v1zM4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6zm10 5.5h1v-3h-1v3z"></path></svg>
+</div>
+<div>
+<span class="problem-tag solution">解决方案</span>
+<h3 class="problem-title">完整的历史报告</h3>
+<p class="problem-desc">将您的所有维护、燃油和费用历史记录导出为 PDF。</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section aria-labelledby="faq-title" class="faq-section" id="faq">
+<div class="section-particles">
+<div class="section-particle" style="--delay:0.1s;--dur:10s;--x:7%;--y:12%;--size:2px;--drift:-24px"></div>
+<div class="section-particle" style="--delay:1.1s;--dur:13s;--x:17%;--y:28%;--size:3px;--drift:32px"></div>
+<div class="section-particle" style="--delay:2.1s;--dur:8s;--x:27%;--y:78%;--size:2px;--drift:-16px"></div>
+<div class="section-particle" style="--delay:3.1s;--dur:14s;--x:37%;--y:48%;--size:4px;--drift:40px"></div>
+<div class="section-particle" style="--delay:4.1s;--dur:9s;--x:47%;--y:18%;--size:3px;--drift:-32px"></div>
+<div class="section-particle" style="--delay:5.1s;--dur:11s;--x:57%;--y:68%;--size:2px;--drift:24px"></div>
+<div class="section-particle" style="--delay:6.1s;--dur:8s;--x:67%;--y:32%;--size:5px;--drift:-20px"></div>
+<div class="section-particle" style="--delay:0.3s;--dur:15s;--x:77%;--y:82%;--size:3px;--drift:32px"></div>
+<div class="section-particle" style="--delay:1.3s;--dur:9s;--x:87%;--y:22%;--size:2px;--drift:-40px"></div>
+<div class="section-particle" style="--delay:2.3s;--dur:12s;--x:93%;--y:58%;--size:4px;--drift:24px"></div>
+<div class="section-particle" style="--delay:3.3s;--dur:10s;--x:11%;--y:58%;--size:3px;--drift:-28px"></div>
+<div class="section-particle" style="--delay:4.3s;--dur:7s;--x:21%;--y:42%;--size:2px;--drift:36px"></div>
+<div class="section-particle" style="--delay:5.3s;--dur:13s;--x:41%;--y:88%;--size:4px;--drift:-32px"></div>
+<div class="section-particle" style="--delay:6.3s;--dur:10s;--x:51%;--y:8%;--size:2px;--drift:20px"></div>
+<div class="section-particle" style="--delay:0.7s;--dur:15s;--x:61%;--y:48%;--size:3px;--drift:-40px"></div>
+<div class="section-particle" style="--delay:1.7s;--dur:7s;--x:81%;--y:72%;--size:2px;--drift:28px"></div>
+<div class="section-particle" style="--delay:2.7s;--dur:11s;--x:97%;--y:38%;--size:4px;--drift:-24px"></div>
+<div class="section-particle" style="--delay:3.7s;--dur:12s;--x:31%;--y:72%;--size:3px;--drift:40px"></div>
+<div class="section-particle section-particle-glow" style="--delay:0.2s;--dur:16s;--x:14%;--y:22%;--size:6px;--drift:-46px"></div>
+<div class="section-particle section-particle-glow" style="--delay:3.7s;--dur:20s;--x:40%;--y:72%;--size:8px;--drift:54px"></div>
+<div class="section-particle section-particle-glow" style="--delay:7.2s;--dur:17s;--x:64%;--y:18%;--size:5px;--drift:-40px"></div>
+<div class="section-particle section-particle-glow" style="--delay:10.7s;--dur:22s;--x:86%;--y:62%;--size:7px;--drift:44px"></div>
+</div>
+<div class="faq-inner">
+<div class="faq-header animate-on-scroll">
+<h2 class="faq-title" id="faq-title">常见问题解答</h2>
+<p class="faq-subtitle">在这里查找用户最常见问题的答案。</p>
+</div>
+<div class="faq-list">
+<div class="faq-item animate-on-scroll">
+<button class="faq-question">
+<span>Drivarc 是免费的吗？</span>
+<svg class="faq-chevron" viewbox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"></path></svg>
+</button>
+<div class="faq-answer">
+<div class="faq-answer-inner">是的，您可以免费下载 Drivarc 并使用其基本功能。</div>
+</div>
+</div>
+<div class="faq-item animate-on-scroll">
+<button class="faq-question">
+<span>我的数据安全吗？</span>
+<svg class="faq-chevron" viewbox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"></path></svg>
+</button>
+<div class="faq-answer">
+<div class="faq-answer-inner">是的。您的数据存储在安全的服务器上，并且只有您自己可见。您的数据绝不会与任何人共享。</div>
+</div>
+</div>
+<div class="faq-item animate-on-scroll">
+<button class="faq-question">
+<span>我可以在没有网络的情况下使用它吗？</span>
+<svg class="faq-chevron" viewbox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"></path></svg>
+</button>
+<div class="faq-answer">
+<div class="faq-answer-inner">是的，Drivarc 可以离线工作。您可以在没有互联网连接的情况下输入和查看您的数据。当您连接到互联网时，您的数据会自动同步。</div>
+</div>
+</div>
+<div class="faq-item animate-on-scroll">
+<button class="faq-question">
+<span>我可以添加多辆车吗？</span>
+<svg class="faq-chevron" viewbox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"></path></svg>
+</button>
+<div class="faq-answer">
+<div class="faq-answer-inner">是的，高级版本提供多种车辆支持和其他额外功能。</div>
+</div>
+</div>
+<div class="faq-item animate-on-scroll">
+<button class="faq-question">
+<span>它可以在哪些平台上运行？</span>
+<svg class="faq-chevron" viewbox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"></path></svg>
+</button>
+<div class="faq-answer">
+<div class="faq-answer-inner">目前仅适用于 Android 设备。 iOS 版本也在我们的计划中，很快就会支持。</div>
+</div>
+</div>
+<div class="faq-item animate-on-scroll">
+<button class="faq-question">
+<span>我可以导出我的数据吗？</span>
+<svg class="faq-chevron" viewbox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"></path></svg>
+</button>
+<div class="faq-answer">
+<div class="faq-answer-inner">是的，但此功能在高级版本中可用。您可以导出您的燃油历史记录、维护记录和成本报告。</div>
+</div>
+</div>
+<div class="faq-item animate-on-scroll">
+<button class="faq-question">
+<span>该应用程序是否支持多种燃料类型（汽油、柴油、液化石油气、压缩天然气、电动、混合动力）？</span>
+<svg class="faq-chevron" viewbox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"></path></svg>
+</button>
+<div class="faq-answer">
+<div class="faq-answer-inner">是的。支持汽油、柴油、LPG、CNG、电动和混合动力；车辆可以记录多种燃料类型，并且可以进行成本比较和预测。</div>
+</div>
+</div>
+</div>
+<div class="faq-cta animate-on-scroll">
+<p class="faq-cta-text">还有其他问题吗？</p>
+<a class="btn btn-faq-cta" href="mailto:contact@drivarc.com">
+<svg fill="currentColor" height="18" viewbox="0 0 24 24" width="18"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"></path></svg>
+<span>联系我们</span>
+</a>
+</div>
+</div>
+</section></div>
+
+<footer aria-label="Site footer" class="site-footer" role="contentinfo">
+<div class="footer-inner">
+<div class="footer-links">
+<a class="footer-link" href="terms.html" rel="noopener noreferrer">使用条款</a>
+<a class="footer-link" href="privacy.html" rel="noopener noreferrer">隐私政策</a>
+</div>
+<p class="footer-copy">© 2026 Drivarc. 版权所有。</p>
+<p class="footer-holiday is-hidden" id="footerHoliday">土耳其日快乐！</p>
+</div>
+</footer>
+<div class="beta-modal-overlay" id="betaModal">
+<div class="beta-modal">
+<div class="beta-modal-icon">
+<svg viewbox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"></path></svg>
+</div>
+<h3 class="beta-modal-title">封闭测试版</h3>
+<p class="beta-modal-text">我们目前处于内测阶段。您可以通过邀请登录。我们即将向大家开放，请持续关注我们！</p>
+<button class="beta-modal-close" data-close-modal="beta">确定</button>
+</div>
+</div>
+<div class="beta-modal-overlay" id="appStoreModal">
+<div class="beta-modal">
+<div class="beta-modal-icon">
+<svg viewbox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"></path></svg>
+</div>
+<h3 class="beta-modal-title">应用商店即将推出！</h3>
+<p class="beta-modal-text">我们正在继续开发 iOS 版本。当它在 App Store 上发布时，我们会通知您。敬请关注！</p>
+<button class="beta-modal-close" data-close-modal="appstore">确定</button>
+</div>
+</div>
+<div class="cookie-overlay" id="cookieOverlay"></div>
+<div aria-describedby="cookieConsentDesc" aria-label="Cookie Consent" class="cookie-consent" id="cookieConsent" role="dialog">
+<div class="cookie-consent-content">
+<div class="cookie-consent-text">
+<h3 class="cookie-consent-title">您的 Cookie 偏好</h3>
+<p class="cookie-consent-description" id="cookieConsentDesc">
+                    我们使用 cookie 为您提供更好的体验。欲了解更多信息，请参阅我们的 
+                    <a href="privacy.html">隐私政策</a>.
+                </p>
+</div>
+<div class="cookie-consent-actions">
+<button aria-label="Accept all cookies" class="cookie-consent-btn accept">接受</button>
+<button aria-label="Accept only essential cookies" class="cookie-consent-btn decline">衰退</button>
+<button aria-label="Customize cookie settings" class="cookie-consent-btn settings">
+<svg fill="currentColor" height="18" viewbox="0 0 24 24" width="18">
+<path d="M19.14,12.94c0.04-0.3,0.06-0.61,0.06-0.94c0-0.32-0.02-0.64-0.07-0.94l2.03-1.58c0.18-0.14,0.23-0.41,0.12-0.61 l-1.92-3.32c-0.12-0.22-0.37-0.29-0.59-0.22l-2.39,0.96c-0.5-0.38-1.03-0.7-1.62-0.94L14.4,2.81c-0.04-0.24-0.24-0.41-0.48-0.41 h-3.84c-0.24,0-0.43,0.17-0.47,0.41L9.25,5.35C8.66,5.59,8.12,5.92,7.63,6.29L5.24,5.33c-0.22-0.08-0.47,0-0.59,0.22L2.74,8.87 C2.62,9.08,2.66,9.34,2.86,9.48l2.03,1.58C4.84,11.36,4.8,11.69,4.8,12s0.02,0.64,0.07,0.94l-2.03,1.58 c-0.18,0.14-0.23,0.41-0.12,0.61l1.92,3.32c0.12,0.22,0.37,0.29,0.59,0.22l2.39-0.96c0.5,0.38,1.03,0.7,1.62,0.94l0.36,2.54 c0.05,0.24,0.24,0.41,0.48,0.41h3.84c0.24,0,0.44-0.17,0.47-0.41l0.36-2.54c0.59-0.24,1.13-0.56,1.62-0.94l2.39,0.96 c0.22,0.08,0.47,0,0.59-0.22l1.92-3.32c0.12-0.22,0.07-0.47-0.12-0.61L19.14,12.94z M12,15.6c-1.98,0-3.6-1.62-3.6-3.6 s1.62-3.6,3.6-3.6s3.6,1.62,3.6,3.6S13.98,15.6,12,15.6z"></path>
+</svg>
+</button>
+</div>
+</div>
+</div>
+<div aria-label="Cookie Settings" aria-modal="true" class="cookie-settings-modal" id="cookieSettingsModal" role="dialog">
+<div class="cookie-settings-modal-content">
+<h3 class="cookie-settings-title">Cookie 偏好设置</h3>
+<p class="cookie-settings-description">
+                选择您想要允许的 cookie，以帮助我们为您提供更好的体验。
+            </p>
+<div class="cookie-option">
+<div class="cookie-option-header">
+<span class="cookie-option-title">基本饼干</span>
+<label class="cookie-option-toggle">
+<input checked="" disabled="" type="checkbox"/>
+<span class="toggle-slider"></span>
+</label>
+</div>
+<p class="cookie-option-description">这些 cookie 是网站正常运行所必需的，并且无法关闭。</p>
+</div>
+<div class="cookie-option">
+<div class="cookie-option-header">
+<span class="cookie-option-title">分析 Cookie</span>
+<label class="cookie-option-toggle">
+<input id="cookieAnalyticsToggle" type="checkbox"/>
+<span class="toggle-slider"></span>
+</label>
+</div>
+<p class="cookie-option-description">帮助我们了解访问者如何与我们的网站互动。仅在您同意后启用。</p>
+</div>
+<div class="cookie-settings-actions">
+<button class="cookie-consent-btn decline cookie-settings-close">关闭</button>
+<button class="cookie-consent-btn accept cookie-settings-save">节省</button>
+</div>
+</div>
+</div>
+<div aria-label="Are you sure?" aria-modal="true" class="decline-reprompt-modal" id="declineRepromptModal" role="dialog">
+<div class="decline-reprompt-modal-content">
+<div class="decline-reprompt-icon">
+<svg fill="currentColor" viewbox="0 0 24 24">
+<path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"></path>
+</svg>
+</div>
+<h3 class="decline-reprompt-title">你确定吗？</h3>
+<p class="decline-reprompt-description">
+                如果您拒绝 cookie，某些功能可能无法正常工作。我们推荐 <strong>接受所有cookie</strong> 以获得个性化的体验和分析。
+            </p>
+<div class="decline-reprompt-actions">
+<button class="decline-reprompt-btn decline-confirmed" id="declineConfirmed">无论如何都要拒绝</button>
+<button class="decline-reprompt-btn accept-instead" id="acceptInstead">接受所有 Cookie</button>
+</div>
+</div>
+</div>
+</body>
+</html>
