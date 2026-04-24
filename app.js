@@ -92,7 +92,8 @@ const currencyMapping = {
     'en': { code: 'USD', locale: 'en-US' },
     'de': { code: 'EUR', locale: 'de-DE' },
     'ru': { code: 'RUB', locale: 'ru-RU' },
-    'ar': { code: 'SAR', locale: 'ar-SA' }
+    'ar': { code: 'SAR', locale: 'ar-SA' },
+    'zh': { code: '人民币', locale: 'zh-CN' }
 };
 
 function getCurrencyInfo() {
