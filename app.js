@@ -477,9 +477,10 @@ function scrollToSection(index, options = {}) {
 
     updateSectionVisibility(index);
 
-    requestAnimationFrame(() => {
-        section.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    });
+    setTimeout(() => {
+        const yOffset = section.getBoundingClientRect().top + window.pageYOffset;
+        window.scrollTo({ top: yOffset, behavior: 'smooth' });
+    }, 50);
 
     updateActiveNavLink();
     updateFooterVisibility();
@@ -1185,6 +1186,7 @@ if (document.readyState !== 'loading') {
             'tr': 'Çerez Tercihleri',
             'en': 'Cookie Preferences',
             'de': 'Cookie-Einstellungen',
+            'zh': 'Cookie 设置',
             'ru': 'Настройки cookie',
             'ar': 'تفضيلات ملفات تعريف الارتباط'
         };
