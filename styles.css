@@ -2240,6 +2240,8 @@ html.touch-device .maintenance-status-card .status-item:hover {
     border-radius: 32px;
     overflow: hidden;
     position: relative;
+    isolation: isolate;
+    -webkit-mask-image: -webkit-radial-gradient(white, black);
     transition: background 0.3s ease;
     display: flex;
     flex-direction: column;
