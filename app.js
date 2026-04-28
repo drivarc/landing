@@ -506,7 +506,10 @@ let wheelAccumulator = 0;
 const WHEEL_THRESHOLD = 50;
 let isMouseButtonDown = false;
 
-window.addEventListener('mousedown', () => { isMouseButtonDown = true; });
+window.addEventListener('mousedown', (e) => { 
+    isMouseButtonDown = true; 
+    if (e.button === 1) e.preventDefault(); // Orta tıklama autoscroll engelle
+});
 window.addEventListener('mouseup', () => { isMouseButtonDown = false; });
 
 if (allSectionsExist) {
