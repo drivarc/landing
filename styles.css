@@ -3193,6 +3193,36 @@ html.touch-device .maintenance-status-card .status-item:hover {
     margin-bottom: 16px;
 }
 
+.footer-socials {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 12px;
+}
+
+.social-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    color: var(--text-primary);
+    text-decoration: none;
+    transition: color .15s ease, transform .12s ease;
+    border-radius: 8px;
+}
+
+.social-link svg {
+    width: 20px;
+    height: 20px;
+    fill: currentColor;
+}
+
+.social-link:hover {
+    color: var(--accent-light);
+    transform: translateY(-2px);
+}
+
 .footer-link {
     font-size: 13px;
     color: var(--text-primary);

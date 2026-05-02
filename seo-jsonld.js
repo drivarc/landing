@@ -106,7 +106,7 @@
         contactType: 'customer support',
         availableLanguage: ['Turkish', 'English', 'German', 'Russian', 'Arabic']
       },
-      sameAs: []
+      sameAs: ['https://www.instagram.com/drivarc.app', 'https://x.com/drivarc_app', 'https://www.linkedin.com/company/drivarc/']
     }
   };
 
@@ -133,7 +133,18 @@
       'query-input': 'required name=search_term_string'
     }
   };
-
   appendJsonLd('drivarc-softwareapp-jsonld', softwareApplication);
   appendJsonLd('drivarc-website-jsonld', webSite);
+
+  const organization = {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    name: 'Drivarc',
+    legalName: 'Drivarc',
+    url: 'https://drivarc.com/',
+    logo: 'https://drivarc.com/images/Harflogo.png',
+    sameAs: ['https://www.instagram.com/drivarc.app', 'https://x.com/drivarc_app', 'https://www.linkedin.com/company/drivarc/']
+  };
+
+  appendJsonLd('drivarc-organization-jsonld', organization);
 })();

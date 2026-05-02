@@ -1224,7 +1224,12 @@ if (document.readyState !== 'loading') {
 
         var footerLinks = footer.querySelector('.footer-links');
         if (footerLinks) {
-            footerLinks.appendChild(link);
+            var socials = footerLinks.querySelector('.footer-socials');
+            if (socials) {
+                footerLinks.insertBefore(link, socials);
+            } else {
+                footerLinks.appendChild(link);
+            }
         }
     }
 

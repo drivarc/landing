@@ -1,0 +1,72 @@
+.footer-socials{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:12px;
+  margin-bottom:12px;
+}
+.social-link{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:36px;
+  height:36px;
+  line-height:0;
+  color:var(--text-primary);
+  text-decoration:none;
+  transition:color .15s ease, transform .12s ease;
+  border-radius:8px;
+}
+.social-link svg{
+  width:20px;
+  height:20px;
+  fill:currentColor;
+  display:block;
+}
+.social-link img{
+  width:20px;
+  height:20px;
+  display:block;
+}
+.social-link:hover{
+  color:var(--accent-light);
+  transform:translateY(-2px);
+}
+
+/* Desktop/tablet layout: align links left, socials right */
+@media (min-width:720px) {
+  .footer-inner {
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:16px;
+  }
+  .footer-copy {
+    order: 1;
+    width: auto;
+    text-align: left;
+    margin: 0;
+    font-size:13px;
+  }
+  .footer-links {
+    order: 2;
+    display:flex;
+    align-items:center;
+    gap:16px;
+    margin-bottom:0;
+    margin-inline-start: auto;
+  }
+  .footer-links > .footer-socials {
+    margin-left:8px;
+  }
+  .footer-socials {
+    justify-content:flex-end;
+    margin-bottom: 0;
+  }
+}
+
+/* Ensure cookie link and small flex items align nicely */
+.cookie-preferences-link {
+  display:inline-flex;
+  align-items:center;
+}

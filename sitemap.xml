@@ -15,6 +15,14 @@
         <xhtml:link rel="alternate" hreflang="x-default" href="https://drivarc.com/"/>
     </url>
 
+    <!-- Brand page -->
+    <url>
+        <loc>https://drivarc.com/drivarc.html</loc>
+        <lastmod>2026-05-02</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
     <!-- English -->
     <url>
         <loc>https://drivarc.com/en/</loc>
