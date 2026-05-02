@@ -9,10 +9,10 @@
   "orientation": "portrait-primary",
   "icons": [
     {
-      "src": "/images/Harflogo.png",
-      "sizes": "512x512",
+      "src": "/favicon.png",
+      "sizes": "4100x4100",
       "type": "image/png",
-      "purpose": "any maskable"
+      "purpose": "any"
     }
   ],
   "screenshots": [

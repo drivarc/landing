@@ -478,9 +478,31 @@ function scrollToSection(index, options = {}) {
     updateSectionVisibility(index);
 
     setTimeout(() => {
-        const yOffset = section.getBoundingClientRect().top + window.pageYOffset;
-        window.scrollTo({ top: yOffset, behavior: 'smooth' });
-    }, 50);
+        const targetY = section.getBoundingClientRect().top + window.pageYOffset;
+        const startY = window.pageYOffset;
+        const distance = targetY - startY;
+        const duration = 600; // js tabanlı akıcı scroll
+
+        if (distance === 0) return;
+
+        let startTime = null;
+        function animation(currentTime) {
+            if (startTime === null) startTime = currentTime;
+            const timeElapsed = currentTime - startTime;
+            let progress = Math.min(timeElapsed / duration, 1);
+            
+            const ease = progress < 0.5 
+                ? 4 * progress * progress * progress 
+                : 1 - Math.pow(-2 * progress + 2, 3) / 2;
+
+            window.scrollTo(0, startY + (distance * ease));
+
+            if (timeElapsed < duration) {
+                requestAnimationFrame(animation);
+            }
+        }
+        requestAnimationFrame(animation);
+    }, 10);
 
     updateActiveNavLink();
     updateFooterVisibility();
@@ -1337,7 +1359,7 @@ document.addEventListener('DOMContentLoaded', function() {
             document.querySelectorAll('.lang-flag, .lang-flag-icon').forEach(function(el) {
                 var t = el.textContent.trim();
                 if (flagMap[t]) {
-                    el.innerHTML = '<img src="https://cdn.jsdelivr.net/npm/@twemoji/api@14.1.0/dist/svg/' + flagMap[t] + '.svg" style="width:1em; height:1em; vertical-align:middle;" alt="' + t + '">';
+                    el.innerHTML = '<img src="https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/svg/' + flagMap[t] + '.svg" style="width:1.2em; height:1.2em; vertical-align:-0.15em; margin:0 4px;" alt="' + t + '">';
                 }
             });
         }
