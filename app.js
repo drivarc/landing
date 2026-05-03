@@ -1124,10 +1124,9 @@ if (document.readyState !== 'loading') {
     function openSettingsModal() {
         var modal = document.getElementById('cookieSettingsModal');
         if (modal) {
-            var prefs = readConsent();
             var toggle = document.getElementById('cookieAnalyticsToggle');
-            if (toggle && prefs) {
-                toggle.checked = !!prefs.analytics;
+            if (toggle) {
+                toggle.checked = true;
             }
             modal.classList.add('show');
         }
@@ -1318,8 +1317,17 @@ document.addEventListener('DOMContentLoaded', function() {
         if (!htmlLang) return;
 
         document.querySelectorAll('.lang-option').forEach(function(opt) {
-            var hreflang = (opt.getAttribute('hreflang') || '').toLowerCase().substring(0,2);
-            var isActive = hreflang === htmlLang;
+            var hreflangVal = opt.getAttribute('hreflang') ? String(opt.getAttribute('hreflang')).toLowerCase().replace(/[^a-z0-9-]/g, '').substring(0, 2) : '';
+            var isActive = hreflangVal === htmlLang;
+
+            opt.setAttribute('data-hreflang-safe', hreflangVal);
+            opt.addEventListener('click', function(e) {
+                if (this.getAttribute('aria-disabled') === 'true') {
+                    e.preventDefault();
+                    e.stopPropagation();
+                }
+            });
+
             if (isActive) {
                 opt.classList.add('active');
                 opt.setAttribute('aria-current', 'page');
@@ -1331,14 +1339,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 opt.removeAttribute('aria-disabled');
                 opt.removeAttribute('tabindex');
             }
-
-            // Prevent clicking the active language option
-            opt.addEventListener('click', function(e) {
-                if (this.getAttribute('aria-disabled') === 'true') {
-                    e.preventDefault();
-                    e.stopPropagation();
-                }
-            });
         });
 
         var currentOpt = document.querySelector('.lang-option[hreflang="' + htmlLang + '"]');
@@ -1382,24 +1382,3 @@ if ('serviceWorker' in navigator) {
     });
   });
 }
-
-// Cookie Consent Simple Implementation
-document.addEventListener('DOMContentLoaded', () => {
-    if (!localStorage.getItem('cookieConsent_dlanding')) {
-        const consentBanner = document.createElement('div');
-        consentBanner.id = 'cookie-consent-banner';
-        consentBanner.innerHTML = `
-            <div style="position:fixed;bottom:0;left:0;right:0;background:#1a1a1a;color:#fff;padding:15px;text-align:center;z-index:9999;font-family:sans-serif;font-size:14px;border-top:1px solid #333;">
-                Deneyiminizi geliştirmek ve istatistikleri analiz etmek için çerezler kullanıyoruz. Sitemizi kullanarak çerez kullanımını kabul etmiş olursunuz.
-                <button id="cookie-accept" style="margin-left:15px;padding:8px 16px;background:#ff0077;color:#fff;border:none;border-radius:4px;cursor:pointer;">Kabul Et</button>
-                <a href="/privacy.html" style="margin-left:15px;color:#bbb;text-decoration:underline;">Gizlilik Politikası</a>
-            </div>
-        `;
-        document.body.appendChild(consentBanner);
-
-        document.getElementById('cookie-accept').addEventListener('click', () => {
-            localStorage.setItem('cookieConsent_dlanding', 'true');
-            consentBanner.style.display = 'none';
-        });
-    }
-});

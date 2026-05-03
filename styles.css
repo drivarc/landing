@@ -4659,7 +4659,7 @@ html.touch-device .maintenance-status-card .status-item:hover {
 
 .cookie-option {
     padding: 16px 0;
-    border-bottom: 1px solid var(--border);
+    border-bottom: none;
 }
 
 .cookie-option:last-child {
@@ -4742,7 +4742,6 @@ html.touch-device .maintenance-status-card .status-item:hover {
     justify-content: flex-end;
     margin-top: 24px;
     padding-top: 24px;
-    border-top: 1px solid var(--border);
     
     margin-left: 0;
     margin-right: 0;

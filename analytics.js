@@ -60,6 +60,7 @@
         state.promise = null;
         resolve(false);
       };
+      gaScript.timeout = 10000;
 
       (document.head || document.documentElement).appendChild(gaScript);
     });

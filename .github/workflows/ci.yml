@@ -50,7 +50,6 @@ jobs:
             https://drivarc.com/de/
           budgetPath: ./lighthouserc.json
           uploadArtifacts: true
-          temporaryPublicRoom: true
 
       - name: Validate hreflang
         run: |
