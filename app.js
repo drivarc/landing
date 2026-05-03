@@ -1371,3 +1371,35 @@ document.addEventListener('DOMContentLoaded', function() {
 
     } catch (e) { /* ignore */ }
 });
+
+// Service Worker Registration
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('/sw.js').then(registration => {
+      console.log('[SW] Registered with scope:', registration.scope);
+    }).catch(err => {
+      console.log('[SW] Registration failed:', err);
+    });
+  });
+}
+
+// Cookie Consent Simple Implementation
+document.addEventListener('DOMContentLoaded', () => {
+    if (!localStorage.getItem('cookieConsent_dlanding')) {
+        const consentBanner = document.createElement('div');
+        consentBanner.id = 'cookie-consent-banner';
+        consentBanner.innerHTML = `
+            <div style="position:fixed;bottom:0;left:0;right:0;background:#1a1a1a;color:#fff;padding:15px;text-align:center;z-index:9999;font-family:sans-serif;font-size:14px;border-top:1px solid #333;">
+                Deneyiminizi geliştirmek ve istatistikleri analiz etmek için çerezler kullanıyoruz. Sitemizi kullanarak çerez kullanımını kabul etmiş olursunuz.
+                <button id="cookie-accept" style="margin-left:15px;padding:8px 16px;background:#ff0077;color:#fff;border:none;border-radius:4px;cursor:pointer;">Kabul Et</button>
+                <a href="/privacy.html" style="margin-left:15px;color:#bbb;text-decoration:underline;">Gizlilik Politikası</a>
+            </div>
+        `;
+        document.body.appendChild(consentBanner);
+
+        document.getElementById('cookie-accept').addEventListener('click', () => {
+            localStorage.setItem('cookieConsent_dlanding', 'true');
+            consentBanner.style.display = 'none';
+        });
+    }
+});

@@ -1,3 +1,20 @@
 AGENTS.md
 PROGRESS.md
-.github
+.github/agents
+.github/instructions
+.github/skills
+.github/copilot-instructions.md
+# Editors
+.vscode/
+.idea/
+*.swp
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs & Cache
+*.log
+__pycache__/
+*.pyc
+.cache/

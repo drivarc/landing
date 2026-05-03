@@ -1,0 +1,20 @@
+name: Static CI
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify
+        run: |
+          test -f index.html || exit 1
+          test -f app.js || exit 1
+          test -f styles.css || exit 1
+          test -f manifest.json || exit 1
+          test -f sw.js || exit 1
