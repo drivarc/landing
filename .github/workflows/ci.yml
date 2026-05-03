@@ -1,20 +1,42 @@
-name: Static CI
+name: CI
+
 on:
   push:
-    branches:
-      - main
+    branches: [main]
   pull_request:
-    branches:
-      - main
+    branches: [main]
+
 jobs:
-  build:
+  validate:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Verify
+
+      - name: Check static files exist
         run: |
           test -f index.html || exit 1
-          test -f app.js || exit 1
           test -f styles.css || exit 1
+          test -f app.js || exit 1
           test -f manifest.json || exit 1
-          test -f sw.js || exit 1
+          test -f sitemap.xml || exit 1
+          test -f robots.txt || exit 1
+
+      - name: Check language folders
+        run: |
+          test -d en || exit 1
+          test -d de || exit 1
+          test -d ru || exit 1
+          test -d ar || exit 1
+          test -d zh || exit 1
+
+      - name: Validate HTML basic structure
+        run: |
+          for f in *.html en/*.html de/*.html ru/*.html ar/*.html; do
+            [ -f "$f" ] || continue
+            grep -q "<!DOCTYPE html>" "$f" || { echo "Missing DOCTYPE in $f"; exit 1; }
+            grep -q "<html" "$f" || { echo "Missing <html> in $f"; exit 1; }
+          done
+
+      - name: Validate JSON files
+        run: |
+          python3 -c "import json; json.load(open('manifest.json'))" || exit 1
