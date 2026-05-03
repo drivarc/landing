@@ -3,6 +3,27 @@ const isMobile = isTouchCapable || /Android|webOS|iPhone|iPad|iPod|BlackBerry|IE
 
 const prefersReducedMotion = false;
 
+// Set CSS variables from data attributes
+function setCssVarsFromData() {
+    const elements = document.querySelectorAll('[data-delay], [data-x], [data-size], [data-drift]');
+    elements.forEach(el => {
+        const dataAttrs = ['delay', 'dur', 'x', 'y', 'size', 'drift'];
+        dataAttrs.forEach(attr => {
+            const value = el.dataset[attr];
+            if (value !== undefined) {
+                el.style.setProperty(`--${attr}`, value);
+            }
+        });
+    });
+}
+
+// Call on DOM ready
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', setCssVarsFromData);
+} else {
+    setCssVarsFromData();
+}
+
 const themeToggle = document.querySelector('.theme-toggle');
 const iconMoon = document.querySelector('.icon-moon');
 const iconSun = document.querySelector('.icon-sun');

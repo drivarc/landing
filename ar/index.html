@@ -31,6 +31,9 @@
     <link rel="preload" href="/fonts/Inter-600.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="/fonts/Inter-700.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="manifest" href="../manifest.json">
+    <link rel="stylesheet" href="../css/critical.css" media="all">
+    <link rel="stylesheet" href="../styles.min.css" media="print" id="siteStyles">
+
     <meta name="theme-color" content="#1a73e8">
     <meta name="msapplication-TileColor" content="#1a73e8">
     <meta name="msapplication-tap-highlight" content="no">
@@ -38,7 +41,7 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="apple-mobile-web-app-title" content="Drivarc">
 
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://www.google-analytics.com https://cdnjs.cloudflare.com; connect-src 'self' https://www.googletagmanager.com https://www.google-analytics.com; font-src 'self' https://fonts.gstatic.com; object-src 'none'; base-uri 'self'; frame-src 'none'; form-action 'self'; frame-ancestors 'none'">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://www.googletagmanager.com; style-src 'self'; img-src 'self' data: blob: https://www.google-analytics.com https://cdnjs.cloudflare.com; connect-src 'self' https://www.googletagmanager.com https://www.google-analytics.com; font-src 'self' https://fonts.gstatic.com; object-src 'none'; base-uri 'self'; frame-src 'none'; form-action 'self'; frame-ancestors 'none'">
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
     <meta http-equiv="Cross-Origin-Opener-Policy" content="same-origin">
     <meta http-equiv="Cross-Origin-Embedder-Policy" content="require-corp">
@@ -62,50 +65,18 @@
     <meta name="twitter:image" content="https://drivarc.com/images/logoxxxhdpi.png">
     <meta name="twitter:site" content="@drivarc_app">
 
-    <style>
-        html, body { margin:0; padding:0; background:#111318; color:#e2e2e9; overflow-x:hidden; }
-        .is-hidden { display: none !important; }
-    </style>
+    
 
     <link rel="preload" href="../styles.css" as="style">
     <link rel="stylesheet" href="../styles.css" id="siteStyles">
     <link rel="stylesheet" href="../footer-socials.css">
     
-    <style>
-        /* Override: disable CSS-based slide for finance wave to avoid double-transform artifacts */
-        .finance-wave svg {
-            animation: none !important;
-            width: 100% !important;
-            height: 100% !important;
-            display: block !important;
-            will-change: transform;
-            transform-origin: 0 0;
-        }
-    </style>
+    
     <script src="../seo-jsonld.js" defer></script>
     <script src="../analytics.js" defer></script>
     <script src="../app.min.js" defer></script>
     <script src="../footer-cookie-fix.js" defer></script>
-    <style>
-        /* Arabic Font Support */
-        [dir="rtl"] body {
-            font-family: 'Inter', 'Noto Sans Arabic', -apple-system, BlinkMacSystemFont, sans-serif;
-        }
-        /* RTL Support */
-        [dir="rtl"] .header-inner { direction: rtl; }
-        [dir="rtl"] .nav { flex-direction: row-reverse; }
-        [dir="rtl"] .hero-text { text-align: right; }
-        [dir="rtl"] .hero-subtitle { text-align: right; }
-        [dir="rtl"] .features-header,
-        [dir="rtl"] .problems-header,
-        [dir="rtl"] .faq-header { text-align: center; }
-        [dir="rtl"] .lang-dropdown { left: 0; right: auto; }
-        [dir="rtl"] .lang-wrapper { direction: rtl; }
-        [dir="rtl"] .header-actions { direction: rtl; }
-        /* RTL: Flip directional icons */
-        [dir="rtl"] .finance-trend-badge.increasing svg,
-        [dir="rtl"] .activity-trailing svg { transform: scaleX(-1); }
-    </style>
+    
 </head>
 <body class="index-page">
     <a href="#main-content" class="skip-link" aria-label="انتقل إلى المحتوى">انتقل إلى المحتوى</a>
@@ -170,28 +141,28 @@
 
         <div class="hero-content" id="main-content" role="main">
             <div class="hero-particles">
-                <div class="hero-particle" style="--delay:0s;--dur:9s;--x:5%;--y:10%;--size:2px;--drift:-22px"></div>
-                <div class="hero-particle" style="--delay:1s;--dur:12s;--x:15%;--y:25%;--size:3px;--drift:30px"></div>
-                <div class="hero-particle" style="--delay:2s;--dur:8s;--x:25%;--y:80%;--size:2px;--drift:-15px"></div>
-                <div class="hero-particle" style="--delay:3s;--dur:14s;--x:35%;--y:45%;--size:4px;--drift:38px"></div>
-                <div class="hero-particle" style="--delay:4s;--dur:10s;--x:45%;--y:15%;--size:3px;--drift:-34px"></div>
-                <div class="hero-particle" style="--delay:5s;--dur:13s;--x:55%;--y:70%;--size:2px;--drift:26px"></div>
-                <div class="hero-particle" style="--delay:6s;--dur:9s;--x:65%;--y:30%;--size:5px;--drift:-18px"></div>
-                <div class="hero-particle" style="--delay:0.5s;--dur:15s;--x:75%;--y:85%;--size:3px;--drift:30px"></div>
-                <div class="hero-particle" style="--delay:1.5s;--dur:7s;--x:85%;--y:20%;--size:2px;--drift:-38px"></div>
-                <div class="hero-particle" style="--delay:2.5s;--dur:11s;--x:90%;--y:55%;--size:4px;--drift:22px"></div>
-                <div class="hero-particle" style="--delay:3.5s;--dur:10s;--x:10%;--y:60%;--size:3px;--drift:-26px"></div>
-                <div class="hero-particle" style="--delay:4.5s;--dur:14s;--x:20%;--y:40%;--size:2px;--drift:34px"></div>
-                <div class="hero-particle" style="--delay:5.5s;--dur:8s;--x:40%;--y:90%;--size:4px;--drift:-30px"></div>
-                <div class="hero-particle" style="--delay:6.5s;--dur:12s;--x:50%;--y:5%;--size:2px;--drift:18px"></div>
-                <div class="hero-particle" style="--delay:0.8s;--dur:9s;--x:60%;--y:50%;--size:3px;--drift:-42px"></div>
-                <div class="hero-particle" style="--delay:1.8s;--dur:13s;--x:80%;--y:75%;--size:2px;--drift:26px"></div>
-                <div class="hero-particle" style="--delay:2.8s;--dur:8s;--x:95%;--y:35%;--size:4px;--drift:-22px"></div>
-                <div class="hero-particle" style="--delay:3.8s;--dur:12s;--x:30%;--y:65%;--size:3px;--drift:38px"></div>
-                <div class="hero-particle hero-particle-glow" style="--delay:0s;--dur:15s;--x:12%;--y:20%;--size:6px;--drift:-45px"></div>
-                <div class="hero-particle hero-particle-glow" style="--delay:3.5s;--dur:19s;--x:38%;--y:70%;--size:8px;--drift:52px"></div>
-                <div class="hero-particle hero-particle-glow" style="--delay:7s;--dur:17s;--x:62%;--y:15%;--size:5px;--drift:-38px"></div>
-                <div class="hero-particle hero-particle-glow" style="--delay:10.5s;--dur:21s;--x:88%;--y:60%;--size:7px;--drift:42px"></div>
+                <div class="hero-particle" data-delay="0s" data-dur="9s" data-x="5%" data-y="10%" data-size="2px" data-drift="-22px"></div>
+                <div class="hero-particle" data-delay="1s" data-dur="12s" data-x="15%" data-y="25%" data-size="3px" data-drift="30px"></div>
+                <div class="hero-particle" data-delay="2s" data-dur="8s" data-x="25%" data-y="80%" data-size="2px" data-drift="-15px"></div>
+                <div class="hero-particle" data-delay="3s" data-dur="14s" data-x="35%" data-y="45%" data-size="4px" data-drift="38px"></div>
+                <div class="hero-particle" data-delay="4s" data-dur="10s" data-x="45%" data-y="15%" data-size="3px" data-drift="-34px"></div>
+                <div class="hero-particle" data-delay="5s" data-dur="13s" data-x="55%" data-y="70%" data-size="2px" data-drift="26px"></div>
+                <div class="hero-particle" data-delay="6s" data-dur="9s" data-x="65%" data-y="30%" data-size="5px" data-drift="-18px"></div>
+                <div class="hero-particle" data-delay="0.5s" data-dur="15s" data-x="75%" data-y="85%" data-size="3px" data-drift="30px"></div>
+                <div class="hero-particle" data-delay="1.5s" data-dur="7s" data-x="85%" data-y="20%" data-size="2px" data-drift="-38px"></div>
+                <div class="hero-particle" data-delay="2.5s" data-dur="11s" data-x="90%" data-y="55%" data-size="4px" data-drift="22px"></div>
+                <div class="hero-particle" data-delay="3.5s" data-dur="10s" data-x="10%" data-y="60%" data-size="3px" data-drift="-26px"></div>
+                <div class="hero-particle" data-delay="4.5s" data-dur="14s" data-x="20%" data-y="40%" data-size="2px" data-drift="34px"></div>
+                <div class="hero-particle" data-delay="5.5s" data-dur="8s" data-x="40%" data-y="90%" data-size="4px" data-drift="-30px"></div>
+                <div class="hero-particle" data-delay="6.5s" data-dur="12s" data-x="50%" data-y="5%" data-size="2px" data-drift="18px"></div>
+                <div class="hero-particle" data-delay="0.8s" data-dur="9s" data-x="60%" data-y="50%" data-size="3px" data-drift="-42px"></div>
+                <div class="hero-particle" data-delay="1.8s" data-dur="13s" data-x="80%" data-y="75%" data-size="2px" data-drift="26px"></div>
+                <div class="hero-particle" data-delay="2.8s" data-dur="8s" data-x="95%" data-y="35%" data-size="4px" data-drift="-22px"></div>
+                <div class="hero-particle" data-delay="3.8s" data-dur="12s" data-x="30%" data-y="65%" data-size="3px" data-drift="38px"></div>
+                <div class="hero-particle hero-particle-glow" data-delay="0s" data-dur="15s" data-x="12%" data-y="20%" data-size="6px" data-drift="-45px"></div>
+                <div class="hero-particle hero-particle-glow" data-delay="3.5s" data-dur="19s" data-x="38%" data-y="70%" data-size="8px" data-drift="52px"></div>
+                <div class="hero-particle hero-particle-glow" data-delay="7s" data-dur="17s" data-x="62%" data-y="15%" data-size="5px" data-drift="-38px"></div>
+                <div class="hero-particle hero-particle-glow" data-delay="10.5s" data-dur="21s" data-x="88%" data-y="60%" data-size="7px" data-drift="42px"></div>
             </div>
 
             <div class="hero-text">
@@ -401,28 +372,28 @@
 
     <section class="features-section" id="features" aria-labelledby="features-title">
         <div class="section-particles">
-            <div class="section-particle" style="--delay:0s;--dur:9s;--x:5%;--y:10%;--size:2px;--drift:-22px"></div>
-            <div class="section-particle" style="--delay:1s;--dur:12s;--x:15%;--y:25%;--size:3px;--drift:30px"></div>
-            <div class="section-particle" style="--delay:2s;--dur:8s;--x:25%;--y:80%;--size:2px;--drift:-15px"></div>
-            <div class="section-particle" style="--delay:3s;--dur:14s;--x:35%;--y:45%;--size:4px;--drift:38px"></div>
-            <div class="section-particle" style="--delay:4s;--dur:10s;--x:45%;--y:15%;--size:3px;--drift:-34px"></div>
-            <div class="section-particle" style="--delay:5s;--dur:13s;--x:55%;--y:70%;--size:2px;--drift:26px"></div>
-            <div class="section-particle" style="--delay:6s;--dur:9s;--x:65%;--y:30%;--size:5px;--drift:-18px"></div>
-            <div class="section-particle" style="--delay:0.5s;--dur:15s;--x:75%;--y:85%;--size:3px;--drift:30px"></div>
-            <div class="section-particle" style="--delay:1.5s;--dur:7s;--x:85%;--y:20%;--size:2px;--drift:-38px"></div>
-            <div class="section-particle" style="--delay:2.5s;--dur:11s;--x:90%;--y:55%;--size:4px;--drift:22px"></div>
-            <div class="section-particle" style="--delay:3.5s;--dur:10s;--x:10%;--y:60%;--size:3px;--drift:-26px"></div>
-            <div class="section-particle" style="--delay:4.5s;--dur:14s;--x:20%;--y:40%;--size:2px;--drift:34px"></div>
-            <div class="section-particle" style="--delay:5.5s;--dur:8s;--x:40%;--y:90%;--size:4px;--drift:-30px"></div>
-            <div class="section-particle" style="--delay:6.5s;--dur:12s;--x:50%;--y:5%;--size:2px;--drift:18px"></div>
-            <div class="section-particle" style="--delay:0.8s;--dur:9s;--x:60%;--y:50%;--size:3px;--drift:-42px"></div>
-            <div class="section-particle" style="--delay:1.8s;--dur:13s;--x:80%;--y:75%;--size:2px;--drift:26px"></div>
-            <div class="section-particle" style="--delay:2.8s;--dur:8s;--x:95%;--y:35%;--size:4px;--drift:-22px"></div>
-            <div class="section-particle" style="--delay:3.8s;--dur:12s;--x:30%;--y:65%;--size:3px;--drift:38px"></div>
-            <div class="section-particle section-particle-glow" style="--delay:0s;--dur:15s;--x:12%;--y:20%;--size:6px;--drift:-45px"></div>
-            <div class="section-particle section-particle-glow" style="--delay:3.5s;--dur:19s;--x:38%;--y:70%;--size:8px;--drift:52px"></div>
-            <div class="section-particle section-particle-glow" style="--delay:7s;--dur:17s;--x:62%;--y:15%;--size:5px;--drift:-38px"></div>
-            <div class="section-particle section-particle-glow" style="--delay:10.5s;--dur:21s;--x:88%;--y:60%;--size:7px;--drift:42px"></div>
+            <div class="section-particle" data-delay="0s" data-dur="9s" data-x="5%" data-y="10%" data-size="2px" data-drift="-22px"></div>
+            <div class="section-particle" data-delay="1s" data-dur="12s" data-x="15%" data-y="25%" data-size="3px" data-drift="30px"></div>
+            <div class="section-particle" data-delay="2s" data-dur="8s" data-x="25%" data-y="80%" data-size="2px" data-drift="-15px"></div>
+            <div class="section-particle" data-delay="3s" data-dur="14s" data-x="35%" data-y="45%" data-size="4px" data-drift="38px"></div>
+            <div class="section-particle" data-delay="4s" data-dur="10s" data-x="45%" data-y="15%" data-size="3px" data-drift="-34px"></div>
+            <div class="section-particle" data-delay="5s" data-dur="13s" data-x="55%" data-y="70%" data-size="2px" data-drift="26px"></div>
+            <div class="section-particle" data-delay="6s" data-dur="9s" data-x="65%" data-y="30%" data-size="5px" data-drift="-18px"></div>
+            <div class="section-particle" data-delay="0.5s" data-dur="15s" data-x="75%" data-y="85%" data-size="3px" data-drift="30px"></div>
+            <div class="section-particle" data-delay="1.5s" data-dur="7s" data-x="85%" data-y="20%" data-size="2px" data-drift="-38px"></div>
+            <div class="section-particle" data-delay="2.5s" data-dur="11s" data-x="90%" data-y="55%" data-size="4px" data-drift="22px"></div>
+            <div class="section-particle" data-delay="3.5s" data-dur="10s" data-x="10%" data-y="60%" data-size="3px" data-drift="-26px"></div>
+            <div class="section-particle" data-delay="4.5s" data-dur="14s" data-x="20%" data-y="40%" data-size="2px" data-drift="34px"></div>
+            <div class="section-particle" data-delay="5.5s" data-dur="8s" data-x="40%" data-y="90%" data-size="4px" data-drift="-30px"></div>
+            <div class="section-particle" data-delay="6.5s" data-dur="12s" data-x="50%" data-y="5%" data-size="2px" data-drift="18px"></div>
+            <div class="section-particle" data-delay="0.8s" data-dur="9s" data-x="60%" data-y="50%" data-size="3px" data-drift="-42px"></div>
+            <div class="section-particle" data-delay="1.8s" data-dur="13s" data-x="80%" data-y="75%" data-size="2px" data-drift="26px"></div>
+            <div class="section-particle" data-delay="2.8s" data-dur="8s" data-x="95%" data-y="35%" data-size="4px" data-drift="-22px"></div>
+            <div class="section-particle" data-delay="3.8s" data-dur="12s" data-x="30%" data-y="65%" data-size="3px" data-drift="38px"></div>
+            <div class="section-particle section-particle-glow" data-delay="0s" data-dur="15s" data-x="12%" data-y="20%" data-size="6px" data-drift="-45px"></div>
+            <div class="section-particle section-particle-glow" data-delay="3.5s" data-dur="19s" data-x="38%" data-y="70%" data-size="8px" data-drift="52px"></div>
+            <div class="section-particle section-particle-glow" data-delay="7s" data-dur="17s" data-x="62%" data-y="15%" data-size="5px" data-drift="-38px"></div>
+            <div class="section-particle section-particle-glow" data-delay="10.5s" data-dur="21s" data-x="88%" data-y="60%" data-size="7px" data-drift="42px"></div>
         </div>
         <div class="features-inner">
             <div class="features-header animate-on-scroll">
@@ -512,28 +483,28 @@
 
     <section class="problems-section" id="problems" aria-labelledby="problems-title">
         <div class="section-particles">
-            <div class="section-particle" style="--delay:0.2s;--dur:10s;--x:8%;--y:15%;--size:3px;--drift:-28px"></div>
-            <div class="section-particle" style="--delay:1.2s;--dur:13s;--x:18%;--y:30%;--size:2px;--drift:34px"></div>
-            <div class="section-particle" style="--delay:2.2s;--dur:8s;--x:28%;--y:75%;--size:4px;--drift:-18px"></div>
-            <div class="section-particle" style="--delay:3.2s;--dur:14s;--x:38%;--y:50%;--size:2px;--drift:42px"></div>
-            <div class="section-particle" style="--delay:4.2s;--dur:9s;--x:48%;--y:20%;--size:3px;--drift:-30px"></div>
-            <div class="section-particle" style="--delay:5.2s;--dur:11s;--x:58%;--y:65%;--size:2px;--drift:22px"></div>
-            <div class="section-particle" style="--delay:6.2s;--dur:8s;--x:68%;--y:35%;--size:5px;--drift:-22px"></div>
-            <div class="section-particle" style="--delay:0.4s;--dur:15s;--x:78%;--y:80%;--size:3px;--drift:34px"></div>
-            <div class="section-particle" style="--delay:1.4s;--dur:9s;--x:88%;--y:25%;--size:2px;--drift:-42px"></div>
-            <div class="section-particle" style="--delay:2.4s;--dur:12s;--x:92%;--y:60%;--size:4px;--drift:28px"></div>
-            <div class="section-particle" style="--delay:3.4s;--dur:10s;--x:12%;--y:55%;--size:3px;--drift:-30px"></div>
-            <div class="section-particle" style="--delay:4.4s;--dur:7s;--x:22%;--y:45%;--size:2px;--drift:38px"></div>
-            <div class="section-particle" style="--delay:5.4s;--dur:13s;--x:42%;--y:85%;--size:4px;--drift:-34px"></div>
-            <div class="section-particle" style="--delay:6.4s;--dur:10s;--x:52%;--y:10%;--size:2px;--drift:22px"></div>
-            <div class="section-particle" style="--delay:0.8s;--dur:15s;--x:62%;--y:40%;--size:3px;--drift:-38px"></div>
-            <div class="section-particle" style="--delay:1.8s;--dur:7s;--x:82%;--y:70%;--size:2px;--drift:30px"></div>
-            <div class="section-particle" style="--delay:2.8s;--dur:11s;--x:98%;--y:30%;--size:4px;--drift:-26px"></div>
-            <div class="section-particle" style="--delay:3.8s;--dur:12s;--x:32%;--y:75%;--size:3px;--drift:42px"></div>
-            <div class="section-particle section-particle-glow" style="--delay:0.3s;--dur:16s;--x:15%;--y:25%;--size:6px;--drift:-48px"></div>
-            <div class="section-particle section-particle-glow" style="--delay:3.8s;--dur:20s;--x:42%;--y:75%;--size:8px;--drift:56px"></div>
-            <div class="section-particle section-particle-glow" style="--delay:7.3s;--dur:17s;--x:65%;--y:20%;--size:5px;--drift:-42px"></div>
-            <div class="section-particle section-particle-glow" style="--delay:10.8s;--dur:22s;--x:85%;--y:65%;--size:7px;--drift:45px"></div>
+            <div class="section-particle" data-delay="0.2s" data-dur="10s" data-x="8%" data-y="15%" data-size="3px" data-drift="-28px"></div>
+            <div class="section-particle" data-delay="1.2s" data-dur="13s" data-x="18%" data-y="30%" data-size="2px" data-drift="34px"></div>
+            <div class="section-particle" data-delay="2.2s" data-dur="8s" data-x="28%" data-y="75%" data-size="4px" data-drift="-18px"></div>
+            <div class="section-particle" data-delay="3.2s" data-dur="14s" data-x="38%" data-y="50%" data-size="2px" data-drift="42px"></div>
+            <div class="section-particle" data-delay="4.2s" data-dur="9s" data-x="48%" data-y="20%" data-size="3px" data-drift="-30px"></div>
+            <div class="section-particle" data-delay="5.2s" data-dur="11s" data-x="58%" data-y="65%" data-size="2px" data-drift="22px"></div>
+            <div class="section-particle" data-delay="6.2s" data-dur="8s" data-x="68%" data-y="35%" data-size="5px" data-drift="-22px"></div>
+            <div class="section-particle" data-delay="0.4s" data-dur="15s" data-x="78%" data-y="80%" data-size="3px" data-drift="34px"></div>
+            <div class="section-particle" data-delay="1.4s" data-dur="9s" data-x="88%" data-y="25%" data-size="2px" data-drift="-42px"></div>
+            <div class="section-particle" data-delay="2.4s" data-dur="12s" data-x="92%" data-y="60%" data-size="4px" data-drift="28px"></div>
+            <div class="section-particle" data-delay="3.4s" data-dur="10s" data-x="12%" data-y="55%" data-size="3px" data-drift="-30px"></div>
+            <div class="section-particle" data-delay="4.4s" data-dur="7s" data-x="22%" data-y="45%" data-size="2px" data-drift="38px"></div>
+            <div class="section-particle" data-delay="5.4s" data-dur="13s" data-x="42%" data-y="85%" data-size="4px" data-drift="-34px"></div>
+            <div class="section-particle" data-delay="6.4s" data-dur="10s" data-x="52%" data-y="10%" data-size="2px" data-drift="22px"></div>
+            <div class="section-particle" data-delay="0.8s" data-dur="15s" data-x="62%" data-y="40%" data-size="3px" data-drift="-38px"></div>
+            <div class="section-particle" data-delay="1.8s" data-dur="7s" data-x="82%" data-y="70%" data-size="2px" data-drift="30px"></div>
+            <div class="section-particle" data-delay="2.8s" data-dur="11s" data-x="98%" data-y="30%" data-size="4px" data-drift="-26px"></div>
+            <div class="section-particle" data-delay="3.8s" data-dur="12s" data-x="32%" data-y="75%" data-size="3px" data-drift="42px"></div>
+            <div class="section-particle section-particle-glow" data-delay="0.3s" data-dur="16s" data-x="15%" data-y="25%" data-size="6px" data-drift="-48px"></div>
+            <div class="section-particle section-particle-glow" data-delay="3.8s" data-dur="20s" data-x="42%" data-y="75%" data-size="8px" data-drift="56px"></div>
+            <div class="section-particle section-particle-glow" data-delay="7.3s" data-dur="17s" data-x="65%" data-y="20%" data-size="5px" data-drift="-42px"></div>
+            <div class="section-particle section-particle-glow" data-delay="10.8s" data-dur="22s" data-x="85%" data-y="65%" data-size="7px" data-drift="45px"></div>
         </div>
         <div class="problems-inner">
             <div class="problems-header animate-on-scroll">
@@ -720,28 +691,28 @@
 
     <section class="faq-section" id="faq" aria-labelledby="faq-title">
         <div class="section-particles">
-            <div class="section-particle" style="--delay:0.1s;--dur:10s;--x:7%;--y:12%;--size:2px;--drift:-24px"></div>
-            <div class="section-particle" style="--delay:1.1s;--dur:13s;--x:17%;--y:28%;--size:3px;--drift:32px"></div>
-            <div class="section-particle" style="--delay:2.1s;--dur:8s;--x:27%;--y:78%;--size:2px;--drift:-16px"></div>
-            <div class="section-particle" style="--delay:3.1s;--dur:14s;--x:37%;--y:48%;--size:4px;--drift:40px"></div>
-            <div class="section-particle" style="--delay:4.1s;--dur:9s;--x:47%;--y:18%;--size:3px;--drift:-32px"></div>
-            <div class="section-particle" style="--delay:5.1s;--dur:11s;--x:57%;--y:68%;--size:2px;--drift:24px"></div>
-            <div class="section-particle" style="--delay:6.1s;--dur:8s;--x:67%;--y:32%;--size:5px;--drift:-20px"></div>
-            <div class="section-particle" style="--delay:0.3s;--dur:15s;--x:77%;--y:82%;--size:3px;--drift:32px"></div>
-            <div class="section-particle" style="--delay:1.3s;--dur:9s;--x:87%;--y:22%;--size:2px;--drift:-40px"></div>
-            <div class="section-particle" style="--delay:2.3s;--dur:12s;--x:93%;--y:58%;--size:4px;--drift:24px"></div>
-            <div class="section-particle" style="--delay:3.3s;--dur:10s;--x:11%;--y:58%;--size:3px;--drift:-28px"></div>
-            <div class="section-particle" style="--delay:4.3s;--dur:7s;--x:21%;--y:42%;--size:2px;--drift:36px"></div>
-            <div class="section-particle" style="--delay:5.3s;--dur:13s;--x:41%;--y:88%;--size:4px;--drift:-32px"></div>
-            <div class="section-particle" style="--delay:6.3s;--dur:10s;--x:51%;--y:8%;--size:2px;--drift:20px"></div>
-            <div class="section-particle" style="--delay:0.7s;--dur:15s;--x:61%;--y:48%;--size:3px;--drift:-40px"></div>
-            <div class="section-particle" style="--delay:1.7s;--dur:7s;--x:81%;--y:72%;--size:2px;--drift:28px"></div>
-            <div class="section-particle" style="--delay:2.7s;--dur:11s;--x:97%;--y:38%;--size:4px;--drift:-24px"></div>
-            <div class="section-particle" style="--delay:3.7s;--dur:12s;--x:31%;--y:72%;--size:3px;--drift:40px"></div>
-            <div class="section-particle section-particle-glow" style="--delay:0.2s;--dur:16s;--x:14%;--y:22%;--size:6px;--drift:-46px"></div>
-            <div class="section-particle section-particle-glow" style="--delay:3.7s;--dur:20s;--x:40%;--y:72%;--size:8px;--drift:54px"></div>
-            <div class="section-particle section-particle-glow" style="--delay:7.2s;--dur:17s;--x:64%;--y:18%;--size:5px;--drift:-40px"></div>
-            <div class="section-particle section-particle-glow" style="--delay:10.7s;--dur:22s;--x:86%;--y:62%;--size:7px;--drift:44px"></div>
+            <div class="section-particle" data-delay="0.1s" data-dur="10s" data-x="7%" data-y="12%" data-size="2px" data-drift="-24px"></div>
+            <div class="section-particle" data-delay="1.1s" data-dur="13s" data-x="17%" data-y="28%" data-size="3px" data-drift="32px"></div>
+            <div class="section-particle" data-delay="2.1s" data-dur="8s" data-x="27%" data-y="78%" data-size="2px" data-drift="-16px"></div>
+            <div class="section-particle" data-delay="3.1s" data-dur="14s" data-x="37%" data-y="48%" data-size="4px" data-drift="40px"></div>
+            <div class="section-particle" data-delay="4.1s" data-dur="9s" data-x="47%" data-y="18%" data-size="3px" data-drift="-32px"></div>
+            <div class="section-particle" data-delay="5.1s" data-dur="11s" data-x="57%" data-y="68%" data-size="2px" data-drift="24px"></div>
+            <div class="section-particle" data-delay="6.1s" data-dur="8s" data-x="67%" data-y="32%" data-size="5px" data-drift="-20px"></div>
+            <div class="section-particle" data-delay="0.3s" data-dur="15s" data-x="77%" data-y="82%" data-size="3px" data-drift="32px"></div>
+            <div class="section-particle" data-delay="1.3s" data-dur="9s" data-x="87%" data-y="22%" data-size="2px" data-drift="-40px"></div>
+            <div class="section-particle" data-delay="2.3s" data-dur="12s" data-x="93%" data-y="58%" data-size="4px" data-drift="24px"></div>
+            <div class="section-particle" data-delay="3.3s" data-dur="10s" data-x="11%" data-y="58%" data-size="3px" data-drift="-28px"></div>
+            <div class="section-particle" data-delay="4.3s" data-dur="7s" data-x="21%" data-y="42%" data-size="2px" data-drift="36px"></div>
+            <div class="section-particle" data-delay="5.3s" data-dur="13s" data-x="41%" data-y="88%" data-size="4px" data-drift="-32px"></div>
+            <div class="section-particle" data-delay="6.3s" data-dur="10s" data-x="51%" data-y="8%" data-size="2px" data-drift="20px"></div>
+            <div class="section-particle" data-delay="0.7s" data-dur="15s" data-x="61%" data-y="48%" data-size="3px" data-drift="-40px"></div>
+            <div class="section-particle" data-delay="1.7s" data-dur="7s" data-x="81%" data-y="72%" data-size="2px" data-drift="28px"></div>
+            <div class="section-particle" data-delay="2.7s" data-dur="11s" data-x="97%" data-y="38%" data-size="4px" data-drift="-24px"></div>
+            <div class="section-particle" data-delay="3.7s" data-dur="12s" data-x="31%" data-y="72%" data-size="3px" data-drift="40px"></div>
+            <div class="section-particle section-particle-glow" data-delay="0.2s" data-dur="16s" data-x="14%" data-y="22%" data-size="6px" data-drift="-46px"></div>
+            <div class="section-particle section-particle-glow" data-delay="3.7s" data-dur="20s" data-x="40%" data-y="72%" data-size="8px" data-drift="54px"></div>
+            <div class="section-particle section-particle-glow" data-delay="7.2s" data-dur="17s" data-x="64%" data-y="18%" data-size="5px" data-drift="-40px"></div>
+            <div class="section-particle section-particle-glow" data-delay="10.7s" data-dur="22s" data-x="86%" data-y="62%" data-size="7px" data-drift="44px"></div>
         </div>
         <div class="faq-inner">
             <div class="faq-header animate-on-scroll">
