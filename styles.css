@@ -4432,6 +4432,15 @@ html.touch-device .maintenance-status-card .status-item:hover {
     white-space: pre-line;
 }
 
+.legal-section-text a {
+    color: var(--accent-light);
+    text-decoration: underline;
+}
+
+.legal-section-text a:hover {
+    color: var(--accent);
+}
+
 .legal-last-updated {
     font-size: 12px;
     color: var(--text-muted);
