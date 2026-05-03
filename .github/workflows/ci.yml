@@ -40,3 +40,34 @@ jobs:
       - name: Validate JSON files
         run: |
           python3 -c "import json; json.load(open('manifest.json'))" || exit 1
+
+      - name: Lighthouse CI
+        uses: treosh/lighthouse-ci-action@v11
+        with:
+          urls: |
+            https://drivarc.com/
+            https://drivarc.com/en/
+            https://drivarc.com/de/
+          budgetPath: ./lighthouserc.json
+          uploadArtifacts: true
+          temporaryPublicRoom: true
+
+      - name: Validate hreflang
+        run: |
+          for f in *.html en/index.html de/index.html ru/index.html ar/index.html zh/index.html; do
+            [ -f "$f" ] || continue
+            grep -q 'hreflang="tr"' "$f" || { echo "Missing tr hreflang in $f"; exit 1; }
+            grep -q 'hreflang="en"' "$f" || { echo "Missing en hreflang in $f"; exit 1; }
+            grep -q 'hreflang="x-default"' "$f" || { echo "Missing x-default hreflang in $f"; exit 1; }
+          done
+          echo "hreflang validation passed"
+
+      - name: Check translation sync status
+        run: |
+          echo "# Translation Status" > translation-status.md
+          echo "Last updated: $(date)" >> translation-status.md
+          for lang in en de ru ar zh; do
+            count=$(grep -c 'translate=' "$lang/index.html" 2>/dev/null || echo 0)
+            echo "- $lang: ~$count translated strings" >> translation-status.md
+          done
+          cat translation-status.md

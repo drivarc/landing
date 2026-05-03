@@ -1,4 +1,4 @@
-const CACHE_NAME = 'dlanding-cache-v1';
+const CACHE_NAME = 'dlanding-cache-v2';
 const ASSETS_TO_CACHE = [
   '/',
   '/index.html',
@@ -9,13 +9,33 @@ const ASSETS_TO_CACHE = [
   '/manifest.json',
   '/404.html',
   '/privacy.html',
-  '/terms.html'
+  '/terms.html',
+  '/en/',
+  '/en/index.html',
+  '/de/',
+  '/de/index.html',
+  '/ru/',
+  '/ru/index.html',
+  '/ar/',
+  '/ar/index.html',
+  '/zh/',
+  '/zh/index.html',
+  '/images/logo-256.png',
+  '/images/ataturk-240.webp',
+  '/fonts/Inter-400.woff2',
+  '/fonts/Inter-500.woff2',
+  '/fonts/Inter-700.woff2',
+  '/fonts/Inter-600.woff2',
+  '/fonts/NotoSansArabic-400.woff2',
+  '/fonts/NotoSansArabic-500.woff2',
+  '/fonts/NotoSansArabic-600.woff2',
+  '/fonts/NotoSansArabic-700.woff2'
 ];
 
 self.addEventListener('install', event => {
   event.waitUntil(
     caches.open(CACHE_NAME).then(cache => {
-      console.log('[Service Worker] Installed. Caching offline assets.');
+      console.log('[Service Worker] Installing. Caching assets.');
       return cache.addAll(ASSETS_TO_CACHE);
     })
   );
@@ -39,16 +59,36 @@ self.addEventListener('activate', event => {
 });
 
 self.addEventListener('fetch', event => {
+  const url = new URL(event.request.url);
+
+  if (url.origin !== location.origin) {
+    return;
+  }
+
   event.respondWith(
     caches.match(event.request).then(cachedResponse => {
       if (cachedResponse) {
         return cachedResponse;
       }
-      return fetch(event.request).catch(() => {
-        // Fallback per 404 (optional if the response mode requires HTML)
-        if (event.request.mode === 'navigate') {
-          return caches.match('/404.html');
+
+      return fetch(event.request).then(response => {
+        if (!response || response.status !== 200 || response.type !== 'basic') {
+          return response;
         }
+
+        if (event.request.method === 'GET') {
+          const responseToCache = response.clone();
+          caches.open(CACHE_NAME).then(cache => {
+            cache.put(event.request, responseToCache);
+          });
+        }
+
+        return response;
+      }).catch(() => {
+        if (event.request.mode === 'navigate') {
+          return caches.match('/index.html').catch(() => caches.match('/404.html'));
+        }
+        return new Response('Offline', { status: 503, statusText: 'Offline' });
       });
     })
   );
