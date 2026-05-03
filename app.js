@@ -392,7 +392,7 @@ function getCurrentSectionIndex() {
     return index;
 }
 
-const logoLink = document.querySelector('.logo[href^="index.html"], .logo[href="/"], .logo[href="../en/"], .logo[href="../de/"], .logo[href="../ru/"], .logo[href="../ar/"]');
+const logoLink = document.querySelector('.logo');
 const scrollLockTargets = [document.querySelector('.nav'), logoLink].filter(Boolean);
 
 function setHeaderScrollLocked(isLocked) {
