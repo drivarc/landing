@@ -100,66 +100,101 @@ body::-webkit-scrollbar,
 
 
 :root {
-    --bg-primary: #111318;
-    --bg-secondary: #1d2024;
-    --bg-header: rgba(17, 19, 24, 0.8);
-    --text-primary: #e2e2e9;
-    --text-secondary: #c4c6cf;
-    --text-muted: #8e9099;
-    --accent: #a9c7ff;
-    --accent-light: #a9c7ff;
-    --accent-glow: rgba(169, 199, 255, 0.12);
-    --border: rgba(142, 144, 153, 0.3);
-    --grid-color: rgba(255, 255, 255, 0.03);
-    --card-bg: linear-gradient(135deg, #264777, #405f90);
-    --phone-frame: #191c20;
-    --phone-screen: #111318;
-    --phone-shadow: rgba(0, 0, 0, 0.5);
-    --hover-bg: rgba(255, 255, 255, 0.06);
-    --active-bg: rgba(169, 199, 255, 0.15);
-    --icon-color: #c4c6cf;
-    --dropdown-bg: #1d2024;
-    --surface-container: #1d2024;
-    --surface-container-high: #282a2f;
-    --surface-container-highest: #33353a;
-    --success: #81c784;
-    --success-bg: rgba(129, 199, 132, 0.15);
-    --error: #ffb4ab;
-    --error-bg: rgba(255, 180, 171, 0.15);
-    --tertiary: #dcbce1;
-    --tertiary-bg: rgba(220, 188, 225, 0.15);
+    /* Dark Mode - Default */
+    --color-primary: #a9c7ff;
+    --color-primary-dark: #264777;
+    --color-on-primary: #ffffff;
+    --color-bg-primary: #111318;
+    --color-bg-secondary: #1d2024;
+    --color-bg-header: rgba(17, 19, 24, 0.8);
+    --color-text-primary: #e2e2e9;
+    --color-text-secondary: #c4c6cf;
+    --color-text-muted: #8e9099;
+    --color-accent-glow: rgba(169, 199, 255, 0.12);
+    --color-border: rgba(142, 144, 153, 0.3);
+    --color-grid: rgba(255, 255, 255, 0.03);
+    --color-card-bg: linear-gradient(135deg, #264777, #405f90);
+    --color-phone-frame: #191c20;
+    --color-phone-screen: #111318;
+    --color-phone-shadow: rgba(0, 0, 0, 0.5);
+    --color-hover-bg: rgba(255, 255, 255, 0.06);
+    --color-active-bg: rgba(169, 199, 255, 0.15);
+    --color-dropdown-bg: #1d2024;
+    --color-surface-container: #1d2024;
+    --color-surface-container-high: #282a2f;
+    --color-surface-container-highest: #33353a;
+    --color-success: #A5D6A7;
+    --color-success-bg: rgba(27, 94, 46, 0.15);
+    --color-error: #ffb4ab;
+    --color-error-bg: rgba(255, 180, 171, 0.15);
+    --color-tertiary: #dcbce1;
+    --color-tertiary-bg: rgba(220, 188, 225, 0.15);
+    --color-warning: #FFF59D;
+    --color-warning-bg: rgba(141, 110, 0, 0.15);
+    /* Legacy mappings */
+    --bg-primary: var(--color-bg-primary);
+    --bg-secondary: var(--color-bg-secondary);
+    --bg-header: var(--color-bg-header);
+    --text-primary: var(--color-text-primary);
+    --text-secondary: var(--color-text-secondary);
+    --text-muted: var(--color-text-muted);
+    --accent: var(--color-primary);
+    --accent-light: var(--color-primary);
+    --accent-glow: var(--color-accent-glow);
+    --border: var(--color-border);
+    --grid-color: var(--color-grid);
+    --card-bg: var(--color-card-bg);
+    --phone-frame: var(--color-phone-frame);
+    --phone-screen: var(--color-phone-screen);
+    --phone-shadow: var(--color-phone-shadow);
+    --hover-bg: var(--color-hover-bg);
+    --active-bg: var(--color-active-bg);
+    --dropdown-bg: var(--color-dropdown-bg);
+    --surface-container: var(--color-surface-container);
+    --surface-container-high: var(--color-surface-container-high);
+    --surface-container-highest: var(--color-surface-container-highest);
+    --success: var(--color-success);
+    --success-bg: var(--color-success-bg);
+    --error: var(--color-error);
+    --error-bg: var(--color-error-bg);
+    --tertiary: var(--color-tertiary);
+    --tertiary-bg: var(--color-tertiary-bg);
+    --warning: var(--color-warning);
+    --warning-bg: var(--color-warning-bg);
 }
 
 
 [data-theme="light"] {
-    --bg-primary: #f9f9ff;
-    --bg-secondary: #ededf4;
-    --bg-header: rgba(249, 249, 255, 0.8);
-    --text-primary: #191c20;
-    --text-secondary: #44474e;
-    --text-muted: #74777f;
-    --accent: #405f90;
-    --accent-light: #405f90;
-    --accent-glow: rgba(64, 95, 144, 0.15);
-    --border: rgba(116, 119, 127, 0.3);
-    --grid-color: rgba(0, 0, 0, 0.03);
-    --card-bg: linear-gradient(135deg, #405f90, #264777);
-    --phone-frame: #191c20;
-    --phone-screen: #ffffff;
-    --phone-shadow: rgba(0, 0, 0, 0.15);
-    --hover-bg: rgba(0, 0, 0, 0.05);
-    --active-bg: rgba(64, 95, 144, 0.1);
-    --icon-color: #44474e;
-    --dropdown-bg: #ffffff;
-    --surface-container: #ededf4;
-    --surface-container-high: #e7e8ee;
-    --surface-container-highest: #e2e2e9;
-    --success: #107c10;
-    --success-bg: rgba(16, 124, 16, 0.15);
-    --error: #ba1a1a;
-    --error-bg: rgba(186, 26, 26, 0.15);
-    --tertiary: #6f5675;
-    --tertiary-bg: rgba(111, 86, 117, 0.15);
+    --color-primary: #405f90;
+    --color-primary-dark: #264777;
+    --color-on-primary: #ffffff;
+    --color-bg-primary: #f9f9ff;
+    --color-bg-secondary: #ededf4;
+    --color-bg-header: rgba(249, 249, 255, 0.8);
+    --color-text-primary: #191c20;
+    --color-text-secondary: #44474e;
+    --color-text-muted: #74777f;
+    --color-accent-glow: rgba(64, 95, 144, 0.15);
+    --color-border: rgba(116, 119, 127, 0.3);
+    --color-grid: rgba(0, 0, 0, 0.03);
+    --color-card-bg: linear-gradient(135deg, #405f90, #264777);
+    --color-phone-frame: #191c20;
+    --color-phone-screen: #ffffff;
+    --color-phone-shadow: rgba(0, 0, 0, 0.15);
+    --color-hover-bg: rgba(0, 0, 0, 0.05);
+    --color-active-bg: rgba(64, 95, 144, 0.1);
+    --color-dropdown-bg: #ffffff;
+    --color-surface-container: #ededf4;
+    --color-surface-container-high: #e7e8ee;
+    --color-surface-container-highest: #e2e2e9;
+    --color-success: #074D24;
+    --color-success-bg: rgba(196, 238, 208, 0.15);
+    --color-error: #ba1a1a;
+    --color-error-bg: rgba(186, 26, 26, 0.15);
+    --color-tertiary: #6f5675;
+    --color-tertiary-bg: rgba(111, 86, 117, 0.15);
+    --color-warning: #563200;
+    --color-warning-bg: rgba(255, 224, 130, 0.15);
 }
 
 * {
@@ -720,9 +755,9 @@ body::before {
         width: 36px;
         height: 36px;
         border-radius: 6px;
-        border: 1px solid rgba(142, 144, 153, 0.3);
+        border: 1px solid var(--color-border);
         background: transparent;
-        color: #c4c6cf;
+        color: var(--color-text-secondary);
         text-decoration: none;
         transition: all 0.2s ease;
     }
@@ -737,6 +772,12 @@ body::before {
         width: 18px;
         height: 18px;
         fill: currentColor;
+    }
+
+    .mobile-nav-icon.active {
+        background: var(--color-primary);
+        color: var(--color-on-primary);
+        border-color: var(--color-primary);
     }
 }
 
@@ -1101,11 +1142,11 @@ body::before {
     }
 
     .problem-card:hover .problem-panel--solution {
-        background: linear-gradient(135deg, rgba(76, 175, 80, 0.08) 0%, rgba(76, 175, 80, 0.04) 100%);
+        background: linear-gradient(135deg, rgba(165, 214, 167, 0.12) 0%, rgba(165, 214, 167, 0.06) 100%);
     }
 
     .problem-card:hover .problem-panel--pain {
-        background: linear-gradient(135deg, rgba(255, 82, 82, 0.06) 0%, rgba(255, 82, 82, 0.03) 100%);
+        background: linear-gradient(135deg, rgba(255, 180, 171, 0.08) 0%, rgba(255, 180, 171, 0.04) 100%);
     }
 
     .problem-card:hover .problem-layout::after {
@@ -1149,13 +1190,13 @@ html.touch-device .problem-card:hover {
     border-color: var(--border) !important;
 }
 
-html.touch-device .problem-card:hover .problem-panel--solution {
-    background: linear-gradient(135deg, rgba(76, 175, 80, 0.04) 0%, rgba(76, 175, 80, 0.02) 100%);
-}
+    html.touch-device .problem-card:hover .problem-panel--solution {
+        background: linear-gradient(135deg, rgba(165, 214, 167, 0.06) 0%, rgba(165, 214, 167, 0.03) 100%);
+    }
 
-html.touch-device .problem-card:hover .problem-panel--pain {
-    background: linear-gradient(135deg, rgba(255, 82, 82, 0.04) 0%, rgba(255, 82, 82, 0.02) 100%);
-}
+    html.touch-device .problem-card:hover .problem-panel--pain {
+        background: linear-gradient(135deg, rgba(255, 180, 171, 0.06) 0%, rgba(255, 180, 171, 0.03) 100%);
+    }
 
 html.touch-device .problem-card:hover .problem-layout::after {
     opacity: 1;
@@ -1218,13 +1259,13 @@ html.touch-device .maintenance-status-card .status-item:hover {
 }
 
 .problem-panel--pain {
-    background: linear-gradient(135deg, rgba(255, 82, 82, 0.04) 0%, rgba(255, 82, 82, 0.02) 100%);
-    border-right: 1px solid rgba(255, 82, 82, 0.1);
+    background: linear-gradient(135deg, rgba(255, 180, 171, 0.08) 0%, rgba(255, 180, 171, 0.04) 100%);
+    border-right: 1px solid rgba(255, 180, 171, 0.2);
 }
 
 .problem-panel--solution {
-    background: linear-gradient(135deg, rgba(76, 175, 80, 0.04) 0%, rgba(76, 175, 80, 0.02) 100%);
-    border-left: 1px solid rgba(76, 175, 80, 0.1);
+    background: linear-gradient(135deg, rgba(165, 214, 167, 0.08) 0%, rgba(165, 214, 167, 0.04) 100%);
+    border-left: 1px solid rgba(165, 214, 167, 0.2);
 }
 
 .problem-header {
@@ -2586,9 +2627,9 @@ html.touch-device .maintenance-status-card .status-item:hover {
     flex-shrink: 0;
 }
 
-.finance-breakdown-dot.fuel { background: #4caf50; }
-.finance-breakdown-dot.maintenance { background: #9c27b0; }
-.finance-breakdown-dot.expense { background: #ff9800; }
+.finance-breakdown-dot.fuel { background: #1B5E20; }
+.finance-breakdown-dot.maintenance { background: #563e5c; }
+.finance-breakdown-dot.expense { background: #8D6E00; }
 
 .finance-breakdown-label {
     font-size: 10px;
@@ -2694,13 +2735,13 @@ html.touch-device .maintenance-status-card .status-item:hover {
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
-    background: linear-gradient(135deg, #4caf50, #45a049);
+    background: linear-gradient(135deg, #1B5E2E, #0d4018);
     border: 3px solid var(--phone-screen);
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 }
 
 [data-theme="light"] .activity-icon-wrapper {
-    background: linear-gradient(135deg, #4caf50, #45a049);
+    background: linear-gradient(135deg, #C4EED0, #a5d6a7);
     border-color: #ffffff;
 }
 
@@ -2827,13 +2868,13 @@ html.touch-device .maintenance-status-card .status-item:hover {
 }
 
 .maintenance-status-card .status-icon.in-progress {
-    background: rgba(129, 199, 132, 0.2);
-    color: #81c784;
+    background: rgba(165, 214, 167, 0.2);
+    color: #A5D6A7;
 }
 
 [data-theme="light"] .maintenance-status-card .status-icon.in-progress {
-    background: rgba(16, 124, 16, 0.15);
-    color: #107c10;
+    background: rgba(196, 238, 208, 0.3);
+    color: #074D24;
 }
 
 .maintenance-status-card .status-info {
@@ -3182,7 +3223,7 @@ html.touch-device .maintenance-status-card .status-item:hover {
     right: 0;
     z-index: 9999;
     border-top: 1px solid var(--border);
-    padding: 12px 24px;
+    padding: 8px 16px;
     background: var(--bg-primary);
     width: 100vw;
     margin-left: calc(-50vw + 50%);
@@ -3199,7 +3240,7 @@ html.touch-device .maintenance-status-card .status-item:hover {
         width: 100% !important;
         margin-left: 0 !important;
         margin-top: 40px;
-        padding: 20px 16px;
+        padding: 8px 16px;
     }
 }
 
@@ -3253,14 +3294,14 @@ html.touch-device .maintenance-status-card .status-item:hover {
 .footer-inner {
     max-width: 100%;
     margin: 0 24px;
-    padding: 24px 16px;
+    padding: 12px 8px;
     text-align: center;
 }
 
 .footer-links {
     display: flex;
     justify-content: center;
-    gap: 24px;
+    gap: 32px;
     margin-bottom: 16px;
     flex-wrap: wrap;
 }
@@ -3316,60 +3357,46 @@ html.touch-device .maintenance-status-card .status-item:hover {
     font-size: 14px;
     color: var(--text-primary);
     text-decoration: none;
-    padding: 6px 12px;
-    margin: -6px -12px;
+    padding: 4px 8px;
+    margin: -4px -8px;
     border-radius: 6px;
-    transition: color 0.25s ease, background 0.25s ease, transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), border 0.25s ease;
+    transition: color 0.2s ease, border-color 0.2s ease;
     display: inline-block;
     position: relative;
-    will-change: transform, background, color;
+}
+
+.footer-link::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 6px;
+    background: linear-gradient(135deg, rgba(169, 199, 255, 0.15), rgba(100, 150, 255, 0.08));
+    border: 1px solid rgba(169, 199, 255, 0.4);
+    opacity: 0;
+    transition: opacity 0.2s ease;
+    z-index: -1;
 }
 
 .footer-link:hover {
     color: var(--accent-light);
-    background: linear-gradient(135deg, rgba(169, 199, 255, 0.15), rgba(100, 150, 255, 0.08));
-    transform: scale(1.05) translateX(4px);
-    border: 1px solid rgba(169, 199, 255, 0.4);
 }
 
-.footer-link::before {
-    content: "→";
-    position: absolute;
-    right: -8px;
-    top: 50%;
-    transform: translateY(-50%) translateX(-20px);
-    opacity: 0;
-    will-change: transform, opacity;
-    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.3s ease;
-    font-size: 14px;
-    color: var(--accent-light);
+.footer-link:hover::before {
+    opacity: 1;
 }
 
 .footer-link::after {
     content: "";
     position: absolute;
     bottom: 4px;
-    left: 8px;
-    right: 8px;
+    left: 0;
+    right: 0;
     height: 2px;
     background: var(--accent-light);
     transform: scaleX(0);
-    transform-origin: left;
-    will-change: transform;
+    transform-origin: center;
     transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
     border-radius: 1px;
-}
-
-.footer-link:hover {
-    color: var(--accent-light);
-    background: linear-gradient(135deg, rgba(169, 199, 255, 0.15), rgba(100, 150, 255, 0.08));
-    transform: scale(1.05) translateX(4px);
-    border: 1px solid rgba(169, 199, 255, 0.4);
-}
-
-.footer-link:hover::before {
-    opacity: 1;
-    transform: translateY(-50%) translateX(0);
 }
 
 .footer-link:hover::after {
@@ -3393,22 +3420,6 @@ html.touch-device .maintenance-status-card .status-item:hover {
         transition: none !important;
         transform: none !important;
     }
-}
-
-.footer-link:hover::after {
-    transform: scaleX(1);
-}
-
-.footer-link:focus-visible {
-    outline: 2px solid var(--accent);
-    outline-offset: 4px;
-    border-radius: 2px;
-    background: rgba(169, 199, 255, 0.08);
-}
-
-.footer-link:active {
-    background: linear-gradient(135deg, rgba(169, 199, 255, 0.2), rgba(100, 150, 255, 0.12));
-    transform: scale(0.96);
 }
 
 .footer-copy {
