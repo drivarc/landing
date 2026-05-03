@@ -2329,6 +2329,7 @@ html.touch-device .maintenance-status-card .status-item:hover {
     position: relative;
     isolation: isolate;
     -webkit-mask-image: -webkit-radial-gradient(white, black);
+    mask-image: radial-gradient(white, black);
     transition: background 0.3s ease;
     display: flex;
     flex-direction: column;
@@ -3271,7 +3272,6 @@ html.touch-device .maintenance-status-card .status-item:hover {
     .site-footer.visible {
         display: block !important;
     }
-}
 
 @media (min-width: 1025px) {
     .hero-content {
@@ -3307,10 +3307,7 @@ html.touch-device .maintenance-status-card .status-item:hover {
 }
 
 .footer-links .footer-link:not(:last-child)::after {
-    content: "·";
-    margin-inline-start: 12px;
-    color: var(--text-secondary);
-    pointer-events: none;
+    display: none;
 }
 
 .footer-socials {
@@ -3383,24 +3380,6 @@ html.touch-device .maintenance-status-card .status-item:hover {
 
 .footer-link:hover::before {
     opacity: 1;
-}
-
-.footer-link::after {
-    content: "";
-    position: absolute;
-    bottom: 4px;
-    left: 0;
-    right: 0;
-    height: 2px;
-    background: var(--accent-light);
-    transform: scaleX(0);
-    transform-origin: center;
-    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-    border-radius: 1px;
-}
-
-.footer-link:hover::after {
-    transform: scaleX(1);
 }
 
 .footer-link:focus-visible {
