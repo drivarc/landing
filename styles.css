@@ -3242,7 +3242,7 @@ html.touch-device .maintenance-status-card .status-item:hover {
     height: 36px;
     color: var(--text-primary);
     text-decoration: none;
-    transition: color .15s ease, transform .12s ease, background .15s ease;
+    transition: color .15s ease, transform .12s ease, background .15s ease, box-shadow .15s ease;
     border-radius: 8px;
 }
 
@@ -3254,9 +3254,8 @@ html.touch-device .maintenance-status-card .status-item:hover {
 
 .social-link:hover {
     color: var(--accent-light);
-    transform: translateY(-2px) scale(1.05);
+    transform: translateY(-2px);
     background: rgba(255, 255, 255, 0.05);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
 .social-link:focus-visible {
@@ -3282,6 +3281,7 @@ html.touch-device .maintenance-status-card .status-item:hover {
     color: var(--accent-light);
     text-decoration: underline;
     text-underline-offset: 3px;
+    text-shadow: 0 0 12px var(--accent-glow);
 }
 
 .footer-link:focus-visible {

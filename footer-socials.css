@@ -32,10 +32,8 @@
 }
 .social-link:hover{
   color:var(--accent-light);
-  transform:translateY(-4px) scale(1.04);
-  box-shadow: 0 6px 18px var(--accent-glow);
-  background: linear-gradient(180deg, rgba(169,199,255,0.04), transparent);
-  outline: none;
+  transform:translateY(-2px);
+  background: rgba(169,199,255,0.08);
 }
 .social-link:focus-visible{
   color:var(--accent-light);
