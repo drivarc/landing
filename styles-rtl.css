@@ -1,0 +1,152 @@
+/* styles-rtl.css - RTL support */
+
+[dir="rtl"] .phone {
+    direction: ltr;
+}
+
+[dir="rtl"] .phone-screen-content {
+    direction: rtl;
+}
+
+[dir="rtl"] .cookie-consent {
+    direction: rtl;
+    text-align: right;
+}
+
+[dir="rtl"] .cookie-consent-content {
+    flex-direction: row-reverse;
+}
+
+[dir="rtl"] .cookie-consent-actions {
+    flex-direction: row-reverse;
+}
+
+[dir="rtl"] .cookie-consent-title,
+[dir="rtl"] .cookie-consent-description {
+    text-align: right;
+}
+
+[dir="rtl"] .cookie-settings-modal-content {
+    text-align: right;
+    direction: rtl;
+}
+
+[dir="rtl"] .cookie-option-header {
+    flex-direction: row-reverse;
+}
+
+[dir="rtl"] .cookie-settings-actions {
+    flex-direction: row-reverse;
+}
+
+[dir="rtl"] .cookie-option-description {
+    text-align: right;
+}
+
+
+@media (max-width: 768px) {
+    [dir="rtl"] .cookie-consent-content {
+        flex-direction: column;
+    }
+
+    [dir="rtl"] .cookie-consent-actions {
+        flex-direction: row-reverse;
+        flex-wrap: wrap;
+    }
+
+    [dir="rtl"] .cookie-option-header {
+        flex-direction: row-reverse;
+        flex-wrap: wrap;
+    }
+
+    [dir="rtl"] .cookie-settings-actions {
+        flex-direction: column;
+    }
+}
+
+
+/* Language dropdown: prevent highlight overflow and long-text overflow */
+.lang-dropdown {
+    right: 0;
+    left: auto;
+    box-sizing: border-box;
+    max-width: calc(100vw - 32px);
+    overflow: hidden;
+}
+
+.lang-option {
+    box-sizing: border-box;
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.lang-option.active {
+    border-radius: 6px;
+    background-clip: padding-box;
+    color: var(--accent-light);
+    background: var(--active-bg);
+}
+
+/* Make active language option non-interactive */
+.lang-option[aria-disabled="true"] {
+    pointer-events: none;
+    cursor: default;
+    opacity: 0.95;
+}
+
+
+@media (max-width: 800px) {
+    .features-section {
+        padding-top: 68px;
+        scroll-margin-top: 68px;
+    }
+}
+
+
+@media (min-width: 1025px) {
+    .hero-content {
+        align-items: center;
+        padding: 120px 24px 120px;
+    }
+
+    .features-section,
+    .problems-section,
+    .faq-section {
+        padding-top: 50px;
+        scroll-margin-top: 50px;
+    }
+
+    .faq-section {
+        padding-bottom: 180px;
+    }
+}
+
+
+/* Performance optimization */
+.features-section, .problems-section, .faq-section {
+    content-visibility: visible;
+    contain-intrinsic-size: 100vh;
+}
+
+
+@media (max-width: 768px) {
+    [dir="rtl"] .cookie-consent-content {
+        flex-direction: column;
+    }
+
+    [dir="rtl"] .cookie-consent-actions {
+        flex-direction: row-reverse;
+        flex-wrap: wrap;
+    }
+
+    [dir="rtl"] .cookie-option-header {
+        flex-direction: row-reverse;
+        flex-wrap: wrap;
+    }
+
+    [dir="rtl"] .cookie-settings-actions {
+        flex-direction: column;
+    }
+}

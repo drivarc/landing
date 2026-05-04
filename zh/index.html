@@ -64,9 +64,6 @@
             display: none !important;
         }
     </style>
-<link as="style" href="../styles.css" rel="preload"/>
-<link href="../styles.css" id="siteStyles" rel="stylesheet"/>
-<link href="../footer-socials.css" rel="stylesheet"/>
 <style>
         /* Override: disable CSS-based slide for finance wave to avoid double-transform artifacts */
         .finance-wave svg {
@@ -78,10 +75,27 @@
             transform-origin: 0 0;
         }
     </style>
-<script defer="" src="../seo-jsonld.js"></script>
-<script defer="" src="../analytics.js"></script>
-<script defer="" src="../app.js"></script>
-<script src="../footer-cookie-fix.js" defer></script>
+<link rel="stylesheet" href="../styles-base.css" id="siteStyles">
+	    <link rel="stylesheet" href="../styles-header.css">
+	    <link rel="stylesheet" href="../styles-hero.css">
+	    <link rel="stylesheet" href="../styles-features.css">
+	    <link rel="stylesheet" href="../styles-problems.css">
+	    <link rel="stylesheet" href="../styles-phone.css">
+	    <link rel="stylesheet" href="../styles-faq.css">
+	    <link rel="stylesheet" href="../styles-footer.css">
+	    <link rel="stylesheet" href="../styles-modals.css">
+	    <link rel="stylesheet" href="../styles-animations.css">
+	    <link rel="stylesheet" href="../styles-rtl.css">
+	    <link rel="stylesheet" href="../footer-socials.css">
+    
+    
+    <script src="../seo-jsonld.js" defer></script>
+    <script src="../analytics.js" defer></script>
+    <script src="../app-core.js" defer></script>
+    <script src="../app-scroll.js" defer></script>
+    <script src="../app-ui.js" defer></script>
+    <script src="../app-cookie.js" defer></script>
+    <script src="../app-init.js" defer></script>
 </head>
 <body class="index-page">
 <a aria-label="Skip to content" class="skip-link" href="#main-content">跳至内容</a>

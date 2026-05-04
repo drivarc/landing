@@ -1,0 +1,585 @@
+/* styles-hero.css - Hero section styles */
+
+.hero-section {
+    position: relative;
+    min-height: 100vh;
+    background: transparent;
+    display: flex;
+    flex-direction: column;
+    z-index: 3;
+}
+
+
+.hero-section,
+.features-section,
+.problems-section,
+.faq-section {
+    transition: opacity 0.4s ease;
+    opacity: 0;
+    pointer-events: none;
+    
+}
+
+
+.hero-section {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+
+.hero-section.section-active,
+.features-section.section-active,
+.problems-section.section-active,
+.faq-section.section-active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+
+@media (max-width: 768px) {
+    .hero-section,
+    .features-section,
+    .problems-section,
+    .faq-section {
+        opacity: 1 !important;
+        pointer-events: auto !important;
+    }
+}
+
+
+.hero-section,
+.features-section,
+.problems-section,
+.faq-section {
+    min-height: 100vh;
+    position: relative;
+}
+
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 120px 24px 120px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 100px;
+    flex: 1;
+    min-height: 0;
+}
+
+
+.features-section,
+.problems-section,
+.faq-section {
+    scroll-margin-top: 64px;
+}
+
+
+.page-section {
+    min-height: calc(100vh - 64px);
+}
+
+.hero-text {
+    flex: 1;
+    text-align: left;
+}
+
+.hero-phone {
+    flex: 0 0 auto;
+}
+
+.hero-title {
+    font-size: clamp(32px, 4vw, 48px);
+    font-weight: 700;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    color: var(--text-primary);
+    margin-bottom: 16px;
+    transition: color 0.3s ease;
+}
+
+.hero-subtitle {
+    font-size: clamp(14px, 1.5vw, 16px);
+    font-weight: 400;
+    line-height: 1.6;
+    color: var(--text-secondary);
+    max-width: 480px;
+    margin: 0 0 32px 0;
+    transition: color 0.3s ease;
+}
+
+.hero-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+
+.trust-badges {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-top: 32px;
+}
+
+.trust-badge {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.trust-badge-icon {
+    width: 28px;
+    height: 28px;
+    border-radius: 7px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.trust-badge-icon svg {
+    width: 18px;
+    height: 18px;
+    fill: currentColor;
+}
+
+.trust-badge-icon.free {
+    background: var(--success-bg);
+    color: var(--success);
+}
+
+.trust-badge-icon.secure {
+    background: var(--accent-glow);
+    color: var(--accent-light);
+}
+
+.trust-badge-icon.no-ads {
+    background: var(--tertiary-bg);
+    color: var(--tertiary);
+}
+
+.trust-badge-text {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text-secondary);
+}
+
+@media (max-width: 1024px) {
+    .hero-content {
+        gap: 50px;
+        padding: 110px 32px 80px;
+    }
+    .hero-title { font-size: 36px; }
+    .hero-subtitle { font-size: 15px; }
+
+    .hero-phone {
+        transform: scale(0.7);
+    }
+}
+
+@media (max-width: 800px) {
+    .hero-content {
+        flex-direction: column;
+        text-align: center;
+        padding: 100px 24px 60px;
+        gap: 32px;
+    }
+    .hero-title { font-size: 30px; }
+    .hero-subtitle { font-size: 14px; }
+
+    .hero-phone {
+        display: none;
+    }
+
+    .hero-text { text-align: center; }
+    .hero-subtitle {
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 100%;
+    }
+    .hero-actions { justify-content: center; }
+    .trust-badges {
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-content {
+        padding: 100px 20px 60px !important;
+        gap: 32px;
+    }
+    .hero-title { font-size: 28px; }
+    .hero-subtitle { font-size: 14px; }
+
+    .hero-actions {
+        flex-direction: row;
+        width: 100%;
+        gap: 12px;
+        align-items: center;
+        justify-content: center;
+    }
+    .btn-google-play,
+    .btn-app-store {
+        flex: 1;
+        max-width: none;
+        width: 100%;
+        justify-content: center;
+        padding: 14px 16px;
+    }
+    .google-play-store,
+    .app-store-name { font-size: 14px; }
+    .google-play-icon,
+    .app-store-icon { width: 18px; height: 18px; }
+    .trust-badges {
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-content { 
+        padding: 80px 16px 50px !important;
+        gap: 32px;
+    }
+    .hero-title { 
+        font-size: 24px; 
+        line-height: 1.2;
+    }
+    .hero-subtitle {
+        font-size: 13px;
+        line-height: 1.5;
+        margin-bottom: 24px;
+    }
+
+    .hero-actions {
+        flex-direction: row;
+        width: 100%;
+        gap: 10px;
+        align-items: center;
+        justify-content: center;
+    }
+    .btn-google-play,
+    .btn-app-store {
+        flex: 1;
+        max-width: none !important;
+        width: 100%;
+        justify-content: center;
+        padding: 12px 14px;
+    }
+    .google-play-icon,
+    .app-store-icon { width: 16px; height: 16px; }
+    .google-play-store,
+    .app-store-name { font-size: 13px; }
+    .google-play-label { font-size: 10px; }
+    .trust-badges { 
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+        margin-top: 24px;
+    }
+    .trust-badge { 
+        justify-content: center;
+        padding: 6px;
+    }
+}
+
+@media (max-width: 375px) {
+    .hero-content { 
+        padding: 70px 14px 40px !important;
+        gap: 28px;
+    }
+    .hero-title { 
+        font-size: 22px; 
+    }
+    .hero-subtitle { 
+        font-size: 12px; 
+        margin-bottom: 20px;
+    }
+
+    .hero-actions {
+        flex-direction: row;
+        width: 100%;
+        gap: 8px;
+    }
+    .btn-google-play,
+    .btn-app-store {
+        flex: 1;
+        max-width: none !important;
+        width: 100%;
+        justify-content: center;
+        padding: 11px 14px;
+    }
+    .google-play-icon,
+    .app-store-icon { width: 16px; height: 16px; }
+    .google-play-store,
+    .app-store-name { font-size: 14px; }
+    .google-play-label { font-size: 11px; }
+    .trust-badges { 
+        grid-template-columns: 1fr;
+        gap: 8px;
+        margin-top: 20px;
+    }
+    .trust-badge { 
+        justify-content: flex-start;
+        padding: 8px 12px;
+        background: var(--surface-container);
+        border-radius: 6px;
+    }
+}
+
+@media (max-width: 320px) {
+    .hero-content { 
+        padding: 60px 12px 30px !important;
+        gap: 24px;
+    }
+    .hero-title { 
+        font-size: 20px; 
+    }
+    .hero-subtitle { 
+        font-size: 11px; 
+        margin-bottom: 16px;
+    }
+
+    .trust-badges { 
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-top: 16px;
+    }
+    .trust-badge { padding: 6px 10px; }
+}
+
+@media (max-width: 768px) and (orientation: landscape) {
+    .hero-content { 
+        padding: 70px 20px 30px !important;
+        gap: 20px;
+    }
+    .hero-title { font-size: 22px; }
+    .hero-subtitle { 
+        font-size: 12px; 
+        margin-bottom: 16px;
+    }
+
+    .trust-badges { 
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-top: 16px;
+    }
+}
+.btn-google-play {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px 32px;
+    background: linear-gradient(135deg, #01875f, #016e4d);
+    color: #ffffff;
+    border-radius: 14px;
+    box-shadow: 0 6px 24px rgba(1, 135, 95, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.1) inset;
+    will-change: transform, box-shadow;
+    transition: transform 80ms ease-out, box-shadow 80ms ease-out;
+    text-decoration: none;
+    border: none;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-google-play::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(255,255,255,0.15), transparent);
+    opacity: 0;
+    transition: opacity 80ms ease-out;
+}
+
+.btn-google-play::after {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    background: linear-gradient(135deg, rgba(1, 135, 95, 0.6), transparent);
+    border-radius: 16px;
+    z-index: -1;
+    opacity: 0;
+    filter: blur(8px);
+    transition: opacity 80ms ease-out;
+}
+
+.btn-google-play:hover::before {
+    opacity: 1;
+}
+
+.btn-google-play:hover::after {
+    opacity: 1;
+}
+
+.btn-google-play:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 32px rgba(1, 135, 95, 0.6), 0 0 0 1px rgba(255, 255, 255, 0.2) inset;
+    background: linear-gradient(135deg, #019a6d, #01875f);
+}
+
+.btn-google-play:active {
+    transform: translateY(-1px);
+}
+
+.google-play-icon {
+    flex-shrink: 0;
+    transition: transform 80ms ease-out;
+}
+
+.btn-google-play:hover .google-play-icon {
+    transform: scale(1.15);
+}
+
+.google-play-text {
+    display: flex;
+    align-items: center;
+}
+
+.google-play-label {
+    font-size: 12px;
+    font-weight: 500;
+    opacity: 0.9;
+    line-height: 1;
+}
+
+.google-play-store {
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    line-height: 1;
+}
+
+
+.btn-app-store {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px 32px;
+    background: linear-gradient(135deg, #0070e2, #005bb8);
+    color: #ffffff;
+    border-radius: 14px;
+    box-shadow: 0 6px 24px rgba(0, 112, 226, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.1) inset;
+    will-change: transform, box-shadow;
+    transition: transform 80ms ease-out, box-shadow 80ms ease-out;
+    text-decoration: none;
+    border: none;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.btn-app-store::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(255,255,255,0.15), transparent);
+    opacity: 0;
+    transition: opacity 80ms ease-out;
+}
+
+.btn-app-store::after {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    background: linear-gradient(135deg, rgba(0, 112, 226, 0.6), transparent);
+    border-radius: 16px;
+    z-index: -1;
+    opacity: 0;
+    filter: blur(8px);
+    transition: opacity 80ms ease-out;
+}
+
+.btn-app-store:hover::before {
+    opacity: 1;
+}
+
+.btn-app-store:hover::after {
+    opacity: 1;
+}
+
+.btn-app-store:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 32px rgba(0, 112, 226, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.2) inset;
+    background: linear-gradient(135deg, #007cf7, #0070e2);
+}
+
+.btn-app-store:active {
+    transform: translateY(-1px);
+}
+
+.app-store-icon {
+    flex-shrink: 0;
+    transition: transform 80ms ease-out;
+}
+
+.btn-app-store:hover .app-store-icon {
+    transform: scale(1.15);
+}
+
+.app-store-text {
+    display: flex;
+    align-items: center;
+}
+
+.app-store-name {
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    line-height: 1;
+}
+
+[data-theme="light"] .btn-google-play {
+    background: linear-gradient(135deg, #01875f, #016e4d);
+    color: #ffffff;
+    box-shadow: 0 6px 24px rgba(1, 135, 95, 0.4), 0 0 0 1px rgba(255,255,255,0.2) inset;
+}
+
+[data-theme="light"] .btn-google-play:hover {
+    box-shadow: 0 10px 32px rgba(1, 135, 95, 0.5), 0 0 0 1px rgba(255,255,255,0.3) inset;
+}
+
+[data-theme="light"] .btn-app-store {
+    background: linear-gradient(135deg, #0070e2, #005bb8);
+    color: #ffffff;
+    box-shadow: 0 6px 24px rgba(0, 112, 226, 0.4), 0 0 0 1px rgba(255,255,255,0.2) inset;
+}
+
+[data-theme="light"] .btn-app-store:hover {
+    box-shadow: 0 10px 32px rgba(0, 112, 226, 0.5), 0 0 0 1px rgba(255,255,255,0.3) inset;
+}
+
+.google-play-text {
+    display: flex;
+    align-items: center;
+}
+.google-play-label {
+    font-size: 12px;
+    font-weight: 500;
+    opacity: 0.9;
+    line-height: 1;
+}
+.google-play-store {
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    line-height: 1;
+}
+.app-store-text {
+    display: flex;
+    align-items: center;
+}
+.app-store-name {
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    line-height: 1;
+}

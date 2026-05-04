@@ -1,0 +1,189 @@
+/* styles-features.css - Features section styles */
+
+.features-section {
+    position: relative;
+    min-height: 100vh;
+    background: transparent;
+    padding: 40px 24px 80px;
+    z-index: 1;
+}
+
+.features-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+}
+
+.features-header {
+    text-align: center;
+    margin-bottom: 48px;
+}
+
+.features-label {
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--accent-light);
+    margin-bottom: 8px;
+}
+
+.features-title {
+    padding-top: 40px;
+    font-size: clamp(24px, 3vw, 32px);
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    color: var(--text-primary);
+    margin-bottom: 12px;
+}
+
+.features-subtitle {
+    font-size: clamp(13px, 1.4vw, 15px);
+    color: var(--text-secondary);
+    max-width: 520px;
+    margin: 0 auto;
+    line-height: 1.5;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.feature-card {
+    background: var(--surface-container);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 24px;
+    text-align: center;
+    transition: opacity 0.25s ease-out, transform 0.25s ease-out;
+    opacity: 0;
+    transform: translateY(20px);
+    
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+}
+
+.feature-card.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.feature-card:hover {
+    border-color: var(--accent-light);
+    box-shadow: 0 4px 16px var(--accent-glow);
+    transition: none;
+}
+
+.feature-card.visible:hover {
+    transform: translateY(0);
+}
+
+.feature-icon {
+    width: 56px;
+    height: 56px;
+    margin: 0 auto 18px;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--accent-glow);
+}
+
+.feature-icon svg {
+    width: 28px;
+    height: 28px;
+    fill: var(--accent-light);
+}
+
+.feature-name {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 8px;
+}
+
+.feature-desc {
+    font-size: 13px;
+    color: var(--text-secondary);
+    line-height: 1.5;
+}
+
+@media (max-width: 1024px) {
+    .features-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 18px;
+    }
+    .features-section { padding: 50px 32px 60px; }
+    .features-title { font-size: 26px; }
+
+    
+    .feature-card,
+    .feature-card.visible {
+        transform: none !important;
+        backface-visibility: visible !important;
+        -webkit-backface-visibility: visible !important;
+    }
+    .feature-card:hover,
+    .feature-card.visible:hover {
+        transform: none !important;
+        box-shadow: none !important;
+        border-color: var(--border) !important;
+    }
+}
+
+@media (max-width: 800px) {
+    .features-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+}
+
+@media (max-width: 768px) {
+    .features-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+    .features-section {
+        min-height: auto;
+        padding: 60px 20px 60px;
+        overflow: visible;
+    }
+    .feature-card { padding: 20px; }
+}
+
+@media (max-width: 480px) {
+    .features-section {
+        padding: 50px 16px 50px;
+    }
+    .features-header { margin-bottom: 36px; }
+    .features-label { font-size: 11px; }
+    .features-title { font-size: 20px; }
+    .features-subtitle { font-size: 13px; }
+    .feature-card { padding: 16px; border-radius: 14px; }
+    .feature-icon { width: 48px; height: 48px; margin-bottom: 14px; border-radius: 14px; }
+    .feature-icon svg { width: 24px; height: 24px; }
+    .feature-name { font-size: 14px; }
+    .feature-desc { font-size: 12px; }
+}
+
+@media (max-width: 375px) {
+    .features-title { font-size: 18px; }
+    .features-subtitle { font-size: 12px; }
+    .feature-card { padding: 14px; }
+    .feature-icon { width: 44px; height: 44px; margin-bottom: 12px; }
+    .feature-icon svg { width: 22px; height: 22px; }
+    .feature-name { font-size: 13px; }
+    .feature-desc { font-size: 11px; }
+}
+
+@media (max-width: 320px) {
+    .features-section { padding: 40px 12px 40px; }
+    .features-title { font-size: 16px; }
+    .features-subtitle { font-size: 11px; }
+    .feature-card { padding: 12px; }
+    .feature-icon { width: 40px; height: 40px; margin-bottom: 10px; }
+    .feature-icon svg { width: 20px; height: 20px; }
+    .feature-name { font-size: 12px; }
+    .feature-desc { font-size: 10px; }
+}

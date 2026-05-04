@@ -1,0 +1,186 @@
+
+
+.btn-google-play {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px 32px;
+    background: linear-gradient(135deg, #01875f, #016e4d);
+    color: #ffffff;
+    border-radius: 14px;
+    box-shadow: 0 6px 24px rgba(1, 135, 95, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.1) inset;
+    will-change: transform, box-shadow;
+    transition: transform 80ms ease-out, box-shadow 80ms ease-out;
+    text-decoration: none;
+    border: none;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-google-play::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(255,255,255,0.15), transparent);
+    opacity: 0;
+    transition: opacity 80ms ease-out;
+}
+
+.btn-google-play::after {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    background: linear-gradient(135deg, rgba(1, 135, 95, 0.6), transparent);
+    border-radius: 16px;
+    z-index: -1;
+    opacity: 0;
+    filter: blur(8px);
+    transition: opacity 80ms ease-out;
+}
+
+.btn-google-play:hover::before {
+    opacity: 1;
+}
+
+.btn-google-play:hover::after {
+    opacity: 1;
+}
+
+.btn-google-play:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 32px rgba(1, 135, 95, 0.6), 0 0 0 1px rgba(255, 255, 255, 0.2) inset;
+    background: linear-gradient(135deg, #019a6d, #01875f);
+}
+
+.btn-google-play:active {
+    transform: translateY(-1px);
+}
+
+.google-play-icon {
+    flex-shrink: 0;
+    transition: transform 80ms ease-out;
+}
+
+.btn-google-play:hover .google-play-icon {
+    transform: scale(1.15);
+}
+
+.google-play-text {
+    display: flex;
+    align-items: center;
+}
+
+.google-play-label {
+    font-size: 12px;
+    font-weight: 500;
+    opacity: 0.9;
+    line-height: 1;
+}
+
+.google-play-store {
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    line-height: 1;
+}
+
+
+.btn-app-store {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px 32px;
+    background: linear-gradient(135deg, #0070e2, #005bb8);
+    color: #ffffff;
+    border-radius: 14px;
+    box-shadow: 0 6px 24px rgba(0, 112, 226, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.1) inset;
+    will-change: transform, box-shadow;
+    transition: transform 80ms ease-out, box-shadow 80ms ease-out;
+    text-decoration: none;
+    border: none;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.btn-app-store::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(255,255,255,0.15), transparent);
+    opacity: 0;
+    transition: opacity 80ms ease-out;
+}
+
+.btn-app-store::after {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    background: linear-gradient(135deg, rgba(0, 112, 226, 0.6), transparent);
+    border-radius: 16px;
+    z-index: -1;
+    opacity: 0;
+    filter: blur(8px);
+    transition: opacity 80ms ease-out;
+}
+
+.btn-app-store:hover::before {
+    opacity: 1;
+}
+
+.btn-app-store:hover::after {
+    opacity: 1;
+}
+
+.btn-app-store:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 32px rgba(0, 112, 226, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.2) inset;
+    background: linear-gradient(135deg, #007cf7, #0070e2);
+}
+
+.btn-app-store:active {
+    transform: translateY(-1px);
+}
+
+.app-store-icon {
+    flex-shrink: 0;
+    transition: transform 80ms ease-out;
+}
+
+.btn-app-store:hover .app-store-icon {
+    transform: scale(1.15);
+}
+
+.app-store-text {
+    display: flex;
+    align-items: center;
+}
+
+.app-store-name {
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    line-height: 1;
+}
+
+[data-theme="light"] .btn-google-play {
+    background: linear-gradient(135deg, #01875f, #016e4d);
+    color: #ffffff;
+    box-shadow: 0 6px 24px rgba(1, 135, 95, 0.4), 0 0 0 1px rgba(255,255,255,0.2) inset;
+}
+
+[data-theme="light"] .btn-google-play:hover {
+    box-shadow: 0 10px 32px rgba(1, 135, 95, 0.5), 0 0 0 1px rgba(255,255,255,0.3) inset;
+}
+
+[data-theme="light"] .btn-app-store {
+    background: linear-gradient(135deg, #0070e2, #005bb8);
+    color: #ffffff;
+    box-shadow: 0 6px 24px rgba(0, 112, 226, 0.4), 0 0 0 1px rgba(255,255,255,0.2) inset;
+}
+
+[data-theme="light"] .btn-app-store:hover {
+    box-shadow: 0 10px 32px rgba(0, 112, 226, 0.5), 0 0 0 1px rgba(255,255,255,0.3) inset;
+}
+
+
