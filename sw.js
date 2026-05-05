@@ -1,4 +1,4 @@
-const CACHE_NAME = 'dlanding-cache-v3';
+const CACHE_NAME = 'dlanding-cache-v4';
 const ASSETS_TO_CACHE = [
   '/',
   '/index.html',
@@ -12,7 +12,6 @@ const ASSETS_TO_CACHE = [
   '/styles-footer.css',
   '/styles-modals.css',
   '/styles-animations.css',
-  '/styles-responsive.css',
   '/styles-rtl.css',
   '/footer-socials.css',
   '/css/critical.css',
@@ -27,6 +26,7 @@ const ASSETS_TO_CACHE = [
   '/404.html',
   '/privacy.html',
   '/terms.html',
+  '/drivarc.html',
   '/en/',
   '/en/index.html',
   '/de/',
