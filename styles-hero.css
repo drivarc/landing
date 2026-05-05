@@ -182,11 +182,15 @@
 }
 
 @media (max-width: 800px) {
+    .hero-section {
+        min-height: auto;
+    }
+
     .hero-content {
         flex-direction: column;
         text-align: center;
-        padding: 100px 24px 60px;
-        gap: 32px;
+        padding: 84px 24px 32px;
+        gap: 24px;
     }
     .hero-title { font-size: 30px; }
     .hero-subtitle { font-size: 14px; }
@@ -245,8 +249,8 @@
 
 @media (max-width: 480px) {
     .hero-content { 
-        padding: 80px 16px 50px !important;
-        gap: 32px;
+        padding: 72px 16px 24px !important;
+        gap: 24px;
     }
     .hero-title { 
         font-size: 24px; 
@@ -336,8 +340,8 @@
 
 @media (max-width: 320px) {
     .hero-content { 
-        padding: 60px 12px 30px !important;
-        gap: 24px;
+        padding: 56px 12px 20px !important;
+        gap: 20px;
     }
     .hero-title { 
         font-size: 20px; 
@@ -358,7 +362,7 @@
 
 @media (max-width: 768px) and (orientation: landscape) {
     .hero-content { 
-        padding: 70px 20px 30px !important;
+        padding: 64px 20px 24px !important;
         gap: 20px;
     }
     .hero-title { font-size: 22px; }

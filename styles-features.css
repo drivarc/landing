@@ -154,8 +154,9 @@
 
 @media (max-width: 480px) {
     .features-section {
-        padding: 50px 16px 50px;
+        padding: 40px 16px 44px;
     }
+    .features-title { padding-top: 0; }
     .features-header { margin-bottom: 36px; }
     .features-label { font-size: 11px; }
     .features-title { font-size: 20px; }
