@@ -224,16 +224,16 @@
        applyConsent();
    }
 
-   function trackEvent(eventName, params) {
-       if (typeof window.gtag === 'function') {
-           window.gtag('event', eventName, params || {});
-       } else {
-           window.dataLayer.push({
-               'event': eventName,
-               ...params
-           });
-       }
-   }
+    function trackEvent(eventName, params) {
+        if (typeof window.gtag === 'function') {
+            window.gtag('event', eventName, params || {});
+        } else {
+            window.dataLayer.push({
+                'event': eventName,
+                ...(params || {})
+            });
+        }
+    }
 
    function saveConsent(preferences) {
        try {

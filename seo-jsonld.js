@@ -15,7 +15,8 @@
     en: 'https://drivarc.com/en/',
     de: 'https://drivarc.com/de/',
     ru: 'https://drivarc.com/ru/',
-    ar: 'https://drivarc.com/ar/'
+    ar: 'https://drivarc.com/ar/',
+    zh: 'https://drivarc.com/zh/'
   };
 
   const configByLocale = {
@@ -52,6 +53,13 @@
       description: 'إدارة جميع مركباتك من تطبيق واحد مع Drivarc. تتبع الوقود، تذكير بالصيانة، تحليل التكاليف وأكثر.',
       websiteDescription: 'تطبيق تتبع وإدارة المركبات',
       websiteLanguages: ['ar'],
+      includeDownloadAction: false
+    },
+    zh: {
+      alternateName: 'Drivarc - 车辆跟踪和管理',
+      description: '使用 Drivarc 通过单个应用程序管理您的所有车辆。燃油跟踪、维护提醒、成本分析等等。',
+      websiteDescription: '车辆跟踪和管理应用程序',
+      websiteLanguages: ['zh'],
       includeDownloadAction: false
     }
   };

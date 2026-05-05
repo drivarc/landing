@@ -16,12 +16,10 @@ const replacementBlock = `
     
     
     <script src="../seo-jsonld.js" defer></script>
-    <script src="../analytics.js" defer></script>
     <script src="../app-core.js" defer></script>
     <script src="../app-scroll.js" defer></script>
     <script src="../app-ui.js" defer></script>
     <script src="../app-cookie.js" defer></script>
-    <script src="../app-init.js" defer></script>
 `;
 
 const files = ['ar/index.html', 'de/index.html', 'en/index.html', 'ru/index.html', 'zh/index.html'];
