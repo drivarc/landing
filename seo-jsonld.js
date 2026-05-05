@@ -78,7 +78,7 @@
     alternateName: localeConfig.alternateName,
     description: localeConfig.description,
     applicationCategory: 'UtilitiesApplication',
-    operatingSystem: 'Android, iOS',
+    operatingSystem: 'Android',
     url: siteUrl,
     image: 'https://drivarc.com/images/Harflogo.png',
     softwareVersion: '1.0.0',
@@ -88,13 +88,6 @@
       price: '0',
       priceCurrency: 'TRY',
       description: 'Free to download with optional Premium subscription'
-    },
-    aggregateRating: {
-      '@type': 'AggregateRating',
-      ratingValue: '4.5',
-      ratingCount: '100',
-      bestRating: '5',
-      worstRating: '1'
     },
     author: {
       '@type': 'Organization',
@@ -110,28 +103,13 @@
     }
   };
 
-  if (localeConfig.includeDownloadAction) {
-    softwareApplication.potentialAction = {
-      '@type': 'DownloadAction',
-      target: {
-        '@type': 'EntryPoint',
-        urlTemplate: siteUrl
-      }
-    };
-  }
-
   const webSite = {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
     name: 'Drivarc',
     url: siteUrl,
     description: localeConfig.websiteDescription,
-    inLanguage: localeConfig.websiteLanguages,
-    potentialAction: {
-      '@type': 'SearchAction',
-      target: siteUrl + '?s={search_term_string}',
-      'query-input': 'required name=search_term_string'
-    }
+    inLanguage: localeConfig.websiteLanguages
   };
   appendJsonLd('drivarc-softwareapp-jsonld', softwareApplication);
   appendJsonLd('drivarc-website-jsonld', webSite);
@@ -146,5 +124,58 @@
     sameAs: ['https://www.instagram.com/drivarc.app', 'https://x.com/drivarc_app', 'https://www.linkedin.com/company/drivarc/']
   };
 
-  appendJsonLd('drivarc-organization-jsonld', organization);
+    appendJsonLd('drivarc-organization-jsonld', organization);
+
+    const navLinks = document.querySelectorAll('.nav a');
+    if (navLinks.length > 0) {
+      const breadcrumbList = {
+        '@context': 'https://schema.org',
+        '@type': 'BreadcrumbList',
+        itemListElement: Array.from(navLinks).map((link, index) => {
+          const text = link.textContent || link.innerText;
+          const href = link.getAttribute('href') || '';
+          let url = siteUrl;
+          if (href.startsWith('#')) {
+            url = siteUrl + href;
+          } else if (href.startsWith('./') || href.startsWith('/')) {
+            url = new URL(href, siteUrl).href;
+          }
+          return {
+            '@type': 'ListItem',
+            position: index + 1,
+            name: text,
+            item: url
+          };
+        })
+      };
+      breadcrumbList.itemListElement.unshift({
+        '@type': 'ListItem',
+        position: 0,
+        name: document.querySelector('.logo-img')?.alt || 'Home',
+        item: siteUrl
+      });
+      breadcrumbList.itemListElement.forEach((item, idx) => { item.position = idx + 1; });
+      appendJsonLd('drivarc-breadcrumb-jsonld', breadcrumbList);
+    }
+
+   const faqItems = document.querySelectorAll('.faq-item');
+   if (faqItems.length > 0) {
+     const faqPage = {
+       '@context': 'https://schema.org',
+       '@type': 'FAQPage',
+       mainEntity: Array.from(faqItems).map(item => {
+         const question = item.querySelector('.faq-question span')?.textContent || '';
+         const answer = item.querySelector('.faq-answer-inner')?.textContent || '';
+         return {
+           '@type': 'Question',
+           name: question,
+           acceptedAnswer: {
+             '@type': 'Answer',
+             text: answer
+           }
+         };
+       }).filter(item => item.name && item.acceptedAnswer.text)
+     };
+     appendJsonLd('drivarc-faq-jsonld', faqPage);
+   }
 })();
