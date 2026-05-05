@@ -1363,6 +1363,13 @@
 @media (max-width: 800px) {
     .phone-container { display: none; }
     .hero-phone { display: none; }
+    .hero-section {
+        overflow-x: hidden;
+    }
+    .hero-section::before,
+    .hero-section::after {
+        display: none;
+    }
     .hero-particles,
     .hero-particle,
     .hero-particle-glow {
@@ -1390,6 +1397,13 @@
 @media (max-width: 480px) {
     .phone-container { display: none; }
     .hero-phone { display: none; }
+    .hero-actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .trust-badges {
+        grid-template-columns: 1fr;
+    }
 }
 
 @media (max-width: 375px) {
