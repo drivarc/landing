@@ -389,6 +389,7 @@
     border: none;
     position: relative;
     overflow: hidden;
+    white-space: nowrap;
 }
 
 .btn-google-play::before {
@@ -475,6 +476,7 @@
     position: relative;
     overflow: hidden;
     cursor: pointer;
+    white-space: nowrap;
 }
 
 .btn-app-store::before {

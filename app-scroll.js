@@ -163,7 +163,7 @@ if (financeTotal) {
 
 const observerOptions = {
     threshold: 0.1,
-    rootMargin: isMobile ? '0px 0px -20px 0px' : '0px 0px -50px 0px'
+    rootMargin: isMobile ? '0px 0px 100px 0px' : '0px 0px -50px 0px'
 };
 
 const observer = new IntersectionObserver((entries) => {
@@ -198,14 +198,14 @@ document.querySelectorAll('.animate-on-scroll, .problem-card, .feature-card, .fa
 });
 
 document.querySelectorAll('.problem-card').forEach((card, index) => {
-    card.style.transitionDelay = `${index * 0.15}s`;
+    card.style.transitionDelay = isMobile ? '0s' : `${index * 0.15}s`;
 });
 document.querySelectorAll('.feature-card').forEach((card, index) => {
-    card.style.transitionDelay = `${index * 0.1}s`;
+    card.style.transitionDelay = isMobile ? '0s' : `${index * 0.1}s`;
 });
 
 document.querySelectorAll('.faq-item').forEach((item, index) => {
-    item.style.transitionDelay = `${index * 0.08}s`;
+    item.style.transitionDelay = isMobile ? '0s' : `${index * 0.08}s`;
 });
 
 const navLinks = document.querySelectorAll('.nav a[href^="#"]');

@@ -287,6 +287,10 @@
 }
 
 @media (max-width: 800px) {
+    .nav {
+        display: none;
+    }
+
     .mobile-nav-icons {
         display: flex;
         align-items: center;
