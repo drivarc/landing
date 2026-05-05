@@ -101,6 +101,52 @@
     transition: color 0.3s ease;
 }
 
+.hero-brand {
+    background: linear-gradient(135deg, var(--color-primary) 0%, #ffffff 30%, var(--color-primary) 50%, #ffffff 70%, var(--color-primary) 100%);
+    background-size: 300% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    position: relative;
+    display: inline-block;
+    animation: gradientFlow 5s ease-in-out infinite;
+}
+
+@keyframes gradientFlow {
+    0%, 100% { background-position: 0% center; }
+    50% { background-position: 300% center; }
+}
+
+.hero-brand::after {
+    content: 'Drivarc';
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: -1;
+    background: none;
+    color: var(--color-primary);
+    filter: blur(25px);
+    opacity: 0.7;
+    font-weight: 800;
+    letter-spacing: inherit;
+    animation: glowPulse 3s ease-in-out infinite alternate;
+}
+
+@keyframes glowPulse {
+    0% { 
+        filter: blur(25px);
+        opacity: 0.7;
+        transform: scale(1);
+    }
+    100% { 
+        filter: blur(35px);
+        opacity: 0.9;
+        transform: scale(1.02);
+    }
+}
+
 .hero-subtitle {
     font-size: clamp(14px, 1.5vw, 16px);
     font-weight: 400;
