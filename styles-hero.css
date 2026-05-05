@@ -94,7 +94,7 @@
 .hero-title {
     font-size: clamp(32px, 4vw, 48px);
     font-weight: 700;
-    line-height: 1.15;
+    line-height: 1.4;
     letter-spacing: -0.02em;
     color: var(--text-primary);
     margin-bottom: 16px;
@@ -109,9 +109,9 @@
     background-clip: text;
     font-weight: 700;
     letter-spacing: 0.02em;
-    text-transform: uppercase;
     position: relative;
     display: inline-block;
+    line-height: 1.5;
     animation: gradientFlow 5s ease-in-out infinite;
 }
 
@@ -121,7 +121,7 @@
 }
 
 .hero-brand::after {
-    content: 'Drivarc';
+    content: 'DRİVARC';
     position: absolute;
     left: 0;
     top: 0;
@@ -132,6 +132,7 @@
     opacity: 0.7;
     font-weight: 700;
     letter-spacing: inherit;
+    line-height: inherit;
     animation: glowPulse 3s ease-in-out infinite alternate;
 }
 
