@@ -19,7 +19,7 @@ const ASSETS_TO_CACHE = [
   '/app-scroll.js',
   '/app-ui.js',
   '/app-cookie.js',
-  '/manifest.json',
+  '/favicon/site.webmanifest',
   '/404.html',
   '/privacy.html',
   '/terms.html',

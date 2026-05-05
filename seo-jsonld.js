@@ -88,7 +88,7 @@
     applicationCategory: 'UtilitiesApplication',
     operatingSystem: 'Android',
     url: siteUrl,
-    image: 'https://drivarc.com/images/Harflogo.png',
+    image: 'https://drivarc.com/favicon/apple-touch-icon.png',
     softwareVersion: '1.0.0',
     isAccessibleForFree: true,
     offers: {
@@ -128,7 +128,7 @@
     name: 'Drivarc',
     legalName: 'Drivarc',
     url: 'https://drivarc.com/',
-    logo: 'https://drivarc.com/images/Harflogo.png',
+    logo: 'https://drivarc.com/favicon/apple-touch-icon.png',
     sameAs: ['https://www.instagram.com/drivarc.app', 'https://x.com/drivarc_app', 'https://www.linkedin.com/company/drivarc/']
   };
 
