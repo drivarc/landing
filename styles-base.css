@@ -130,6 +130,10 @@
 }
 
 
+html {
+    box-sizing: border-box;
+}
+
 [data-theme="light"] {
     --color-primary: #405f90;
     --color-primary-dark: #264777;

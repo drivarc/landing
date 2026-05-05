@@ -1383,6 +1383,20 @@
         opacity: 1;
         transform: none;
     }
+    .hero-actions {
+        flex-direction: column;
+        align-items: stretch;
+        width: 100%;
+        max-width: 300px;
+        margin-inline: auto;
+    }
+    .btn-google-play,
+    .btn-app-store {
+        flex: none;
+        min-width: 0;
+        width: 100%;
+        max-width: none;
+    }
     .scroll-progress-bar-fill {
         animation: none;
     }
@@ -1400,6 +1414,8 @@
     .hero-actions {
         flex-direction: column;
         align-items: stretch;
+        max-width: 320px;
+        margin-inline: auto;
     }
     .trust-badges {
         grid-template-columns: 1fr;
@@ -1408,10 +1424,16 @@
 
 @media (max-width: 375px) {
     .phone-container { display: none; }
+    .hero-actions {
+        max-width: 260px;
+    }
 }
 
 @media (max-width: 320px) {
     .phone-container { display: none; }
+    .hero-actions {
+        max-width: 240px;
+    }
 }
 
 @media (max-width: 768px) and (orientation: landscape) {
