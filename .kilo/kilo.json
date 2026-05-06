@@ -1,0 +1,25 @@
+{
+  "$schema": "https://app.kilo.ai/config.json",
+  "mcp": {
+    "git": {
+      "type": "local",
+      "command": [
+        "npx",
+        "-y",
+        "@modelcontextprotocol/inspector",
+        "uvx",
+        "mcp-server-git",
+        "--repository",
+        "https://github.com/drivarc/landing"
+      ]
+    },
+    "memory": {
+      "type": "local",
+      "command": [
+        "npx",
+        "-y",
+        "@modelcontextprotocol/server-memory"
+      ]
+    }
+  }
+}
