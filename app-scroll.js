@@ -2,22 +2,6 @@ const scrollProgress = document.getElementById('scrollProgress');
 function updateScrollProgress() {
     if (!scrollProgress) return;
 
-    if (isMobile) {
-        const scrollTop = window.scrollY;
-        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-        const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
-        scrollProgress.style.width = progress + '%';
-        return;
-    }
-
-    if (allSectionsExist && sectionIds.length > 0) {
-        const totalSections = sectionIds.length;
-        const currentSection = getCurrentSectionIndex();
-        const progress = totalSections > 1 ? (currentSection / (totalSections - 1)) * 100 : 0;
-        scrollProgress.style.width = progress + '%';
-        return;
-    }
-
     const scrollTop = window.scrollY;
     const docHeight = document.documentElement.scrollHeight - window.innerHeight;
     const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
@@ -170,30 +154,14 @@ const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
         if (entry.isIntersecting) {
             const el = entry.target;
-
-            if (!prefersReducedMotion && !isMobile) {
-                el.style.willChange = 'opacity, transform';
-
-                let timeoutId = null;
-                function cleanup(e) {
-                    if (!e || e.propertyName === 'opacity' || e.propertyName === 'transform' || e.propertyName === 'box-shadow') {
-                        try { el.style.willChange = ''; } catch (err) {}
-                        el.removeEventListener('transitionend', cleanup);
-                        if (timeoutId) clearTimeout(timeoutId);
-                    }
-                }
-
-                el.addEventListener('transitionend', cleanup);
-                timeoutId = setTimeout(() => cleanup(), 1000);
-            }
-
             el.classList.add('visible');
             observer.unobserve(el);
         }
     });
 }, observerOptions);
 
-document.querySelectorAll('.animate-on-scroll, .problem-card, .feature-card, .faq-item').forEach((el) => {
+// Only observe elements that still need animation (not cards which are now visible by default)
+document.querySelectorAll('.animate-on-scroll').forEach((el) => {
     observer.observe(el);
 });
 
@@ -214,9 +182,6 @@ const sectionIds = ['hero', 'features', 'problems', 'faq'];
 const allSectionsExist = sectionIds.every(id => document.getElementById(id));
 
 let currentSectionIndex = 0;
-let isScrolling = false;
-let scrollUnlockTimeout = null;
-const SCROLL_COOLDOWN = isMobile ? 350 : 800; // ms (shorter cooldown on touch/mobile devices)
 
 function getCurrentSectionIndex() {
     if (!allSectionsExist) return 0;
@@ -235,198 +200,37 @@ function getCurrentSectionIndex() {
 }
 
 const logoLink = document.querySelector('.logo');
-const scrollLockTargets = [document.querySelector('.nav'), logoLink].filter(Boolean);
-
-function setHeaderScrollLocked(isLocked) {
-    scrollLockTargets.forEach((element) => {
-        element.style.pointerEvents = isLocked ? 'none' : '';
-        element.style.cursor = isLocked ? 'progress' : '';
-    });
-}
-
-function unlockScrolling() {
-    if (scrollUnlockTimeout) {
-        clearTimeout(scrollUnlockTimeout);
-        scrollUnlockTimeout = null;
-    }
-
-    isScrolling = false;
-    setHeaderScrollLocked(false);
-}
-
-function scheduleScrollUnlock() {
-    if (scrollUnlockTimeout) {
-        clearTimeout(scrollUnlockTimeout);
-    }
-
-    const unlock = () => {
-        if (!isScrolling) return;
-        unlockScrolling();
-    };
-
-    if ('onscrollend' in window) {
-        const onScrollEnd = () => {
-            window.removeEventListener('scrollend', onScrollEnd);
-            unlock();
-        };
-
-        window.addEventListener('scrollend', onScrollEnd, { once: true });
-        scrollUnlockTimeout = setTimeout(() => {
-            window.removeEventListener('scrollend', onScrollEnd);
-            unlock();
-        }, SCROLL_COOLDOWN + 250);
-        return;
-    }
-
-    scrollUnlockTimeout = setTimeout(unlock, SCROLL_COOLDOWN);
-}
 
 if (logoLink) {
     logoLink.addEventListener('click', (e) => {
-        if (allSectionsExist && !isScrolling) {
+        if (allSectionsExist) {
             e.preventDefault();
             scrollToSection(0);
-        } else if (isScrolling) {
-            e.preventDefault();
         }
     });
 }
 
 if (allSectionsExist) {
+    // Free scroll mode - removed section-snapping wheel/touch/keyboard handlers
+    // Navigation links still work with smooth scrolling via scrollToSection()
 
-currentSectionIndex = getCurrentSectionIndex();
+    function scrollToSection(index, options = {}) {
+        const { updateHistory = false } = options;
 
-function scrollToSection(index, options = {}) {
-    const { updateHistory = false } = options;
+        if (index < 0 || index >= sectionIds.length) return;
 
-    if (index < 0 || index >= sectionIds.length) return;
-
-    if (isScrolling) return;
-
-    isScrolling = true;
-    setHeaderScrollLocked(true);
-    currentSectionIndex = index;
-
-    const section = document.getElementById(sectionIds[index]);
-    if (!section) {
-        unlockScrolling();
-        return;
-    }
-
-    if (updateHistory) {
-        history.pushState(null, null, `#${sectionIds[index]}`);
-    }
-
-    updateSectionVisibility(index);
-
-    setTimeout(() => {
-        const targetY = section.getBoundingClientRect().top + window.pageYOffset;
-        const startY = window.pageYOffset;
-        const distance = targetY - startY;
-        const duration = 600; // js tabanlı akıcı scroll
-
-        if (distance === 0) return;
-
-        let startTime = null;
-        function animation(currentTime) {
-            if (startTime === null) startTime = currentTime;
-            const timeElapsed = currentTime - startTime;
-            let progress = Math.min(timeElapsed / duration, 1);
-            
-            const ease = progress < 0.5 
-                ? 4 * progress * progress * progress 
-                : 1 - Math.pow(-2 * progress + 2, 3) / 2;
-
-            window.scrollTo(0, startY + (distance * ease));
-
-            if (timeElapsed < duration) {
-                requestAnimationFrame(animation);
-            }
-        }
-        requestAnimationFrame(animation);
-    }, 10);
-
-    updateActiveNavLink();
-    updateFooterVisibility();
-    updateScrollProgress(); // Progress bar'ı güncelle
-
-    scheduleScrollUnlock();
-}
-
-function updateSectionVisibility(activeIndex) {
-    sectionIds.forEach((id, index) => {
-        const section = document.getElementById(id);
+        const section = document.getElementById(sectionIds[index]);
         if (!section) return;
 
-        if (index === activeIndex) {
-            section.classList.add('section-active');
-        } else {
-            section.classList.remove('section-active');
+        if (updateHistory) {
+            history.pushState(null, null, `#${sectionIds[index]}`);
         }
-    });
-}
 
-let wheelAccumulator = 0;
-const WHEEL_THRESHOLD = 50;
-let isMouseButtonDown = false;
+        section.scrollIntoView({ behavior: 'smooth' });
 
-window.addEventListener('mousedown', (e) => { 
-    isMouseButtonDown = true; 
-    if (e.button === 1) e.preventDefault(); // Orta tıklama autoscroll engelle
-});
-window.addEventListener('mouseup', () => { isMouseButtonDown = false; });
-
-if (allSectionsExist) {
-    if (!isMobile) {
-        window.addEventListener('wheel', (e) => {
-            e.preventDefault();
-
-            if (isMouseButtonDown) return;
-            if (isScrolling) return;
-
-            wheelAccumulator += e.deltaY;
-
-            if (Math.abs(wheelAccumulator) >= WHEEL_THRESHOLD) {
-                if (wheelAccumulator > 0) {
-                    scrollToSection(currentSectionIndex + 1);
-                } else {
-                    scrollToSection(currentSectionIndex - 1);
-                }
-                wheelAccumulator = 0;
-            }
-        }, { passive: false });
-    }
-
-    if (!isMobile) {
-        let touchStartY = 0;
-        let touchEndY = 0;
-        const TOUCH_THRESHOLD = 50;
-
-        window.addEventListener('touchstart', (e) => {
-            touchStartY = e.touches[0].clientY;
-        }, { passive: true });
-
-        window.addEventListener('touchmove', (e) => {
-            if (isScrolling) return;
-            touchEndY = e.touches[0].clientY;
-        }, { passive: true });
-
-        window.addEventListener('touchend', () => {
-            if (isScrolling) return;
-
-            const diff = touchStartY - touchEndY;
-
-            if (Math.abs(diff) >= TOUCH_THRESHOLD) {
-                if (diff > 0) {
-                    scrollToSection(currentSectionIndex + 1);
-                } else {
-                    scrollToSection(currentSectionIndex - 1);
-                }
-            }
-
-            touchStartY = 0;
-            touchEndY = 0;
-        });
+        currentSectionIndex = index;
+        updateActiveNavLink();
+        updateScrollProgress();
     }
 
     navLinks.forEach(link => {
@@ -434,7 +238,6 @@ if (allSectionsExist) {
             const href = link.getAttribute('href');
             if (href && href.startsWith('#')) {
                 e.preventDefault();
-                if (isScrolling) return;
 
                 const sectionId = href.substring(1);
                 const index = sectionIds.indexOf(sectionId);
@@ -445,64 +248,32 @@ if (allSectionsExist) {
         });
     });
 
-    window.addEventListener('keydown', (e) => {
-        if (isScrolling) return;
-
-        const activeElement = document.activeElement;
-        if (activeElement && (activeElement.tagName === 'INPUT' || 
-            activeElement.tagName === 'TEXTAREA' || 
-            activeElement.isContentEditable)) {
-            return;
+    // Update active nav link and UI on scroll
+    window.addEventListener('scroll', () => {
+        const newIndex = getCurrentSectionIndex();
+        if (newIndex !== currentSectionIndex) {
+            currentSectionIndex = newIndex;
+            updateActiveNavLink();
         }
+        updateScrollProgress();
+    }, { passive: true });
 
-        const key = e.key;
+    function updateActiveNavLink() {
+        const currentId = sectionIds[currentSectionIndex];
 
-        if (key === 'ArrowDown' || key === 'PageDown') {
-            e.preventDefault();
-            scrollToSection(currentSectionIndex + 1);
-        }
-        else if (key === 'ArrowUp' || key === 'PageUp') {
-            e.preventDefault();
-            scrollToSection(currentSectionIndex - 1);
-        }
-        else if (key === 'Home') {
-            e.preventDefault();
-            scrollToSection(0);
-        }
-        else if (key === 'End') {
-            e.preventDefault();
-            scrollToSection(sectionIds.length - 1);
-        }
-    });
-}
-
-function updateActiveNavLink() {
-    const currentId = sectionIds[currentSectionIndex];
-
-    navLinks.forEach(link => {
-        const href = link.getAttribute('href');
-        const isActive = href === `#${currentId}`;
-        link.classList.toggle('active', isActive);
-    });
-}
-
-function updateFooterVisibility() {
-    const footer = document.querySelector('.site-footer');
-    if (!footer) return;
-    
-    if (isMobile) {
-        footer.classList.add('visible');
-        return;
+        navLinks.forEach(link => {
+            const href = link.getAttribute('href');
+            const isActive = href === `#${currentId}`;
+            link.classList.toggle('active', isActive);
+        });
     }
-    
-    const isFaqSection = currentSectionIndex === 3;
-    footer.classList.toggle('visible', isFaqSection);
-}
 
-currentSectionIndex = getCurrentSectionIndex();
-updateActiveNavLink();
-updateFooterVisibility();
+    function updateFooterVisibility() {
+        // Footer is now always visible in free scroll mode (controlled by CSS)
+    }
 
-updateSectionVisibility(currentSectionIndex);
-
+    // Initial state
+    currentSectionIndex = getCurrentSectionIndex();
+    updateActiveNavLink();
+    updateScrollProgress();
 } // end if (allSectionsExist)

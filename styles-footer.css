@@ -2,21 +2,14 @@
 
 /* Desktop Layout */
 .site-footer {
-    display: none;
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
+    display: block;
+    position: relative;
     z-index: 999;
     border-top: 1px solid var(--border);
     padding: 20px 24px;
     background: var(--bg-primary);
-    width: 100vw;
-    margin-left: calc(-50vw + 50%);
-}
-
-.site-footer.visible {
-    display: block;
+    width: 100%;
+    margin: 0;
 }
 
 .footer-inner {
@@ -378,9 +371,7 @@
 
 /* Tablet/Desktop overrides */
 @media (min-width: 769px) {
-    .site-footer.visible {
-        display: block;
-    }
+    /* Footer is now always visible in free scroll mode */
 }
 
 @media (min-width: 1025px) {

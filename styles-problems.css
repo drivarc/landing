@@ -59,8 +59,7 @@
     border-radius: 14px;
     padding: 18px;
     border: 1px solid var(--border);
-    opacity: 0;
-    transform: translateY(30px) scale(0.97);
+    transform: translateY(0) scale(1);
     backface-visibility: hidden;
     -webkit-backface-visibility: hidden;
     display: flex;
