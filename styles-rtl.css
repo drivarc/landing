@@ -96,6 +96,28 @@
     opacity: 0.95;
 }
 
+/* Header download dropdown RTL support */
+[dir="rtl"] .header-download-dropdown {
+    right: 0;
+    left: auto;
+}
+
+[dir="rtl"] .header-store-link {
+    text-align: right;
+    direction: ltr;
+}
+
+/* Footer stores RTL support */
+[dir="rtl"] .footer-stores {
+    direction: ltr;
+}
+
+@media (min-width: 720px) {
+    [dir="rtl"] .footer-inner {
+        flex-direction: row-reverse;
+    }
+}
+
 
 @media (max-width: 800px) {
     .features-section {

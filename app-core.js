@@ -152,3 +152,12 @@ if (langToggle) {
 }
 document.addEventListener('click', () => { if (langDropdown) langDropdown.classList.remove('open'); });
 if (langDropdown) langDropdown.addEventListener('click', (e) => e.stopPropagation());
+
+const headerDownloadBtn = document.querySelector('.header-download-btn');
+const headerDownloadDropdown = document.getElementById('headerDownloadDropdown');
+
+if (headerDownloadBtn) {
+    headerDownloadBtn.addEventListener('click', (e) => { e.stopPropagation(); if (headerDownloadDropdown) headerDownloadDropdown.classList.toggle('open'); });
+}
+document.addEventListener('click', () => { if (headerDownloadDropdown) headerDownloadDropdown.classList.remove('open'); });
+if (headerDownloadDropdown) headerDownloadDropdown.addEventListener('click', (e) => e.stopPropagation());
