@@ -86,7 +86,7 @@
 }
 
 .hero-brand {
-    background: linear-gradient(135deg, var(--color-primary) 0%, #ffffff 30%, var(--color-primary) 50%, #ffffff 70%, var(--color-primary) 100%);
+    background: linear-gradient(135deg, var(--color-primary) 0%, #d6e3ff 30%, var(--color-primary) 50%, #d6e3ff 70%, var(--color-primary) 100%);
     background-size: 300% auto;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -573,6 +573,21 @@
     font-weight: 700;
     letter-spacing: -0.01em;
     line-height: 1;
+}
+
+[data-theme="light"] .hero-brand {
+    background: linear-gradient(135deg, var(--color-primary) 0%, #7da0c7 30%, var(--color-primary) 50%, #7da0c7 70%, var(--color-primary) 100%);
+    background-size: 300% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: gradientFlow 5s ease-in-out infinite;
+}
+
+[data-theme="light"] .hero-brand::after {
+    color: var(--color-primary);
+    filter: blur(25px);
+    opacity: 0.5;
 }
 
 [data-theme="light"] .btn-google-play {
