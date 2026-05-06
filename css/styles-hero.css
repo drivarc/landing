@@ -271,7 +271,7 @@
     .google-play-store,
     .app-store-name { font-size: 14px; }
     .google-play-icon,
-    .app-store-icon { width: 18px; height: 18px; }
+    .app-store-icon { width: 21px; height: 21px; }
     .trust-badges {
         justify-content: center;
         flex-wrap: wrap;
@@ -310,7 +310,7 @@
         padding: 12px 14px;
     }
     .google-play-icon,
-    .app-store-icon { width: 16px; height: 16px; }
+    .app-store-icon { width: 20px; height: 20px; }
     .google-play-store,
     .app-store-name { font-size: 13px; }
     .google-play-label { font-size: 10px; }
@@ -353,7 +353,7 @@
         padding: 11px 14px;
     }
     .google-play-icon,
-    .app-store-icon { width: 16px; height: 16px; }
+    .app-store-icon { width: 20px; height: 20px; }
     .google-play-store,
     .app-store-name { font-size: 14px; }
     .google-play-label { font-size: 11px; }
@@ -469,6 +469,8 @@
 
 .google-play-icon {
     flex-shrink: 0;
+    width: 24px;
+    height: 24px;
     transition: transform 80ms ease-out;
 }
 
@@ -556,6 +558,8 @@
 
 .app-store-icon {
     flex-shrink: 0;
+    width: 24px;
+    height: 24px;
     transition: transform 80ms ease-out;
 }
 
