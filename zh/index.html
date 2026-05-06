@@ -1,104 +1,93 @@
 <!DOCTYPE html>
-
 <html lang="zh">
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<meta content="IE=edge" http-equiv="X-UA-Compatible"/>
-<title>Drivarc - 车辆跟踪和管理</title>
-<meta content="使用 Drivarc 通过单个应用程序管理您的所有车辆。燃油跟踪、维护提醒、成本分析等等。" name="description"/>
-<meta content="车辆追踪、保养提醒、燃油追踪、车辆管理、Drivarc" name="keywords"/>
-<meta content="Drivarc" name="author"/>
-<meta content="index, follow" name="robots"/>
-<meta content="index, follow" name="googlebot"/>
-<link href="https://drivarc.com/zh/" rel="canonical"/>
-<link href="https://drivarc.com/" hreflang="tr" rel="alternate"/>
-<link href="https://drivarc.com/en/" hreflang="en" rel="alternate"/>
-<link href="https://drivarc.com/de/" hreflang="de" rel="alternate"/>
-<link href="https://drivarc.com/ru/" hreflang="ru" rel="alternate"/>
-<link href="https://drivarc.com/ar/" hreflang="ar" rel="alternate"/>
-<link href="https://drivarc.com/" hreflang="x-default" rel="alternate"/>
-<link rel="icon" type="image/x-icon" href="/favicon/favicon.ico">
-<link rel="icon" type="image/svg+xml" href="/favicon/favicon.svg">
-<link rel="icon" type="image/png" href="/favicon/favicon-96x96.png">
-<link rel="apple-touch-icon" href="/favicon/apple-touch-icon.png">
-<link rel="manifest" href="/favicon/site.webmanifest">
-<link as="font" crossorigin="" href="/fonts/Inter-400.woff2" rel="preload" type="font/woff2"/>
-<link as="font" crossorigin="" href="/fonts/Inter-500.woff2" rel="preload" type="font/woff2"/>
-<link as="font" crossorigin="" href="/fonts/Inter-600.woff2" rel="preload" type="font/woff2"/>
-<link as="font" crossorigin="" href="/fonts/Inter-700.woff2" rel="preload" type="font/woff2"/>
-<link href="/favicon/site.webmanifest" rel="manifest"/>
-<meta content="#1a73e8" name="theme-color"/>
-<meta content="#1a73e8" name="msapplication-TileColor"/>
-<meta content="no" name="msapplication-tap-highlight"/>
-<meta content="yes" name="apple-mobile-web-app-capable"/>
-<meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"/>
-<meta content="Drivarc" name="apple-mobile-web-app-title"/>
-<meta content="default-src 'self'; script-src 'self' https://www.googletagmanager.com; style-src 'self'; img-src 'self' data: blob: https://www.google-analytics.com https://cdnjs.cloudflare.com; connect-src 'self' https://www.googletagmanager.com https://www.google-analytics.com; font-src 'self' https://fonts.gstatic.com; object-src 'none'; base-uri 'self'; frame-src 'none'; form-action 'self'; frame-ancestors 'none'" http-equiv="Content-Security-Policy"/>
-<meta name="referrer" content="strict-origin-when-cross-origin">
-<meta http-equiv="X-Content-Type-Options" content="nosniff">
-<meta http-equiv="Cross-Origin-Opener-Policy" content="same-origin">
-<meta http-equiv="Cross-Origin-Embedder-Policy" content="require-corp">
-<meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(), payment=(), usb=(), magnetometer=(), gyroscope=(), accelerometer=()">
-<meta content="website" property="og:type"/>
-<meta content="Drivarc - 车辆跟踪和管理" property="og:title"/>
-<meta content="使用 Drivarc 通过单个应用程序管理您的所有车辆。燃油跟踪、维护提醒、成本分析等等。" property="og:description"/>
-<meta content="https://drivarc.com/zh/" property="og:url"/>
-<meta content="https://drivarc.com/OG-IMAGE.png" property="og:image"/>
-<meta content="1200" property="og:image:width"/>
-<meta content="630" property="og:image:height"/>
-<meta content="Drivarc - 数字化车辆管理" property="og:image:alt"/>
-<meta content="Drivarc" property="og:site_name"/>
-<meta content="zh_CN" property="og:locale"/>
-<meta content="summary_large_image" name="twitter:card"/>
-<meta content="Drivarc - 车辆跟踪和管理" name="twitter:title"/>
-<meta content="使用 Drivarc 通过单个应用程序管理您的所有车辆。" name="twitter:description"/>
-<meta content="https://drivarc.com/images/logoxxxhdpi.png" name="twitter:image"/>
-<meta content="@drivarc_app" name="twitter:site"/>
-<style>
-        html,
-        body {
-            margin: 0;
-            padding: 0;
-            background: #111318;
-            color: #e2e2e9;
-            overflow-x: hidden;
-        }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Drivarc - 车辆追踪与管理</title>
+    <meta name="description" content="使用 Drivarc 这一个应用管理您所有的车辆。燃油追踪、保养提醒、成本分析等等。">
 
-        .is-hidden {
-            display: none !important;
-        }
-    </style>
-<style>
-        /* Override: disable CSS-based slide for finance wave to avoid double-transform artifacts */
-        .finance-wave svg {
-            animation: none !important;
-            width: 100% !important;
-            height: 100% !important;
-            display: block !important;
-            will-change: transform;
-            transform-origin: 0 0;
-        }
-    </style>
-<link rel="stylesheet" href="../css/styles-base.css" id="siteStyles">
-	    <link rel="stylesheet" href="../css/styles-header.css">
-	    <link rel="stylesheet" href="../css/styles-hero.css">
-	    <link rel="stylesheet" href="../css/styles-features.css">
-	    <link rel="stylesheet" href="../css/styles-problems.css">
-	    <link rel="stylesheet" href="../css/styles-phone.css">
-	    <link rel="stylesheet" href="../css/styles-faq.css">
-	    <link rel="stylesheet" href="../css/styles-footer.css">
-	    <link rel="stylesheet" href="../css/styles-modals.css">
-	    <link rel="stylesheet" href="../css/styles-animations.css">
-	    <link rel="stylesheet" href="../css/styles-rtl.css">
-	    <link rel="stylesheet" href="../css/footer-socials.css">
+
+    <meta name="keywords" content="车辆追踪, 保养提醒, 燃油追踪, 车辆管理, Drivarc">
+    <meta name="author" content="Drivarc">
+    <meta name="robots" content="index, follow">
+    <meta name="googlebot" content="index, follow">
+    <link rel="canonical" href="https://drivarc.com/zh/">
+
+    <link rel="alternate" hreflang="tr" href="https://drivarc.com/">
+    <link rel="alternate" hreflang="en" href="https://drivarc.com/en/">
+    <link rel="alternate" hreflang="de" href="https://drivarc.com/de/">
+    <link rel="alternate" hreflang="ru" href="https://drivarc.com/ru/">
+    <link rel="alternate" hreflang="ar" href="https://drivarc.com/ar/">
+    <link rel="alternate" hreflang="x-default" href="https://drivarc.com/">
+
+    <link rel="icon" type="image/x-icon" href="/favicon/favicon.ico">
+    <link rel="icon" type="image/svg+xml" href="/favicon/favicon.svg">
+    <link rel="icon" type="image/png" href="/favicon/favicon-96x96.png">
+    <link rel="apple-touch-icon" href="/favicon/apple-touch-icon.png">
+    <link rel="manifest" href="/favicon/site.webmanifest">
+
+
+    <link rel="preload" href="/fonts/Inter-400.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/fonts/Inter-500.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/fonts/Inter-600.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/fonts/Inter-700.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/css/critical.css" media="all">
+    
+
+    <meta name="theme-color" content="#1a73e8">
+    <meta name="msapplication-TileColor" content="#1a73e8">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Drivarc">
+
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://www.googletagmanager.com; style-src 'self'; img-src 'self' data: blob: https://www.google-analytics.com https://cdnjs.cloudflare.com; connect-src 'self' https://www.googletagmanager.com https://www.google-analytics.com; font-src 'self' https://fonts.gstatic.com; object-src 'none'; base-uri 'self'; frame-src 'none'; form-action 'self'; frame-ancestors 'none'">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="Cross-Origin-Opener-Policy" content="same-origin">
+    <meta http-equiv="Cross-Origin-Embedder-Policy" content="require-corp">
+    <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(), payment=(), usb=(), magnetometer=(), gyroscope=(), accelerometer=()">
+
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Drivarc - 车辆追踪与管理">
+    <meta property="og:description" content="使用 Drivarc 这一个应用管理您所有的车辆。燃油追踪、保养提醒、成本分析等等。">
+    <meta property="og:url" content="https://drivarc.com/zh/">
+    <meta property="og:image" content="https://drivarc.com/OG-IMAGE.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Drivarc - 数字车辆管理">
+    <meta property="og:site_name" content="Drivarc">
+    <meta property="og:locale" content="zh_CN">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Drivarc - Araç Takip ve Yönetim">
+    <meta name="twitter:description" content="Drivarc ile tüm araçlarınızı tek uygulamadan yönetin.">
+    <meta name="twitter:image" content="https://drivarc.com/images/logoxxxhdpi.png">
+    <meta name="twitter:site" content="@drivarc_app">
+
+    
+
+
+	    <link rel="stylesheet" href="/css/styles-base.css" id="siteStyles">
+	    <link rel="stylesheet" href="/css/styles-header.css">
+	    <link rel="stylesheet" href="/css/styles-hero.css">
+	    <link rel="stylesheet" href="/css/styles-features.css">
+	    <link rel="stylesheet" href="/css/styles-problems.css">
+	    <link rel="stylesheet" href="/css/styles-phone.css">
+	    <link rel="stylesheet" href="/css/styles-faq.css">
+	    <link rel="stylesheet" href="/css/styles-footer.css">
+	    <link rel="stylesheet" href="/css/styles-modals.css">
+	    <link rel="stylesheet" href="/css/styles-animations.css">
+	    <link rel="stylesheet" href="/css/styles-rtl.css">
+	    <link rel="stylesheet" href="/css/footer-socials.css">
     
     
-    <script src="../js/seo-jsonld.js" defer></script>
-    <script src="../js/app-core.js" defer></script>
-    <script src="../js/app-scroll.js" defer></script>
-    <script src="../js/app-ui.js" defer></script>
-    <script src="../js/app-cookie.js" defer></script>
+    <script src="/js/seo-jsonld.js" defer></script>
+    <script src="/js/app-core.js" defer></script>
+    <script src="/js/app-scroll.js" defer></script>
+    <script src="/js/app-ui.js" defer></script>
+    <script src="/js/app-cookie.js" defer></script>
 </head>
 <body class="index-page">
 <a aria-label="Skip to content" class="skip-link" href="#main-content">跳至内容</a>
@@ -116,7 +105,7 @@
 </div>
 <header class="header">
 <div class="header-inner">
-<a class="logo" href="../zh/"><img alt="Drivarc Logo" class="logo-img" fetchpriority="high" height="36" loading="eager" src="../images/logo-256.png" srcset="../images/logo-256.png 1x" width="128"/></a>
+<a class="logo" href="/zh/"><img alt="Drivarc Logo" class="logo-img" fetchpriority="high" height="36" loading="eager" src="/images/logo-256.png" srcset="/images/logo-256.png 1x" width="128"/></a>
 <nav aria-label="主菜单" class="nav">
 <a class="active" href="#hero">主页</a>
 <a href="#features">特征</a>
@@ -167,12 +156,12 @@
 <span class="btn-label lang-code-text">ZH</span>
 </button>
 <div class="lang-dropdown" id="langDropdown">
-<a class="lang-option" href="../" hreflang="tr" rel="noopener noreferrer"><span class="lang-flag">🇹🇷</span> Türkçe</a>
-<a class="lang-option" href="../en/" hreflang="en" rel="noopener noreferrer"><span class="lang-flag">🇬🇧</span> English</a>
-<a class="lang-option" href="../de/" hreflang="de" rel="noopener noreferrer"><span class="lang-flag">🇩🇪</span> Deutsch</a>
-<a class="lang-option" href="../ru/" hreflang="ru" rel="noopener noreferrer"><span class="lang-flag">🇷🇺</span> Русский</a>
-<a class="lang-option" href="../ar/" hreflang="ar" rel="noopener noreferrer"><span class="lang-flag">🇸🇦</span> العربية</a>
-<a class="lang-option active" href="../zh/" hreflang="zh" rel="noopener noreferrer"><span class="lang-flag">🇨🇳</span> 中文</a>
+<a class="lang-option" href="/" hreflang="tr" rel="noopener noreferrer"><span class="lang-flag">🇹🇷</span> Türkçe</a>
+<a class="lang-option" href="/en/" hreflang="en" rel="noopener noreferrer"><span class="lang-flag">🇬🇧</span> English</a>
+<a class="lang-option" href="/de/" hreflang="de" rel="noopener noreferrer"><span class="lang-flag">🇩🇪</span> Deutsch</a>
+<a class="lang-option" href="/ru/" hreflang="ru" rel="noopener noreferrer"><span class="lang-flag">🇷🇺</span> Русский</a>
+<a class="lang-option" href="/ar/" hreflang="ar" rel="noopener noreferrer"><span class="lang-flag">🇸🇦</span> العربية</a>
+<a class="lang-option active" href="/zh/" hreflang="zh" rel="noopener noreferrer"><span class="lang-flag">🇨🇳</span> 中文</a>
 </div>
 </div>
 </div>
@@ -204,51 +193,54 @@
 <div class="hero-particle hero-particle-glow" style="--delay:10.5s;--dur:21s;--x:88%;--y:60%;--size:7px;--drift:42px"></div>
 </div>
 <div class="hero-text">
-                <h1 class="hero-title"><span class="hero-brand">DRIVARC</span> — 发现自由<br/>数字化车辆管理</h1>
- <div class="hero-actions">
-<a class="btn btn-google-play" data-modal="beta" href="#">
-<svg class="google-play-icon" fill="currentColor" viewBox="0 0 24 24">
-<path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 0 1-.61-.92V2.734a1 1 0 0 1 .609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-3.199l2.302 2.302a1 1 0 0 1 0 1.38l-2.302 2.302L15.396 13l2.302-2.492zM5.864 2.658L16.8 8.99l-2.302 2.302L5.864 2.658z"></path>
-</svg>
-<span class="google-play-text">
-<span class="google-play-store">谷歌游戏</span>
-</span>
-</a>
-<a class="btn btn-app-store" data-modal="appstore" href="#">
-<svg class="app-store-icon" fill="currentColor" viewBox="0 0 24 24">
-<path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"></path>
-</svg>
-<span class="app-store-text">
-<span class="app-store-name">应用商店</span>
-</span>
-</a>
-</div>
-<div class="trust-badges">
-<div class="trust-badge">
-<div class="trust-badge-icon secure">
-<svg viewBox="0 0 24 24"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"></path></svg>
-</div>
-<span class="trust-badge-text">安全数据</span>
-</div>
-<div class="trust-badge">
-<div class="trust-badge-icon free">
-<svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"></path></svg>
-</div>
-<span class="trust-badge-text">离线模式</span>
-</div>
-<div class="trust-badge">
-<div class="trust-badge-icon no-ads">
-<svg viewBox="0 0 24 24"><path d="M13 2.05v3.03c3.39.49 6 3.39 6 6.92 0 .9-.18 1.75-.48 2.54l2.6 1.53c.56-1.24.88-2.62.88-4.07 0-5.18-3.95-9.45-9-9.95zM12 19c-3.87 0-7-3.13-7-7 0-3.53 2.61-6.43 6-6.92V2.05c-5.06.5-9 4.76-9 9.95 0 5.52 4.47 10 9.99 10 3.31 0 6.24-1.61 8.06-4.09l-2.6-1.53C16.17 17.98 14.21 19 12 19z"></path></svg>
-</div>
-<span class="trust-badge-text">简单快捷</span>
-</div>
-<div class="trust-badge">
-<div class="trust-badge-icon secure">
-<svg viewBox="0 0 24 24"><path d="M21 3H3c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H3V5h18v14zM5 15h14v3H5zm0-4h4v3H5zm6 0h8v3h-8z"></path></svg>
-</div>
-<span class="trust-badge-text">方便使用的</span>
-</div>
-</div>
+<h1 class="hero-title"><span class="hero-brand">DRIVARC</span> — 发现自由<br/>数字化车辆管理</h1>
+<div class="hero-actions">
+                    <a href="#" data-modal="beta" class="btn btn-google-play">
+                        <svg class="google-play-icon" viewBox="0 0 50 50" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M5.304,3.015C5.11,3.361,5,3.773,5,4.233v41.768c0,0.335,0.074,0.638,0.193,0.909L27.35,24.896L5.304,3.015z"/>
+                            <path d="M28.769,23.486l5.96-5.922L8.467,2.401C8.029,2.148,7.57,2.022,7.132,2.01L28.769,23.486z"/>
+                            <path d="M44.312,23.099c-0.661-0.357-5.574-3.207-7.792-4.496l-6.333,6.292l6.355,6.308l7.733-4.464c1.102-0.637,1.255-1.449,1.249-1.877C45.514,24.15,45.071,23.507,44.312,23.099z"/>
+                            <path d="M28.768,26.305L6.948,47.984c0.364-0.019,0.742-0.123,1.111-0.337C8.915,47.152,26.223,37.16,26.223,37.16l8.525-4.921L28.768,26.305z"/>
+                        </svg>
+                        <span class="google-play-text">
+                            <span class="google-play-store">Google Play</span>
+                        </span>
+                    </a>
+                    <a href="#" data-modal="appstore" class="btn btn-app-store">
+                        <svg class="app-store-icon" viewBox="0 0 50 50" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M36.009,5.074H13.991C9.025,5.074,5,9.099,5,14.064V36c0,4.965,4.025,8.991,8.991,8.991h22.019C40.975,44.99,45,40.965,45,36V14.064C45,9.099,40.975,5.074,36.009,5.074z M16.171,36.755c-0.372,0.636-1.041,0.989-1.728,0.989c-0.343,0-0.691-0.088-1.009-0.274c-0.953-0.559-1.273-1.784-0.714-2.736l0.291-0.497c0.515-0.162,1.057-0.25,1.614-0.234l0.005,0c1.023,0.03,1.879,0.493,2.464,1.176L16.171,36.755z M27.413,32H12c-1.104,0-2-0.896-2-2s0.896-2,2-2h4.665l5.866-10.01l-1.811-3.091c-0.559-0.953-0.239-2.178,0.714-2.737c0.953-0.558,2.178-0.239,2.737,0.714l0.678,1.157l0.678-1.157c0.558-0.953,1.783-1.272,2.737-0.714c0.953,0.559,1.273,1.784,0.714,2.737L21.301,28h4.18c0.625,0.416,1.162,0.966,1.549,1.64l0.003,0.004C27.473,30.409,27.57,31.237,27.413,32z M38,32h-2.623l1.602,2.733c0.559,0.952,0.239,2.178-0.714,2.736c-0.318,0.187-0.666,0.274-1.009,0.274c-0.687,0-1.355-0.354-1.728-0.989l-6.151-10.497c-0.834-1.549-0.803-3.427,0.109-4.943l0.826-1.373L33.033,28H38c1.104,0,2,0.896,2,2S39.104,32,38,32z"/>
+                        </svg>
+                        <span class="app-store-text">
+                            <span class="app-store-name">App Store</span>
+                        </span>
+                    </a>
+                </div>
+                <div class="trust-badges">
+                    <div class="trust-badge">
+                        <div class="trust-badge-icon secure">
+                            <svg viewBox="0 0 24 24"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"/></svg>
+                        </div>
+                        <span class="trust-badge-text">Güvenli Veri</span>
+                    </div>
+                    <div class="trust-badge">
+                        <div class="trust-badge-icon free">
+                            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg>
+                        </div>
+                        <span class="trust-badge-text">Offline Çalışma</span>
+                    </div>
+                    <div class="trust-badge">
+                        <div class="trust-badge-icon no-ads">
+                            <svg viewBox="0 0 24 24"><path d="M13 2.05v3.03c3.39.49 6 3.39 6 6.92 0 .9-.18 1.75-.48 2.54l2.6 1.53c.56-1.24.88-2.62.88-4.07 0-5.18-3.95-9.45-9-9.95zM12 19c-3.87 0-7-3.13-7-7 0-3.53 2.61-6.43 6-6.92V2.05c-5.06.5-9 4.76-9 9.95 0 5.52 4.47 10 9.99 10 3.31 0 6.24-1.61 8.06-4.09l-2.6-1.53C16.17 17.98 14.21 19 12 19z"/></svg>
+                        </div>
+                        <span class="trust-badge-text">Kolay ve Hızlı</span>
+                    </div>
+                    <div class="trust-badge">
+                        <div class="trust-badge-icon secure">
+                            <svg viewBox="0 0 24 24"><path d="M21 3H3c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H3V5h18v14zM5 15h14v3H5zm0-4h4v3H5zm6 0h8v3h-8z"/></svg>
+                        </div>
+                        <span class="trust-badge-text">Kullanıcı Dostu</span>
+                    </div>
+                </div>
 </div>
 <div class="hero-phone">
 <div class="phone-container">
@@ -807,62 +799,24 @@
 </div>
 </div>
 </section></div>
-
 <footer aria-label="Site footer" class="site-footer" role="contentinfo">
 <div class="footer-inner">
 <div class="footer-stores">
-<a class="btn btn-footer-store btn-footer-google-play" data-modal="beta" href="#">
-<svg class="footer-store-icon" height="24" viewBox="0 0 50 50" width="24" xmlns="http://www.w3.org/2000/svg">
-<path d="M5.304,3.015C5.11,3.361,5,3.773,5,4.233v41.768c0,0.335,0.074,0.638,0.193,0.909L27.35,24.896L5.304,3.015z"/>
-<path d="M28.769,23.486l5.96-5.922L8.467,2.401C8.029,2.148,7.57,2.022,7.132,2.01L28.769,23.486z"/>
-<path d="M44.312,23.099c-0.661-0.357-5.574-3.207-7.792-4.496l-6.333,6.292l6.355,6.308l7.733-4.464c1.102-0.637,1.255-1.449,1.249-1.877C45.514,24.15,45.071,23.507,44.312,23.099z"/>
-<path d="M28.768,26.305L6.948,47.984c0.364-0.019,0.742-0.123,1.111-0.337C8.915,47.152,26.223,37.16,26.223,37.16l8.525-4.921L28.768,26.305z"/>
-</svg>
-<span class="footer-store-text">
-<span class="footer-store-label">Google Play</span>
-</span>
-</a>
-<a class="btn btn-footer-store btn-footer-app-store" data-modal="appstore" href="#">
-<svg class="footer-store-icon" height="24" viewBox="0 0 50 50" width="24" xmlns="http://www.w3.org/2000/svg">
-<path d="M36.009,5.074H13.991C9.025,5.074,5,9.099,5,14.064V36c0,4.965,4.025,8.991,8.991,8.991h22.019C40.975,44.99,45,40.965,45,36V14.064C45,9.099,40.975,5.074,36.009,5.074z M16.171,36.755c-0.372,0.636-1.041,0.989-1.728,0.989c-0.343,0-0.691-0.088-1.009-0.274c-0.953-0.559-1.273-1.784-0.714-2.736l0.291-0.497c0.515-0.162,1.057-0.25,1.614-0.234l0.005,0c1.023,0.03,1.879,0.493,2.464,1.176L16.171,36.755z M27.413,32H12c-1.104,0-2-0.896-2-2s0.896-2,2-2h4.665l5.866-10.01l-1.811-3.091c-0.559-0.953-0.239-2.178,0.714-2.737c0.953-0.558,2.178-0.239,2.737,0.714l0.678,1.157l0.678-1.157c0.558-0.953,1.783-1.272,2.737-0.714c0.953,0.559,1.273,1.784,0.714,2.737L21.301,28h4.18c0.625,0.416,1.162,0.966,1.549,1.64l0.003,0.004C27.473,30.409,27.57,31.237,27.413,32z M38,32h-2.623l1.602,2.733c0.559,0.952,0.239,2.178-0.714,2.736c-0.318,0.187-0.666,0.274-1.009,0.274c-0.687,0-1.355-0.354-1.728-0.989l-6.151-10.497c-0.834-1.549-0.803-3.427,0.109-4.943l0.826-1.373L33.033,28H38c1.104,0,2,0.896,2,2S39.104,32,38,32z"/>
-</svg>
-<span class="footer-store-text">
-<span class="footer-store-label">App Store</span>
-</span>
-</a>
-</div>
-<div class="footer-links">
-<a class="footer-link" href="terms.html" rel="noopener noreferrer">使用条款</a>
-<a class="footer-link" href="privacy.html" rel="noopener noreferrer">隐私政策</a>
-</div>
-<div class="footer-socials" aria-label="Drivarc 社交">
-    <a href="https://www.instagram.com/drivarc.app" class="social-link social-instagram" target="_blank" rel="noopener noreferrer" aria-label="Drivarc Instagram">
-        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm5 6.5A4.5 4.5 0 1 0 16.5 13 4.5 4.5 0 0 0 12 8.5zm5.4-3.9a1.1 1.1 0 1 1-1.1 1.1 1.1 1.1 0 0 1 1.1-1.1z"/></svg>
-    </a>
-    <a href="https://x.com/drivarc_app" class="social-link social-x" target="_blank" rel="noopener noreferrer" aria-label="Drivarc X">
-        <svg viewBox="0 0 50 50" width="20" height="20" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-            <path d="M39,4H11c-3.866,0-7,3.134-7,7v28c0,3.866,3.134,7,7,7h28c3.866,0,7-3.134,7-7V11C46,7.134,42.866,4,39,4z M29.978,37 l-6.54-9.292L15.5,37H13l9.308-10.897L13.086,13h7.937l5.637,8.009L33.5,13H36l-8.211,9.613L37.914,37H29.978z"/>
-            <polygon points="16.914,15 31.022,35 34.086,35 19.978,15 "/>
-        </svg>
-    </a>
-    <a href="https://www.linkedin.com/company/drivarc/" class="social-link social-linkedin" target="_blank" rel="noopener noreferrer" aria-label="Drivarc LinkedIn">
-        <svg viewBox="0 0 50 50" aria-hidden="true" focusable="false"><path d="M41,4H9C6.24,4,4,6.24,4,9v32c0,2.76,2.24,5,5,5h32c2.76,0,5-2.24,5-5V9C46,6.24,43.76,4,41,4z M17,20v19h-6V20H17z M11,14.47c0-1.4,1.2-2.47,3-2.47s2.93,1.07,3,2.47c0,1.4-1.12,2.53-3,2.53C12.2,17,11,15.87,11,14.47z M39,39h-6c0,0,0-9.26,0-10c0-2-1-4-3.5-4.04h-0.08C27,24.96,26,27.02,26,29c0,0.91,0,10,0,10h-6V20h6v2.56c0,0,1.93-2.56,5.81-2.56c3.97,0,7.19,2.73,7.19,8.26V39z"/></svg>
-    </a>
-</div>
-<p class="footer-copy">© 2026 Drivarc. 版权所有。</p>
-<p class="footer-holiday is-hidden" id="footerHoliday">土耳其日快乐！</p>
-</div>
-</footer>
-<div class="beta-modal-overlay" id="betaModal">
-<div class="beta-modal">
-<div class="beta-modal-icon">
-<svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"></path></svg>
-</div>
-<h3 class="beta-modal-title">封闭测试版</h3>
-<p class="beta-modal-text">我们目前处于内测阶段。您可以通过邀请登录。我们即将向大家开放，请持续关注我们！</p>
-<button class="beta-modal-close" data-close-modal="beta">确定</button>
-</div>
-</div>
+                            <a href="#" data-modal="beta" class="btn-footer-store btn-footer-google-play" aria-label="Google Play">
+                                <svg class="footer-store-icon" viewBox="0 0 50 50" width="20" height="20" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M5.304,3.015C5.11,3.361,5,3.773,5,4.233v41.768c0,0.335,0.074,0.638,0.193,0.909L27.35,24.896L5.304,3.015z"/>
+                                    <path d="M28.769,23.486l5.96-5.922L8.467,2.401C8.029,2.148,7.57,2.022,7.132,2.01L28.769,23.486z"/>
+                                    <path d="M44.312,23.099c-0.661-0.357-5.574-3.207-7.792-4.496l-6.333,6.292l6.355,6.308l7.733-4.464c1.102-0.637,1.255-1.449,1.249-1.877C45.514,24.15,45.071,23.507,44.312,23.099z"/>
+                                    <path d="M28.768,26.305L6.948,47.984c0.364-0.019,0.742-0.123,1.111-0.337C8.915,47.152,26.223,37.16,26.223,37.16l8.525-4.921L28.768,26.305z"/>
+                                </svg>
+                            </a>
+                            <a href="#" data-modal="appstore" class="btn-footer-store btn-footer-app-store" aria-label="App Store">
+                                <svg class="footer-store-icon" viewBox="0 0 50 50" width="20" height="20" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M36.009,5.074H13.991C9.025,5.074,5,9.099,5,14.064V36c0,4.965,4.025,8.991,8.991,8.991h22.019C40.975,44.99,45,40.965,45,36V14.064C45,9.099,40.975,5.074,36.009,5.074z M16.171,36.755c-0.372,0.636-1.041,0.989-1.728,0.989c-0.343,0-0.691-0.088-1.009-0.274c-0.953-0.559-1.273-1.784-0.714-2.736l0.291-0.497c0.515-0.162,1.057-0.25,1.614-0.234l0.005,0c1.023,0.03,1.879,0.493,2.464,1.176L16.171,36.755z M27.413,32H12c-1.104,0-2-0.896-2-2s0.896-2,2-2h4.665l5.866-10.01l-1.811-3.091c-0.559-0.953-0.239-2.178,0.714-2.737c0.953-0.558,2.178-0.239,2.737,0.714l0.678,1.157l0.678-1.157c0.558-0.953,1.783-1.272,2.737-0.714c0.953,0.559,1.273,1.784,0.714,2.737L21.301,28h4.18c0.625,0.416,1.162,0.966,1.549,1.64l0.003,0.004C27.473,30.409,27.57,31.237,27.413,32z M38,32h-2.623l1.602,2.733c0.559,0.952,0.239,2.178-0.714,2.736c-0.318,0.187-0.666,0.274-1.009,0.274c-0.687,0-1.355-0.354-1.728-0.989l-6.151-10.497c-0.834-1.549-0.803-3.427,0.109-4.943l0.826-1.373L33.033,28H38c1.104,0,2,0.896,2,2S39.104,32,38,32z"/>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
 <div class="beta-modal-overlay" id="appStoreModal">
 <div class="beta-modal">
 <div class="beta-modal-icon">
@@ -896,7 +850,7 @@
 </div>
 <div aria-label="Cookie Settings" aria-modal="true" class="cookie-settings-modal" id="cookieSettingsModal" role="dialog">
 <div class="cookie-settings-modal-content">
-                <h3 class="cookie-settings-title">Cookie 设置</h3>
+<h3 class="cookie-settings-title">Cookie 设置</h3>
 <p class="cookie-settings-description">
                 选择您想要允许的 cookie，以帮助我们为您提供更好的体验。
             </p>
@@ -914,7 +868,7 @@
 <div class="cookie-option-header">
 <span class="cookie-option-title">分析 Cookie</span>
 <label class="cookie-option-toggle">
-<input id="cookieAnalyticsToggle" type="checkbox" checked/>
+<input checked="" id="cookieAnalyticsToggle" type="checkbox"/>
 <span class="toggle-slider"></span>
 </label>
 </div>
