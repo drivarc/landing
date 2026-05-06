@@ -55,7 +55,7 @@
 }
 
 .problem-card {
-    background: var(--surface-container);
+    background: linear-gradient(135deg, var(--surface-container) 0%, rgba(108, 86, 114, 0.06) 100%);
     border-radius: 14px;
     padding: 18px;
     border: 1px solid var(--border);

@@ -87,7 +87,7 @@
 }
 
 .faq-item {
-    background: var(--surface-container);
+    background: linear-gradient(180deg, var(--surface-container-high) 0%, var(--surface-container) 100%);
     border: 1px solid var(--border);
     border-radius: 14px;
     overflow: hidden;
