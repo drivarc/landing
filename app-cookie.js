@@ -319,19 +319,18 @@
        trackEvent('cookie_consent', { action: 'accept_all' });
    }
 
-   function declineAll() {
-       var prefs = {
-           version: CONSENT_VERSION,
-           timestamp: new Date().toISOString(),
-           necessary: true,
-           analytics: false,
-           marketing: false
-       };
-       saveConsent(prefs);
-       gtagConsentUpdate(false);
-       hideBanner();
-       trackEvent('cookie_consent', { action: 'decline_all' });
-   }
+    function declineAll() {
+        var prefs = {
+            version: CONSENT_VERSION,
+            timestamp: new Date().toISOString(),
+            necessary: true,
+            analytics: false,
+            marketing: false
+        };
+        gtagConsentUpdate(false);
+        hideBanner();
+        trackEvent('cookie_consent', { action: 'decline_all' });
+    }
 
    function openDeclineRepromptModal() {
        hideBanner();
@@ -431,60 +430,89 @@
        }
    }
 
-   function addFooterCookieLink() {
-       var footer = document.querySelector('.footer-inner, .site-footer');
-       if (!footer) return;
-       if (footer.querySelector('.cookie-preferences-link')) return;
+    function addFooterCookieLink() {
+        var footer = document.querySelector('.footer-inner, .site-footer');
+        if (!footer) return;
 
-       var link = document.createElement('a');
-       link.href = '#';
-       link.className = 'footer-link cookie-preferences-link';
-       link.textContent = 'Cookie Preferences';
-       link.setAttribute('data-cookie-preferences', 'true');
+        var existingLink = footer.querySelector('.cookie-preferences-link');
+        var link;
 
-       var lang = getPageLang();
-       var labels = {
-           'tr': 'Çerez Tercihleri',
-           'en': 'Cookie Preferences',
-           'de': 'Cookie-Einstellungen',
-           'zh': 'Cookie 设置',
-           'ru': 'Настройки cookie',
-           'ar': 'تفضيلات ملفات تعريف الارتباط'
-       };
-       link.textContent = labels[lang] || labels['en'];
+        if (existingLink) {
+            link = existingLink;
+        } else {
+            link = document.createElement('a');
+            link.href = '#';
+            link.className = 'footer-link cookie-preferences-link';
+            link.setAttribute('data-cookie-preferences', 'true');
 
-       link.addEventListener('click', function(e) {
-           e.preventDefault();
-           openSettingsModal();
-       });
+            var footerLinks = footer.querySelector('.footer-links');
+            if (footerLinks) {
+                var socials = footerLinks.querySelector('.footer-socials');
+                if (socials) {
+                    footerLinks.insertBefore(link, socials);
+                } else {
+                    footerLinks.appendChild(link);
+                }
+            }
+        }
 
-       var footerLinks = footer.querySelector('.footer-links');
-       if (footerLinks) {
-           var socials = footerLinks.querySelector('.footer-socials');
-           if (socials) {
-               footerLinks.insertBefore(link, socials);
-           } else {
-               footerLinks.appendChild(link);
-           }
-       }
-   }
+        var lang = getPageLang();
+        var labels = {
+            'tr': 'Çerez Tercihleri',
+            'en': 'Cookie Preferences',
+            'de': 'Cookie-Einstellungen',
+            'zh': 'Cookie 设置',
+            'ru': 'Настройки cookie',
+            'ar': 'تفضيلات ملفات تعريف الارتباط'
+        };
+        link.textContent = labels[lang] || labels['en'];
+
+        // Remove existing listener to avoid duplicates
+        link.removeEventListener('click', link._cookieClickHandler);
+        link._cookieClickHandler = function(e) {
+            e.preventDefault();
+            openSettingsModal();
+        };
+        link.addEventListener('click', link._cookieClickHandler);
+    }
 
    function applyRTLLayout() {
    }
 
-   function init() {
-       var prefs = readConsent();
+    function init() {
+        var prefs = readConsent();
+        var currentPage = window.location.pathname;
 
-       if (!prefs) {
-           showBanner();
-       } else {
-           if (prefs.analytics) {
-               gtagConsentUpdate(true);
-               scheduleAnalyticsLoad();
-           } else {
-               gtagConsentUpdate(false);
-           }
-       }
+        var skipPages = ['privacy.html', 'terms.html', '404.html', 'drivarc.html'];
+        var isSkipPage = skipPages.some(function(page) {
+            return currentPage.endsWith('/' + page) || currentPage === '/' + page;
+        });
+
+        if (isSkipPage) {
+            if (prefs) {
+                if (prefs.analytics) {
+                    gtagConsentUpdate(true);
+                    ensureAnalyticsLoaded();
+                } else {
+                    gtagConsentUpdate(false);
+                }
+            }
+            initStoreClickTracking();
+            addFooterCookieLink();
+            applyRTLLayout();
+            return;
+        }
+
+        if (!prefs) {
+            showBanner();
+        } else {
+            if (prefs.analytics) {
+                gtagConsentUpdate(true);
+                ensureAnalyticsLoaded();
+            } else {
+                gtagConsentUpdate(false);
+            }
+        }
 
        var acceptBtn = document.querySelector('.cookie-consent-btn.accept:not(.cookie-settings-save)');
        if (acceptBtn) acceptBtn.addEventListener('click', acceptAll);
