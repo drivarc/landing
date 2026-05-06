@@ -5,6 +5,7 @@ PROGRESS.md
 .github/skills
 .github/copilot-instructions.md
 COLORS.md
+node_modules/
 # Editors
 .vscode/
 .idea/

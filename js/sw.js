@@ -23,7 +23,6 @@ const ASSETS_TO_CACHE = [
   '/404.html',
   '/privacy.html',
   '/terms.html',
-  '/drivarc.html',
   '/en/',
   '/en/index.html',
   '/de/',

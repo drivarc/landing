@@ -15,8 +15,8 @@ jobs:
       - name: Check static files exist
         run: |
           test -f index.html || exit 1
-          test -f styles.css || exit 1
-          test -f app.js || exit 1
+          test -f css/critical.css || exit 1
+          test -f js/app-core.js || exit 1
           test -f manifest.json || exit 1
           test -f sitemap.xml || exit 1
           test -f robots.txt || exit 1

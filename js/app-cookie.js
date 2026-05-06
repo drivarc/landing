@@ -11,15 +11,6 @@
    function gtag() { window.dataLayer.push(arguments); }
    window.gtag = gtag;
 
-   function activateDeferredStylesheet() {
-     var siteStyles = document.getElementById('siteStyles');
-     if (siteStyles && siteStyles.media !== 'all') {
-       siteStyles.media = 'all';
-     }
-   }
-
-   activateDeferredStylesheet();
-
    gtag('consent', 'default', {
      analytics_storage: 'denied',
      ad_storage: 'denied',
