@@ -329,3 +329,38 @@
         opacity: 1;
     }
 }
+
+/* Fade-in-up sync and stagger helpers */
+:root {
+    --anim-duration: 0.56s;
+    --anim-easing: cubic-bezier(0.16, 1, 0.3, 1);
+    --stagger-step: 0.12s;
+}
+
+/* Default hidden state for scroll-animated elements */
+.animate-on-scroll {
+    opacity: 0;
+    transform: translateY(18px);
+    transition: opacity var(--anim-duration) var(--anim-easing),
+                transform var(--anim-duration) var(--anim-easing);
+    will-change: transform, opacity;
+}
+
+/* Visible state applied by JS when element is in view */
+.animate-on-scroll.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Optional class: use keyframe-based fade-in-up */
+.fade-in-up {
+    animation-name: fadeInUp;
+    animation-duration: var(--anim-duration);
+    animation-timing-function: var(--anim-easing);
+    animation-fill-mode: both;
+}
+
+/* Utility: small helper for groups that want a custom stagger step */
+[data-stagger-delay] > .animate-on-scroll {
+    /* children will get inline transitionDelay set by JS */
+}

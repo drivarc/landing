@@ -145,36 +145,51 @@ if (financeTotal) {
     counterObserver.observe(financeTotal);
 }
 
-const observerOptions = {
-    threshold: 0.1,
-    rootMargin: isMobile ? '0px 0px 100px 0px' : '0px 0px -50px 0px'
-};
+// Observe scroll animations with improved staggering and group handling
+const animatedEls = document.querySelectorAll('.animate-on-scroll');
 
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-        if (entry.isIntersecting) {
+if (prefersReducedMotion) {
+    // Respect user preference: show everything without animation
+    animatedEls.forEach(el => el.classList.add('visible'));
+} else {
+    const observerOptions = {
+        threshold: 0.15,
+        rootMargin: isMobile ? '0px 0px -5% 0px' : '0px 0px -10% 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (!entry.isIntersecting) return;
             const el = entry.target;
-            el.classList.add('visible');
-            observer.unobserve(el);
-        }
-    });
-}, observerOptions);
 
-// Only observe elements that still need animation (not cards which are now visible by default)
-document.querySelectorAll('.animate-on-scroll').forEach((el) => {
-    observer.observe(el);
-});
+            // If element belongs to a grid-like group, reveal the group's children with a stagger
+            const group = el.closest('.features-grid, .problems-grid, .faq-list, .features-inner, .problems-inner');
+            if (group && !group.dataset.animated) {
+                const children = Array.from(group.querySelectorAll('.animate-on-scroll'));
+                const baseDelay = parseFloat(group.dataset.staggerDelay) || 0.12; // seconds
 
-document.querySelectorAll('.problem-card').forEach((card, index) => {
-    card.style.transitionDelay = isMobile ? '0s' : `${index * 0.15}s`;
-});
-document.querySelectorAll('.feature-card').forEach((card, index) => {
-    card.style.transitionDelay = isMobile ? '0s' : `${index * 0.1}s`;
-});
+                children.forEach((child, idx) => {
+                    const delay = isMobile ? '0s' : `${idx * baseDelay}s`;
+                    child.style.transitionDelay = delay;
+                    // ensure delay takes effect before adding class
+                    requestAnimationFrame(() => child.classList.add('visible'));
+                    observer.unobserve(child);
+                });
 
-document.querySelectorAll('.faq-item').forEach((item, index) => {
-    item.style.transitionDelay = isMobile ? '0s' : `${index * 0.08}s`;
-});
+                group.dataset.animated = 'true';
+            } else {
+                // Single element reveal
+                if (!el.style.transitionDelay && !el.dataset.delay) {
+                    el.style.transitionDelay = isMobile ? '0s' : '0s';
+                }
+                el.classList.add('visible');
+                observer.unobserve(el);
+            }
+        });
+    }, observerOptions);
+
+    animatedEls.forEach(el => observer.observe(el));
+}
 
 const navLinks = document.querySelectorAll('.nav a[href^="#"]');
 const sectionIds = ['hero', 'features', 'problems', 'faq'];
