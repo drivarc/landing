@@ -73,7 +73,7 @@
 
 .feature-card:hover {
     border-color: var(--accent-light);
-    box-shadow: 0 4px 16px var(--accent-glow);
+    box-shadow: 0 4px 16px var(--accent-glow), 0 0 40px rgba(64, 95, 144, 0.2);
     transition: none;
 }
 

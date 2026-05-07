@@ -617,6 +617,7 @@
 
 .trust-badge:hover {
     transform: translateY(-2px);
+    filter: drop-shadow(0 0 20px rgba(64, 95, 144, 0.3));
 }
 
 .trust-badge-icon {
@@ -1082,6 +1083,7 @@
 .activity-card:hover {
     background: var(--surface-container-highest);
     transform: translateY(-1px);
+    box-shadow: 0 4px 20px var(--accent-glow), 0 0 30px rgba(64, 95, 144, 0.15);
 }
 
 .activity-icon-wrapper {
@@ -1186,6 +1188,7 @@
 .maintenance-status-card .status-item:hover {
     background: var(--surface-container-highest);
     transform: translateY(-1px);
+    box-shadow: 0 4px 20px var(--accent-glow), 0 0 30px rgba(64, 95, 144, 0.15);
 }
 
 .maintenance-status-card .status-icon {
