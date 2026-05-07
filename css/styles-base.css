@@ -127,6 +127,43 @@
     --tertiary-bg: var(--color-tertiary-bg);
     --warning: var(--color-warning);
     --warning-bg: var(--color-warning-bg);
+
+    /* Typography Hierarchy */
+    --font-family-base: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --font-family-arabic: 'Noto Sans Arabic', sans-serif;
+
+    /* Headings - Kalın */
+    --font-weight-heading: 700;
+    --font-weight-subheading: 600;
+    --font-weight-body: 400;
+    --font-weight-medium: 500;
+
+    /* Font Sizes (rem) */
+    --text-xs: 0.75rem;
+    --text-sm: 0.875rem;
+    --text-base: 1rem;
+    --text-lg: 1.125rem;
+    --text-xl: 1.25rem;
+    --text-2xl: 1.5rem;
+    --text-3xl: 1.875rem;
+    --text-4xl: 2.25rem;
+    --text-5xl: 3rem;
+    --text-6xl: 3.75rem;
+
+    /* Line Heights */
+    --leading-none: 1;
+    --leading-tight: 1.25;
+    --leading-snug: 1.375;
+    --leading-normal: 1.5;
+    --leading-relaxed: 1.625;
+    --leading-loose: 2;
+
+    /* Letter Spacing */
+    --tracking-tighter: -0.05em;
+    --tracking-tight: -0.025em;
+    --tracking-normal: 0;
+    --tracking-wide: 0.025em;
+    --tracking-wider: 0.05em;
 }
 
 
@@ -236,12 +273,14 @@ html::-webkit-scrollbar {
 body {
     margin: 0;
     padding: 0;
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-family: var(--font-family-base);
     background-color: var(--bg-primary);
     color: var(--text-primary);
     transition: background-color 0.3s ease, color 0.3s ease;
     display: block;
     position: relative;
+    font-weight: var(--font-weight-body);
+    line-height: var(--leading-normal);
 }
 
 body.index-page {
@@ -298,4 +337,82 @@ body::before {
     background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
     border-radius: 50%;
     pointer-events: none;
+}
+
+/* Typography Hierarchy */
+
+/* Headings - Bold */
+h1, .h1 {
+    font-size: var(--text-5xl);
+    font-weight: var(--font-weight-heading);
+    line-height: var(--leading-tight);
+    letter-spacing: var(--tracking-tight);
+}
+
+h2, .h2 {
+    font-size: var(--text-4xl);
+    font-weight: var(--font-weight-heading);
+    line-height: var(--leading-tight);
+    letter-spacing: var(--tracking-tight);
+}
+
+h3, .h3 {
+    font-size: var(--text-3xl);
+    font-weight: var(--font-weight-subheading);
+    line-height: var(--leading-snug);
+    letter-spacing: var(--tracking-normal);
+}
+
+h4, .h4 {
+    font-size: var(--text-2xl);
+    font-weight: var(--font-weight-subheading);
+    line-height: var(--leading-snug);
+    letter-spacing: var(--tracking-normal);
+}
+
+h5, .h5 {
+    font-size: var(--text-xl);
+    font-weight: var(--font-weight-medium);
+    line-height: var(--leading-normal);
+    letter-spacing: var(--tracking-wide);
+}
+
+h6, .h6 {
+    font-size: var(--text-lg);
+    font-weight: var(--font-weight-medium);
+    line-height: var(--leading-normal);
+    letter-spacing: var(--tracking-wide);
+}
+
+/* Body text - Regular/Thin */
+p, .body-text, .text-body {
+    font-size: var(--text-base);
+    font-weight: var(--font-weight-body);
+    line-height: var(--leading-relaxed);
+    letter-spacing: var(--tracking-normal);
+}
+
+small, .small, .text-small {
+    font-size: var(--text-sm);
+    font-weight: var(--font-weight-body);
+    line-height: var(--leading-normal);
+    letter-spacing: var(--tracking-normal);
+}
+
+.caption, .text-caption {
+    font-size: var(--text-xs);
+    font-weight: var(--font-weight-body);
+    line-height: var(--leading-normal);
+    letter-spacing: var(--tracking-normal);
+}
+
+/* Armenian/Arabic languages - Use Noto Sans Arabic */
+html[lang="ar"],
+html[lang="arm"] {
+    font-family: var(--font-family-arabic);
+}
+
+/* RTL-specific typography adjustments */
+html[dir="rtl"] {
+    font-family: var(--font-family-arabic);
 }
