@@ -50,14 +50,14 @@
 .problems-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 24px;
+    gap: var(--card-gap-lg);
     align-items: stretch;
 }
 
 .problem-card {
     background: linear-gradient(135deg, var(--surface-container) 0%, rgba(108, 86, 114, 0.06) 100%);
-    border-radius: 14px;
-    padding: 18px;
+    border-radius: var(--card-radius-lg);
+    padding: var(--card-padding-md);
     border: 1px solid var(--border);
     transform: translateY(0) scale(1);
     backface-visibility: hidden;
@@ -192,7 +192,7 @@ html.touch-device .maintenance-status-card .status-item:hover {
 
 
 .problem-panel {
-    padding: 16px;
+    padding: var(--space-md);
     border-radius: 6px;
     transition: background 0.3s ease;
 }
@@ -210,7 +210,7 @@ html.touch-device .maintenance-status-card .status-item:hover {
 .problem-header {
     display: flex;
     align-items: flex-start;
-    gap: 12px;
+    gap: var(--space-sm);
 }
 
 .problem-icon {
@@ -251,7 +251,7 @@ html.touch-device .maintenance-status-card .status-item:hover {
     letter-spacing: 0.06em;
     padding: 3px 8px;
     border-radius: 5px;
-    margin-bottom: 5px;
+    margin-bottom: var(--space-xs);
     display: inline-flex;
     align-items: center;
     gap: 4px;
@@ -293,7 +293,7 @@ html.touch-device .maintenance-status-card .status-item:hover {
     font-size: 14px;
     font-weight: 600;
     color: var(--text-primary);
-    margin-bottom: 5px;
+    margin-bottom: var(--space-xs);
     line-height: 1.3;
 }
 
@@ -340,16 +340,16 @@ html.touch-device .maintenance-status-card .status-item:hover {
 }
 
 @media (max-width: 800px) {
-    .problems-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; }
+    .problems-grid { grid-template-columns: repeat(2, 1fr); gap: var(--space-lg); }
 }
 
 @media (max-width: 768px) {
     .problems-grid { grid-template-columns: 1fr; }
     .problems-title { font-size: 22px; }
-    .problem-card { padding: 16px; }
+    .problem-card { padding: var(--space-md); }
     .problem-layout { display: flex; flex-direction: column; gap: 0; }
     .problem-layout::after { display: none; }
-    .problem-panel { padding: 12px; }
+    .problem-panel { padding: var(--space-sm); }
     .problem-panel--pain {
         border-right: none;
         border-bottom: 1px solid rgba(255, 82, 82, 0.1);
@@ -367,21 +367,39 @@ html.touch-device .maintenance-status-card .status-item:hover {
 @media (max-width: 480px) {
     .problems-grid { grid-template-columns: 1fr; }
     .problems-title { font-size: 20px; }
-    .problem-card { padding: 14px; border-radius: 6px; }
-    .problem-panel { padding: 10px; }
-    .problem-icon { width: 32px; height: 32px; border-radius: 6px; }
+    .problem-card {
+        padding: var(--space-sm);
+        border-radius: var(--card-radius-sm);
+    }
+    .problem-panel { padding: var(--space-xs); }
+    .problem-icon {
+        width: 32px;
+        height: 32px;
+        border-radius: var(--card-radius-sm);
+    }
     .problem-icon svg { width: 16px; height: 16px; }
-    .problem-tag { font-size: 9px; padding: 2px 6px; margin-bottom: 4px; }
+    .problem-tag {
+        font-size: 9px;
+        padding: 2px 6px;
+        margin-bottom: var(--space-2xs);
+    }
     .problem-title { font-size: 13px; }
-    .problem-desc { font-size: 11px; -webkit-line-clamp: 2; line-clamp: 2; }
+    .problem-desc {
+        font-size: 11px;
+        -webkit-line-clamp: 2;
+        line-clamp: 2;
+    }
 }
 
 @media (max-width: 375px) {
     .problems-title { font-size: 18px; }
     .problems-subtitle { font-size: 12px; }
-    .problem-card { padding: 12px; }
-    .problem-panel { padding: 8px; }
-    .problem-icon { width: 28px; height: 28px; }
+    .problem-card { padding: var(--space-xs); }
+    .problem-panel { padding: var(--space-2xs); }
+    .problem-icon {
+        width: 28px;
+        height: 28px;
+    }
     .problem-icon svg { width: 14px; height: 14px; }
     .problem-title { font-size: 12px; }
     .problem-desc { font-size: 10px; }
@@ -391,9 +409,12 @@ html.touch-device .maintenance-status-card .status-item:hover {
     .problems-section { padding: 40px 12px 40px; }
     .problems-title { font-size: 16px; }
     .problems-subtitle { font-size: 11px; }
-    .problem-card { padding: 10px; }
-    .problem-panel { padding: 6px; }
-    .problem-icon { width: 24px; height: 24px; }
+    .problem-card { padding: var(--space-2xs); }
+    .problem-panel { padding: var(--space-2xs); }
+    .problem-icon {
+        width: 24px;
+        height: 24px;
+    }
     .problem-icon svg { width: 12px; height: 12px; }
     .problem-tag { font-size: 8px; }
     .problem-title { font-size: 11px; }

@@ -861,7 +861,7 @@
 
 
 .finance-card {
-    margin: 12px 16px;
+    margin: var(--space-sm) var(--space-md);
     border-radius: 24px;
     position: relative;
     overflow: hidden;
@@ -907,14 +907,14 @@
 .finance-card-content {
     position: relative;
     z-index: 1;
-    padding: 20px;
+    padding: var(--card-padding-md);
 }
 
 .finance-card-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 8px;
+    margin-bottom: var(--space-xs);
 }
 
 .finance-card-label {
@@ -936,14 +936,14 @@
 }
 
 .finance-trend-badge {
-    margin-right: 12px;
-    padding: 4px 10px;
+    margin-right: var(--space-md);
+    padding: var(--space-xs) var(--space-sm);
     border-radius: 6px;
     font-size: 12px;
     font-weight: 600;
     display: flex;
     align-items: center;
-    gap: 4px;
+    gap: var(--space-2xs);
 }
 
 .finance-trend-badge.increasing {
@@ -1011,17 +1011,17 @@
 
 
 .app-card {
-    margin: 0 16px 8px;
+    margin: 0 var(--space-md) var(--space-sm);
     background: var(--surface-container);
     border-radius: 16px;
 }
 
 
 .alert-card {
-    padding: 8px 12px;
+    padding: var(--space-xs) var(--space-sm);
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: var(--space-sm);
 }
 
 .alert-icon {
@@ -1053,7 +1053,7 @@
 .alert-subtitle {
     font-size: 12px;
     font-weight: 600;
-    margin-top: 2px;
+    margin-top: var(--space-2xs);
 }
 
 .alert-subtitle.overdue { color: var(--error); }
@@ -1068,13 +1068,13 @@
 
 
 .activity-card {
-    margin: 0 16px 8px;
+    margin: 0 var(--space-md) var(--space-sm);
     background: var(--surface-container-high);
     border-radius: 6px;
-    padding: 12px;
+    padding: var(--space-sm);
     display: flex;
     align-items: flex-start;
-    gap: 12px;
+    gap: var(--space-sm);
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
     cursor: pointer;
     transition: all 0.2s ease;
@@ -1116,7 +1116,7 @@
 }
 
 .activity-header {
-    margin-bottom: 2px;
+    margin-bottom: var(--space-2xs);
 }
 
 .activity-title {
@@ -1130,7 +1130,7 @@
     font-size: 12px;
     font-weight: 400;
     color: var(--text-secondary);
-    margin-bottom: 6px;
+    margin-bottom: var(--space-xs);
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -1139,7 +1139,7 @@
 .activity-date {
     display: flex;
     align-items: center;
-    gap: 4px;
+    gap: var(--space-2xs);
 }
 
 .clock-icon {
@@ -1168,17 +1168,17 @@
 
 
 .maintenance-status-card {
-    margin: 0 16px 8px;
+    margin: 0 var(--space-md) var(--space-sm);
     background: var(--surface-container);
     border-radius: 16px;
-    padding: 12px;
+    padding: var(--space-sm);
 }
 
 .maintenance-status-card .status-item {
     display: flex;
     align-items: center;
-    gap: 12px;
-    padding: 12px;
+    gap: var(--space-sm);
+    padding: var(--space-sm);
     background: var(--surface-container-high);
     border-radius: 6px;
     cursor: pointer;
@@ -1240,7 +1240,7 @@
 .maintenance-status-card .status-info {
     display: flex;
     align-items: baseline;
-    gap: 6px;
+    gap: var(--space-sm);
     flex: 1;
 }
 
