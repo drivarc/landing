@@ -78,7 +78,6 @@
     --color-text-muted: #8e9099;
     --color-accent-glow: rgba(169, 199, 255, 0.12);
     --color-border: rgba(142, 144, 153, 0.3);
-    --color-grid: rgba(255, 255, 255, 0.03);
     --color-card-bg: linear-gradient(135deg, #264777, #405f90);
     --color-phone-frame: #191c20;
     --color-phone-screen: #111318;
@@ -108,7 +107,6 @@
     --accent-light: var(--color-primary);
     --accent-glow: var(--color-accent-glow);
     --border: var(--color-border);
-    --grid-color: var(--color-grid);
     --card-bg: var(--color-card-bg);
     --phone-frame: var(--color-phone-frame);
     --phone-screen: var(--color-phone-screen);
@@ -204,7 +202,6 @@ html {
     --color-text-muted: #74777f;
     --color-accent-glow: rgba(64, 95, 144, 0.15);
     --color-border: rgba(116, 119, 127, 0.3);
-    --color-grid: rgba(0, 0, 0, 0.03);
     --color-card-bg: linear-gradient(135deg, #405f90, #264777);
     --color-phone-frame: #191c20;
     --color-phone-screen: #ffffff;
@@ -352,35 +349,8 @@ body::before {
     padding: 88px 24px 100px;
 }
 
-.grid-background {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-image:
-        linear-gradient(var(--grid-color) 1px, transparent 1px),
-        linear-gradient(90deg, var(--grid-color) 1px, transparent 1px);
-    background-size: 40px 40px;
-    pointer-events: none;
-    z-index: 0;
-}
-
-.grid-background::after {
-    content: '';
-    position: absolute;
-    top: 20%;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 800px;
-    height: 800px;
-    background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
-    border-radius: 50%;
-    pointer-events: none;
-}
 
 /* Typography Hierarchy */
-
 /* Headings - Bold */
 h1, .h1 {
     font-size: var(--text-5xl);
