@@ -65,7 +65,32 @@ const ASSETS_TO_CACHE = [
   '/th/', '/th/index.html',
   '/vi/', '/vi/index.html',
   '/id/', '/id/index.html',
-  '/he/', '/he/index.html'
+  '/he/', '/he/index.html',
+  '/es/privacy.html', '/es/terms.html', '/es/404.html',
+  '/fr/privacy.html', '/fr/terms.html', '/fr/404.html',
+  '/pt/privacy.html', '/pt/terms.html', '/pt/404.html',
+  '/it/privacy.html', '/it/terms.html', '/it/404.html',
+  '/nl/privacy.html', '/nl/terms.html', '/nl/404.html',
+  '/pl/privacy.html', '/pl/terms.html', '/pl/404.html',
+  '/sv/privacy.html', '/sv/terms.html', '/sv/404.html',
+  '/no/privacy.html', '/no/terms.html', '/no/404.html',
+  '/da/privacy.html', '/da/terms.html', '/da/404.html',
+  '/fi/privacy.html', '/fi/terms.html', '/fi/404.html',
+  '/cs/privacy.html', '/cs/terms.html', '/cs/404.html',
+  '/ro/privacy.html', '/ro/terms.html', '/ro/404.html',
+  '/hu/privacy.html', '/hu/terms.html', '/hu/404.html',
+  '/el/privacy.html', '/el/terms.html', '/el/404.html',
+  '/uk/privacy.html', '/uk/terms.html', '/uk/404.html',
+  '/ja/privacy.html', '/ja/terms.html', '/ja/404.html',
+  '/ko/privacy.html', '/ko/terms.html', '/ko/404.html',
+  '/hi/privacy.html', '/hi/terms.html', '/hi/404.html',
+  '/bn/privacy.html', '/bn/terms.html', '/bn/404.html',
+  '/th/privacy.html', '/th/terms.html', '/th/404.html',
+  '/vi/privacy.html', '/vi/terms.html', '/vi/404.html',
+  '/id/privacy.html', '/id/terms.html', '/id/404.html',
+  '/he/privacy.html', '/he/terms.html', '/he/404.html',
+  '/css/styles-footer.css',
+  '/css/footer-socials.css'
 ];
 
 self.addEventListener('install', event => {
