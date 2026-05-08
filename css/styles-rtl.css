@@ -79,6 +79,28 @@ html[dir="rtl"][lang="he"] body {
     overflow: hidden;
 }
 
+[dir="rtl"] .lang-search-icon {
+    left: auto;
+    right: 12px;
+}
+
+[dir="rtl"] .lang-search {
+    padding: 8px 28px 8px 12px;
+}
+
+/* Responsive RTL */
+@media (max-width: 480px) {
+    [dir="rtl"] .lang-search-icon {
+        right: 8px;
+        width: 14px;
+        height: 14px;
+    }
+    
+    [dir="rtl"] .lang-search {
+        padding: 6px 26px 6px 10px;
+    }
+}
+
 .lang-option {
     box-sizing: border-box;
     width: 100%;

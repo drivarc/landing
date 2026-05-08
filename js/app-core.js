@@ -208,14 +208,23 @@ if (headerDownloadDropdown) headerDownloadDropdown.addEventListener('click', (e)
         var options = Array.prototype.slice.call(dropdown.querySelectorAll('.lang-option'));
         if (options.length === 0) return;
 
-        dropdown.innerHTML = '';
+dropdown.innerHTML = '';
 
-        var search = document.createElement('input');
-        search.type = 'text';
-        search.className = 'lang-search';
-        search.placeholder = 'Dil ara...';
-        search.setAttribute('aria-label', 'Dil ara');
-        dropdown.appendChild(search);
+         var searchWrapper = document.createElement('div');
+         searchWrapper.className = 'lang-search-wrapper';
+         dropdown.appendChild(searchWrapper);
+
+         var searchIcon = document.createElement('span');
+         searchIcon.className = 'lang-search-icon';
+         searchIcon.innerHTML = '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>';
+         searchWrapper.appendChild(searchIcon);
+
+var search = document.createElement('input');
+          search.type = 'text';
+          search.className = 'lang-search';
+          search.placeholder = '';
+          search.setAttribute('aria-label', 'Dil ara');
+          searchWrapper.appendChild(search);
 
         var scroll = document.createElement('div');
         scroll.className = 'lang-scroll';
