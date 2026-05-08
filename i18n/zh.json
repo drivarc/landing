@@ -166,5 +166,9 @@
   "beta_modal.close": "关闭",
   "beta_modal.text": "我们目前处于内测阶段。需要邀请才能加入。我们很快就会向所有人开放，请继续关注我们！",
   "beta_modal.title": "内测版",
-  "footer.aria_label": "页脚"
+  "footer.aria_label": "页脚",
+  "footer.terms_label": "使用条款",
+  "footer.privacy_label": "隐私政策",
+  "footer.cookies_label": "Cookie偏好设置",
+  "footer.copyright": "© 2026 Drivarc. 保留所有权利."
 }

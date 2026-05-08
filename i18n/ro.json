@@ -166,5 +166,9 @@
   "lang.HE": "עברית",
   "lang.TH": "ไทย",
   "lang.VI": "Tiếng Việt",
-  "lang.ID": "Bahasa Indonesia"
+  "lang.ID": "Bahasa Indonesia",
+  "footer.terms_label": "Termeni de utilizare",
+  "footer.privacy_label": "Politica de confidențialitate",
+  "footer.cookies_label": "Preferințe cookie",
+  "footer.copyright": "© 2026 Drivarc. Toate drepturile rezervate."
 }

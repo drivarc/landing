@@ -166,5 +166,9 @@
   "lang.HE": "עברית",
   "lang.TH": "ไทย",
   "lang.VI": "Tiếng Việt",
-  "lang.ID": "Bahasa Indonesia"
+  "lang.ID": "Bahasa Indonesia",
+  "footer.terms_label": "Ketentuan penggunaan",
+  "footer.privacy_label": "Kebijakan privasi",
+  "footer.cookies_label": "Preferensi cookie",
+  "footer.copyright": "© 2026 Drivarc. Hak cipta dilindungi."
 }

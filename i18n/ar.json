@@ -166,5 +166,9 @@
   "decline.aria_label": "حوار الرفض",
   "decline.confirm": "تأكيد",
   "decline.desc": "هل أنت متأكد أنك تريد الرفض؟ قد لا تعمل بعض الوظائف.",
-  "decline.title": "تأكيد الرفض"
+  "decline.title": "تأكيد الرفض",
+  "footer.terms_label": "شروط الاستخدام",
+  "footer.privacy_label": "سياسة الخصوصية",
+  "footer.cookies_label": "تفضيلات ملفات تعريف الارتباط",
+  "footer.copyright": "© 2026 Drivarc. جميع الحقوق محفوظة."
 }

@@ -166,5 +166,9 @@
   "lang.HE": "עברית",
   "lang.TH": "ไทย",
   "lang.VI": "Tiếng Việt",
-  "lang.ID": "Bahasa Indonesia"
+  "lang.ID": "Bahasa Indonesia",
+  "footer.terms_label": "Használati feltételek",
+  "footer.privacy_label": "Adatvédelmi irányelvek",
+  "footer.cookies_label": "Süti beállítások",
+  "footer.copyright": "© 2026 Drivarc. Minden jog fenntartva."
 }

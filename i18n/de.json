@@ -166,5 +166,9 @@
   "decline.aria_label": "Ablehnungsdialog",
   "decline.confirm": "Bestätigen",
   "decline.desc": "Möchten Sie wirklich ablehnen? Einige Funktionen funktionieren möglicherweise nicht.",
-  "decline.title": "Ablehnung bestätigen"
+  "decline.title": "Ablehnung bestätigen",
+  "footer.terms_label": "Nutzungsbedingungen",
+  "footer.privacy_label": "Datenschutz",
+  "footer.cookies_label": "Cookie-Einstellungen",
+  "footer.copyright": "© 2026 Drivarc. Alle Rechte vorbehalten."
 }

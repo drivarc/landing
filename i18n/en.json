@@ -166,5 +166,9 @@
   "decline.aria_label": "Decline Confirmation",
   "decline.confirm": "Confirm",
   "decline.desc": "Are you sure you want to decline? Some features may not work.",
-  "decline.title": "Decline Confirmation"
+  "decline.title": "Decline Confirmation",
+  "footer.terms_label": "Terms of Use",
+  "footer.privacy_label": "Privacy Policy",
+  "footer.cookies_label": "Cookie Preferences",
+  "footer.copyright": "© 2026 Drivarc. All rights reserved."
 }

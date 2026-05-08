@@ -166,5 +166,9 @@
   "decline.aria_label": "Диалог отклонения",
   "decline.confirm": "Подтвердить",
   "decline.desc": "Вы уверены, что хотите отклонить? Некоторые функции могут не работать.",
-  "decline.title": "Подтверждение отклонения"
+  "decline.title": "Подтверждение отклонения",
+  "footer.terms_label": "Условия использования",
+  "footer.privacy_label": "Политика конфиденциальности",
+  "footer.cookies_label": "Настройки cookie",
+  "footer.copyright": "© 2026 Drivarc. Все права защищены."
 }

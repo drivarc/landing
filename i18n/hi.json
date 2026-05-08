@@ -166,5 +166,9 @@
   "lang.HE": "עברית",
   "lang.TH": "ไทย",
   "lang.VI": "Tiếng Việt",
-  "lang.ID": "Bahasa Indonesia"
+  "lang.ID": "Bahasa Indonesia",
+  "footer.terms_label": "उपयोग की शर्तें",
+  "footer.privacy_label": "गोपनीयता नीति",
+  "footer.cookies_label": "कुकी प्राथमिकताएँ",
+  "footer.copyright": "© 2026 Drivarc. सर्वाधिकार सुरक्षित."
 }

@@ -166,5 +166,9 @@
   "error.404.title": "404 - Sayfa Bulunamadı | Drivarc",
   "error.404.h1": "Sayfa Bulunamadı",
   "error.404.desc": "Aradığınız sayfa mevcut değil veya taşınmış olabilir. Ana sayfaya dönerek devam edebilirsiniz.",
-  "error.404.home_label": "Ana Sayfaya Dön"
+  "error.404.home_label": "Ana Sayfaya Dön",
+  "footer.terms_label": "Kullanım Şartları",
+  "footer.privacy_label": "Gizlilik Politikası",
+  "footer.cookies_label": "Çerez Tercihleri",
+  "footer.copyright": "© 2026 Drivarc. Tüm hakları saklıdır."
 }
