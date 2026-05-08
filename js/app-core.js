@@ -112,9 +112,32 @@ const currencyMapping = {
     'tr': { code: 'TL', locale: 'tr-TR' },
     'en': { code: 'USD', locale: 'en-US' },
     'de': { code: 'EUR', locale: 'de-DE' },
+    'fr': { code: 'EUR', locale: 'fr-FR' },
+    'es': { code: 'EUR', locale: 'es-ES' },
+    'pt': { code: 'EUR', locale: 'pt-PT' },
+    'it': { code: 'EUR', locale: 'it-IT' },
+    'nl': { code: 'EUR', locale: 'nl-NL' },
+    'pl': { code: 'PLN', locale: 'pl-PL' },
+    'sv': { code: 'SEK', locale: 'sv-SE' },
+    'no': { code: 'NOK', locale: 'nb-NO' },
+    'da': { code: 'DKK', locale: 'da-DK' },
+    'fi': { code: 'EUR', locale: 'fi-FI' },
+    'cs': { code: 'CZK', locale: 'cs-CZ' },
+    'ro': { code: 'RON', locale: 'ro-RO' },
+    'hu': { code: 'HUF', locale: 'hu-HU' },
+    'el': { code: 'EUR', locale: 'el-GR' },
+    'uk': { code: 'UAH', locale: 'uk-UA' },
     'ru': { code: 'RUB', locale: 'ru-RU' },
+    'ja': { code: 'JPY', locale: 'ja-JP' },
+    'ko': { code: 'KRW', locale: 'ko-KR' },
+    'zh': { code: 'CNY', locale: 'zh-CN' },
+    'hi': { code: 'INR', locale: 'hi-IN' },
+    'bn': { code: 'BDT', locale: 'bn-BD' },
+    'th': { code: 'THB', locale: 'th-TH' },
+    'vi': { code: 'VND', locale: 'vi-VN' },
+    'id': { code: 'IDR', locale: 'id-ID' },
     'ar': { code: 'SAR', locale: 'ar-SA' },
-    'zh': { code: '人民币', locale: 'zh-CN' }
+    'he': { code: 'ILS', locale: 'he-IL' }
 };
 
 function getCurrencyInfo() {
