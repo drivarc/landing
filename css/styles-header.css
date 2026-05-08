@@ -481,7 +481,7 @@
     border: 1px solid var(--border);
     border-radius: 6px;
     padding: 8px;
-    min-width: 200px;
+    min-width: 250px;
     opacity: 0;
     visibility: hidden;
     transform: translateY(-8px);
@@ -492,6 +492,8 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 4px;
+    max-height: 400px;
+    overflow-y: auto;
 }
 
 .lang-dropdown.open {
@@ -509,7 +511,7 @@
     cursor: pointer;
     transition: background 0.2s ease;
     font-size: 14px;
-    color: inherit;
+    color: var(--text-primary);
     border: none;
     background: none;
     width: 100%;
@@ -520,7 +522,7 @@
 
 
 .lang-option:hover {
-    background: rgba(0,0,0,0.1);
+    background: var(--hover-bg);
 }
 
 .lang-option.active {
