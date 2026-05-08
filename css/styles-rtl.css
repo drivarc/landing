@@ -2,7 +2,7 @@
 
 /* Hebrew-specific font support */
 html[dir="rtl"][lang="he"] body {
-  font-family: "Segoe UI", "Arial Hebrew", "Noto Sans Hebrew", sans-serif;
+  font-family: "Arial Hebrew", "Noto Sans Hebrew", "Segoe UI", sans-serif;
 }
 
 [dir="rtl"] .phone {
