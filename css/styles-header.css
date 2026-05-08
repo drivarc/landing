@@ -481,7 +481,7 @@
     border: 1px solid var(--border);
     border-radius: 6px;
     padding: 8px;
-    min-width: 175px;
+    min-width: 200px;
     opacity: 0;
     visibility: hidden;
     transform: translateY(-8px);
@@ -489,6 +489,9 @@
     box-shadow: 0 10px 30px var(--phone-shadow);
     z-index: 200;
     overflow: hidden;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 4px;
 }
 
 .lang-dropdown.open {
@@ -500,14 +503,13 @@
 .lang-option {
     display: flex;
     align-items: center;
-    gap: 10px;
-    padding: 9px 12px;
-    margin-bottom: 4px;
-    border-radius: 6px;
+    gap: 4px;
+    padding: 4px 8px;
+    border-radius: 4px;
     cursor: pointer;
     transition: background 0.2s ease;
     font-size: 14px;
-    color: var(--text-secondary);
+    color: inherit;
     border: none;
     background: none;
     width: 100%;
@@ -515,12 +517,10 @@
     text-decoration: none;
 }
 
-.lang-option:last-child {
-    margin-bottom: 0;
-}
+
 
 .lang-option:hover {
-    background: var(--hover-bg);
+    background: rgba(0,0,0,0.1);
 }
 
 .lang-option.active {
@@ -529,5 +529,5 @@
 }
 
 .lang-flag {
-    font-size: 18px;
+    font-size: 1.2em;
 }
