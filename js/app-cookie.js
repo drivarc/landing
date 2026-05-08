@@ -447,16 +447,32 @@
             }
         }
 
-        var lang = getPageLang();
-        var labels = {
-            'tr': 'Çerez Tercihleri',
-            'en': 'Cookie Preferences',
-            'de': 'Cookie-Einstellungen',
-            'zh': 'Cookie 设置',
-            'ru': 'Настройки cookie',
-            'ar': 'تفضيلات ملفات تعريف الارتباط'
-        };
-        link.textContent = labels[lang] || labels['en'];
+        // Read translated text from the span (already set by i18n engine or HTML fallback)
+        var span = link.querySelector('[data-i18n="footer.cookies_label"]');
+        if (span) {
+            // keep existing text (set by i18n engine or generator fallback)
+        } else {
+            // Use i18n JSON if available, fallback to English
+            var labels = {
+                'tr': 'Çerez Tercihleri', 'en': 'Cookie Preferences',
+                'de': 'Cookie-Einstellungen', 'fr': 'Préférences de cookies',
+                'es': 'Preferencias de cookies', 'pt': 'Preferências de cookies',
+                'it': 'Preferenze cookie', 'nl': 'Cookievoorkeuren',
+                'pl': 'Preferencje dotyczące plików cookie',
+                'sv': 'Cookie-inställningar', 'no': 'Cookie-innstillinger',
+                'da': 'Cookie-præferencer', 'fi': 'Evästeasetukset',
+                'cs': 'Nastavení souborů cookie', 'ro': 'Preferințe cookie',
+                'hu': 'Süti beállítások', 'el': 'Προτιμήσεις cookie',
+                'uk': 'Налаштування cookie', 'ru': 'Настройки cookie',
+                'ja': 'Cookie設定', 'ko': '쿠키 설정',
+                'zh': 'Cookie偏好设置', 'hi': 'कुकी प्राथमिकताएँ',
+                'bn': 'কুকি পছন্দসমূহ', 'th': 'การตั้งค่าคุกกี้',
+                'vi': 'Tùy chọn cookie', 'id': 'Preferensi cookie',
+                'ar': 'تفضيلات ملفات تعريف الارتباط', 'he': 'העדפות עוגיות'
+            };
+            var lang = getPageLang();
+            link.textContent = labels[lang] || 'Cookie Preferences';
+        }
 
         // Remove existing listener to avoid duplicates
         link.removeEventListener('click', link._cookieClickHandler);
