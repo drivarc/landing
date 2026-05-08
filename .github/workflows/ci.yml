@@ -9,8 +9,10 @@ on:
 jobs:
   validate:
     runs-on: ubuntu-latest
+    env:
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
 
       - name: Check static files exist
         run: |
@@ -42,12 +44,12 @@ jobs:
           python3 -c "import json; json.load(open('manifest.json'))" || exit 1
 
       - name: Lighthouse CI
-        uses: treosh/lighthouse-ci-action@v11
+        uses: treosh/lighthouse-ci-action@v12
         with:
           urls: |
-            https://drivarc.com/
-            https://drivarc.com/en/
-            https://drivarc.com/de/
+            /
+            /en/
+            /de/
           budgetPath: ./lighthouserc.json
           uploadArtifacts: true
 
