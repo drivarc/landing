@@ -602,14 +602,8 @@ document.addEventListener('DOMContentLoaded', function() {
            }
        });
 
-       var currentOpt = document.querySelector('.lang-option[hreflang="' + htmlLang + '"]');
-       var toggleFlag = document.querySelector('.lang-toggle .lang-flag-icon');
-       var toggleCode = document.querySelector('.lang-toggle .lang-code-text');
-       if (currentOpt && toggleFlag) {
-           var flag = currentOpt.querySelector('.lang-flag');
-           if (flag) toggleFlag.innerHTML = flag.innerHTML.trim();
-           if (toggleCode) toggleCode.textContent = htmlLang.toUpperCase();
-       }
+        var toggleCode = document.querySelector('.lang-toggle .lang-code-text');
+        if (toggleCode) toggleCode.textContent = htmlLang.toUpperCase();
 
        
        // Fix Windows flag emojis
