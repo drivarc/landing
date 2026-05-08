@@ -19,8 +19,6 @@
     <link rel="icon" type="image/png" href="/favicon/favicon-96x96.png">
     <link rel="apple-touch-icon" href="/favicon/apple-touch-icon.png">
     <link rel="manifest" href="/favicon/site.webmanifest">
-
-    <link  href="/favicon/site.webmanifest">
     <meta name="theme-color" content="#1a73e8">
     <meta name="msapplication-TileColor" content="#1a73e8">
 
@@ -83,7 +81,7 @@
 <body>
 <header class="header">
 <div class="header-inner">
-<a class="logo" href="/ar/"><img alt="شعار Drivarc" class="logo-img" fetchpriority="high" height="36" loading="eager" src="/images/logo-256.png" srcset="/images/logo-256.png 1x" width="128"/></a>
+<a class="logo" href="/ar/" id="logoLink"><img alt="شعار Drivarc" class="logo-img" fetchpriority="high" height="36" loading="eager" src="/images/logo-256.png" srcset="/images/logo-256.png 1x" width="128"/></a>
 <nav class="nav">
 <a href="/ar/">الرئيسية</a>
 <a class="active" href="/ar/terms.html">شروط الاستخدام</a>
@@ -397,37 +395,36 @@
 </div>
 </div>
 </div>
-<div class="cookie-settings-overlay" id="cookieSettingsModal">
-<div class="cookie-settings-modal">
-<div class="cookie-settings-header">
-<h3 class="cookie-settings-title">إعدادات ملفات تعريف الارتباط</h3>
-<button aria-label="إغلاق" class="cookie-settings-close-btn">
-<svg fill="currentColor" height="20" viewBox="0 0 24 24" width="20"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
-</button>
-</div>
-<div class="cookie-settings-body">
+<div class="cookie-settings-modal" id="cookieSettingsModal" role="dialog" aria-label="إعدادات ملفات تعريف الارتباط" aria-modal="true">
+<div class="cookie-settings-modal-content">
+<h3 class="cookie-settings-title">تفضيلات ملفات تعريف الارتباط</h3>
+<p class="cookie-settings-description" dir="rtl">
+    يمكنك اختيار ملفات تعريف الارتباط التي تسمح بها لتحسين تجربتك.
+</p>
+
 <div class="cookie-option">
-<div class="cookie-option-info">
-<h4>ملفات تعريف الارتباط الضرورية</h4>
-<p class="cookie-option-description">Required for the website to function properly. Cannot be disabled.</p>
-</div>
-<label class="toggle-switch">
-<input checked="" disabled="" type="checkbox"/>
+<div class="cookie-option-header">
+<span class="cookie-option-title">ملفات تعريف الارتباط الضرورية</span>
+<label class="cookie-option-toggle">
+<input type="checkbox" checked disabled>
 <span class="toggle-slider"></span>
 </label>
 </div>
-<div class="cookie-option">
-<div class="cookie-option-info">
-<h4>ملفات تعريف الارتباط التحليلية</h4>
-<p class="cookie-option-description">Help us understand how visitors interact with our website. Only enabled when you give consent.</p>
+<p class="cookie-option-description" dir="rtl">ملفات تعريف الارتباط هذه ضرورية لعمل الموقع ولا يمكن تعطيلها.</p>
 </div>
-<label class="toggle-switch">
-<input checked="" id="cookieAnalyticsToggle" type="checkbox"/>
+
+<div class="cookie-option">
+<div class="cookie-option-header">
+<span class="cookie-option-title">ملفات تعريف الارتباط التحليلية</span>
+<label class="cookie-option-toggle">
+<input type="checkbox" id="cookieAnalyticsToggle" checked>
 <span class="toggle-slider"></span>
 </label>
 </div>
+<p class="cookie-option-description" dir="rtl">تساعدنا في فهم كيفية تفاعل الزوار مع موقعنا. يتم تمكينها فقط بموافقتك.</p>
 </div>
-<div class="cookie-settings-footer">
+
+<div class="cookie-settings-actions">
 <button class="cookie-consent-btn decline cookie-settings-close">إغلاق</button>
 <button class="cookie-consent-btn accept cookie-settings-save">حفظ</button>
 </div>
