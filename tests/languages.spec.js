@@ -20,4 +20,10 @@ for (const { path, lang, title } of langs) {
 
     await expect(page).toHaveTitle(new RegExp(title.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')));
   });
+
+  test(`hreflang zh head'de mevcut: ${lang}`, async ({ page }) => {
+    await page.goto(path);
+    const zhLink = page.locator('link[rel="alternate"][hreflang="zh"]');
+    await expect(zhLink).toHaveAttribute('href', 'https://drivarc.com/zh/');
+  });
 }

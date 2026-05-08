@@ -33,7 +33,7 @@ jobs:
 
       - name: Validate HTML basic structure
         run: |
-          for f in *.html en/*.html de/*.html ru/*.html ar/*.html; do
+          for f in *.html en/*.html de/*.html ru/*.html ar/*.html zh/*.html; do
             [ -f "$f" ] || continue
             grep -q "<!DOCTYPE html>" "$f" || { echo "Missing DOCTYPE in $f"; exit 1; }
             grep -q "<html" "$f" || { echo "Missing <html> in $f"; exit 1; }
@@ -60,9 +60,20 @@ jobs:
             [ -f "$f" ] || continue
             grep -q 'hreflang="tr"' "$f" || { echo "Missing tr hreflang in $f"; exit 1; }
             grep -q 'hreflang="en"' "$f" || { echo "Missing en hreflang in $f"; exit 1; }
+            grep -q 'hreflang="de"' "$f" || { echo "Missing de hreflang in $f"; exit 1; }
+            grep -q 'hreflang="ru"' "$f" || { echo "Missing ru hreflang in $f"; exit 1; }
+            grep -q 'hreflang="ar"' "$f" || { echo "Missing ar hreflang in $f"; exit 1; }
+            grep -q 'hreflang="zh"' "$f" || { echo "Missing zh hreflang in $f"; exit 1; }
             grep -q 'hreflang="x-default"' "$f" || { echo "Missing x-default hreflang in $f"; exit 1; }
           done
           echo "hreflang validation passed"
+
+      - name: Check sitemap coverage
+        run: |
+          for lang in tr en de ru ar zh; do
+            grep -q "hreflang=\"$lang\"" sitemap.xml || { echo "Missing $lang in sitemap"; exit 1; }
+          done
+          echo "sitemap coverage check passed"
 
       - name: Check translation sync status
         run: |

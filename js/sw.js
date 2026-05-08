@@ -13,7 +13,7 @@ const ASSETS_TO_CACHE = [
   '/styles-modals.css',
   '/styles-animations.css',
   '/styles-rtl.css',
-  '/footer-socials.css',
+
   '/css/critical.css',
   '/app-core.js',
   '/app-scroll.js',
