@@ -22,3 +22,10 @@ __pycache__/
 .cache/
 .aider*
 .cache.json
+
+# Playwright
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
+/playwright/.auth/
