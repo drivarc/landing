@@ -106,7 +106,7 @@ html.touch-device .faq-item,
 html.touch-device .activity-card,
 html.touch-device .maintenance-status-card .status-item,
 html.touch-device .trust-badge {
-    touch-action: auto;
+    touch-action: pan-y;
 }
 
 html.touch-device .feature-card:hover,

@@ -69,7 +69,10 @@
         grid-template-columns: 1fr;
         gap: var(--space-md);
     }
-    .feature-card { padding: var(--card-padding-md); }
+    .feature-card {
+        padding: var(--card-padding-md);
+        touch-action: pan-y;
+    }
 }
 
 .feature-card {
