@@ -10,6 +10,7 @@ node_modules/
 .vscode/
 .idea/
 *.swp
+scripts/
 
 # OS
 .DS_Store
