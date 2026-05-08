@@ -50,12 +50,12 @@ jobs:
             /
             /en/
             /de/
-          budgetPath: ./lighthouserc.json
+          configPath: ./lighthouserc.json
           uploadArtifacts: true
 
       - name: Validate hreflang
         run: |
-          for f in *.html en/index.html de/index.html ru/index.html ar/index.html zh/index.html; do
+          for f in index.html en/index.html de/index.html ru/index.html ar/index.html zh/index.html; do
             [ -f "$f" ] || continue
             grep -q 'hreflang="tr"' "$f" || { echo "Missing tr hreflang in $f"; exit 1; }
             grep -q 'hreflang="en"' "$f" || { echo "Missing en hreflang in $f"; exit 1; }
