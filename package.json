@@ -24,5 +24,8 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": ""
+  "description": "",
+  "optionalDependencies": {
+    "fsevents": "^2.3.2"
+  }
 }
