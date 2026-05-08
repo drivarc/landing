@@ -47,9 +47,12 @@ jobs:
         uses: treosh/lighthouse-ci-action@v12
         with:
           urls: |
-            /
-            /en/
-            /de/
+            /index.html
+            /en/index.html
+            /de/index.html
+            /ru/index.html
+            /ar/index.html
+            /zh/index.html
           configPath: ./lighthouserc.json
           uploadArtifacts: true
 
