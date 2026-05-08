@@ -50,7 +50,6 @@ jobs:
             /
             /en/
             /de/
-          staticDistDir: .
           configPath: ./lighthouserc.json
           uploadArtifacts: true
 
