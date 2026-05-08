@@ -1,4 +1,4 @@
-const CACHE_NAME = 'dlanding-cache-v5';
+const CACHE_NAME = 'dlanding-cache-v6';
 const ASSETS_TO_CACHE = [
   '/',
   '/index.html',
@@ -42,7 +42,30 @@ const ASSETS_TO_CACHE = [
   '/fonts/NotoSansArabic-400.woff2',
   '/fonts/NotoSansArabic-500.woff2',
   '/fonts/NotoSansArabic-600.woff2',
-  '/fonts/NotoSansArabic-700.woff2'
+  '/fonts/NotoSansArabic-700.woff2',
+  '/fr/', '/fr/index.html',
+  '/es/', '/es/index.html',
+  '/pt/', '/pt/index.html',
+  '/it/', '/it/index.html',
+  '/nl/', '/nl/index.html',
+  '/pl/', '/pl/index.html',
+  '/sv/', '/sv/index.html',
+  '/no/', '/no/index.html',
+  '/da/', '/da/index.html',
+  '/fi/', '/fi/index.html',
+  '/cs/', '/cs/index.html',
+  '/ro/', '/ro/index.html',
+  '/hu/', '/hu/index.html',
+  '/el/', '/el/index.html',
+  '/uk/', '/uk/index.html',
+  '/ja/', '/ja/index.html',
+  '/ko/', '/ko/index.html',
+  '/hi/', '/hi/index.html',
+  '/bn/', '/bn/index.html',
+  '/th/', '/th/index.html',
+  '/vi/', '/vi/index.html',
+  '/id/', '/id/index.html',
+  '/he/', '/he/index.html'
 ];
 
 self.addEventListener('install', event => {
