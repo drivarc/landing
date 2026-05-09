@@ -541,11 +541,11 @@
 
  .lang-search-clear {
      position: absolute;
-     right: 8px;
-     top: 50%;
+     right: 19px;
+     top: calc(50% + 6px);
      transform: translateY(-50%);
-     width: 18px;
-     height: 18px;
+     width: 22px;
+     height: 22px;
      padding: 0;
      border: none;
      background: transparent;
