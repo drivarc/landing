@@ -95,7 +95,7 @@ html[dir="rtl"][lang="he"] body {
 
  [dir="rtl"] .lang-search-icon {
      left: auto;
-     right: 12px;
+     right: 16px;
  }
 
  [dir="rtl"] .lang-search-clear {
@@ -110,13 +110,13 @@ html[dir="rtl"][lang="he"] body {
  /* Responsive RTL */
  @media (max-width: 480px) {
      [dir="rtl"] .lang-search-icon {
-         right: 8px;
-         width: 14px;
-         height: 14px;
+         right: 16px;
+         width: 18px;
+         height: 18px;
      }
 
      [dir="rtl"] .lang-search-clear {
-         left: 8px;
+         left: 10px;
          right: auto;
          width: 20px;
          height: 20px;
@@ -135,12 +135,18 @@ html[dir="rtl"][lang="he"] body {
     text-overflow: ellipsis;
 }
 
-.lang-option.active {
-    border-radius: 6px;
-    background-clip: padding-box;
-    color: var(--accent-light);
-    background: var(--active-bg);
-}
+ .lang-option.active {
+     border-radius: 6px;
+     background-clip: padding-box;
+     color: var(--accent-light);
+     background: var(--active-bg);
+ }
+
+ .lang-option.active .lang-code-badge {
+     color: var(--accent-light);
+     background: var(--active-bg);
+     font-weight: 700;
+ }
 
 /* Make active language option non-interactive */
 .lang-option[aria-disabled="true"] {
