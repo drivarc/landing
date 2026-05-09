@@ -170,11 +170,23 @@ if (themeToggle) {
 const langToggle = document.querySelector('.lang-toggle');
 const langDropdown = document.getElementById('langDropdown');
 
-if (langToggle) {
-    langToggle.addEventListener('click', (e) => { e.stopPropagation(); if (langDropdown) langDropdown.classList.toggle('open'); });
-}
-document.addEventListener('click', () => { if (langDropdown) langDropdown.classList.remove('open'); });
-if (langDropdown) langDropdown.addEventListener('click', (e) => e.stopPropagation());
+ if (langToggle) {
+     langToggle.setAttribute('aria-expanded', 'false');
+     langToggle.addEventListener('click', (e) => {
+         e.stopPropagation();
+         if (langDropdown) {
+             const isOpen = langDropdown.classList.toggle('open');
+             langToggle.setAttribute('aria-expanded', isOpen);
+         }
+     });
+ }
+ document.addEventListener('click', () => {
+     if (langDropdown) {
+         langDropdown.classList.remove('open');
+         if (langToggle) langToggle.setAttribute('aria-expanded', 'false');
+     }
+ });
+ if (langDropdown) langDropdown.addEventListener('click', (e) => e.stopPropagation());
 
 const headerDownloadBtn = document.querySelector('.header-download-btn');
 const headerDownloadDropdown = document.getElementById('headerDownloadDropdown');
@@ -185,167 +197,338 @@ if (headerDownloadBtn) {
 document.addEventListener('click', () => { if (headerDownloadDropdown) headerDownloadDropdown.classList.remove('open'); });
 if (headerDownloadDropdown) headerDownloadDropdown.addEventListener('click', (e) => e.stopPropagation());
 
-// Language search and region grouping
-(function() {
-    var langRegions = {
-        tr: 'Avrupa', en: 'Avrupa', de: 'Avrupa', fr: 'Avrupa',
-        es: 'Avrupa', pt: 'Avrupa', it: 'Avrupa', nl: 'Avrupa',
-        pl: 'Avrupa', sv: 'Avrupa', no: 'Avrupa', da: 'Avrupa',
-        fi: 'Avrupa', cs: 'Avrupa', ro: 'Avrupa', hu: 'Avrupa',
-        el: 'Avrupa', uk: 'Avrupa', ru: 'Avrupa',
-        ja: 'Asya', ko: 'Asya', zh: 'Asya', hi: 'Asya',
-        bn: 'Asya', th: 'Asya', vi: 'Asya', id: 'Asya',
-        ar: 'Orta Do\u011fu', he: 'Orta Do\u011fu'
-    };
-    var regionOrder = ['Avrupa', 'Asya', 'Orta Do\u011fu'];
+ // Language search and region grouping
+ (function() {
+     var langRegions = {
+         tr: 'Avrupa', en: 'Avrupa', de: 'Avrupa', fr: 'Avrupa',
+         es: 'Avrupa', pt: 'Avrupa', it: 'Avrupa', nl: 'Avrupa',
+         pl: 'Avrupa', sv: 'Avrupa', no: 'Avrupa', da: 'Avrupa',
+         fi: 'Avrupa', cs: 'Avrupa', ro: 'Avrupa', hu: 'Avrupa',
+         el: 'Avrupa', uk: 'Avrupa', ru: 'Avrupa',
+         ja: 'Asya', ko: 'Asya', zh: 'Asya', hi: 'Asya',
+         bn: 'Asya', th: 'Asya', vi: 'Asya', id: 'Asya',
+         ar: 'Orta Do\u011fu', he: 'Orta Do\u011fu'
+     };
+     var regionOrder = ['Avrupa', 'Asya', 'Orta Do\u011fu'];
 
-    function initLangSearch() {
-        var dropdown = document.getElementById('langDropdown');
-        if (!dropdown) return;
-        var existing = dropdown.querySelector('.lang-search');
-        if (existing) return;
+     function initLangSearch() {
+         var dropdown = document.getElementById('langDropdown');
+         if (!dropdown) return;
+         var existing = dropdown.querySelector('.lang-search');
+         if (existing) return;
 
-        var options = Array.prototype.slice.call(dropdown.querySelectorAll('.lang-option'));
-        if (options.length === 0) return;
+         var options = Array.prototype.slice.call(dropdown.querySelectorAll('.lang-option'));
+         if (options.length === 0) return;
 
-dropdown.innerHTML = '';
+     dropdown.setAttribute('role', 'listbox');
+     dropdown.setAttribute('aria-label', 'Dil seçimi');
+
+         // Use DocumentFragment for batch DOM operations
+         var fragment = document.createDocumentFragment();
 
          var searchWrapper = document.createElement('div');
          searchWrapper.className = 'lang-search-wrapper';
-         dropdown.appendChild(searchWrapper);
+         fragment.appendChild(searchWrapper);
 
          var searchIcon = document.createElement('span');
          searchIcon.className = 'lang-search-icon';
-         searchIcon.innerHTML = '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>';
+         searchIcon.innerHTML = '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>';
          searchWrapper.appendChild(searchIcon);
 
-var search = document.createElement('input');
-          search.type = 'text';
-          search.className = 'lang-search';
-          search.placeholder = '';
-          search.setAttribute('aria-label', 'Dil ara');
-          searchWrapper.appendChild(search);
+         var clearBtn = document.createElement('button');
+         clearBtn.type = 'button';
+         clearBtn.className = 'lang-search-clear';
+         clearBtn.setAttribute('aria-label', 'Aramayı temizle');
+         clearBtn.innerHTML = '<svg viewBox="0 0 24 24" fill="currentColor" width="12" height="12"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>';
+         searchWrapper.appendChild(clearBtn);
 
-        var scroll = document.createElement('div');
-        scroll.className = 'lang-scroll';
-        dropdown.appendChild(scroll);
+ var search = document.createElement('input');
+         search.type = 'text';
+         search.className = 'lang-search';
+         search.placeholder = '';
+         search.setAttribute('aria-label', 'Dil ara');
+         search.setAttribute('autocomplete', 'off');
+         search.setAttribute('aria-controls', 'langDropdown');
+         search.setAttribute('aria-autocomplete', 'list');
+         searchWrapper.appendChild(search);
 
-        // Replace flag emojis with language code badges
-        options.forEach(function(opt) {
-            var flag = opt.querySelector('.lang-flag');
-            var code = opt.getAttribute('hreflang') || '';
-            if (flag) {
-                var badge = document.createElement('span');
-                badge.className = 'lang-code-badge';
-                badge.textContent = code.toUpperCase();
-                flag.parentNode.replaceChild(badge, flag);
-            }
-        });
+          var scroll = document.createElement('div');
+          scroll.className = 'lang-scroll';
+          fragment.appendChild(scroll);
 
-        // Hide toggle flag icon
-        var toggleFlagIcon = document.querySelector('.lang-flag-icon');
-        if (toggleFlagIcon) toggleFlagIcon.style.display = 'none';
+         // Replace flag emojis with language code badges and add ARIA attributes
+         options.forEach(function(opt) {
+             opt.setAttribute('role', 'option');
+             var flag = opt.querySelector('.lang-flag');
+             var code = opt.getAttribute('hreflang') || '';
+             if (flag) {
+                 var badge = document.createElement('span');
+                 badge.className = 'lang-code-badge';
+                 badge.textContent = code.toUpperCase();
+                 flag.parentNode.replaceChild(badge, flag);
+             }
+         });
 
-        var grouped = {};
-        options.forEach(function(opt) {
-            var code = opt.getAttribute('hreflang');
-            var region = langRegions[code] || 'Di\u011fer';
-            if (!grouped[region]) grouped[region] = [];
-            grouped[region].push(opt);
-        });
+         // Hide toggle flag icon
+         var toggleFlagIcon = document.querySelector('.lang-flag-icon');
+         if (toggleFlagIcon) toggleFlagIcon.style.display = 'none';
 
-        regionOrder.forEach(function(region) {
-            var regionOptions = grouped[region];
-            if (!regionOptions || regionOptions.length === 0) return;
+         var grouped = {};
+         options.forEach(function(opt) {
+             var code = opt.getAttribute('hreflang');
+             var region = langRegions[code] || 'Di\u011fer';
+             if (!grouped[region]) grouped[region] = [];
+             grouped[region].push(opt);
+         });
 
-            var header = document.createElement('div');
-            header.className = 'lang-group-header';
-            header.textContent = region;
-            scroll.appendChild(header);
+         regionOrder.forEach(function(region) {
+             var regionOptions = grouped[region];
+             if (!regionOptions || regionOptions.length === 0) return;
 
-            regionOptions.forEach(function(opt) {
-                scroll.appendChild(opt);
-            });
-        });
+             var header = document.createElement('div');
+             header.className = 'lang-group-header';
+             header.textContent = region;
+             scroll.appendChild(header);
 
-        var noResults = document.createElement('div');
-        noResults.className = 'lang-no-results';
-        noResults.textContent = 'Dil bulunamad\u0131';
-        scroll.appendChild(noResults);
+             regionOptions.forEach(function(opt) {
+                 scroll.appendChild(opt);
+             });
+         });
 
-        search.addEventListener('input', function() {
-            var query = this.value.toLowerCase().trim();
-            var headers = scroll.querySelectorAll('.lang-group-header');
-            var items = scroll.querySelectorAll('.lang-option');
-            var nr = scroll.querySelector('.lang-no-results');
-            var anyVisible = false;
+         var noResults = document.createElement('div');
+         noResults.className = 'lang-no-results';
+         noResults.textContent = 'Dil bulunamad\u0131';
+         scroll.appendChild(noResults);
 
-            items.forEach(function(item) {
-                var text = (item.textContent || '').toLowerCase();
-                var code = (item.getAttribute('hreflang') || '').toLowerCase();
-                var matches = query === '' || text.indexOf(query) !== -1 || code.indexOf(query) !== -1;
-                item.style.display = matches ? '' : 'none';
-                if (matches) anyVisible = true;
-            });
+         // Append all at once for performance
+         dropdown.appendChild(fragment);
 
-            headers.forEach(function(header) {
-                var next = header.nextElementSibling;
-                var hasVisible = false;
-                while (next && !next.classList.contains('lang-group-header')) {
-                    if (next.classList.contains('lang-option') && next.style.display !== 'none') {
-                        hasVisible = true;
-                        break;
-                    }
-                    next = next.nextElementSibling;
-                }
-                header.style.display = hasVisible ? '' : 'none';
-            });
+         // Debounce function
+         function debounce(func, wait) {
+             var timeout;
+             return function executedFunction(...args) {
+                 var later = function() {
+                     clearTimeout(timeout);
+                     func(...args);
+                 };
+                 clearTimeout(timeout);
+                 timeout = setTimeout(later, wait);
+             };
+         }
 
-            if (nr) {
-                nr.classList.toggle('show', !anyVisible && query !== '');
-            }
-        });
+         // Filter languages
+         function filterLangs(query) {
+             var headers = scroll.querySelectorAll('.lang-group-header');
+             var items = scroll.querySelectorAll('.lang-option');
+             var nr = scroll.querySelector('.lang-no-results');
+             var visibleCount = 0;
 
-        // Auto-focus search when dropdown opens
-        var toggle = document.querySelector('.lang-toggle');
-        if (toggle) {
-            toggle.addEventListener('click', function() {
-                setTimeout(function() {
-                    search.focus();
-                }, 50);
-            });
-        }
+             requestAnimationFrame(function() {
+                 items.forEach(function(item) {
+                     var text = (item.textContent || '').toLowerCase();
+                     var code = (item.getAttribute('hreflang') || '').toLowerCase();
+                     var matches = query === '' || text.indexOf(query) !== -1 || code.indexOf(query) !== -1;
+                     item.style.display = matches ? '' : 'none';
+                     item.setAttribute('aria-selected', matches && item.classList.contains('active'));
+                     if (matches) visibleCount++;
+                 });
 
-        // Keyboard navigation
-        search.addEventListener('keydown', function(e) {
-            var visible = [];
-            var all = scroll.querySelectorAll('.lang-option');
-            for (var i = 0; i < all.length; i++) {
-                if (all[i].style.display !== 'none') visible.push(all[i]);
-            }
-            if (visible.length === 0) return;
+                 var anyVisible = visibleCount > 0;
 
-            if (e.key === 'ArrowDown') {
-                e.preventDefault();
-                var idx = visible.indexOf(document.activeElement);
-                var next = Math.min(idx + 1, visible.length - 1);
-                visible[next].focus();
-            } else if (e.key === 'ArrowUp') {
-                e.preventDefault();
-                var idx = visible.indexOf(document.activeElement);
-                var prev = Math.max(idx - 1, 0);
-                visible[prev].focus();
-            } else if (e.key === 'Escape') {
-                e.preventDefault();
-                dropdown.classList.remove('open');
-                if (toggle) toggle.focus();
-            }
-        });
-    }
+                 headers.forEach(function(header) {
+                     var next = header.nextElementSibling;
+                     var hasVisible = false;
+                     while (next && !next.classList.contains('lang-group-header')) {
+                         if (next.classList.contains('lang-option') && next.style.display !== 'none') {
+                             hasVisible = true;
+                             break;
+                         }
+                         next = next.nextElementSibling;
+                     }
+                     header.style.display = hasVisible ? '' : 'none';
+                 });
 
-    if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', initLangSearch);
-    } else {
-        initLangSearch();
-    }
-})();
+                 if (nr) {
+                     nr.classList.toggle('show', !anyVisible && query !== '');
+                 }
+
+                 // Announce to screen readers
+                 if (liveRegion) {
+                     if (query === '') {
+                         liveRegion.textContent = '';
+                     } else if (visibleCount === 0) {
+                         liveRegion.textContent = 'Dil bulunamadı';
+                     } else {
+                         liveRegion.textContent = visibleCount + ' dil bulundu';
+                     }
+                 }
+             });
+         }
+
+         var searchHandler = debounce(function() {
+             filterLangs(search.value.toLowerCase().trim());
+         }, 300);
+
+         search.addEventListener('input', searchHandler);
+
+         // Clear button functionality
+         clearBtn.addEventListener('click', function() {
+             search.value = '';
+             filterLangs('');
+             clearBtn.classList.remove('show');
+             search.focus();
+         });
+
+         search.addEventListener('input', function() {
+             clearBtn.classList.toggle('show', this.value.length > 0);
+         });
+
+         // Set initial active state
+         var activeOption = scroll.querySelector('.lang-option.active');
+         if (activeOption) {
+             activeOption.setAttribute('aria-selected', 'true');
+         }
+
+         // Add aria-live region for screen reader announcements
+         var liveRegion = document.createElement('div');
+         liveRegion.setAttribute('aria-live', 'polite');
+         liveRegion.setAttribute('aria-atomic', 'true');
+         liveRegion.className = 'sr-only';
+         liveRegion.style.position = 'absolute';
+         liveRegion.style.width = '1px';
+         liveRegion.style.height = '1px';
+         liveRegion.style.padding = '0';
+         liveRegion.style.margin = '-1px';
+         liveRegion.style.overflow = 'hidden';
+         liveRegion.style.clip = 'rect(0,0,0,0)';
+         liveRegion.style.whiteSpace = 'nowrap';
+         liveRegion.style.border = '0';
+         fragment.appendChild(liveRegion);
+
+          // Auto-focus search when dropdown opens
+          var toggle = document.querySelector('.lang-toggle');
+          if (toggle) {
+              toggle.addEventListener('click', function() {
+                  setTimeout(function() {
+                      // Only focus if dropdown is now open
+                      if (dropdown.classList.contains('open')) {
+                          requestAnimationFrame(function() {
+                              search.focus();
+                              searchHandler(); // Trigger search to ensure all options visible
+                          });
+                      }
+                  }, 50);
+              });
+          }
+
+          // Keyboard navigation for options when they have focus
+          scroll.addEventListener('keydown', function(e) {
+              if (!e.target.classList.contains('lang-option')) return;
+
+              var visible = [];
+              var all = scroll.querySelectorAll('.lang-option');
+              for (var i = 0; i < all.length; i++) {
+                  if (all[i].style.display !== 'none') visible.push(all[i]);
+              }
+              if (visible.length === 0) return;
+
+              var current = e.target;
+              var idx = visible.indexOf(current);
+
+              if (e.key === 'ArrowDown') {
+                  e.preventDefault();
+                  var next = idx < visible.length - 1 ? idx + 1 : 0;
+                  visible[next].focus();
+                  visible[next].scrollIntoView({ block: 'nearest' });
+                  liveRegion.textContent = visible[next].textContent + ' dil seçeneği seçildi';
+              } else if (e.key === 'ArrowUp') {
+                  e.preventDefault();
+                  var prev = idx > 0 ? idx - 1 : visible.length - 1;
+                  visible[prev].focus();
+                  visible[prev].scrollIntoView({ block: 'nearest' });
+                  liveRegion.textContent = visible[prev].textContent + ' dil seçeneği seçildi';
+              } else if (e.key === 'Enter') {
+                  e.preventDefault();
+                  current.click();
+                  dropdown.classList.remove('open');
+                  if (toggle) {
+                      toggle.setAttribute('aria-expanded', 'false');
+                      toggle.focus();
+                  }
+              } else if (e.key === 'Escape') {
+                  e.preventDefault();
+                  dropdown.classList.remove('open');
+                  if (toggle) {
+                      toggle.setAttribute('aria-expanded', 'false');
+                      toggle.focus();
+                  }
+              }
+          });
+
+         // Keyboard navigation with cyclic movement
+         search.addEventListener('keydown', function(e) {
+             var visible = [];
+             var all = scroll.querySelectorAll('.lang-option');
+             for (var i = 0; i < all.length; i++) {
+                 if (all[i].style.display !== 'none') visible.push(all[i]);
+             }
+             if (visible.length === 0) return;
+
+             if (e.key === 'ArrowDown') {
+                 e.preventDefault();
+                 var idx = visible.indexOf(document.activeElement);
+                 var next = idx < visible.length - 1 ? idx + 1 : 0;
+                 visible[next].focus();
+                 visible[next].scrollIntoView({ block: 'nearest' });
+                 liveRegion.textContent = visible[next].textContent + ' dil seçeneği seçildi';
+             } else if (e.key === 'ArrowUp') {
+                 e.preventDefault();
+                 var idx = visible.indexOf(document.activeElement);
+                 var prev = idx > 0 ? idx - 1 : visible.length - 1;
+                 visible[prev].focus();
+                 visible[prev].scrollIntoView({ block: 'nearest' });
+                 liveRegion.textContent = visible[prev].textContent + ' dil seçeneği seçildi';
+             } else if (e.key === 'Enter') {
+                 e.preventDefault();
+                 if (document.activeElement.classList.contains('lang-option')) {
+                     document.activeElement.click();
+                     dropdown.classList.remove('open');
+                     if (toggle) toggle.setAttribute('aria-expanded', 'false');
+                     toggle.focus();
+                 }
+             } else if (e.key === 'Escape') {
+                 e.preventDefault();
+                 dropdown.classList.remove('open');
+                 if (toggle) {
+                     toggle.setAttribute('aria-expanded', 'false');
+                     toggle.focus();
+                 }
+             }
+         });
+
+          // Handle option selection
+          scroll.addEventListener('click', function(e) {
+              var option = e.target.closest('.lang-option');
+              if (option) {
+                  // Remove active from all
+                  options.forEach(function(opt) {
+                      opt.classList.remove('active');
+                      opt.setAttribute('aria-selected', 'false');
+                  });
+                  option.classList.add('active');
+                  option.setAttribute('aria-selected', 'true');
+                  // Close dropdown
+                  dropdown.classList.remove('open');
+                  if (toggle) {
+                      toggle.setAttribute('aria-expanded', 'false');
+                  }
+              }
+          });
+     }
+
+     if (document.readyState === 'loading') {
+         document.addEventListener('DOMContentLoaded', initLangSearch);
+     } else {
+         initLangSearch();
+     }
+ })();
