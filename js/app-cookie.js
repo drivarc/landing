@@ -624,7 +624,12 @@ document.addEventListener('DOMContentLoaded', function() {
            document.querySelectorAll('.lang-flag, .lang-flag-icon').forEach(function(el) {
                var t = el.textContent.trim();
                if (flagMap[t]) {
-                   el.innerHTML = '<img class="lang-flag-twemoji" src="https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/svg/' + flagMap[t] + '.svg" alt="' + t + '">';
+                    var img = document.createElement('img');
+                    img.className = 'lang-flag-twemoji';
+                    img.src = 'https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/svg/' + flagMap[t] + '.svg';
+                    img.alt = t;
+                    el.textContent = '';
+                    el.appendChild(img);
                }
            });
        }
