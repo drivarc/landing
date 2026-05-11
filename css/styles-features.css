@@ -120,6 +120,11 @@
     fill: var(--accent-light);
 }
 
+.feature-icon svg.feature-icon-car-svg {
+    width: 28px;
+    height: 28px;
+}
+
 .feature-name {
     font-size: 15px;
     font-weight: 600;
