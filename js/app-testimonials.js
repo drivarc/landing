@@ -16,7 +16,7 @@
 
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
-  var speed = 2;
+  var speed = 0.8;
   var pos = 0;
   var paused = false;
   var maxDist = 0;
