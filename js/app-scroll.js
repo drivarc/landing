@@ -180,7 +180,7 @@ if (prefersReducedMotion) {
             } else {
                 // Single element reveal
                 if (!el.style.transitionDelay && !el.dataset.delay) {
-                    el.style.transitionDelay = isMobile ? '0s' : '0s';
+                    el.style.transitionDelay = '0s';
                 }
                 el.classList.add('visible');
                 observer.unobserve(el);
@@ -281,10 +281,6 @@ if (allSectionsExist) {
             const isActive = href === `#${currentId}`;
             link.classList.toggle('active', isActive);
         });
-    }
-
-    function updateFooterVisibility() {
-        // Footer is now always visible in free scroll mode (controlled by CSS)
     }
 
     // Initial state

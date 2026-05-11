@@ -41,7 +41,7 @@ function readTitleFromHtml(filePath) {
     throw new Error(`Title not found in ${filePath}`);
   }
 
-  const decodedTitle = titleMatch[1].replace(/&(#x?[0-9a-fA-F]+|[a-zA-Z]+);/g, (match, entity) => {
+  const decodedTitle = titleMatch[1].replace(/&(#[xX]?[0-9a-fA-F]+|[a-zA-Z]+);/g, (match, entity) => {
     if (entity[0] === '#') {
       const codePoint = entity[1].toLowerCase() === 'x' ? parseInt(entity.slice(2), 16) : parseInt(entity.slice(1), 10);
       return Number.isFinite(codePoint) ? String.fromCodePoint(codePoint) : match;
