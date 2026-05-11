@@ -71,19 +71,7 @@
 
      if (!window.PerformanceObserver) return;
 
-     var vitals = ['CLS', 'FID', 'LCP', 'FCP', 'TTFB'];
      var perfData = {};
-
-     function getBrowserPerformanceEntryTypes() {
-       var types = {};
-       try {
-         if (window.PerformanceObserver && PerformanceObserver.getEntries) {
-           var entries = PerformanceObserver.getEntries();
-           entries.forEach(function(e) { types[e.entryType] = true; });
-         }
-       } catch(e) {}
-       return types;
-     }
 
      function reportWebVital(name, value, id) {
        if (window.gtag && state.loaded) {
@@ -318,6 +306,7 @@
             analytics: false,
             marketing: false
         };
+        saveConsent(prefs);
         gtagConsentUpdate(false);
         hideBanner();
         trackEvent('cookie_consent', { action: 'decline_all' });
