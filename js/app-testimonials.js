@@ -16,61 +16,59 @@
 
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
-  var speed = 0.8;
-  var pos = 0;
-  var paused = false;
-  var maxDist = 0;
+  var anim = null;
 
   function measure() {
     var n = track.children.length / 2;
     var first = track.children[0].getBoundingClientRect();
     var last = track.children[n - 1].getBoundingClientRect();
-    maxDist = last.right - first.left;
+    return last.right - first.left;
   }
 
-  function animate() {
-    if (paused) {
-      requestAnimationFrame(animate);
-      return;
-    }
-    pos -= speed;
-    if (Math.abs(pos) >= maxDist) {
-      pos = 0;
-    }
-    track.style.transform = 'translateX(' + pos + 'px)';
-    requestAnimationFrame(animate);
+  function start() {
+    if (anim) anim.cancel();
+    var dist = measure();
+    anim = track.animate([
+      { transform: 'translateX(0)' },
+      { transform: 'translateX(-' + dist + 'px)' }
+    ], {
+      duration: 45000,
+      iterations: Infinity,
+      easing: 'linear'
+    });
   }
 
   requestAnimationFrame(function () {
-    measure();
-    animate();
+    requestAnimationFrame(start);
   });
 
   var hoverTimer = null;
 
   wrapper.addEventListener('mouseenter', function () {
-    paused = true;
+    if (anim) anim.pause();
   });
 
   wrapper.addEventListener('mouseleave', function () {
-    paused = false;
+    if (anim) anim.play();
   });
 
   wrapper.addEventListener('touchstart', function () {
-    paused = true;
+    if (anim) anim.pause();
     clearTimeout(hoverTimer);
   });
 
   wrapper.addEventListener('touchend', function () {
     hoverTimer = setTimeout(function () {
-      paused = false;
+      if (anim) anim.play();
     }, 2000);
   });
 
   wrapper.addEventListener('touchcancel', function () {
-    paused = false;
+    if (anim) anim.play();
     clearTimeout(hoverTimer);
   });
 
-  window.addEventListener('resize', measure);
+  window.addEventListener('resize', function () {
+    requestAnimationFrame(start);
+  });
 })();
