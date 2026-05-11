@@ -39,6 +39,7 @@
 .testimonials-wrapper {
   position: relative;
   overflow: hidden;
+  touch-action: pan-y;
   mask-image: linear-gradient(
     to right,
     transparent 0%,
@@ -56,26 +57,16 @@
   padding: 12px 0;
 }
 
+.testimonials-swiper {
+  will-change: transform;
+}
+
 .testimonials-track {
   display: flex;
   gap: 24px;
-  animation: testimonialScroll 45s linear infinite;
   will-change: transform;
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
-}
-
-.testimonials-wrapper.paused .testimonials-track {
-  animation-play-state: paused;
-}
-
-@keyframes testimonialScroll {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(var(--scroll-dist));
-  }
 }
 
 .testimonial-card {
