@@ -20,7 +20,7 @@ Canlı site: [drivarc.com](https://drivarc.com)
 
 ## Dil özeti
 
-Site 29 dilde yayınlanır. Ana dil Türkçedir; İngilizce, Almanca, Fransızca, İspanyolca, Rusça, Çince, Arapça ve daha fazlası desteklenir.
+Site çok sayıda dilde yayınlanır. Ana dil Türkçedir; İngilizce, Almanca, Fransızca, İspanyolca, Rusça, Çince, Arapça ve daha fazlası desteklenir.
 
 ## İlgili belgeler
 

@@ -1,10 +1,11 @@
 © 2026 Drivarc. Tüm hakları saklıdır.
 
-Bu depo, Drivarc mobil uygulamasının resmi tanıtım web sitesinin kaynak kodlarını içerir.
-Site tasarımı, görseller, metinler, marka kimliği, i18n yapılandırması ve ticari takdim
-unsurları dahil olmak üzere tüm içerik Drivarc'a aittir. Önceden yazılı izin alınmadan
-kopyalanamaz, değiştirilemez, dağıtılamaz, türetilemez veya ticari amaçla kullanılamaz.
+Bu depo, Drivarc mobil uygulamasının resmi tanıtım web sitesinin kaynak kodlarını, tasarımını ve varlıklarını (bundan sonra "Proje") içerir. Kaynak kodu, tasarım, görseller, metinler, marka kimliği, ticari sunum unsurları, çeviriler ve yapılandırma dosyaları dahil olmak üzere Proje'nin tüm bileşenleri üzerindeki haklar Drivarc'a veya lisans verenlerine aittir.
 
-© 2026 Drivarc. All rights reserved. Unauthorized reproduction, distribution, modification,
-or commercial use of this project, including its design, content, and branding, is strictly
-prohibited without prior written permission.
+Drivarc tarafından önceden açıkça yazılı izin verilmedikçe, Proje'nin hiçbir kısmı kopyalanamaz, çoğaltılamaz, dağıtılamaz, yayımlanamaz, görüntülenemez, değiştirilemez, türev eser oluşturulamaz, alt lisans verilemez veya ticari amaçla kullanılamaz.
+
+Bu Proje tescilli mülkiyete tabidir ve açık kaynak lisansı altında yayınlanmamıştır. Yetkisiz kullanımlar hukuki işlemle sonuçlanabilir.
+
+İzin talepleri veya sorular için lütfen Drivarc'ın resmi iletişim kanallarını kullanın: https://drivarc.com
+
+Eğer telif hakkınıza ilişkin bir ihlal olduğunu düşünüyorsanız, lütfen durumu Drivarc'ın resmi iletişim kanalları aracılığıyla bildirin.

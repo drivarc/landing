@@ -27,8 +27,8 @@ The site is published in 29 languages, starting with Turkish at the root and inc
 - Turkish README: [README.tr.md](README.tr.md)
 - Security information: [SECURITY.md](SECURITY.md)
 - Turkish security note: [SECURITY.tr.md](SECURITY.tr.md)
- - Copyright (EN): [copyright.md](copyright.md)
- - Copyright (TR): [copyright.tr.md](copyright.tr.md)
+ - Copyright (EN): [COPYRIGHT.md](COPYRIGHT.md)
+ - Copyright (TR): [COPYRIGHT.tr.md](COPYRIGHT.tr.md)
 
 ## Notes for contributors
 
