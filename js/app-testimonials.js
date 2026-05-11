@@ -9,6 +9,14 @@
   var cards = Array.from(track.children);
   if (cards.length < 2) return;
 
+  // Prepend clone set (for right-swipe / previous cards)
+  for (var i = cards.length - 1; i >= 0; i--) {
+    var c = cards[i].cloneNode(true);
+    c.removeAttribute('id');
+    track.insertBefore(c, track.firstChild);
+  }
+
+  // Append clone set (for left-swipe / next cards and loop)
   cards.forEach(function (c) {
     var clone = c.cloneNode(true);
     clone.removeAttribute('id');
@@ -24,17 +32,19 @@
   var running = false;
 
   function measure() {
-    var n = track.children.length / 2;
-    var first = track.children[0].getBoundingClientRect();
-    var last = track.children[n - 1].getBoundingClientRect();
+    var n = cards.length;
+    var first = track.children[n].getBoundingClientRect();
+    var last = track.children[n * 2 - 1].getBoundingClientRect();
     maxDist = Math.round(last.right - first.left);
+    pos = -maxDist;
   }
 
   function animate() {
     if (!running) return;
     if (!paused) {
       pos -= speed;
-      if (pos <= -maxDist) pos = pos + maxDist;
+      if (pos < -maxDist * 2) pos += maxDist;
+      if (pos > 0) pos -= maxDist;
       track.style.transform = 'translateX(' + pos + 'px)';
     }
     requestAnimationFrame(animate);
@@ -42,6 +52,7 @@
 
   function start() {
     measure();
+    track.style.transform = 'translateX(' + pos + 'px)';
     running = true;
     animate();
   }
@@ -82,8 +93,8 @@
     dragging = false;
     var dx = currentX - startX;
     pos = pos + dx;
-    if (pos > 0) pos = 0;
-    if (pos < -maxDist) pos = -maxDist;
+    if (pos < -maxDist * 2) pos = -maxDist * 2;
+    if (pos > maxDist) pos = maxDist;
     track.style.transform = 'translateX(' + pos + 'px)';
     swiper.style.transform = '';
     clearTimeout(hoverTimer);
