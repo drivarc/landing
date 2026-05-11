@@ -93,8 +93,7 @@ const ASSETS_TO_CACHE = [
   '/vi/privacy.html', '/vi/terms.html', '/vi/404.html',
   '/id/privacy.html', '/id/terms.html', '/id/404.html',
   '/he/privacy.html', '/he/terms.html', '/he/404.html',
-  '/css/styles-footer.css',
-  '/css/footer-socials.css'
+  '/css/styles-footer.css'
 ];
 
 self.addEventListener('install', event => {
