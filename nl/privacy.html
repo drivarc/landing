@@ -120,10 +120,10 @@
     <header class="header">
         <div class="header-inner">
             <a href="index.html" class="logo" id="logoLink"><img loading="lazy" src="../images/logo-256.png" srcset="../images/logo-256.png 1x" alt="Drivarc Logo" class="logo-img" width="128" height="36" loading="eager" fetchpriority="high"></a>
-            <nav class="nav" data-i18n="nav.aria_label" data-i18n-attr="aria-label" aria-label="Tüm Çerezleri Kabul Et">
-                <a href="index.html" data-i18n="nav.home">Ana Sayfa</a>
-                <a href="privacy.html" class="active" data-i18n="nav.privacy"><span data-i18n="footer.privacy_label">Gizlilik Politikası</span></a>
-                <a href="terms.html" data-i18n="nav.terms"><span data-i18n="footer.terms_label">Kullanım Şartları</span></a>
+            <nav class="nav" data-i18n="nav.aria_label" data-i18n-attr="aria-label" aria-label="Hoofdmenu">
+                <a href="index.html" data-i18n="nav.home">Home</a>
+                <a href="privacy.html" class="active" data-i18n="nav.privacy"><span data-i18n="footer.privacy_label">Privacybeleid</span></a>
+                <a href="terms.html" data-i18n="nav.terms"><span data-i18n="footer.terms_label">Gebruiksvoorwaarden</span></a>
             </nav>
 <div class="header-actions" style="display:flex;align-items:center;gap:8px;">
                 <div class="mobile-nav-icons">
@@ -134,7 +134,7 @@
                         <svg viewBox="0 0 24 24" style="width:18px;height:18px;fill:currentColor"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zm-1 2l5 5h-5V4zM6 20V4h5v7h7v9H6z"/><path d="M8 12h8v1H8zm0 2h8v1H8zm0 2h5v1H8z"/></svg>
                     </a>
                 </div>
-                <button class="control-btn theme-toggle" data-i18n="theme_toggle.aria" data-i18n-attr="aria-label" aria-label="Tüm Çerezleri Kabul Et" style="display:flex;align-items:center;justify-content:center;width:36px;height:36px;min-width:36px;padding:0;border-radius:10px;border:1px solid rgba(142,144,153,0.3);background:transparent;color:#c4c6cf;gap:0;">
+                <button class="control-btn theme-toggle" data-i18n="theme_toggle.aria" data-i18n-attr="aria-label" aria-label="Thema Wijzigen" style="display:flex;align-items:center;justify-content:center;width:36px;height:36px;min-width:36px;padding:0;border-radius:10px;border:1px solid rgba(142,144,153,0.3);background:transparent;color:#c4c6cf;gap:0;">
                     <svg class="icon-moon" viewBox="0 0 24 24" style="width:18px;height:18px;fill:currentColor"><path d="M12 3a9 9 0 1 0 9 9c0-.46-.04-.92-.1-1.36a5.389 5.389 0 0 1-4.4 2.26 5.403 5.403 0 0 1-3.14-9.8c-.44-.06-.9-.1-1.36-.1z"/></svg>
                     <svg class="icon-sun is-hidden" viewBox="0 0 24 24" style="width:18px;height:18px;fill:currentColor"><path d="M12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zM2 13h2c.55 0 1-.45 1-1s-.45-1-1-1H2c-.55 0-1 .45-1 1s.45 1 1 1zm18 0h2c.55 0 1-.45 1-1s-.45-1-1-1h-2c-.55 0-1 .45-1 1s.45 1 1 1zM11 2v2c0 .55.45 1 1 1s1-.45 1-1V2c0-.55-.45-1-1-1s-1 .45-1 1zm0 18v2c0 .55.45 1 1 1s1-.45 1-1v-2c0-.55-.45-1-1-1s-1 .45-1 1zM5.99 4.58a.996.996 0 0 0-1.41 0 .996.996 0 0 0 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41L5.99 4.58zm12.37 12.37a.996.996 0 0 0-1.41 0 .996.996 0 0 0 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0a.996.996 0 0 0 0-1.41l-1.06-1.06zm1.06-10.96a.996.996 0 0 00 0-1.41.996.996.996 0 0 00-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06zM7.05 18.36a.996.996 0 0 00 0-1.41.996.996.996 0 0 00-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06z"/></svg>
                 </button>
@@ -143,33 +143,54 @@
     </header>
 
     <div class="terms-container">
-        <h1 data-i18n="privacy.h1">Gizlilik Politikası</h1>
+        <h1 data-i18n="privacy.h1">Privacybeleid</h1>
         <div class="legal-last-updated">Son Güncelleme: 10 Nisan 2026</div>
 
 
         <div class="legal-section" id="section-0">
-            <div class="legal-section-title" data-i18n-html="privacy.section.1.title">1. Giriş</div>
-            <div class="legal-section-text" data-i18n-html="privacy.section.1.text">Drivarc uygulaması olarak, kullanıcılarımızın gizliliğini ve veri güvenliğini önemsiyoruz. Bu Gizlilik Politikası, uygulamamızı kullanırken topladığımız bilgileri, bu bilgileri nasıl kullandığımızı ve koruduğumuzu açıklar.</div>
+            <div class="legal-section-title" data-i18n-html="privacy.section.1.title">1. Inleiding</div>
+            <div class="legal-section-text" data-i18n-html="privacy.section.1.text">Als Divarc-applicatie geven we om de privacy en gegevensbeveiliging van onze gebruikers. Dit privacybeleid beschrijft de informatie die we verzamelen wanneer u onze applicatie gebruikt en hoe we die informatie gebruiken en beschermen.</div>
         </div>
 
         <div class="legal-section" id="section-1">
-            <div class="legal-section-title" data-i18n-html="privacy.section.2.title">2. Toplanan Veriler</div>
-            <div class="legal-section-text" data-i18n-html="privacy.section.2.text" >Uygulamamızı kullanırken aşağıdaki verileri topluyoruz:
+            <div class="legal-section-title" data-i18n-html="privacy.section.2.title">2. Verzamelde gegevens</div>
+            <div class="legal-section-text" data-i18n-html="privacy.section.2.text" >Bij het gebruik van onze applicatie verzamelen wij de volgende gegevens:
 
-• Araç Bilgileri: Marka, model, yıl, plaka, VIN numarası (sadece saklanır, başka bir amaçla kullanılmaz), renk, kilometre bilgisi
-• Bakım Kayıtları: Bakım türü, tarih, kilometre, maliyet, fotoğraflar
-• Yakıt Kayıtları: Yakıt türü, litre, tutar, tarih, kilometre, verimlilik verileri
-• Kullanıcı Bilgileri: Google hesabı bilgileri (e-posta, isim, profil fotoğrafı)
-• Bildirim Bilgileri: Size bildirim gönderebilmek için gerekli teknik bilgiler
-• Kullanım İstatistikleri: Uygulamanın daha iyi çalışması için anonim kullanım verileri ve hata raporları
-• Fiş Geri Bildirimi: İsteğe bağlı olarak tanınmayan fiş fotoğrafları (sistem geliştirmesi için)</div>
+• Voertuiginformatie: merk, model, bouwjaar, kenteken, VIN-nummer (alleen opgeslagen, niet voor andere doeleinden gebruikt), kleur, kilometerstandinformatie
+• Onderhoudsgegevens: type onderhoud, datum, kilometerstand, kosten, foto's
+• Brandstofgegevens: brandstoftype, liter, hoeveelheid, datum, kilometerstand, efficiëntiegegevens
+• Gebruikersinformatie: Google-accountinformatie (e-mail, naam, profielfoto)
+• Meldingsinformatie: technische informatie die nodig is om u meldingen te sturen
+• Gebruiksstatistieken: anonieme gebruiksgegevens en foutrapporten voor een betere werking van de app
+• Ontvangstfeedback: optionele niet-herkende ontvangstfoto's (voor systeemontwikkeling)</div>
         </div>
 
         <div class="legal-section" id="section-2">
-            <div class="legal-section-title" data-i18n-html="privacy.section.3.title">2.1 Çerezler (Cookies)</div>
-            <div class="legal-section-text" data-i18n-html="privacy.section.3.text" >Web sitemizde kullanıcı deneyimini iyileştirmek ve analiz amaçlı çerezler kullanıyoruz. Çerezler, tarayıcınız tarafından cihazınıza kaydedilen küçük metin dosyalarıdır.
+            <div class="legal-section-title" data-i18n-html="privacy.section.3.title">2.1 Cookies</div>
+            <div class="legal-section-text" data-i18n-html="privacy.section.3.text" >Wij gebruiken cookies op onze website om de gebruikerservaring te verbeteren en voor analysedoeleinden. Cookies zijn kleine tekstbestanden die door uw browser op uw apparaat worden opgeslagen.
 
-<strong>Kullandığımız Çerez Türleri:</strong>
+<strong>Soorten cookies die we gebruiken:</strong>
+
+<strong>Essentiële cookies:</strong> Deze cookies zijn noodzakelijk om de website goed te laten functioneren. Ze voeren basisfuncties uit, zoals het opslaan van uw voorkeuren. Zonder deze cookies kan de site niet goed functioneren.
+
+<strong>Analytische cookies:</strong> deze cookies die door Google Analytics worden gebruikt, helpen ons te begrijpen hoe bezoekers de site gebruiken. Het verzamelt anonieme gegevens, zoals welke pagina's vaker worden bezocht en hoe gebruikers door de site navigeren. Deze cookies worden alleen geactiveerd als u daar uitdrukkelijk toestemming voor geeft.
+
+<strong>Hoe kunt u uw cookievoorkeuren beheren?</strong>
+
+Wanneer u onze site voor het eerst bezoekt, wordt er een informatiebanner over ons gebruik van cookies weergegeven. Via deze banner:
+
+• U kunt alle cookies accepteren
+• U kunt alleen essentiële cookies accepteren  
+• U kunt analytische cookies in- of uitschakelen in het instellingengedeelte
+
+U kunt uw voorkeuren op elk moment wijzigen. Uw cookievoorkeuren worden opgeslagen in de lokale opslag van uw browser.
+
+<strong>Google Analytics-cookies:</strong> Wanneer we Google Analytics gebruiken, kunnen de volgende cookies worden gebruikt:
+• _ga: Wordt gebruikt om bezoekers te onderscheiden (2 jaar)
+• _gid: gebruikt om bezoekers te onderscheiden (24 uur)
+• _gat: wordt gebruikt om de verzoeksnelheid te beperken (1 minuut)
+
+Voor meer informatie over deze cookies kunt u het Cookiebeleid van Google raadplegen.</strong>
 
 <strong>Zorunlu Çerezler:</strong> Bu çerezler web sitesinin düzgün çalışması için gereklidir. Tercihlerinizin saklanması gibi temel işlevleri yerine getirirler. Bu çerezler olmadan site düzgün çalışamaz.
 
@@ -194,216 +215,216 @@ Bu çerezler hakkında daha fazla bilgi için <a href="https://policies.google.c
         </div>
 
         <div class="legal-section" id="section-3">
-            <div class="legal-section-title" data-i18n-html="privacy.section.4.title">3. Veri Kullanım Amaçları</div>
-            <div class="legal-section-text" data-i18n-html="privacy.section.4.text" >Topladığımız verileri aşağıdaki amaçlar için kullanıyoruz:
+            <div class="legal-section-title" data-i18n-html="privacy.section.4.title">3. Doeleinden voor gegevensgebruik</div>
+            <div class="legal-section-text" data-i18n-html="privacy.section.4.text" >Wij gebruiken de gegevens die wij verzamelen voor de volgende doeleinden:
 
-• Uygulama işlevselliğini sağlamak (araç takibi, bakım hatırlatmaları, yakıt analizi)
-• Size bildirim göndermek (bakım hatırlatmaları ve önemli bildirimler)
-• Uygulamayı iyileştirmek ve hataları düzeltmek
-• Verilerinizi cihazlarınız arasında senkronize etmek
-• Fiş okuma sistemini geliştirmek (gönderdiğiniz fiş fotoğrafları ile)
-• Güvenlik sağlamak
-• Yasal yükümlülükleri yerine getirmek</div>
+• Het bieden van applicatiefunctionaliteit (voertuigtracking, onderhoudsherinneringen, brandstofanalyse)
+• Stuur u meldingen (onderhoudsherinneringen en belangrijke meldingen)
+• Het verbeteren van de applicatie en het oplossen van bugs
+• Synchroniseer uw gegevens tussen uw apparaten
+• Verbetering van het ontvangstleessysteem (met de ontvangstfoto's die u verzendt)
+• Zorg voor veiligheid
+• Voldoen aan wettelijke verplichtingen</div>
         </div>
 
         <div class="legal-section" id="section-4">
-            <div class="legal-section-title" data-i18n-html="privacy.section.5.title">4. Veri Saklama ve Güvenlik</div>
-            <div class="legal-section-text" data-i18n-html="privacy.section.5.text" >Verileriniz aşağıdaki şekillerde saklanır:
+            <div class="legal-section-title" data-i18n-html="privacy.section.5.title">4. Gegevensopslag en beveiliging</div>
+            <div class="legal-section-text" data-i18n-html="privacy.section.5.text" >Uw gegevens worden op de volgende manieren bewaard:
 
-• Bulut Depolama: Verileriniz güvenli bulut sunucularında saklanır
-• Yerel Depolama: Cihazınızda çevrimdışı erişim için yerel olarak saklanır
-• Güvenlik: Tüm veriler şifrelenmiş olarak saklanır ve güvenli bağlantı (HTTPS) kullanılır
-• Veri Ayrımı: Her kullanıcının verileri birbirinden ayrı tutulur
-• Veri Saklama Süresi: Verileriniz hesabınız aktif olduğu sürece saklanır. Hesabınızı sildiğinizde veya 3 yıl boyunca aktif olmadığınızda verileriniz otomatik olarak silinir
+• Cloudopslag: uw gegevens worden opgeslagen op beveiligde cloudservers
+• Lokale opslag: lokaal opgeslagen op uw apparaat voor offline toegang
+• Beveiliging: Alle gegevens worden gecodeerd opgeslagen en er wordt gebruik gemaakt van een beveiligde verbinding (HTTPS).
+• Gegevensscheiding: de gegevens van elke gebruiker worden gescheiden van elkaar gehouden
+• Bewaartermijn gegevens: Uw gegevens worden bewaard zolang uw account actief is. Uw gegevens worden automatisch verwijderd wanneer u uw account verwijdert of 3 jaar inactief bent
 
-Hesabınızı sildiğinizde veya veri silme talebinde bulunduğunuzda, verileriniz güvenli bir şekilde kalıcı olarak silinir.</div>
+Wanneer u uw account verwijdert of gegevensverwijdering aanvraagt, worden uw gegevens veilig en permanent verwijderd.</div>
         </div>
 
         <div class="legal-section" id="section-5">
-            <div class="legal-section-title" data-i18n-html="privacy.section.6.title">4.1. Yaş Sınırı</div>
-            <div class="legal-section-text" data-i18n-html="privacy.section.6.text">Drivarc uygulaması 18 yaş ve üzeri kullanıcılar için tasarlanmıştır. 18 yaş altındaki bireyler uygulamayı kullanmamalıdır. Eğer 18 yaş altında bir kullanıcının veri topladığını tespit edersek, ilgili hesap ve veriler derhal silinecektir.</div>
+            <div class="legal-section-title" data-i18n-html="privacy.section.6.title">4.1. Leeftijdsgrens</div>
+            <div class="legal-section-text" data-i18n-html="privacy.section.6.text">De Divarc-applicatie is ontworpen voor gebruikers van 18 jaar en ouder. Personen jonger dan 18 jaar mogen de applicatie niet gebruiken. Als we vaststellen dat een gebruiker jonger dan 18 jaar gegevens heeft verzameld, worden het betreffende account en de gegevens onmiddellijk verwijderd.</div>
         </div>
 
         <div class="legal-section" id="section-6">
-            <div class="legal-section-title" data-i18n-html="privacy.section.7.title">5. Kullanıcı Hakları</div>
-            <div class="legal-section-text" data-i18n-html="privacy.section.7.text" >KVKK ve GDPR kapsamında aşağıdaki haklara sahipsiniz:
+            <div class="legal-section-title" data-i18n-html="privacy.section.7.title">5. Gebruikersrechten</div>
+            <div class="legal-section-text" data-i18n-html="privacy.section.7.text" >Op grond van KVKK en AVG heeft u de volgende rechten:
 
-• Verilerinize Erişim: Toplanan tüm verilerinize erişebilirsiniz
-• Veri Düzeltme: Yanlış veya eksik verileri düzeltebilirsiniz
-• Veri Silme: Tüm verilerinizi silebilirsiniz (Profil > Verileri Sil)
-• Hesap Silme: Hesabınızı ve tüm verilerinizi kalıcı olarak silebilirsiniz (Profil > Hesabı Sil)
-• Veri Taşınabilirliği: PDF raporu olarak verilerinizi dışa aktarabilirsiniz (Profil > PDF Raporu)
-• İtiraz Hakkı: Veri işleme faaliyetlerimize itiraz edebilirsiniz</div>
+• Toegang tot uw gegevens: u heeft toegang tot al uw verzamelde gegevens
+• Gegevenscorrectie: u kunt onjuiste of ontbrekende gegevens corrigeren
+• Gegevens verwijderen: u kunt al uw gegevens verwijderen (Profiel > Gegevens verwijderen)
+• Accountverwijdering: u kunt uw account en al uw gegevens permanent verwijderen (Profiel > Account verwijderen)
+• Gegevensportabiliteit: u kunt uw gegevens exporteren als een PDF-rapport (Profiel > PDF-rapport)
+• Recht van bezwaar: u kunt bezwaar maken tegen onze gegevensverwerkingsactiviteiten</div>
         </div>
 
         <div class="legal-section" id="section-7">
-            <div class="legal-section-title" data-i18n-html="privacy.section.8.title">6. Üçüncü Taraf Servisler</div>
-            <div class="legal-section-text" data-i18n-html="privacy.section.8.text" >Uygulamamız aşağıdaki üçüncü taraf servisleri kullanır:
+            <div class="legal-section-title" data-i18n-html="privacy.section.8.title">6. Diensten van derden</div>
+            <div class="legal-section-text" data-i18n-html="privacy.section.8.text" >Onze app maakt gebruik van de volgende diensten van derden:
 
-• Google: Kimlik doğrulama ve hesap yönetimi için
-• Firebase (Google): Veri saklama, bulut senkronizasyonu, bildirim gönderimi ve uygulama analitiği için
-• Google ML Kit: Fiş okuma (OCR) özelliği için
+• Google: voor authenticatie en accountbeheer
+• Firebase (Google): voor gegevensopslag, cloudsynchronisatie, pushmeldingen en app-analyse
+• Google ML Kit: voor het lezen van ontvangstbewijzen (OCR).
 
-Bu servislerin kendi gizlilik politikaları vardır. <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" style="color:#8ab4f8">Google'ın gizlilik politikası</a>: https://policies.google.com/privacy</div>
+Deze diensten hebben hun eigen privacybeleid. <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" style="color:#8ab4f8">Privacybeleid van Google</a>: https://policies.google.com/privacy</a>: https://policies.google.com/privacy</div>
         </div>
 
         <div class="legal-section" id="section-8">
-            <div class="legal-section-title" data-i18n-html="privacy.section.9.title">6.1. Premium Özellikler ve Abonelik</div>
-            <div class="legal-section-text" data-i18n-html="privacy.section.9.text" >Drivarc uygulaması temel özellikleri ücretsiz olarak sunarken, gelişmiş özellikler için Premium abonelik seçeneği sunar:
+            <div class="legal-section-title" data-i18n-html="privacy.section.9.title">6.1. Premiumfuncties en abonnement</div>
+            <div class="legal-section-text" data-i18n-html="privacy.section.9.text" >Hoewel de Divarc-app gratis basisfuncties biedt, biedt deze een Premium-abonnementsoptie voor geavanceerde functies:
 
-• Bulut fotoğraf depolama (araç, fiş ve bakım fotoğrafları)
-• Gelişmiş PDF raporları (grafikler, CO2 analizi, öneriler)
-• Öncelikli destek
-• Reklamsız deneyim
+• Cloud-fotoopslag (voertuig-, kassabon- en onderhoudsfoto's)
+• Geavanceerde PDF-rapporten (grafieken, CO2-analyse, aanbevelingen)
+• Prioritaire ondersteuning
+• Advertentievrije ervaring
 
-Premium abonelik, RevenueCat platformu aracılığıyla yönetilir. Aylık ve yıllık planlar mevcuttur. Aboneliğinizi istediğiniz zaman iptal edebilirsiniz. İptal durumunda, mevcut ödeme dönemi sonuna kadar Premium özelliklere erişiminiz devam eder. İade politikası, bağlı olduğunuz uygulama mağazasının (Google Play Store) kurallarına tabidir.
+Premium-abonnementen worden beheerd via het RevenueCat-platform. Maand- en jaarplannen zijn beschikbaar. U kunt uw abonnement op elk gewenst moment opzeggen. In geval van annulering blijft u toegang houden tot Premium-functies tot het einde van de huidige betalingstermijn. Op het retourbeleid zijn de regels van uw aangesloten app store (Google Play Store) van toepassing.
 
-Premium abonelik otomatik olarak yenilenir. Bir sonraki dönem ücreti, mevcut dönem bitmeden 24 saat önce hesabınızdan alınır. Otomatik yenilemeyi, cihazınızın mağaza ayarlarından kapatabilirsiniz.</div>
+Premium-abonnement wordt automatisch verlengd. Het tarief voor de volgende periode wordt 24 uur voor het einde van de lopende periode op uw rekening afgeschreven. U kunt automatische verlenging uitschakelen in de winkelinstellingen van uw apparaat.</div>
         </div>
 
         <div class="legal-section" id="section-9">
-            <div class="legal-section-title" data-i18n-html="privacy.section.10.title">7. Reklamlar</div>
-            <div class="legal-section-text" data-i18n-html="privacy.section.10.text" >Ücretsiz kullanıcılar, uygulamayı desteklemek için reklam görebilir. Reklamlar Google AdMob aracılığıyla sunulmaktadır.
+            <div class="legal-section-title" data-i18n-html="privacy.section.10.title">7. Advertenties</div>
+            <div class="legal-section-text" data-i18n-html="privacy.section.10.text" >Gratis gebruikers kunnen advertenties zien ter ondersteuning van de app. Advertenties worden weergegeven via Google AdMob.
 
-Google AdMob, kişiselleştirilmiş reklamlar göstermek için cihaz bilgileri, kullanım verileri ve reklam kimliğinizi kullanabilir. Reklam tercihlerinizi Google'ın reklam ayarları sayfasından yönetebilirsiniz.
+Google AdMob kan apparaatinformatie, gebruiksgegevens en uw advertentie-ID gebruiken om gepersonaliseerde advertenties weer te geven. U kunt uw advertentievoorkeuren beheren op de pagina met advertentie-instellingen van Google.
 
-Premium aboneler reklam görmez. Premium abonelik, reklamsız bir deneyim sunar.
+Premium-abonnees zien geen advertenties. Premium-abonnement biedt een advertentievrije ervaring.
 
-Google'ın gizlilik politikası: https://policies.google.com/privacy
-Google AdMob gizlilik politikası: https://support.google.com/admob/answer/6128543</div>
+Privacybeleid van Google: https://policies.google.com/privacy
+Privacybeleid van Google AdMob: https://support.google.com/admob/answer/6128543</div>
         </div>
 
         <div class="legal-section" id="section-10">
-            <div class="legal-section-title" data-i18n-html="privacy.section.11.title">8. Uygulama İzinleri</div>
-            <div class="legal-section-text" data-i18n-html="privacy.section.11.text" >Drivarc uygulaması aşağıdaki cihaz izinlerini kullanır:
+            <div class="legal-section-title" data-i18n-html="privacy.section.11.title">8. App-machtigingen</div>
+            <div class="legal-section-text" data-i18n-html="privacy.section.11.text" >De Divarc-app gebruikt de volgende apparaatrechten:
 
-• Kamera İzni: Fiş tarama (OCR), araç fotoğrafı çekme, bakım ve masraf ekleri için kullanılır. Bu izin isteğe bağlıdır ve reddedilirse manuel giriş yapılabilir.
+• Cameravergunning: gebruikt voor het scannen van bonnen (OCR), voertuigfotografie, onderhoud en onkostenbijlagen. Deze toestemming is optioneel en indien geweigerd, kan handmatige invoer plaatsvinden.
 
-• Bildirim İzni: Bakım hatırlatmaları ve önemli bildirimler göndermek için kullanılır. Bu izin isteğe bağlıdır ve cihaz ayarlarından yönetilebilir.
+• Meldingstoestemming: wordt gebruikt om onderhoudsherinneringen en belangrijke meldingen te verzenden. Deze toestemming is optioneel en kan worden beheerd in de apparaatinstellingen.
 
-• Depolama İzni: Fotoğraf ve belgeleri kaydetmek ve yüklemek için kullanılır. Bu izin isteğe bağlıdır ve reddedilirse fotoğraf yükleme özelliği kullanılamaz.
+• Opslagtoestemming: wordt gebruikt om foto's en documenten op te slaan en te uploaden. Deze toestemming is optioneel en als deze wordt geweigerd, is de functie voor het uploaden van foto's niet beschikbaar.
 
-• Konum İzni: İsteğe bağlı olarak yakıt kaydı sırasında istasyon konumunu kaydetmek için kullanılabilir. Bu izin tamamen isteğe bağlıdır ve zorunlu değildir. Konum verileri yalnızca sizin tarafınızdan etkinleştirildiğinde toplanır.
+• Locatietoestemming: kan optioneel worden gebruikt om de locatie van het station vast te leggen tijdens de brandstofregistratie. Deze toestemming is volledig optioneel en niet verplicht. Locatiegegevens worden alleen verzameld als u dit heeft ingeschakeld.
 
-• Ağ Durumu: Çevrimdışı/çevrimiçi durumu kontrol etmek ve senkronizasyonu yönetmek için kullanılır.
+• Netwerkstatus: wordt gebruikt om de offline/online status te controleren en de synchronisatie te beheren.
 
-Tüm izinler, uygulama içinde size bildirilerek ve onayınız alınarak kullanılır. İzinleri istediğiniz zaman cihaz ayarlarından iptal edebilirsiniz.</div>
+Alle toestemmingen worden gebruikt om u binnen de applicatie te informeren en uw goedkeuring te verkrijgen. U kunt machtigingen op elk gewenst moment intrekken via de apparaatinstellingen.</div>
         </div>
 
         <div class="legal-section" id="section-11">
-            <div class="legal-section-title" data-i18n-html="privacy.section.12.title">9. Analitik ve Hata Raporlama</div>
-            <div class="legal-section-text" data-i18n-html="privacy.section.12.text" >Uygulamamızı iyileştirmek ve kullanıcı deneyimini optimize etmek için aşağıdaki analitik ve hata raporlama servislerini kullanıyoruz:
+            <div class="legal-section-title" data-i18n-html="privacy.section.12.title">9. Analyse en foutrapportage</div>
+            <div class="legal-section-text" data-i18n-html="privacy.section.12.text" >We gebruiken de volgende analyse- en foutrapportagediensten om onze applicatie te verbeteren en de gebruikerservaring te optimaliseren:
 
-• Firebase Analytics: Anonim kullanım istatistikleri, ekran görüntülemeleri, özellik kullanımı ve kullanıcı etkileşimlerini izlemek için kullanılır. Bu veriler kişisel kimliğinizle ilişkilendirilmez.
+• Firebase Analytics: wordt gebruikt om anonieme gebruiksstatistieken, schermweergaven, functiegebruik en gebruikersinteracties bij te houden. Deze gegevens worden niet geassocieerd met uw persoonlijke identiteit.
 
-• Firebase Crashlytics: Uygulama çökmelerini ve hatalarını raporlamak için kullanılır. Hata raporları, hatanın nedeni ve düzeltilmesi için teknik bilgiler içerir ancak kişisel verilerinizi içermez.
+• Firebase Crashlytics: wordt gebruikt om crashes en fouten van applicaties te rapporteren. Foutrapporten bevatten technische informatie over de oorzaak van de fout en de correctie ervan, maar bevatten niet uw persoonlijke gegevens.
 
-Toplanan veriler yalnızca uygulama iyileştirmeleri ve hata düzeltmeleri için kullanılır. Üçüncü taraflarla paylaşılmaz veya reklam amaçlı kullanılmaz.</div>
+De verzamelde gegevens worden alleen gebruikt voor applicatieverbeteringen en bugfixes. Ze worden niet gedeeld met derden of gebruikt voor reclamedoeleinden.</div>
         </div>
 
         <div class="legal-section" id="section-12">
-            <div class="legal-section-title" data-i18n-html="privacy.section.13.title">10. Veri Şifreleme ve Yedekleme</div>
-            <div class="legal-section-text" data-i18n-html="privacy.section.13.text" >Verilerinizin güvenliği için çok katmanlı koruma sağlıyoruz:
+            <div class="legal-section-title" data-i18n-html="privacy.section.13.title">10. Gegevenscodering en back-up</div>
+            <div class="legal-section-text" data-i18n-html="privacy.section.13.text" >Wij bieden meerlaagse bescherming voor de veiligheid van uw gegevens:
 
-• Şifreleme: Tüm yedekleme verileri AES-256 standardı ile şifrelenir. Bu, endüstri standardı askeri düzeyde şifrelemedir.
+• Encryptie: Alle back-upgegevens zijn gecodeerd met de AES-256-standaard. Dit is industriestandaard encryptie op militair niveau.
 
-• Yedekleme Sistemi: Verileriniz otomatik olarak yedeklenir:
-  - Tam yedekleme: Her 24 saatte bir
-  - Artımlı yedekleme: Her 15 dakikada bir
-  - Diferansiyel yedekleme: Her 6 saatte bir
+• Back-upsysteem: er wordt automatisch een back-up van uw gegevens gemaakt:
+  - Volledige back-up: elke 24 uur
+  - Incrementele back-up: elke 15 minuten
+  - Differentiële back-up: elke 6 uur
 
-• Yedekleme Saklama: Tam yedekler 30 gün, artımlı yedekler 7 gün, diferansiyel yedekler 14 gün saklanır.
+• Back-upretentie: Volledige back-ups worden 30 dagen bewaard, incrementele back-ups worden 7 dagen bewaard en differentiële back-ups worden 14 dagen bewaard.
 
-• Bulut Depolama: Şifrelenmiş yedekleriniz Firebase Storage'da güvenli bir şekilde saklanır.
+• Cloudopslag: uw gecodeerde back-ups worden veilig opgeslagen in Firebase Storage.
 
-• Yerel Depolama: Verileriniz cihazınızda SQLite veritabanında saklanır ve çevrimdışı erişim için kullanılabilir.
+• Lokale opslag: uw gegevens worden opgeslagen in een SQLite-database op uw apparaat en zijn beschikbaar voor offline toegang.
 
-• Senkronizasyon: Cihazlar arası veri senkronizasyonu güvenli bağlantı (HTTPS) üzerinden gerçekleştirilir.</div>
+• Synchronisatie: gegevenssynchronisatie tussen apparaten wordt uitgevoerd via een beveiligde verbinding (HTTPS).</div>
         </div>
 
         <div class="legal-section" id="section-13">
-            <div class="legal-section-title" data-i18n-html="privacy.section.14.title">11. Veri İhlali Bildirimi</div>
-            <div class="legal-section-text" data-i18n-html="privacy.section.14.text" >Bir veri ihlali durumunda:
+            <div class="legal-section-title" data-i18n-html="privacy.section.14.title">11. Melding van een datalek</div>
+            <div class="legal-section-text" data-i18n-html="privacy.section.14.text" >In geval van een datalek:
 
-• Tespit edilen veri ihlalini 72 saat içinde ilgili düzenleyici otoriteye bildireceğiz (GDPR gereği).
+• We zullen het gedetecteerde datalek binnen 72 uur melden aan de relevante regelgevende instantie (zoals vereist door de AVG).
 
-• İhlalin kullanıcılarımızı etkilemesi durumunda, sizi uygulama içi bildirim ve/veya e-posta yoluyla bilgilendireceğiz.
+• Als de inbreuk onze gebruikers treft, zullen wij u hiervan op de hoogte stellen via een in-app-melding en/of e-mail.
 
-• İhlalin niteliği, etkilenen veri türleri ve alınması gereken önlemler hakkında sizi bilgilendireceğiz.
+• Wij informeren u over de aard van het lek, de soorten gegevens die getroffen zijn en de maatregelen die genomen moeten worden.
 
-• Veri ihlali bildirimleri, şeffaflık ilkemiz gereği zamanında ve doğru şekilde yapılacaktır.</div>
+• Meldingen van datalekken zullen tijdig en nauwkeurig worden gedaan, in overeenstemming met ons transparantiebeginsel.</div>
         </div>
 
         <div class="legal-section" id="section-14">
-            <div class="legal-section-title" data-i18n-html="privacy.section.15.title">12. Üçüncü Taraf Servisler</div>
-            <div class="legal-section-text" data-i18n-html="privacy.section.15.text" >Uygulamamız aşağıdaki üçüncü taraf servisleri kullanır:
+            <div class="legal-section-title" data-i18n-html="privacy.section.15.title">12. Diensten van derden</div>
+            <div class="legal-section-text" data-i18n-html="privacy.section.15.text" >Onze app maakt gebruik van de volgende diensten van derden:
 
-• Google: Kimlik doğrulama ve hesap yönetimi için
-• Firebase (Google): Veri saklama, bulut senkronizasyonu, bildirim gönderimi, uygulama analitiği ve hata raporlama için
-• Google ML Kit: Fiş okuma (OCR) özelliği için
-• Google AdMob: Reklam gösterimi için (ücretsiz kullanıcılar)
-• RevenueCat: Premium abonelik yönetimi için
+• Google: voor authenticatie en accountbeheer
+• Firebase (Google): voor gegevensopslag, cloudsynchronisatie, pushmeldingen, app-analyse en foutrapportage
+• Google ML Kit: voor het lezen van ontvangstbewijzen (OCR).
+• Google AdMob: voor advertentieweergave (gratis gebruikers)
+• RevenueCat: voor premium-abonnementsbeheer
 
-Bu servislerin kendi gizlilik politikaları vardır:
+Deze diensten hebben hun eigen privacybeleid:
 
-• Google gizlilik politikası: https://policies.google.com/privacy
-• Firebase gizlilik politikası: https://firebase.google.com/support/privacy
-• Google AdMob gizlilik politikası: https://support.google.com/admob/answer/6128543
-• RevenueCat gizlilik politikası: https://www.revenuecat.com/privacy</div>
+• Privacybeleid van Google: https://policies.google.com/privacy
+• Firebase-privacybeleid: https://firebase.google.com/support/privacy
+• Google AdMob-privacybeleid: https://support.google.com/admob/answer/6128543
+• RevenueCat privacybeleid: https://www.revenuecat.com/privacy</div>
         </div>
 
         <div class="legal-section" id="section-15">
-            <div class="legal-section-title" data-i18n-html="privacy.section.16.title">13. Veri Paylaşımı</div>
-            <div class="legal-section-text" data-i18n-html="privacy.section.16.text" >Kişisel verileriniz, aşağıdaki durumlar dışında üçüncü taraflarla paylaşılmaz:
+            <div class="legal-section-title" data-i18n-html="privacy.section.16.title">13. Gegevens delen</div>
+            <div class="legal-section-text" data-i18n-html="privacy.section.16.text" >Uw persoonsgegevens worden niet met derden gedeeld, behalve in de volgende gevallen:
 
-• Yasal zorunluluklar: Mahkeme kararı veya yasal yükümlülükler gereği
-• Hizmet sağlayıcılar: Yukarıda belirtilen üçüncü taraf servisler (Google, Firebase, RevenueCat) ile yalnızca hizmet sunumu için gerekli ölçüde
-• Kullanıcı onayı: Açık onayınız doğrultusunda
+• Wettelijke verplichtingen: als gevolg van rechterlijke beslissingen of wettelijke verplichtingen
+• Dienstverleners: Alleen voor zover noodzakelijk voor dienstverlening met bovengenoemde diensten van derden (Google, Firebase, RevenueCat).
+• Toestemming van de gebruiker: In overeenstemming met uw uitdrukkelijke toestemming
 
-Verileriniz, reklam amaçlı olarak kişisel kimliğinizle ilişkilendirilerek üçüncü taraflarla paylaşılmaz. Google AdMob, reklamları kişiselleştirmek için kendi verilerini kullanabilir, ancak kişisel verilerinize doğrudan erişimi yoktur.</div>
+Uw gegevens worden niet gekoppeld aan uw persoonlijke identiteit en worden voor reclamedoeleinden met derden gedeeld. Google AdMob kan zijn eigen gegevens gebruiken om advertenties te personaliseren, maar heeft geen directe toegang tot uw persoonlijke gegevens.</div>
         </div>
 
         <div class="legal-section" id="section-16">
-            <div class="legal-section-title" data-i18n-html="privacy.section.17.title">14. Uluslararası Veri Transferi</div>
-            <div class="legal-section-text" data-i18n-html="privacy.section.17.text" >Drivarc uygulaması, Firebase ve Google gibi global servisler kullanmaktadır. Bu nedenle verileriniz, Türkiye dışındaki sunucularda işlenebilir ve saklanabilir.
+            <div class="legal-section-title" data-i18n-html="privacy.section.17.title">14. Internationale gegevensoverdracht</div>
+            <div class="legal-section-text" data-i18n-html="privacy.section.17.text" >De Divarc-applicatie maakt gebruik van wereldwijde services zoals Firebase en Google. Daarom kunnen uw gegevens worden verwerkt en opgeslagen op servers buiten Turkije.
 
-Verilerinizin uluslararası transferi durumunda:
+In geval van internationale overdracht van uw gegevens:
 
-• Yeterli koruma kararı olan ülkelere transfer: Avrupa Komisyonu tarafından yeterli koruma kararı verilen ülkelere veri transferi yapılmaktadır.
+• Overdracht naar landen met adequate beschermingsbevelen: Gegevens worden door de Europese Commissie overgedragen aan landen met adequate beschermingsbevelen.
 
-• Uygun koruma önlemleri: Yeterli koruma kararı olmayan ülkelere transfer durumunda, standart sözleşme klausülleri veya diğer uygun koruma önlemleri uygulanmaktadır.
+• Passende waarborgen: In geval van overdracht naar landen zonder adequate waarborgen worden standaardcontractbepalingen of andere passende waarborgen toegepast.
 
-• Veri minimizasyonu: Yalnızca hizmet sunumu için gerekli veriler transfer edilmektedir.</div>
+• Dataminimalisatie: alleen gegevens die nodig zijn voor de dienstverlening worden overgedragen.</div>
         </div>
 
         <div class="legal-section" id="section-17">
-            <div class="legal-section-title" data-i18n-html="privacy.section.18.title">15. Gelecekteki Özellikler</div>
-            <div class="legal-section-text" data-i18n-html="privacy.section.18.text" >Drivarc uygulamasına gelecekte aşağıdaki özellikler eklenebilir:
+            <div class="legal-section-title" data-i18n-html="privacy.section.18.title">15. Toekomstige functies</div>
+            <div class="legal-section-text" data-i18n-html="privacy.section.18.text" >De volgende functies kunnen in de toekomst aan de Divarc-app worden toegevoegd:
 
-• Filo Yönetimi: Şirketlerin birden fazla aracı tek panelden yönetmesi için kurumsal özellikler
-• Yapay Zeka Destekli Arıza Tahmini: Sesli veya yazılı belirtilerden araç arızası tahmini
-• Kişisel Asistan: Bakım zamanı ve yakıt tasarrufu önerileri
-• Konum Tabanlı Özellikler: Yakındaki akaryakıt istasyonları, servisler ve oto yıkama bulma
-• İş Ortaklıkları: Servis, sigorta ve yedek parça şirketleriyle entegrasyonlar
+• Wagenparkbeheer: Enterprise-functies waarmee bedrijven meerdere voertuigen vanuit één paneel kunnen beheren
+• Door kunstmatige intelligentie ondersteunde storingsvoorspelling: voorspelling van voertuigstoringen op basis van audio- of tekstsymptomen
+• Persoonlijke assistent: aanbevelingen voor onderhoudstijd en brandstofbesparing
+• Locatiegebaseerde functies: het vinden van nabijgelegen benzinestations, shuttles en autowasstraten
+• Zakelijke partnerschappen: integraties met service-, verzekerings- en reserveonderdelenbedrijven
 
-Bu özellikler eklendiğinde, veri toplama ve kullanım uygulamaları güncellenecek ve kullanıcılar bilgilendirilecektir. Yeni özelliklerin kullanımı isteğe bağlı olacaktır.</div>
+Wanneer deze functies worden toegevoegd, worden gegevensverzameling en gebruikspraktijken bijgewerkt en worden gebruikers op de hoogte gesteld. Het gebruik van nieuwe functies is optioneel.</div>
         </div>
 
         <div class="legal-section" id="section-18">
-            <div class="legal-section-title" data-i18n-html="privacy.section.19.title">16. Çerezler</div>
-            <div class="legal-section-text" data-i18n-html="privacy.section.19.text">Web sitemizde kullanıcı deneyimini iyileştirmek ve analiz amaçlı çerezler kullanıyoruz. Detaylı bilgi için Bölüm 2.1'e bakınız.</div>
+            <div class="legal-section-title" data-i18n-html="privacy.section.19.title">16. Koekjes</div>
+            <div class="legal-section-text" data-i18n-html="privacy.section.19.text">Wij gebruiken cookies op onze website om de gebruikerservaring te verbeteren en voor analysedoeleinden. Voor gedetailleerde informatie, zie paragraaf 2.1.</div>
         </div>
 
         <div class="legal-section" id="section-19">
-            <div class="legal-section-title" data-i18n-html="privacy.section.20.title">17. Politika Değişiklikleri</div>
-            <div class="legal-section-text" data-i18n-html="privacy.section.20.text">Bu Gizlilik Politikası'nda yapılan değişiklikler uygulama içinde bildirilecektir. Önemli değişiklikler için kullanıcılarımıza bildirim gönderilecektir. Politika değişiklikleri, uygulama içinde yayınlandığı tarihte yürürlüğe girer.</div>
+            <div class="legal-section-title" data-i18n-html="privacy.section.20.title">17. Beleidswijzigingen</div>
+            <div class="legal-section-text" data-i18n-html="privacy.section.20.text">Wijzigingen in dit privacybeleid worden binnen de applicatie gemeld. Bij belangrijke wijzigingen worden meldingen naar onze gebruikers verzonden. Beleidswijzigingen worden van kracht op de datum waarop ze in de applicatie worden gepubliceerd.</div>
         </div>
 
         <div class="legal-section" id="section-20">
-            <div class="legal-section-title" data-i18n-html="privacy.section.21.title">18. İletişim</div>
-            <div class="legal-section-text" data-i18n-html="privacy.section.21.text" >Gizlilik politikamız hakkında sorularınız varsa veya veri haklarınızı kullanmak istiyorsanız, lütfen uygulama içindeki geri bildirim özelliğini kullanarak bizimle iletişime geçin.
+            <div class="legal-section-title" data-i18n-html="privacy.section.21.title">18. Communicatie</div>
+            <div class="legal-section-text" data-i18n-html="privacy.section.21.text" >Als u vragen heeft over ons privacybeleid of uw gegevensrechten wilt uitoefenen, kunt u contact met ons opnemen via de feedbackfunctie in de app.
 
-E-posta: contact@drivarc.com</div>
+E-mail: contact@drivarc.com</div>
         </div>
     </div>
 
@@ -431,9 +452,9 @@ E-posta: contact@drivarc.com</div>
             <!-- Center Column: Legal Links -->
             <div class="footer-col footer-col-center">
                 <div class="footer-links">
-                    <a href="terms.html" class="footer-link" rel="noopener noreferrer"><span data-i18n="footer.terms_label">Kullanım Şartları</span></a>
+                    <a href="terms.html" class="footer-link" rel="noopener noreferrer"><span data-i18n="footer.terms_label">Gebruiksvoorwaarden</span></a>
                     <span class="footer-separator">|</span>
-                    <a href="privacy.html" class="footer-link active" rel="noopener noreferrer"><span data-i18n="footer.privacy_label">Gizlilik Politikası</span></a>
+                    <a href="privacy.html" class="footer-link active" rel="noopener noreferrer"><span data-i18n="footer.privacy_label">Privacybeleid</span></a>
                     <span class="footer-separator">|</span>
                     <a href="#" class="footer-link cookie-preferences-link"><span data-i18n="footer.cookies_label">Cookievoorkeuren</span></a>
                 </div>
@@ -467,8 +488,7 @@ E-posta: contact@drivarc.com</div>
     <div class="cookie-consent" id="cookieConsent" role="dialog" aria-label="Cookie Toestemming" aria-describedby="cookieConsentDesc" data-i18n="cookie.consent_aria" data-i18n-attr="aria-label"><div class="cookie-consent-content">
             <div class="cookie-consent-text">
                 <h3 class="cookie-consent-title" data-i18n="cookie.title">Uw Cookie Voorkeuren</h3>
-                <p class="cookie-consent-description" id="cookieConsentDesc" data-i18n="cookie.description">Size daha iyi bir deneyim sunmak için çerezler kullanıyoruz. Detaylı bilgi için 
-                    Gizlilik Politikası'mızı inceleyebilirsiniz.</p>
+                <p class="cookie-consent-description" id="cookieConsentDesc" data-i18n="cookie.description">We gebruiken cookies om u een betere ervaring te bieden. U kunt ons Privacybeleid raadplegen voor meer informatie.</p>
             </div>
             <div class="cookie-consent-actions">
                 <button class="cookie-consent-btn accept" aria-label="Alle cookies accepteren" data-i18n="cookie.accept" data-i18n-attr="aria-label">Alle cookies accepteren</button>
@@ -514,16 +534,15 @@ E-posta: contact@drivarc.com</div>
         </div>
     </div>
 
-    <div class="decline-reprompt-modal" id="declineRepromptModal" role="dialog" aria-label="Emin misiniz?" aria-modal="true" data-i18n="decline.aria_label" data-i18n-attr="aria-label">
+    <div class="decline-reprompt-modal" id="declineRepromptModal" role="dialog" aria-label="Weet u het zeker?" aria-modal="true" data-i18n="decline.aria_label" data-i18n-attr="aria-label">
         <div class="decline-reprompt-modal-content">
             <div class="decline-reprompt-icon">
                 <svg viewBox="0 0 24 24" fill="currentColor">
                     <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
                 </svg>
             </div>
-            <h3 class="decline-reprompt-title" data-i18n="decline.title">Emin misiniz?</h3>
-            <p class="decline-reprompt-description" data-i18n="decline.desc">
-                Çerezleri reddettiğinizde bazı özellikler düzgün çalışmayabilir. Kişiselleştirilmiş deneyim ve analizler için <strong>tüm çerezleri kabul etmenizi</strong> öneriyoruz.
+            <h3 class="decline-reprompt-title" data-i18n="decline.title">Weet u het zeker?</h3>
+            <p class="decline-reprompt-description" data-i18n="decline.desc">Bij het weigeren van cookies werken sommige functies mogelijk niet correct. We raden u aan alle cookies te accepteren voor een gepersonaliseerde ervaring en analyses.</strong> öneriyoruz.
             </p>
             <div class="decline-reprompt-actions">
                 <button class="decline-reprompt-btn decline-confirmed" id="declineConfirmed" data-i18n="decline.confirm">Toch Weigeren</button>

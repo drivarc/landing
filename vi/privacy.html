@@ -120,10 +120,10 @@
     <header class="header">
         <div class="header-inner">
             <a href="index.html" class="logo" id="logoLink"><img loading="lazy" src="../images/logo-256.png" srcset="../images/logo-256.png 1x" alt="Drivarc Logo" class="logo-img" width="128" height="36" loading="eager" fetchpriority="high"></a>
-            <nav class="nav" data-i18n="nav.aria_label" data-i18n-attr="aria-label" aria-label="Tüm Çerezleri Kabul Et">
-                <a href="index.html" data-i18n="nav.home">Ana Sayfa</a>
-                <a href="privacy.html" class="active" data-i18n="nav.privacy"><span data-i18n="footer.privacy_label">Gizlilik Politikası</span></a>
-                <a href="terms.html" data-i18n="nav.terms"><span data-i18n="footer.terms_label">Kullanım Şartları</span></a>
+            <nav class="nav" data-i18n="nav.aria_label" data-i18n-attr="aria-label" aria-label="Thực đơn chính">
+                <a href="index.html" data-i18n="nav.home">Trang chủ</a>
+                <a href="privacy.html" class="active" data-i18n="nav.privacy"><span data-i18n="footer.privacy_label">Chính sách bảo mật</span></a>
+                <a href="terms.html" data-i18n="nav.terms"><span data-i18n="footer.terms_label">Điều khoản sử dụng</span></a>
             </nav>
 <div class="header-actions" style="display:flex;align-items:center;gap:8px;">
                 <div class="mobile-nav-icons">
@@ -134,7 +134,7 @@
                         <svg viewBox="0 0 24 24" style="width:18px;height:18px;fill:currentColor"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zm-1 2l5 5h-5V4zM6 20V4h5v7h7v9H6z"/><path d="M8 12h8v1H8zm0 2h8v1H8zm0 2h5v1H8z"/></svg>
                     </a>
                 </div>
-                <button class="control-btn theme-toggle" data-i18n="theme_toggle.aria" data-i18n-attr="aria-label" aria-label="Tüm Çerezleri Kabul Et" style="display:flex;align-items:center;justify-content:center;width:36px;height:36px;min-width:36px;padding:0;border-radius:10px;border:1px solid rgba(142,144,153,0.3);background:transparent;color:#c4c6cf;gap:0;">
+                <button class="control-btn theme-toggle" data-i18n="theme_toggle.aria" data-i18n-attr="aria-label" aria-label="Đổi Chủ đề" style="display:flex;align-items:center;justify-content:center;width:36px;height:36px;min-width:36px;padding:0;border-radius:10px;border:1px solid rgba(142,144,153,0.3);background:transparent;color:#c4c6cf;gap:0;">
                     <svg class="icon-moon" viewBox="0 0 24 24" style="width:18px;height:18px;fill:currentColor"><path d="M12 3a9 9 0 1 0 9 9c0-.46-.04-.92-.1-1.36a5.389 5.389 0 0 1-4.4 2.26 5.403 5.403 0 0 1-3.14-9.8c-.44-.06-.9-.1-1.36-.1z"/></svg>
                     <svg class="icon-sun is-hidden" viewBox="0 0 24 24" style="width:18px;height:18px;fill:currentColor"><path d="M12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zM2 13h2c.55 0 1-.45 1-1s-.45-1-1-1H2c-.55 0-1 .45-1 1s.45 1 1 1zm18 0h2c.55 0 1-.45 1-1s-.45-1-1-1h-2c-.55 0-1 .45-1 1s.45 1 1 1zM11 2v2c0 .55.45 1 1 1s1-.45 1-1V2c0-.55-.45-1-1-1s-1 .45-1 1zm0 18v2c0 .55.45 1 1 1s1-.45 1-1v-2c0-.55-.45-1-1-1s-1 .45-1 1zM5.99 4.58a.996.996 0 0 0-1.41 0 .996.996 0 0 0 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41L5.99 4.58zm12.37 12.37a.996.996 0 0 0-1.41 0 .996.996 0 0 0 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0a.996.996 0 0 0 0-1.41l-1.06-1.06zm1.06-10.96a.996.996 0 0 00 0-1.41.996.996.996 0 0 00-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06zM7.05 18.36a.996.996 0 0 00 0-1.41.996.996.996 0 0 00-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06z"/></svg>
                 </button>
@@ -143,33 +143,54 @@
     </header>
 
     <div class="terms-container">
-        <h1 data-i18n="privacy.h1">Gizlilik Politikası</h1>
+        <h1 data-i18n="privacy.h1">Chính sách Quyền riêng tư</h1>
         <div class="legal-last-updated">Son Güncelleme: 10 Nisan 2026</div>
 
 
         <div class="legal-section" id="section-0">
-            <div class="legal-section-title" data-i18n-html="privacy.section.1.title">1. Giriş</div>
-            <div class="legal-section-text" data-i18n-html="privacy.section.1.text">Drivarc uygulaması olarak, kullanıcılarımızın gizliliğini ve veri güvenliğini önemsiyoruz. Bu Gizlilik Politikası, uygulamamızı kullanırken topladığımız bilgileri, bu bilgileri nasıl kullandığımızı ve koruduğumuzu açıklar.</div>
+            <div class="legal-section-title" data-i18n-html="privacy.section.1.title">1. Giới thiệu</div>
+            <div class="legal-section-text" data-i18n-html="privacy.section.1.text">Là ứng dụng Drivarc, chúng tôi quan tâm đến quyền riêng tư và bảo mật dữ liệu của người dùng. Chính sách quyền riêng tư này mô tả thông tin chúng tôi thu thập khi bạn sử dụng ứng dụng của chúng tôi cũng như cách chúng tôi sử dụng và bảo vệ thông tin đó.</div>
         </div>
 
         <div class="legal-section" id="section-1">
-            <div class="legal-section-title" data-i18n-html="privacy.section.2.title">2. Toplanan Veriler</div>
-            <div class="legal-section-text" data-i18n-html="privacy.section.2.text" >Uygulamamızı kullanırken aşağıdaki verileri topluyoruz:
+            <div class="legal-section-title" data-i18n-html="privacy.section.2.title">2. Dữ liệu được thu thập</div>
+            <div class="legal-section-text" data-i18n-html="privacy.section.2.text" >Chúng tôi thu thập dữ liệu sau khi sử dụng ứng dụng của mình:
 
-• Araç Bilgileri: Marka, model, yıl, plaka, VIN numarası (sadece saklanır, başka bir amaçla kullanılmaz), renk, kilometre bilgisi
-• Bakım Kayıtları: Bakım türü, tarih, kilometre, maliyet, fotoğraflar
-• Yakıt Kayıtları: Yakıt türü, litre, tutar, tarih, kilometre, verimlilik verileri
-• Kullanıcı Bilgileri: Google hesabı bilgileri (e-posta, isim, profil fotoğrafı)
-• Bildirim Bilgileri: Size bildirim gönderebilmek için gerekli teknik bilgiler
-• Kullanım İstatistikleri: Uygulamanın daha iyi çalışması için anonim kullanım verileri ve hata raporları
-• Fiş Geri Bildirimi: İsteğe bağlı olarak tanınmayan fiş fotoğrafları (sistem geliştirmesi için)</div>
+• Thông tin xe: Thương hiệu, mẫu mã, năm sản xuất, biển số, số VIN (chỉ lưu trữ, không sử dụng cho bất kỳ mục đích nào khác), thông tin màu sắc, số km đã đi
+• Hồ sơ bảo trì: Loại bảo trì, ngày, số km, chi phí, hình ảnh
+• Hồ sơ nhiên liệu: Loại nhiên liệu, lít, số lượng, ngày tháng, quãng đường đã đi, dữ liệu hiệu quả
+• Thông tin người dùng: Thông tin tài khoản Google (e-mail, tên, ảnh hồ sơ)
+• Thông tin thông báo: Thông tin kỹ thuật cần thiết để gửi thông báo cho bạn
+• Thống kê sử dụng: Dữ liệu sử dụng ẩn danh và báo cáo lỗi để vận hành ứng dụng tốt hơn
+• Phản hồi về biên nhận: Tùy chọn ảnh biên nhận không được công nhận (để phát triển hệ thống)</div>
         </div>
 
         <div class="legal-section" id="section-2">
-            <div class="legal-section-title" data-i18n-html="privacy.section.3.title">2.1 Çerezler (Cookies)</div>
-            <div class="legal-section-text" data-i18n-html="privacy.section.3.text" >Web sitemizde kullanıcı deneyimini iyileştirmek ve analiz amaçlı çerezler kullanıyoruz. Çerezler, tarayıcınız tarafından cihazınıza kaydedilen küçük metin dosyalarıdır.
+            <div class="legal-section-title" data-i18n-html="privacy.section.3.title">2.1 Cookie</div>
+            <div class="legal-section-text" data-i18n-html="privacy.section.3.text" >Chúng tôi sử dụng cookie trên trang web của mình để cải thiện trải nghiệm người dùng và cho mục đích phân tích. Cookie là các tệp văn bản nhỏ được trình duyệt của bạn lưu trên thiết bị của bạn.
 
-<strong>Kullandığımız Çerez Türleri:</strong>
+<strong>Các loại cookie chúng tôi sử dụng:</strong>
+
+<strong>Cookie cần thiết:</strong> Những cookie này cần thiết để trang web hoạt động bình thường. Chúng thực hiện các chức năng cơ bản như lưu trữ các tùy chọn của bạn. Nếu không có những cookie này, trang web không thể hoạt động bình thường.
+
+<strong>Cookie phân tích:</strong> Những cookie này được Google Analytics sử dụng giúp chúng tôi hiểu cách khách truy cập sử dụng trang web. Nó thu thập dữ liệu ẩn danh như trang nào được truy cập nhiều hơn và cách người dùng điều hướng trang web. Những cookie này chỉ được kích hoạt nếu bạn đồng ý rõ ràng.
+
+<strong>Làm cách nào bạn có thể kiểm soát tùy chọn cookie của mình?</strong>
+
+Khi bạn truy cập trang web của chúng tôi lần đầu tiên, một biểu ngữ thông tin về việc sử dụng cookie của chúng tôi sẽ được hiển thị. Thông qua biểu ngữ này:
+
+• Bạn có thể chấp nhận tất cả cookie
+• Bạn chỉ có thể chấp nhận các cookie thiết yếu  
+• Bạn có thể bật hoặc tắt cookie phân tích trong phần cài đặt
+
+Bạn có thể thay đổi sở thích của mình bất cứ lúc nào. Tùy chọn cookie của bạn được lưu trữ trong bộ nhớ cục bộ của trình duyệt.
+
+<strong>Cookie Google Analytics:</strong> Khi chúng tôi sử dụng Google Analytics, các cookie sau có thể được sử dụng:
+• _ga: Dùng để phân biệt khách truy cập (2 năm)
+• _gid: Dùng để phân biệt khách truy cập (24 giờ)
+• _gat: Dùng để giới hạn tốc độ yêu cầu (1 phút)
+
+Để biết thêm thông tin về các cookie này, bạn có thể xem lại Chính sách cookie của Google.</strong>
 
 <strong>Zorunlu Çerezler:</strong> Bu çerezler web sitesinin düzgün çalışması için gereklidir. Tercihlerinizin saklanması gibi temel işlevleri yerine getirirler. Bu çerezler olmadan site düzgün çalışamaz.
 
@@ -194,216 +215,216 @@ Bu çerezler hakkında daha fazla bilgi için <a href="https://policies.google.c
         </div>
 
         <div class="legal-section" id="section-3">
-            <div class="legal-section-title" data-i18n-html="privacy.section.4.title">3. Veri Kullanım Amaçları</div>
-            <div class="legal-section-text" data-i18n-html="privacy.section.4.text" >Topladığımız verileri aşağıdaki amaçlar için kullanıyoruz:
+            <div class="legal-section-title" data-i18n-html="privacy.section.4.title">3. Mục đích sử dụng dữ liệu</div>
+            <div class="legal-section-text" data-i18n-html="privacy.section.4.text" >Chúng tôi sử dụng dữ liệu chúng tôi thu thập cho các mục đích sau:
 
-• Uygulama işlevselliğini sağlamak (araç takibi, bakım hatırlatmaları, yakıt analizi)
-• Size bildirim göndermek (bakım hatırlatmaları ve önemli bildirimler)
-• Uygulamayı iyileştirmek ve hataları düzeltmek
-• Verilerinizi cihazlarınız arasında senkronize etmek
-• Fiş okuma sistemini geliştirmek (gönderdiğiniz fiş fotoğrafları ile)
-• Güvenlik sağlamak
-• Yasal yükümlülükleri yerine getirmek</div>
+• Cung cấp chức năng ứng dụng (theo dõi xe, nhắc nhở bảo dưỡng, phân tích nhiên liệu)
+• Gửi cho bạn thông báo (nhắc nhở bảo trì và thông báo quan trọng)
+• Cải thiện ứng dụng và sửa lỗi
+• Đồng bộ hóa dữ liệu giữa các thiết bị của bạn
+• Cải tiến hệ thống đọc biên nhận (với ảnh biên nhận bạn gửi)
+• Cung cấp bảo mật
+• Thực hiện nghĩa vụ pháp lý</div>
         </div>
 
         <div class="legal-section" id="section-4">
-            <div class="legal-section-title" data-i18n-html="privacy.section.5.title">4. Veri Saklama ve Güvenlik</div>
-            <div class="legal-section-text" data-i18n-html="privacy.section.5.text" >Verileriniz aşağıdaki şekillerde saklanır:
+            <div class="legal-section-title" data-i18n-html="privacy.section.5.title">4. Lưu trữ và bảo mật dữ liệu</div>
+            <div class="legal-section-text" data-i18n-html="privacy.section.5.text" >Dữ liệu của bạn được lưu trữ theo những cách sau:
 
-• Bulut Depolama: Verileriniz güvenli bulut sunucularında saklanır
-• Yerel Depolama: Cihazınızda çevrimdışı erişim için yerel olarak saklanır
-• Güvenlik: Tüm veriler şifrelenmiş olarak saklanır ve güvenli bağlantı (HTTPS) kullanılır
-• Veri Ayrımı: Her kullanıcının verileri birbirinden ayrı tutulur
-• Veri Saklama Süresi: Verileriniz hesabınız aktif olduğu sürece saklanır. Hesabınızı sildiğinizde veya 3 yıl boyunca aktif olmadığınızda verileriniz otomatik olarak silinir
+• Lưu trữ đám mây: Dữ liệu của bạn được lưu trữ trên các máy chủ đám mây an toàn
+• Bộ nhớ cục bộ: Được lưu trữ cục bộ trên thiết bị của bạn để truy cập ngoại tuyến
+• Bảo mật: Tất cả dữ liệu được lưu trữ được mã hóa và sử dụng kết nối an toàn (HTTPS)
+• Phân tách dữ liệu: Dữ liệu của mỗi người dùng được giữ riêng biệt với nhau
+• Thời gian lưu giữ dữ liệu: Dữ liệu của bạn được lưu trữ miễn là tài khoản của bạn còn hoạt động. Dữ liệu của bạn sẽ tự động bị xóa khi bạn xóa tài khoản của mình hoặc không hoạt động trong 3 năm
 
-Hesabınızı sildiğinizde veya veri silme talebinde bulunduğunuzda, verileriniz güvenli bir şekilde kalıcı olarak silinir.</div>
+Khi bạn xóa tài khoản của mình hoặc yêu cầu xóa dữ liệu, dữ liệu của bạn sẽ bị xóa vĩnh viễn một cách an toàn.</div>
         </div>
 
         <div class="legal-section" id="section-5">
-            <div class="legal-section-title" data-i18n-html="privacy.section.6.title">4.1. Yaş Sınırı</div>
-            <div class="legal-section-text" data-i18n-html="privacy.section.6.text">Drivarc uygulaması 18 yaş ve üzeri kullanıcılar için tasarlanmıştır. 18 yaş altındaki bireyler uygulamayı kullanmamalıdır. Eğer 18 yaş altında bir kullanıcının veri topladığını tespit edersek, ilgili hesap ve veriler derhal silinecektir.</div>
+            <div class="legal-section-title" data-i18n-html="privacy.section.6.title">4.1. Giới hạn độ tuổi</div>
+            <div class="legal-section-text" data-i18n-html="privacy.section.6.text">Ứng dụng Drivarc được thiết kế dành cho người dùng từ 18 tuổi trở lên. Các cá nhân dưới 18 tuổi không nên sử dụng ứng dụng. Nếu chúng tôi phát hiện người dùng dưới 18 tuổi đã thu thập dữ liệu, tài khoản và dữ liệu liên quan sẽ bị xóa ngay lập tức.</div>
         </div>
 
         <div class="legal-section" id="section-6">
-            <div class="legal-section-title" data-i18n-html="privacy.section.7.title">5. Kullanıcı Hakları</div>
-            <div class="legal-section-text" data-i18n-html="privacy.section.7.text" >KVKK ve GDPR kapsamında aşağıdaki haklara sahipsiniz:
+            <div class="legal-section-title" data-i18n-html="privacy.section.7.title">5. Quyền của người dùng</div>
+            <div class="legal-section-text" data-i18n-html="privacy.section.7.text" >Bạn có các quyền sau theo KVKK và GDPR:
 
-• Verilerinize Erişim: Toplanan tüm verilerinize erişebilirsiniz
-• Veri Düzeltme: Yanlış veya eksik verileri düzeltebilirsiniz
-• Veri Silme: Tüm verilerinizi silebilirsiniz (Profil > Verileri Sil)
-• Hesap Silme: Hesabınızı ve tüm verilerinizi kalıcı olarak silebilirsiniz (Profil > Hesabı Sil)
-• Veri Taşınabilirliği: PDF raporu olarak verilerinizi dışa aktarabilirsiniz (Profil > PDF Raporu)
-• İtiraz Hakkı: Veri işleme faaliyetlerimize itiraz edebilirsiniz</div>
+• Truy cập vào dữ liệu của bạn: Bạn có thể truy cập tất cả dữ liệu đã thu thập của mình
+• Chỉnh sửa dữ liệu: Bạn có thể sửa dữ liệu không chính xác hoặc bị thiếu
+• Xóa dữ liệu: Bạn có thể xóa tất cả dữ liệu của mình (Hồ sơ > Xóa dữ liệu)
+• Xóa tài khoản: Bạn có thể xóa vĩnh viễn tài khoản và tất cả dữ liệu của mình (Hồ sơ > Xóa tài khoản)
+• Khả năng di chuyển dữ liệu: Bạn có thể xuất dữ liệu của mình dưới dạng báo cáo PDF (Hồ sơ > Báo cáo PDF)
+• Quyền phản đối: Bạn có thể phản đối các hoạt động xử lý dữ liệu của chúng tôi</div>
         </div>
 
         <div class="legal-section" id="section-7">
-            <div class="legal-section-title" data-i18n-html="privacy.section.8.title">6. Üçüncü Taraf Servisler</div>
-            <div class="legal-section-text" data-i18n-html="privacy.section.8.text" >Uygulamamız aşağıdaki üçüncü taraf servisleri kullanır:
+            <div class="legal-section-title" data-i18n-html="privacy.section.8.title">6. Dịch vụ của bên thứ ba</div>
+            <div class="legal-section-text" data-i18n-html="privacy.section.8.text" >Ứng dụng của chúng tôi sử dụng các dịch vụ của bên thứ ba sau:
 
-• Google: Kimlik doğrulama ve hesap yönetimi için
-• Firebase (Google): Veri saklama, bulut senkronizasyonu, bildirim gönderimi ve uygulama analitiği için
-• Google ML Kit: Fiş okuma (OCR) özelliği için
+• Google: Để xác thực và quản lý tài khoản
+• Firebase (Google): Để lưu trữ dữ liệu, đồng bộ hóa trên đám mây, thông báo đẩy và phân tích ứng dụng
+• Google ML Kit: Dành cho tính năng đọc biên nhận (OCR)
 
-Bu servislerin kendi gizlilik politikaları vardır. <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" style="color:#8ab4f8">Google'ın gizlilik politikası</a>: https://policies.google.com/privacy</div>
+Các dịch vụ này có chính sách bảo mật riêng của họ. <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" style="color:#8ab4f8">Chính sách quyền riêng tư của Google</a>: https://policies.google.com/privacy</a>: https://policies.google.com/privacy</div>
         </div>
 
         <div class="legal-section" id="section-8">
-            <div class="legal-section-title" data-i18n-html="privacy.section.9.title">6.1. Premium Özellikler ve Abonelik</div>
-            <div class="legal-section-text" data-i18n-html="privacy.section.9.text" >Drivarc uygulaması temel özellikleri ücretsiz olarak sunarken, gelişmiş özellikler için Premium abonelik seçeneği sunar:
+            <div class="legal-section-title" data-i18n-html="privacy.section.9.title">6.1. Tính năng cao cấp và đăng ký</div>
+            <div class="legal-section-text" data-i18n-html="privacy.section.9.text" >Mặc dù ứng dụng Drivarc cung cấp miễn phí các tính năng cơ bản nhưng nó cung cấp tùy chọn đăng ký Premium cho các tính năng nâng cao:
 
-• Bulut fotoğraf depolama (araç, fiş ve bakım fotoğrafları)
-• Gelişmiş PDF raporları (grafikler, CO2 analizi, öneriler)
-• Öncelikli destek
-• Reklamsız deneyim
+• Lưu trữ ảnh trên đám mây (ảnh xe, biên lai và bảo trì)
+• Báo cáo PDF nâng cao (biểu đồ, phân tích CO2, khuyến nghị)
+• Hỗ trợ ưu tiên
+• Trải nghiệm không có quảng cáo
 
-Premium abonelik, RevenueCat platformu aracılığıyla yönetilir. Aylık ve yıllık planlar mevcuttur. Aboneliğinizi istediğiniz zaman iptal edebilirsiniz. İptal durumunda, mevcut ödeme dönemi sonuna kadar Premium özelliklere erişiminiz devam eder. İade politikası, bağlı olduğunuz uygulama mağazasının (Google Play Store) kurallarına tabidir.
+Đăng ký trả phí được quản lý thông qua nền tảng RevenueCat. Kế hoạch hàng tháng và hàng năm có sẵn. Bạn có thể hủy đăng ký của mình bất cứ lúc nào. Trong trường hợp hủy, bạn sẽ tiếp tục có quyền truy cập vào các tính năng Premium cho đến hết thời hạn thanh toán hiện tại. Chính sách hoàn trả phải tuân theo các quy định của cửa hàng ứng dụng liên kết của bạn (Cửa hàng Google Play).
 
-Premium abonelik otomatik olarak yenilenir. Bir sonraki dönem ücreti, mevcut dönem bitmeden 24 saat önce hesabınızdan alınır. Otomatik yenilemeyi, cihazınızın mağaza ayarlarından kapatabilirsiniz.</div>
+Đăng ký trả phí tự động gia hạn. Phí giai đoạn tiếp theo sẽ được tính vào tài khoản của bạn 24 giờ trước khi kết thúc giai đoạn hiện tại. Bạn có thể tắt tính năng tự động gia hạn trong cài đặt cửa hàng trên thiết bị của mình.</div>
         </div>
 
         <div class="legal-section" id="section-9">
-            <div class="legal-section-title" data-i18n-html="privacy.section.10.title">7. Reklamlar</div>
-            <div class="legal-section-text" data-i18n-html="privacy.section.10.text" >Ücretsiz kullanıcılar, uygulamayı desteklemek için reklam görebilir. Reklamlar Google AdMob aracılığıyla sunulmaktadır.
+            <div class="legal-section-title" data-i18n-html="privacy.section.10.title">7. Quảng cáo</div>
+            <div class="legal-section-text" data-i18n-html="privacy.section.10.text" >Người dùng miễn phí có thể thấy quảng cáo để hỗ trợ ứng dụng. Quảng cáo được phân phát thông qua Google AdMob.
 
-Google AdMob, kişiselleştirilmiş reklamlar göstermek için cihaz bilgileri, kullanım verileri ve reklam kimliğinizi kullanabilir. Reklam tercihlerinizi Google'ın reklam ayarları sayfasından yönetebilirsiniz.
+Google AdMob có thể sử dụng thông tin thiết bị, dữ liệu sử dụng và ID quảng cáo của bạn để hiển thị quảng cáo được cá nhân hóa. Bạn có thể quản lý tùy chọn quảng cáo của mình trên trang cài đặt quảng cáo của Google.
 
-Premium aboneler reklam görmez. Premium abonelik, reklamsız bir deneyim sunar.
+Người đăng ký trả phí không nhìn thấy quảng cáo. Đăng ký trả phí mang lại trải nghiệm không có quảng cáo.
 
-Google'ın gizlilik politikası: https://policies.google.com/privacy
-Google AdMob gizlilik politikası: https://support.google.com/admob/answer/6128543</div>
+Chính sách bảo mật của Google: https://policies.google.com/privacy
+Chính sách bảo mật của Google AdMob: https://support.google.com/admob/answer/6128543</div>
         </div>
 
         <div class="legal-section" id="section-10">
-            <div class="legal-section-title" data-i18n-html="privacy.section.11.title">8. Uygulama İzinleri</div>
-            <div class="legal-section-text" data-i18n-html="privacy.section.11.text" >Drivarc uygulaması aşağıdaki cihaz izinlerini kullanır:
+            <div class="legal-section-title" data-i18n-html="privacy.section.11.title">8. Quyền ứng dụng</div>
+            <div class="legal-section-text" data-i18n-html="privacy.section.11.text" >Ứng dụng Drivarc sử dụng các quyền thiết bị sau:
 
-• Kamera İzni: Fiş tarama (OCR), araç fotoğrafı çekme, bakım ve masraf ekleri için kullanılır. Bu izin isteğe bağlıdır ve reddedilirse manuel giriş yapılabilir.
+• Giấy phép máy ảnh: Được sử dụng để quét biên lai (OCR), chụp ảnh phương tiện, bảo trì và đính kèm chi phí. Quyền này là tùy chọn và nếu bị từ chối, bạn có thể thực hiện nhập thủ công.
 
-• Bildirim İzni: Bakım hatırlatmaları ve önemli bildirimler göndermek için kullanılır. Bu izin isteğe bağlıdır ve cihaz ayarlarından yönetilebilir.
+• Quyền thông báo: Dùng để gửi lời nhắc bảo trì và thông báo quan trọng. Quyền này là tùy chọn và có thể được quản lý trong cài đặt thiết bị.
 
-• Depolama İzni: Fotoğraf ve belgeleri kaydetmek ve yüklemek için kullanılır. Bu izin isteğe bağlıdır ve reddedilirse fotoğraf yükleme özelliği kullanılamaz.
+• Quyền lưu trữ: Được sử dụng để lưu và tải lên ảnh và tài liệu. Quyền này là tùy chọn và nếu bị từ chối, tính năng tải ảnh lên sẽ không khả dụng.
 
-• Konum İzni: İsteğe bağlı olarak yakıt kaydı sırasında istasyon konumunu kaydetmek için kullanılabilir. Bu izin tamamen isteğe bağlıdır ve zorunlu değildir. Konum verileri yalnızca sizin tarafınızdan etkinleştirildiğinde toplanır.
+• Quyền vị trí: Tùy chọn có thể được sử dụng để ghi lại vị trí trạm trong quá trình ghi nhiên liệu. Sự cho phép này là hoàn toàn tùy chọn và không bắt buộc. Dữ liệu vị trí chỉ được thu thập khi bạn bật.
 
-• Ağ Durumu: Çevrimdışı/çevrimiçi durumu kontrol etmek ve senkronizasyonu yönetmek için kullanılır.
+• Trạng thái mạng: Được sử dụng để kiểm tra trạng thái ngoại tuyến/trực tuyến và quản lý đồng bộ hóa.
 
-Tüm izinler, uygulama içinde size bildirilerek ve onayınız alınarak kullanılır. İzinleri istediğiniz zaman cihaz ayarlarından iptal edebilirsiniz.</div>
+Tất cả các quyền được sử dụng bằng cách thông báo cho bạn trong ứng dụng và nhận được sự chấp thuận của bạn. Bạn có thể thu hồi quyền bất cứ lúc nào từ cài đặt thiết bị.</div>
         </div>
 
         <div class="legal-section" id="section-11">
-            <div class="legal-section-title" data-i18n-html="privacy.section.12.title">9. Analitik ve Hata Raporlama</div>
-            <div class="legal-section-text" data-i18n-html="privacy.section.12.text" >Uygulamamızı iyileştirmek ve kullanıcı deneyimini optimize etmek için aşağıdaki analitik ve hata raporlama servislerini kullanıyoruz:
+            <div class="legal-section-title" data-i18n-html="privacy.section.12.title">9. Báo cáo phân tích và lỗi</div>
+            <div class="legal-section-text" data-i18n-html="privacy.section.12.text" >Chúng tôi sử dụng các dịch vụ phân tích và báo cáo lỗi sau để cải thiện ứng dụng của mình và tối ưu hóa trải nghiệm người dùng:
 
-• Firebase Analytics: Anonim kullanım istatistikleri, ekran görüntülemeleri, özellik kullanımı ve kullanıcı etkileşimlerini izlemek için kullanılır. Bu veriler kişisel kimliğinizle ilişkilendirilmez.
+• Firebase Analytics: Được sử dụng để theo dõi số liệu thống kê sử dụng ẩn danh, lượt xem màn hình, mức sử dụng tính năng và tương tác của người dùng. Dữ liệu này không liên quan đến danh tính cá nhân của bạn.
 
-• Firebase Crashlytics: Uygulama çökmelerini ve hatalarını raporlamak için kullanılır. Hata raporları, hatanın nedeni ve düzeltilmesi için teknik bilgiler içerir ancak kişisel verilerinizi içermez.
+• Firebase Crashlytics: Được sử dụng để báo cáo sự cố và lỗi ứng dụng. Báo cáo lỗi chứa thông tin kỹ thuật về nguyên nhân lỗi và cách khắc phục lỗi nhưng không bao gồm dữ liệu cá nhân của bạn.
 
-Toplanan veriler yalnızca uygulama iyileştirmeleri ve hata düzeltmeleri için kullanılır. Üçüncü taraflarla paylaşılmaz veya reklam amaçlı kullanılmaz.</div>
+Dữ liệu được thu thập chỉ được sử dụng để cải tiến ứng dụng và sửa lỗi. Nó không được chia sẻ với bên thứ ba hoặc được sử dụng cho mục đích quảng cáo.</div>
         </div>
 
         <div class="legal-section" id="section-12">
-            <div class="legal-section-title" data-i18n-html="privacy.section.13.title">10. Veri Şifreleme ve Yedekleme</div>
-            <div class="legal-section-text" data-i18n-html="privacy.section.13.text" >Verilerinizin güvenliği için çok katmanlı koruma sağlıyoruz:
+            <div class="legal-section-title" data-i18n-html="privacy.section.13.title">10. Mã hóa và sao lưu dữ liệu</div>
+            <div class="legal-section-text" data-i18n-html="privacy.section.13.text" >Chúng tôi cung cấp bảo vệ nhiều lớp để bảo mật dữ liệu của bạn:
 
-• Şifreleme: Tüm yedekleme verileri AES-256 standardı ile şifrelenir. Bu, endüstri standardı askeri düzeyde şifrelemedir.
+• Mã hóa: Toàn bộ dữ liệu sao lưu được mã hóa theo chuẩn AES-256. Đây là mã hóa cấp quân sự tiêu chuẩn công nghiệp.
 
-• Yedekleme Sistemi: Verileriniz otomatik olarak yedeklenir:
-  - Tam yedekleme: Her 24 saatte bir
-  - Artımlı yedekleme: Her 15 dakikada bir
-  - Diferansiyel yedekleme: Her 6 saatte bir
+• Hệ thống sao lưu: Dữ liệu của bạn được sao lưu tự động:
+  - Sao lưu toàn bộ: Cứ sau 24 giờ
+  - Sao lưu gia tăng: Cứ sau 15 phút
+  - Sao lưu chênh lệch: 6 giờ một lần
 
-• Yedekleme Saklama: Tam yedekler 30 gün, artımlı yedekler 7 gün, diferansiyel yedekler 14 gün saklanır.
+• Lưu giữ bản sao lưu: Các bản sao lưu đầy đủ được giữ lại trong 30 ngày, các bản sao lưu gia tăng được giữ lại trong 7 ngày và các bản sao lưu khác biệt được giữ lại trong 14 ngày.
 
-• Bulut Depolama: Şifrelenmiş yedekleriniz Firebase Storage'da güvenli bir şekilde saklanır.
+• Bộ nhớ đám mây: Các bản sao lưu mã hóa của bạn được lưu trữ an toàn trong Bộ lưu trữ Firebase.
 
-• Yerel Depolama: Verileriniz cihazınızda SQLite veritabanında saklanır ve çevrimdışı erişim için kullanılabilir.
+• Bộ nhớ cục bộ: Dữ liệu của bạn được lưu trữ trong cơ sở dữ liệu SQLite trên thiết bị của bạn và có sẵn để truy cập ngoại tuyến.
 
-• Senkronizasyon: Cihazlar arası veri senkronizasyonu güvenli bağlantı (HTTPS) üzerinden gerçekleştirilir.</div>
+• Đồng bộ hóa: Đồng bộ hóa dữ liệu giữa các thiết bị được thực hiện thông qua kết nối an toàn (HTTPS).</div>
         </div>
 
         <div class="legal-section" id="section-13">
-            <div class="legal-section-title" data-i18n-html="privacy.section.14.title">11. Veri İhlali Bildirimi</div>
-            <div class="legal-section-text" data-i18n-html="privacy.section.14.text" >Bir veri ihlali durumunda:
+            <div class="legal-section-title" data-i18n-html="privacy.section.14.title">11. Thông báo vi phạm dữ liệu</div>
+            <div class="legal-section-text" data-i18n-html="privacy.section.14.text" >Trong trường hợp vi phạm dữ liệu:
 
-• Tespit edilen veri ihlalini 72 saat içinde ilgili düzenleyici otoriteye bildireceğiz (GDPR gereği).
+• Chúng tôi sẽ báo cáo hành vi vi phạm dữ liệu được phát hiện cho cơ quan quản lý có liên quan trong vòng 72 giờ (theo yêu cầu của GDPR).
 
-• İhlalin kullanıcılarımızı etkilemesi durumunda, sizi uygulama içi bildirim ve/veya e-posta yoluyla bilgilendireceğiz.
+• Nếu vi phạm ảnh hưởng đến người dùng của chúng tôi, chúng tôi sẽ thông báo cho bạn qua thông báo trong ứng dụng và/hoặc email.
 
-• İhlalin niteliği, etkilenen veri türleri ve alınması gereken önlemler hakkında sizi bilgilendireceğiz.
+• Chúng tôi sẽ thông báo cho bạn về bản chất của hành vi vi phạm, loại dữ liệu bị ảnh hưởng và các biện pháp cần thực hiện.
 
-• Veri ihlali bildirimleri, şeffaflık ilkemiz gereği zamanında ve doğru şekilde yapılacaktır.</div>
+• Thông báo vi phạm dữ liệu sẽ được thực hiện kịp thời và chính xác theo nguyên tắc minh bạch của chúng tôi.</div>
         </div>
 
         <div class="legal-section" id="section-14">
-            <div class="legal-section-title" data-i18n-html="privacy.section.15.title">12. Üçüncü Taraf Servisler</div>
-            <div class="legal-section-text" data-i18n-html="privacy.section.15.text" >Uygulamamız aşağıdaki üçüncü taraf servisleri kullanır:
+            <div class="legal-section-title" data-i18n-html="privacy.section.15.title">12. Dịch vụ của bên thứ ba</div>
+            <div class="legal-section-text" data-i18n-html="privacy.section.15.text" >Ứng dụng của chúng tôi sử dụng các dịch vụ của bên thứ ba sau:
 
-• Google: Kimlik doğrulama ve hesap yönetimi için
-• Firebase (Google): Veri saklama, bulut senkronizasyonu, bildirim gönderimi, uygulama analitiği ve hata raporlama için
-• Google ML Kit: Fiş okuma (OCR) özelliği için
-• Google AdMob: Reklam gösterimi için (ücretsiz kullanıcılar)
-• RevenueCat: Premium abonelik yönetimi için
+• Google: Để xác thực và quản lý tài khoản
+• Firebase (Google): Để lưu trữ dữ liệu, đồng bộ hóa trên đám mây, thông báo đẩy, phân tích ứng dụng và báo cáo lỗi
+• Google ML Kit: Dành cho tính năng đọc biên nhận (OCR)
+• Google AdMob: Để hiển thị quảng cáo (người dùng miễn phí)
+• RevenueCat: Để quản lý đăng ký trả phí
 
-Bu servislerin kendi gizlilik politikaları vardır:
+Các dịch vụ này có chính sách bảo mật riêng:
 
-• Google gizlilik politikası: https://policies.google.com/privacy
-• Firebase gizlilik politikası: https://firebase.google.com/support/privacy
-• Google AdMob gizlilik politikası: https://support.google.com/admob/answer/6128543
-• RevenueCat gizlilik politikası: https://www.revenuecat.com/privacy</div>
+• Chính sách bảo mật của Google: https://policies.google.com/privacy
+• Chính sách bảo mật của Firebase: https://firebase.google.com/support/privacy
+• Chính sách bảo mật của Google AdMob: https://support.google.com/admob/answer/6128543
+• Chính sách bảo mật của RevenueCat: https://www.revenuecat.com/privacy</div>
         </div>
 
         <div class="legal-section" id="section-15">
-            <div class="legal-section-title" data-i18n-html="privacy.section.16.title">13. Veri Paylaşımı</div>
-            <div class="legal-section-text" data-i18n-html="privacy.section.16.text" >Kişisel verileriniz, aşağıdaki durumlar dışında üçüncü taraflarla paylaşılmaz:
+            <div class="legal-section-title" data-i18n-html="privacy.section.16.title">13. Chia sẻ dữ liệu</div>
+            <div class="legal-section-text" data-i18n-html="privacy.section.16.text" >Dữ liệu cá nhân của bạn không được chia sẻ với bên thứ ba ngoại trừ các trường hợp sau:
 
-• Yasal zorunluluklar: Mahkeme kararı veya yasal yükümlülükler gereği
-• Hizmet sağlayıcılar: Yukarıda belirtilen üçüncü taraf servisler (Google, Firebase, RevenueCat) ile yalnızca hizmet sunumu için gerekli ölçüde
-• Kullanıcı onayı: Açık onayınız doğrultusunda
+• Nghĩa vụ pháp lý: Do quyết định của tòa án hoặc nghĩa vụ pháp lý
+• Nhà cung cấp dịch vụ: Chỉ trong phạm vi cần thiết để cung cấp dịch vụ với các dịch vụ của bên thứ ba nêu trên (Google, Firebase, RevenueCat).
+• Sự đồng ý của người dùng: Theo sự đồng ý rõ ràng của bạn
 
-Verileriniz, reklam amaçlı olarak kişisel kimliğinizle ilişkilendirilerek üçüncü taraflarla paylaşılmaz. Google AdMob, reklamları kişiselleştirmek için kendi verilerini kullanabilir, ancak kişisel verilerinize doğrudan erişimi yoktur.</div>
+Dữ liệu của bạn không được liên kết với danh tính cá nhân của bạn và được chia sẻ với bên thứ ba vì mục đích quảng cáo. Google AdMob có thể sử dụng dữ liệu của riêng mình để cá nhân hóa quảng cáo nhưng không có quyền truy cập trực tiếp vào dữ liệu cá nhân của bạn.</div>
         </div>
 
         <div class="legal-section" id="section-16">
-            <div class="legal-section-title" data-i18n-html="privacy.section.17.title">14. Uluslararası Veri Transferi</div>
-            <div class="legal-section-text" data-i18n-html="privacy.section.17.text" >Drivarc uygulaması, Firebase ve Google gibi global servisler kullanmaktadır. Bu nedenle verileriniz, Türkiye dışındaki sunucularda işlenebilir ve saklanabilir.
+            <div class="legal-section-title" data-i18n-html="privacy.section.17.title">14. Truyền dữ liệu quốc tế</div>
+            <div class="legal-section-text" data-i18n-html="privacy.section.17.text" >Ứng dụng Drivarc sử dụng các dịch vụ toàn cầu như Firebase và Google. Do đó, dữ liệu của bạn có thể được xử lý và lưu trữ trên các máy chủ bên ngoài Thổ Nhĩ Kỳ.
 
-Verilerinizin uluslararası transferi durumunda:
+Trong trường hợp chuyển dữ liệu quốc tế của bạn:
 
-• Yeterli koruma kararı olan ülkelere transfer: Avrupa Komisyonu tarafından yeterli koruma kararı verilen ülkelere veri transferi yapılmaktadır.
+• Chuyển đến các quốc gia có lệnh bảo vệ đầy đủ: Dữ liệu được Ủy ban Châu Âu chuyển đến các quốc gia có lệnh bảo vệ đầy đủ.
 
-• Uygun koruma önlemleri: Yeterli koruma kararı olmayan ülkelere transfer durumunda, standart sözleşme klausülleri veya diğer uygun koruma önlemleri uygulanmaktadır.
+• Các biện pháp bảo vệ phù hợp: Trong trường hợp chuyển giao sang các quốc gia không có biện pháp bảo vệ đầy đủ, các điều khoản hợp đồng tiêu chuẩn hoặc các biện pháp bảo vệ thích hợp khác sẽ được áp dụng.
 
-• Veri minimizasyonu: Yalnızca hizmet sunumu için gerekli veriler transfer edilmektedir.</div>
+• Giảm thiểu dữ liệu: Chỉ truyền dữ liệu cần thiết cho việc cung cấp dịch vụ.</div>
         </div>
 
         <div class="legal-section" id="section-17">
-            <div class="legal-section-title" data-i18n-html="privacy.section.18.title">15. Gelecekteki Özellikler</div>
-            <div class="legal-section-text" data-i18n-html="privacy.section.18.text" >Drivarc uygulamasına gelecekte aşağıdaki özellikler eklenebilir:
+            <div class="legal-section-title" data-i18n-html="privacy.section.18.title">15. Các tính năng trong tương lai</div>
+            <div class="legal-section-text" data-i18n-html="privacy.section.18.text" >Các tính năng sau có thể được thêm vào ứng dụng Drivarc trong tương lai:
 
-• Filo Yönetimi: Şirketlerin birden fazla aracı tek panelden yönetmesi için kurumsal özellikler
-• Yapay Zeka Destekli Arıza Tahmini: Sesli veya yazılı belirtilerden araç arızası tahmini
-• Kişisel Asistan: Bakım zamanı ve yakıt tasarrufu önerileri
-• Konum Tabanlı Özellikler: Yakındaki akaryakıt istasyonları, servisler ve oto yıkama bulma
-• İş Ortaklıkları: Servis, sigorta ve yedek parça şirketleriyle entegrasyonlar
+• Quản lý đội xe: Các tính năng dành cho doanh nghiệp giúp công ty quản lý nhiều phương tiện từ một bảng điều khiển duy nhất
+• Dự đoán trục trặc được hỗ trợ bởi trí tuệ nhân tạo: Dự đoán trục trặc của xe từ các triệu chứng âm thanh hoặc văn bản
+• Trợ lý cá nhân: Khuyến nghị về thời gian bảo trì và tiết kiệm nhiên liệu
+• Tính năng dựa trên vị trí: Tìm trạm xăng, xe đưa đón và tiệm rửa xe gần đó
+• Quan hệ đối tác kinh doanh: Tích hợp với các công ty dịch vụ, bảo hiểm và phụ tùng
 
-Bu özellikler eklendiğinde, veri toplama ve kullanım uygulamaları güncellenecek ve kullanıcılar bilgilendirilecektir. Yeni özelliklerin kullanımı isteğe bağlı olacaktır.</div>
+Khi các tính năng này được thêm vào, các phương pháp thu thập và sử dụng dữ liệu sẽ được cập nhật và người dùng sẽ được thông báo. Việc sử dụng các tính năng mới sẽ là tùy chọn.</div>
         </div>
 
         <div class="legal-section" id="section-18">
-            <div class="legal-section-title" data-i18n-html="privacy.section.19.title">16. Çerezler</div>
-            <div class="legal-section-text" data-i18n-html="privacy.section.19.text">Web sitemizde kullanıcı deneyimini iyileştirmek ve analiz amaçlı çerezler kullanıyoruz. Detaylı bilgi için Bölüm 2.1'e bakınız.</div>
+            <div class="legal-section-title" data-i18n-html="privacy.section.19.title">16. Bánh quy</div>
+            <div class="legal-section-text" data-i18n-html="privacy.section.19.text">Chúng tôi sử dụng cookie trên trang web của mình để cải thiện trải nghiệm người dùng và cho mục đích phân tích. Để biết thông tin chi tiết, xem Phần 2.1.</div>
         </div>
 
         <div class="legal-section" id="section-19">
-            <div class="legal-section-title" data-i18n-html="privacy.section.20.title">17. Politika Değişiklikleri</div>
-            <div class="legal-section-text" data-i18n-html="privacy.section.20.text">Bu Gizlilik Politikası'nda yapılan değişiklikler uygulama içinde bildirilecektir. Önemli değişiklikler için kullanıcılarımıza bildirim gönderilecektir. Politika değişiklikleri, uygulama içinde yayınlandığı tarihte yürürlüğe girer.</div>
+            <div class="legal-section-title" data-i18n-html="privacy.section.20.title">17. Thay đổi chính sách</div>
+            <div class="legal-section-text" data-i18n-html="privacy.section.20.text">Những thay đổi đối với Chính sách quyền riêng tư này sẽ được thông báo trong ứng dụng. Thông báo sẽ được gửi đến người dùng của chúng tôi về những thay đổi quan trọng. Các thay đổi về chính sách có hiệu lực vào ngày chúng được xuất bản trong ứng dụng.</div>
         </div>
 
         <div class="legal-section" id="section-20">
-            <div class="legal-section-title" data-i18n-html="privacy.section.21.title">18. İletişim</div>
-            <div class="legal-section-text" data-i18n-html="privacy.section.21.text" >Gizlilik politikamız hakkında sorularınız varsa veya veri haklarınızı kullanmak istiyorsanız, lütfen uygulama içindeki geri bildirim özelliğini kullanarak bizimle iletişime geçin.
+            <div class="legal-section-title" data-i18n-html="privacy.section.21.title">18. Giao tiếp</div>
+            <div class="legal-section-text" data-i18n-html="privacy.section.21.text" >Nếu bạn có thắc mắc về chính sách quyền riêng tư của chúng tôi hoặc muốn thực hiện quyền dữ liệu của mình, vui lòng liên hệ với chúng tôi bằng tính năng phản hồi trong ứng dụng.
 
-E-posta: contact@drivarc.com</div>
+Email: contact@drivarc.com</div>
         </div>
     </div>
 
@@ -431,9 +452,9 @@ E-posta: contact@drivarc.com</div>
             <!-- Center Column: Legal Links -->
             <div class="footer-col footer-col-center">
                 <div class="footer-links">
-                    <a href="terms.html" class="footer-link" rel="noopener noreferrer"><span data-i18n="footer.terms_label">Kullanım Şartları</span></a>
+                    <a href="terms.html" class="footer-link" rel="noopener noreferrer"><span data-i18n="footer.terms_label">Điều khoản sử dụng</span></a>
                     <span class="footer-separator">|</span>
-                    <a href="privacy.html" class="footer-link active" rel="noopener noreferrer"><span data-i18n="footer.privacy_label">Gizlilik Politikası</span></a>
+                    <a href="privacy.html" class="footer-link active" rel="noopener noreferrer"><span data-i18n="footer.privacy_label">Chính sách bảo mật</span></a>
                     <span class="footer-separator">|</span>
                     <a href="#" class="footer-link cookie-preferences-link"><span data-i18n="footer.cookies_label">Tùy chọn cookie</span></a>
                 </div>
@@ -467,8 +488,7 @@ E-posta: contact@drivarc.com</div>
     <div class="cookie-consent" id="cookieConsent" role="dialog" aria-label="Sự đồng ý Cookie" aria-describedby="cookieConsentDesc" data-i18n="cookie.consent_aria" data-i18n-attr="aria-label"><div class="cookie-consent-content">
             <div class="cookie-consent-text">
                 <h3 class="cookie-consent-title" data-i18n="cookie.title">Tùy chọn Cookie của bạn</h3>
-                <p class="cookie-consent-description" id="cookieConsentDesc" data-i18n="cookie.description">Size daha iyi bir deneyim sunmak için çerezler kullanıyoruz. Detaylı bilgi için 
-                    Gizlilik Politikası'mızı inceleyebilirsiniz.</p>
+                <p class="cookie-consent-description" id="cookieConsentDesc" data-i18n="cookie.description">Chúng tôi sử dụng cookie để cung cấp trải nghiệm tốt hơn cho bạn. Bạn có thể xem Chính sách Quyền riêng tư của chúng tôi để biết thêm thông tin.</p>
             </div>
             <div class="cookie-consent-actions">
                 <button class="cookie-consent-btn accept" aria-label="Chấp nhận tất cả cookie" data-i18n="cookie.accept" data-i18n-attr="aria-label">Chấp nhận tất cả cookie</button>
@@ -514,16 +534,15 @@ E-posta: contact@drivarc.com</div>
         </div>
     </div>
 
-    <div class="decline-reprompt-modal" id="declineRepromptModal" role="dialog" aria-label="Emin misiniz?" aria-modal="true" data-i18n="decline.aria_label" data-i18n-attr="aria-label">
+    <div class="decline-reprompt-modal" id="declineRepromptModal" role="dialog" aria-label="Bạn có chắc không?" aria-modal="true" data-i18n="decline.aria_label" data-i18n-attr="aria-label">
         <div class="decline-reprompt-modal-content">
             <div class="decline-reprompt-icon">
                 <svg viewBox="0 0 24 24" fill="currentColor">
                     <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
                 </svg>
             </div>
-            <h3 class="decline-reprompt-title" data-i18n="decline.title">Emin misiniz?</h3>
-            <p class="decline-reprompt-description" data-i18n="decline.desc">
-                Çerezleri reddettiğinizde bazı özellikler düzgün çalışmayabilir. Kişiselleştirilmiş deneyim ve analizler için <strong>tüm çerezleri kabul etmenizi</strong> öneriyoruz.
+            <h3 class="decline-reprompt-title" data-i18n="decline.title">Bạn có chắc không?</h3>
+            <p class="decline-reprompt-description" data-i18n="decline.desc">Bằng cách từ chối cookie, một số tính năng có thể không hoạt động chính xác. Chúng tôi khuyên bạn nên chấp nhận tất cả cookie cho trải nghiệm cá nhân hóa và phân tích.</strong> öneriyoruz.
             </p>
             <div class="decline-reprompt-actions">
                 <button class="decline-reprompt-btn decline-confirmed" id="declineConfirmed" data-i18n="decline.confirm">Vẫn từ chối</button>
