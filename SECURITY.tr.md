@@ -39,7 +39,7 @@ Güvenlikle ilgili bir sorun tespit ederseniz, lütfen bunu herkese açık issue
 - Service Worker, cache veya lokalize sayfalarla ilgili bulgular için mümkünse hard refresh sonrası davranışı da not ediniz.
 
 ## İletişim
-Güvenlik bildirimleri için tek resmi kanal: [Güvenlik Açığı Bildirme bölümündeki iletişim adresi](#güvenlik-açığı-bildirme)
+Güvenlik bildirimleri için tek resmi kanal: [contact@drivarc.com](mailto:contact@drivarc.com)
 İngilizce sürüm: [SECURITY.md](SECURITY.md)
 
 ---

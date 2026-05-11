@@ -59,16 +59,19 @@ function getLocalizedPageCases(fileNames = localizedPageFiles) {
       .map((fileName) => {
         const sourcePath = getLocalizedSourcePath(code, fileName);
 
-        if (!fs.existsSync(sourcePath)) {
-          return null;
+        try {
+          return {
+            code,
+            fileName,
+            path: getLocalizedPagePath(code, fileName),
+            title: readTitleFromHtml(sourcePath),
+          };
+        } catch (error) {
+          if (error && error.code === 'ENOENT') {
+            return null;
+          }
+          throw error;
         }
-
-        return {
-          code,
-          fileName,
-          path: getLocalizedPagePath(code, fileName),
-          title: readTitleFromHtml(sourcePath),
-        };
       })
       .filter(Boolean)
   );
