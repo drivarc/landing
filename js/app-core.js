@@ -1,5 +1,8 @@
 const isTouchCapable = 'ontouchstart' in window || navigator.maxTouchPoints > 0 || navigator.msMaxTouchPoints > 0;
 const isMobile = isTouchCapable || /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || window.innerWidth <= 768;
+const supportsHoverInput = window.matchMedia
+    ? window.matchMedia('(any-hover: hover)').matches || window.matchMedia('(hover: hover)').matches
+    : !isTouchCapable;
 
 const prefersReducedMotion = window.matchMedia ? window.matchMedia('(prefers-reduced-motion: reduce)').matches : false;
 
@@ -145,7 +148,7 @@ function getCurrencyInfo() {
     return currencyMapping[lang] || { code: 'USD', locale: 'en-US' };
 }
 
-if (isMobile) {
+if (!supportsHoverInput) {
     html.classList.add('touch-device');
 }
 

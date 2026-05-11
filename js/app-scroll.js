@@ -45,7 +45,7 @@ function initPhone3D() {
     const heroSection = document.getElementById('hero');
     const phone = document.querySelector('.phone');
 
-    if (isMobile || !heroSection || !phone || prefersReducedMotion) return;
+    if (!supportsHoverInput || !heroSection || !phone || prefersReducedMotion) return;
 
     let isMouseOverHero = false;
     let rafId = null;
