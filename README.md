@@ -1,20 +1,35 @@
 # Drivarc Landing Page
 
-Drivarc mobil uygulamasının çok dilli statik landing page'i.
+Drivarc Landing Page is the public, multilingual static website for the Drivarc mobile app. It exists to introduce the product, show the brand, and give visitors a quick path to learn more.
 
-**Canlı:** [drivarc.com](https://drivarc.com)
+Live site: [drivarc.com](https://drivarc.com)
 
-## Diller
+## What this site is for
 
-- Türkçe (`/`) — English (`/en/`) — Deutsch (`/de/`) — Русский (`/ru/`) — 中文 (`/zh/`) — العربية (`/ar/`, RTL)
+- Present the mobile app in a clear, browser-friendly way.
+- Reach visitors in multiple languages.
+- Keep the public marketing experience simple and fast.
+- Provide the basic policy pages visitors expect from a live product site.
 
-## Yapı
+## What you will find
 
-- Saf HTML/CSS/JS — build aracı yok
-- PWA desteği (service worker + manifest)
-- Playwright ile test
-- GitHub Actions CI
-- GitHub Pages üzerinde yayın
+- The main landing page
+- Localized versions for supported languages
+- Privacy and terms pages
+- A mobile-friendly experience for people browsing from any device
 
-## Güvenlik
-Güvenlik raporları ve sorumluluk bildirimleri için ana belge: [SECURITY.md](SECURITY.md) (English). Türkçe çeviri: [SECURITY.tr.md](SECURITY.tr.md). Güvenlik açıklarını lütfen halka açık issue olarak paylaşmayın; raporlar için sayfadaki talimatları izleyiniz.
+## Language overview
+
+The site is published in 29 languages, starting with Turkish at the root and including English, German, French, Spanish, Russian, Chinese, Arabic, and more.
+
+## Related documents
+
+- Turkish README: [README.tr.md](README.tr.md)
+- Security information: [SECURITY.md](SECURITY.md)
+- Turkish security note: [SECURITY.tr.md](SECURITY.tr.md)
+ - Copyright (EN): [copyright.md](copyright.md)
+ - Copyright (TR): [copyright.tr.md](copyright.tr.md)
+
+## Notes for contributors
+
+This repo is intentionally static. If you update the root pages, keep the localized versions in sync.
