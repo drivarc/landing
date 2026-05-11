@@ -59,9 +59,23 @@
 .testimonials-track {
   display: flex;
   gap: 24px;
+  animation: testimonialScroll 45s linear infinite;
   will-change: transform;
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
+}
+
+.testimonials-wrapper.paused .testimonials-track {
+  animation-play-state: paused;
+}
+
+@keyframes testimonialScroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(var(--scroll-dist));
+  }
 }
 
 .testimonial-card {

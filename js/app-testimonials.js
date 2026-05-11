@@ -14,10 +14,9 @@
     track.appendChild(clone);
   });
 
-  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  wrapper.classList.add('paused');
 
-  var anim = null;
-  var lastDist = 0;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
   function measure() {
     var n = track.children.length / 2;
@@ -26,56 +25,48 @@
     return Math.round(last.right - first.left);
   }
 
-  function start() {
-    var dist = measure();
-    if (dist === lastDist && anim) return;
-    lastDist = dist;
-    if (anim) anim.cancel();
-    anim = track.animate([
-      { transform: 'translateX(0)' },
-      { transform: 'translateX(-' + dist + 'px)' }
-    ], {
-      duration: 45000,
-      iterations: Infinity,
-      easing: 'linear'
-    });
+  function setDist() {
+    track.style.setProperty('--scroll-dist', '-' + measure() + 'px');
   }
 
   requestAnimationFrame(function () {
-    requestAnimationFrame(start);
+    requestAnimationFrame(function () {
+      setDist();
+      wrapper.classList.remove('paused');
+    });
   });
 
   var hoverTimer = null;
   var resizeTimer = null;
 
   wrapper.addEventListener('mouseenter', function () {
-    if (anim) anim.pause();
+    wrapper.classList.add('paused');
   });
 
   wrapper.addEventListener('mouseleave', function () {
-    if (anim) anim.play();
+    wrapper.classList.remove('paused');
   });
 
   wrapper.addEventListener('touchstart', function () {
-    if (anim) anim.pause();
+    wrapper.classList.add('paused');
     clearTimeout(hoverTimer);
   });
 
   wrapper.addEventListener('touchend', function () {
     hoverTimer = setTimeout(function () {
-      if (anim) anim.play();
+      wrapper.classList.remove('paused');
     }, 300);
   });
 
   wrapper.addEventListener('touchcancel', function () {
-    if (anim) anim.play();
+    wrapper.classList.remove('paused');
     clearTimeout(hoverTimer);
   });
 
   window.addEventListener('resize', function () {
     clearTimeout(resizeTimer);
     resizeTimer = setTimeout(function () {
-      requestAnimationFrame(start);
+      requestAnimationFrame(setDist);
     }, 300);
   });
 })();
