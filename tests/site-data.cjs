@@ -12,6 +12,15 @@ const rtlLanguageCodes = new Set(languageMetadata.filter(({ rtl }) => rtl).map((
 
 const localizedPageFiles = ['index.html', 'privacy.html', 'terms.html', '404.html'];
 
+const namedHtmlEntities = {
+  amp: '&',
+  quot: '"',
+  apos: "'",
+  lt: '<',
+  gt: '>',
+  nbsp: ' ',
+};
+
 function getLocalizedPagePath(code, fileName) {
   if (code === 'tr') {
     return fileName === 'index.html' ? '/' : `/${fileName}`;
@@ -32,7 +41,16 @@ function readTitleFromHtml(filePath) {
     throw new Error(`Title not found in ${filePath}`);
   }
 
-  return titleMatch[1].replace(/\s+/g, ' ').trim();
+  const decodedTitle = titleMatch[1].replace(/&(#x?[0-9a-fA-F]+|[a-zA-Z]+);/g, (match, entity) => {
+    if (entity[0] === '#') {
+      const codePoint = entity[1].toLowerCase() === 'x' ? parseInt(entity.slice(2), 16) : parseInt(entity.slice(1), 10);
+      return Number.isFinite(codePoint) ? String.fromCodePoint(codePoint) : match;
+    }
+
+    return namedHtmlEntities[entity] ?? match;
+  });
+
+  return decodedTitle.replace(/\s+/g, ' ').trim();
 }
 
 function getLocalizedPageCases(fileNames = localizedPageFiles) {
