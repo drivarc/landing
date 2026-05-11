@@ -15,3 +15,6 @@ Drivarc mobil uygulamasının çok dilli statik landing page'i.
 - Playwright ile test
 - GitHub Actions CI
 - GitHub Pages üzerinde yayın
+
+## Güvenlik
+Güvenlik raporları ve sorumluluk bildirimleri için ana belge: [SECURITY.md](SECURITY.md) (English). Türkçe çeviri: [SECURITY.tr.md](SECURITY.tr.md). Güvenlik açıklarını lütfen halka açık issue olarak paylaşmayın; raporlar için sayfadaki talimatları izleyiniz.
