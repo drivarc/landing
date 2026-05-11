@@ -75,7 +75,7 @@
 	    <link rel="stylesheet" href="/css/styles-modals.css">
 	    <link rel="stylesheet" href="/css/styles-animations.css">
 	    <link rel="stylesheet" href="/css/styles-rtl.css">
-    
+	    <link rel="stylesheet" href="/css/styles-testimonials.css">
     
     <script src="/js/seo-jsonld.js" defer></script>
     <script src="/js/app-core.js" defer></script>
@@ -83,6 +83,7 @@
     <script src="/js/app-ui.js" defer></script>
     <script src="/js/app-cookie.js" defer></script>
     <script src="/js/app-i18n.js" defer></script>
+    <script src="/js/app-testimonials.js" defer></script>
   <!-- hreflang -->
     <link rel="alternate" hreflang="tr" href="https://drivarc.com/">
     <link rel="alternate" hreflang="en" href="https://drivarc.com/en/">
@@ -146,6 +147,7 @@
                 <a href="#hero" class="logo"><img src="images/logo-256.png" srcset="images/logo-256.png 1x" alt="Drivarc Logo" class="logo-img" width="128" height="36" loading="eager" fetchpriority="high"></a>
                 <nav class="nav" data-i18n="nav.aria_label" data-i18n-attr="aria-label" aria-label="Ana menü">
                     <a href="#hero" class="active" data-i18n="nav.home">Ana Sayfa</a>
+                    <a href="#testimonials" data-i18n="nav.testimonials">Yorumlar</a>
                     <a href="#features" data-i18n="nav.features">Özellikler</a>
                     <a href="#problems" data-i18n="nav.problems">Sorunlar</a>
                     <a href="#faq" data-i18n="nav.faq">SSS</a>
@@ -440,6 +442,85 @@
             </div>
         </main>
     </div>
+
+    <section class="testimonials-section" id="testimonials" aria-labelledby="testimonials-title">
+      <div class="testimonials-inner">
+        <div class="testimonials-header animate-on-scroll">
+          <h2 class="testimonials-title" id="testimonials-title" data-i18n="testimonials.title">Kullanıcı Yorumları</h2>
+          <p class="testimonials-subtitle" data-i18n="testimonials.subtitle">Drivarc kullanıcılarının deneyimleri</p>
+        </div>
+        <div class="testimonials-wrapper" id="testimonialsWrapper">
+          <div class="testimonials-track" id="testimonialsTrack">
+            <div class="testimonial-card">
+              <div class="testimonial-stars">★★★★★</div>
+              <p class="testimonial-text" data-i18n-html="testimonial.1.text">Drivarc sayesinde araç masraflarımı düzenli takip edebiliyorum. Çok kullanışlı bir uygulama.</p>
+              <div class="testimonial-author">
+                <div class="testimonial-avatar">ÖD</div>
+                <div>
+                  <div class="testimonial-name" data-i18n="testimonial.1.name">Özer D.</div>
+                  <div class="testimonial-role" data-i18n="testimonial.1.title">Beta Test Kullanıcısı</div>
+                </div>
+              </div>
+            </div>
+            <div class="testimonial-card">
+              <div class="testimonial-stars">★★★★★</div>
+              <p class="testimonial-text" data-i18n-html="testimonial.2.text">Bakım hatırlatıcıları sayesinde hiçbir bakımı kaçırmıyorum. Gerçekten işimi kolaylaştırdı.</p>
+              <div class="testimonial-author">
+                <div class="testimonial-avatar">GB</div>
+                <div>
+                  <div class="testimonial-name" data-i18n="testimonial.2.name">Gökberk Burak S.</div>
+                  <div class="testimonial-role" data-i18n="testimonial.2.title">Beta Test Kullanıcısı</div>
+                </div>
+              </div>
+            </div>
+            <div class="testimonial-card">
+              <div class="testimonial-stars">★★★★★</div>
+              <p class="testimonial-text" data-i18n-html="testimonial.3.text">Yakıt takibi ve maliyet analizleri sayesinde aylık ne kadar harcadığımı net görebiliyorum. Harika bir araç!</p>
+              <div class="testimonial-author">
+                <div class="testimonial-avatar">Eİ</div>
+                <div>
+                  <div class="testimonial-name" data-i18n="testimonial.3.name">Emre İ.</div>
+                  <div class="testimonial-role" data-i18n="testimonial.3.title">Beta Test Kullanıcısı</div>
+                </div>
+              </div>
+            </div>
+            <div class="testimonial-card">
+              <div class="testimonial-stars">★★★★★</div>
+              <p class="testimonial-text" data-i18n-html="testimonial.4.text">Şirket araçlarımızın tamamını Drivarc ile yönetiyoruz. Çoklu araç desteği tam aradığımız çözüm oldu.</p>
+              <div class="testimonial-author">
+                <div class="testimonial-avatar">İY</div>
+                <div>
+                  <div class="testimonial-name" data-i18n="testimonial.4.name">İlker Y.</div>
+                  <div class="testimonial-role" data-i18n="testimonial.4.title">Beta Test Kullanıcısı</div>
+                </div>
+              </div>
+            </div>
+            <div class="testimonial-card">
+              <div class="testimonial-stars">★★★★★</div>
+              <p class="testimonial-text" data-i18n-html="testimonial.5.text">Fiş tarama özelliği sayesinde fişleri manuel girmek zorunda kalmıyorum. Çok zaman kazandırıyor.</p>
+              <div class="testimonial-author">
+                <div class="testimonial-avatar">UK</div>
+                <div>
+                  <div class="testimonial-name" data-i18n="testimonial.5.name">Umut K.</div>
+                  <div class="testimonial-role" data-i18n="testimonial.5.title">Beta Test Kullanıcısı</div>
+                </div>
+              </div>
+            </div>
+            <div class="testimonial-card">
+              <div class="testimonial-stars">★★★★★</div>
+              <p class="testimonial-text" data-i18n-html="testimonial.6.text">Offline çalışabilmesi en sevdiğim özellik. İnternet olmasa bile verilerimi girebiliyorum.</p>
+              <div class="testimonial-author">
+                <div class="testimonial-avatar">BC</div>
+                <div>
+                  <div class="testimonial-name" data-i18n="testimonial.6.name">Bertuğ C.</div>
+                  <div class="testimonial-role" data-i18n="testimonial.6.title">Beta Test Kullanıcısı</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
     <section class="features-section" id="features" aria-labelledby="features-title">
         <div class="section-particles">

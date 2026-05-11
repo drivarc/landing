@@ -192,7 +192,7 @@ if (prefersReducedMotion) {
 }
 
 const navLinks = document.querySelectorAll('.nav a[href^="#"]');
-const sectionIds = ['hero', 'features', 'problems', 'faq'];
+const sectionIds = ['hero', 'testimonials', 'features', 'problems', 'faq'];
 
 const allSectionsExist = sectionIds.every(id => document.getElementById(id));
 
