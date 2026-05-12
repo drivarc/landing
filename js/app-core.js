@@ -6,6 +6,52 @@ const supportsHoverInput = window.matchMedia
 
 const prefersReducedMotion = window.matchMedia ? window.matchMedia('(prefers-reduced-motion: reduce)').matches : false;
 
+function supportsCssFeature(property, value) {
+    if (!window.CSS || typeof window.CSS.supports !== 'function') return true;
+
+    try {
+        return window.CSS.supports(property, value);
+    } catch (error) {
+        return false;
+    }
+}
+
+const runtimeFeatureMatrix = {
+    isTouchCapable: isTouchCapable,
+    isMobile: isMobile,
+    supportsHoverInput: supportsHoverInput,
+    prefersReducedMotion: prefersReducedMotion,
+    anyHover: window.matchMedia ? window.matchMedia('(any-hover: hover)').matches : false,
+    hover: window.matchMedia ? window.matchMedia('(hover: hover)').matches : false,
+    anyPointerCoarse: window.matchMedia ? window.matchMedia('(any-pointer: coarse)').matches : false,
+    anyPointerFine: window.matchMedia ? window.matchMedia('(any-pointer: fine)').matches : false,
+    supportsPointerEvents: 'PointerEvent' in window,
+    supportsTransform3d: supportsCssFeature('transform', 'translate3d(0, 0, 0)'),
+    supportsMaskImage: supportsCssFeature('mask-image', 'linear-gradient(black, transparent)') || supportsCssFeature('-webkit-mask-image', 'linear-gradient(black, transparent)'),
+    supportsBackdropFilter: supportsCssFeature('backdrop-filter', 'blur(1px)') || supportsCssFeature('-webkit-backdrop-filter', 'blur(1px)'),
+    supportsRequestAnimationFrame: typeof window.requestAnimationFrame === 'function',
+    supportsResizeObserver: typeof window.ResizeObserver === 'function'
+};
+
+function logRuntimeDiagnostics(scope, details) {
+    var payload = Object.assign({
+        scope: scope,
+        userAgent: navigator.userAgent,
+        timestamp: new Date().toISOString()
+    }, runtimeFeatureMatrix, details || {});
+
+    console.info('[Drivarc diagnostics][' + scope + ']', payload);
+    return payload;
+}
+
+window.drivarcRuntimeFeatures = runtimeFeatureMatrix;
+window.drivarcDiagnostics = {
+    features: runtimeFeatureMatrix,
+    log: logRuntimeDiagnostics
+};
+
+logRuntimeDiagnostics('core', { phase: 'feature-matrix' });
+
 // Set CSS variables from data attributes
 function setCssVarsFromData() {
     const elements = document.querySelectorAll('[data-delay], [data-x], [data-size], [data-drift]');

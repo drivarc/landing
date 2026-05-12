@@ -4,15 +4,140 @@
   var track = document.getElementById('testimonialsTrack');
   var wrapper = document.getElementById('testimonialsWrapper');
   var swiper = document.getElementById('testimonialsSwiper');
+  var section = document.getElementById('testimonials');
   if (!track || !wrapper || !swiper) return;
 
+  var diagnostics = window.drivarcDiagnostics && typeof window.drivarcDiagnostics.log === 'function'
+    ? window.drivarcDiagnostics.log
+    : function (scope, details) {
+        var payload = { scope: scope, timestamp: new Date().toISOString() };
+        if (details && typeof details === 'object') {
+          Object.keys(details).forEach(function (key) {
+            payload[key] = details[key];
+          });
+        }
+        console.info('[Drivarc diagnostics][' + scope + ']', payload);
+        return payload;
+      };
+
+  var featureMatrix = window.drivarcRuntimeFeatures || {
+    prefersReducedMotion: window.matchMedia ? window.matchMedia('(prefers-reduced-motion: reduce)').matches : false,
+    supportsRequestAnimationFrame: typeof window.requestAnimationFrame === 'function',
+    supportsTransform3d: !window.CSS || typeof window.CSS.supports !== 'function' ? true : window.CSS.supports('transform', 'translate3d(0, 0, 0)'),
+    supportsMaskImage: !window.CSS || typeof window.CSS.supports !== 'function' ? true : window.CSS.supports('mask-image', 'linear-gradient(black, transparent)') || window.CSS.supports('-webkit-mask-image', 'linear-gradient(black, transparent)'),
+    supportsPointerEvents: 'PointerEvent' in window
+  };
+
   var cards = Array.from(track.children);
-  if (cards.length < 2) return;
+  if (cards.length < 2) {
+    diagnostics('testimonials', {
+      phase: 'static',
+      reason: 'insufficient-cards',
+      cardCount: cards.length,
+      forceLog: true
+    });
+    return;
+  }
+
+  diagnostics('testimonials', {
+    phase: 'feature-matrix',
+    cardCount: cards.length,
+    prefersReducedMotion: featureMatrix.prefersReducedMotion,
+    supportsRequestAnimationFrame: featureMatrix.supportsRequestAnimationFrame,
+    supportsTransform3d: featureMatrix.supportsTransform3d,
+    supportsMaskImage: featureMatrix.supportsMaskImage,
+    supportsPointerEvents: featureMatrix.supportsPointerEvents,
+    wrapperWidth: Math.round(wrapper.getBoundingClientRect().width),
+    trackWidth: Math.round(track.getBoundingClientRect().width),
+    forceLog: true
+  });
+
+  var fallbackApplied = false;
+  var cloneMarker = '[data-testimonial-clone="true"]';
+  var pos = 0;
+  var speed = 0.7;
+  var maxDist = 0;
+  var paused = false;
+  var running = false;
+
+  function requestFrame(callback) {
+    try {
+      if (typeof window.requestAnimationFrame === 'function') {
+        return window.requestAnimationFrame(callback);
+      }
+    } catch (error) {
+      console.error('[Drivarc diagnostics][testimonials] requestAnimationFrame failed', error);
+    }
+
+    return window.setTimeout(function () {
+      callback(window.performance && typeof window.performance.now === 'function' ? window.performance.now() : Date.now());
+    }, 16);
+  }
+
+  function cancelFrame(handle) {
+    if (typeof window.cancelAnimationFrame === 'function') {
+      window.cancelAnimationFrame(handle);
+      return;
+    }
+
+    window.clearTimeout(handle);
+  }
+
+  function activateStaticFallback(reason, error) {
+    if (fallbackApplied) return;
+    fallbackApplied = true;
+    running = false;
+
+    Array.prototype.slice.call(track.querySelectorAll(cloneMarker)).forEach(function (node) {
+      node.remove();
+    });
+
+    track.style.transform = '';
+    swiper.style.transform = '';
+    track.style.removeProperty('display');
+    track.style.removeProperty('grid-template-columns');
+    track.style.removeProperty('gap');
+    track.style.removeProperty('justify-content');
+    wrapper.classList.add('testimonials-static');
+    if (section) section.classList.add('testimonials-static');
+
+    diagnostics('testimonials', {
+      phase: 'static-fallback',
+      reason: reason,
+      error: error ? error.message : undefined,
+      cardCount: cards.length,
+      forceLog: true
+    });
+
+    console.warn('[Drivarc diagnostics][testimonials] static fallback', {
+      reason: reason,
+      error: error ? error.message : undefined
+    });
+  }
+
+  if (featureMatrix.prefersReducedMotion || !featureMatrix.supportsRequestAnimationFrame || !featureMatrix.supportsTransform3d) {
+    activateStaticFallback(
+      featureMatrix.prefersReducedMotion
+        ? 'prefers-reduced-motion'
+        : (!featureMatrix.supportsRequestAnimationFrame ? 'requestAnimationFrame-missing' : 'transform-3d-unsupported')
+    );
+    return;
+  }
+
+  if (!featureMatrix.supportsMaskImage) {
+    diagnostics('testimonials', {
+      phase: 'feature-warning',
+      reason: 'mask-image-unsupported',
+      cardCount: cards.length,
+      forceLog: true
+    });
+  }
 
   // Prepend clone set (for right-swipe / previous cards)
   for (var i = cards.length - 1; i >= 0; i--) {
     var c = cards[i].cloneNode(true);
     c.removeAttribute('id');
+    c.setAttribute('data-testimonial-clone', 'true');
     track.insertBefore(c, track.firstChild);
   }
 
@@ -20,44 +145,75 @@
   cards.forEach(function (c) {
     var clone = c.cloneNode(true);
     clone.removeAttribute('id');
+    clone.setAttribute('data-testimonial-clone', 'true');
     track.appendChild(clone);
   });
 
-  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-
-  var pos = 0;
-  var speed = 0.7;
-  var maxDist = 0;
-  var paused = false;
-  var running = false;
-
   function measure() {
-    var n = cards.length;
-    var first = track.children[n].getBoundingClientRect();
-    var last = track.children[n * 2 - 1].getBoundingClientRect();
-    maxDist = Math.round(last.right - first.left);
-    pos = -maxDist;
+    try {
+      var n = cards.length;
+      var first = track.children[n].getBoundingClientRect();
+      var last = track.children[n * 2 - 1].getBoundingClientRect();
+      maxDist = Math.round(last.right - first.left);
+
+      if (!maxDist || maxDist < 1) {
+        throw new Error('Invalid slide distance: ' + maxDist);
+      }
+
+      pos = -maxDist;
+      diagnostics('testimonials', {
+        phase: 'measured',
+        maxDist: maxDist,
+        cardCount: cards.length
+      });
+    } catch (error) {
+      activateStaticFallback('measure-error', error);
+    }
   }
 
   function animate() {
-    if (!running) return;
-    if (!paused) {
-      pos -= speed;
-      if (pos < -maxDist * 2) pos += maxDist;
-      if (pos > 0) pos -= maxDist;
-      track.style.transform = 'translateX(' + pos + 'px)';
+    if (!running || fallbackApplied) return;
+
+    try {
+      if (!paused) {
+        pos -= speed;
+        if (maxDist > 0) {
+          if (pos < -maxDist * 2) pos += maxDist;
+          if (pos > 0) pos -= maxDist;
+        }
+
+        track.style.transform = 'translate3d(' + pos + 'px, 0, 0)';
+      }
+
+      requestFrame(animate);
+    } catch (error) {
+      activateStaticFallback('animate-error', error);
     }
-    requestAnimationFrame(animate);
   }
 
   function start() {
-    measure();
-    track.style.transform = 'translateX(' + pos + 'px)';
-    running = true;
-    animate();
+    try {
+      measure();
+      if (fallbackApplied) return;
+
+      track.style.transform = 'translate3d(' + pos + 'px, 0, 0)';
+      running = true;
+
+      diagnostics('testimonials', {
+        phase: 'started',
+        maxDist: maxDist,
+        speed: speed,
+        cardCount: cards.length,
+        forceLog: true
+      });
+
+      animate();
+    } catch (error) {
+      activateStaticFallback('start-error', error);
+    }
   }
 
-  requestAnimationFrame(start);
+  requestFrame(start);
 
   var hoverTimer = null;
   var resizeTimer = null;
@@ -73,34 +229,65 @@
     paused = false;
   });
 
+  if ('PointerEvent' in window) {
+    wrapper.addEventListener('pointerenter', function (event) {
+      if (event.pointerType && event.pointerType !== 'mouse' && event.pointerType !== 'pen') return;
+      paused = true;
+    });
+
+    wrapper.addEventListener('pointerleave', function (event) {
+      if (event.pointerType && event.pointerType !== 'mouse' && event.pointerType !== 'pen') return;
+      paused = false;
+    });
+  }
+
   wrapper.addEventListener('touchstart', function (e) {
-    dragging = true;
-    startX = e.touches[0].clientX;
-    currentX = startX;
-    paused = true;
-    clearTimeout(hoverTimer);
+    try {
+      dragging = true;
+      startX = e.touches[0].clientX;
+      currentX = startX;
+      paused = true;
+      clearTimeout(hoverTimer);
+      diagnostics('testimonials', {
+        phase: 'touchstart',
+        cardCount: cards.length
+      });
+    } catch (error) {
+      activateStaticFallback('touchstart-error', error);
+    }
   });
 
   wrapper.addEventListener('touchmove', function (e) {
-    if (!dragging) return;
-    currentX = e.touches[0].clientX;
-    var dx = currentX - startX;
-    e.preventDefault();
-    swiper.style.transform = 'translateX(' + dx + 'px)';
+    if (!dragging || fallbackApplied) return;
+
+    try {
+      currentX = e.touches[0].clientX;
+      var dx = currentX - startX;
+      e.preventDefault();
+      swiper.style.transform = 'translate3d(' + dx + 'px, 0, 0)';
+    } catch (error) {
+      activateStaticFallback('touchmove-error', error);
+    }
   }, { passive: false });
 
   wrapper.addEventListener('touchend', function () {
-    dragging = false;
-    var dx = currentX - startX;
-    pos = pos + dx;
-    if (pos < -maxDist * 2) pos = -maxDist * 2;
-    if (pos > maxDist) pos = maxDist;
-    track.style.transform = 'translateX(' + pos + 'px)';
-    swiper.style.transform = '';
-    clearTimeout(hoverTimer);
-    hoverTimer = setTimeout(function () {
-      paused = false;
-    }, 50);
+    if (fallbackApplied) return;
+
+    try {
+      dragging = false;
+      var dx = currentX - startX;
+      pos = pos + dx;
+      if (pos < -maxDist * 2) pos = -maxDist * 2;
+      if (pos > maxDist) pos = maxDist;
+      track.style.transform = 'translate3d(' + pos + 'px, 0, 0)';
+      swiper.style.transform = '';
+      clearTimeout(hoverTimer);
+      hoverTimer = setTimeout(function () {
+        paused = false;
+      }, 50);
+    } catch (error) {
+      activateStaticFallback('touchend-error', error);
+    }
   });
 
   wrapper.addEventListener('touchcancel', function () {
@@ -113,7 +300,17 @@
   window.addEventListener('resize', function () {
     clearTimeout(resizeTimer);
     resizeTimer = setTimeout(function () {
-      measure();
+      try {
+        measure();
+        if (fallbackApplied) return;
+        diagnostics('testimonials', {
+          phase: 'resize-measured',
+          maxDist: maxDist,
+          cardCount: cards.length
+        });
+      } catch (error) {
+        activateStaticFallback('resize-error', error);
+      }
     }, 300);
   });
 })();

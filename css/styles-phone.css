@@ -6,6 +6,8 @@
     height: 640px;
     margin: 0 auto;
     perspective: 1000px;
+    transform-style: preserve-3d;
+    isolation: isolate;
 }
 
 .phone-container::before {
@@ -13,15 +15,21 @@
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
-    width: 100%;
-    height: 100%;
-    background: radial-gradient(circle, var(--accent-glow) 0%, transparent 60%);
+    transform: translate(-50%, -52%) scale(1.06, 0.78);
+    width: 126%;
+    height: 78%;
+    background: radial-gradient(
+        ellipse at center,
+        rgba(169, 199, 255, 0.24) 0%,
+        rgba(169, 199, 255, 0.16) 24%,
+        rgba(169, 199, 255, 0.08) 48%,
+        transparent 74%
+    );
     border-radius: 50%;
     pointer-events: none;
-    z-index: -1;
-    filter: blur(30px);
-    opacity: 0.5;
+    z-index: 0;
+    filter: blur(36px);
+    opacity: 0.42;
 }
 
 
@@ -106,6 +114,8 @@
 
 .hero-phone {
     flex: 0 0 auto;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
 }
 
 
@@ -647,6 +657,14 @@
 .status-logo svg {
     width: 100%;
     height: 100%;
+}
+.phone {
+    position: relative;
+    z-index: 1;
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    will-change: transform;
 }
 
 

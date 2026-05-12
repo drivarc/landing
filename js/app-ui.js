@@ -82,7 +82,10 @@ function initAnimations() {
     initPhone3D();
 
     if (!prefersReducedMotion) {
-        window.addEventListener('mousemove', updateGridParallax);
+        window.addEventListener('mousemove', handleGridParallaxMotion, { passive: true });
+        if ('PointerEvent' in window) {
+            window.addEventListener('pointermove', handleGridParallaxMotion, { passive: true });
+        }
     }
 
     window.addEventListener('scroll', updateScrollProgress, { passive: true });

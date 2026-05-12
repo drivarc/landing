@@ -1,4 +1,27 @@
 const scrollProgress = document.getElementById('scrollProgress');
+function requestFrame(callback) {
+    try {
+        if (typeof window.requestAnimationFrame === 'function') {
+            return window.requestAnimationFrame(callback);
+        }
+    } catch (error) {
+        console.error('[Drivarc diagnostics][motion] requestAnimationFrame failed', error);
+    }
+
+    return window.setTimeout(function () {
+        callback(window.performance && typeof window.performance.now === 'function' ? window.performance.now() : Date.now());
+    }, 16);
+}
+
+function cancelFrame(handle) {
+    if (typeof window.cancelAnimationFrame === 'function') {
+        window.cancelAnimationFrame(handle);
+        return;
+    }
+
+    window.clearTimeout(handle);
+}
+
 function updateScrollProgress() {
     if (!scrollProgress) return;
 
@@ -13,7 +36,21 @@ function updateGridParallax(e) {
     if (!gridBg || prefersReducedMotion) return;
     const x = (e.clientX / window.innerWidth - 0.5) * 20;
     const y = (e.clientY / window.innerHeight - 0.5) * 20;
-    gridBg.style.transform = `translate(${x}px, ${y}px)`;
+    gridBg.style.transform = `translate3d(${x}px, ${y}px, 0)`;
+}
+
+function handleGridParallaxMotion(e) {
+    if (prefersReducedMotion) return;
+
+    if (e.type === 'pointermove' && e.pointerType && e.pointerType !== 'mouse' && e.pointerType !== 'pen') {
+        return;
+    }
+
+    try {
+        updateGridParallax(e);
+    } catch (error) {
+        console.error('[Drivarc diagnostics][grid-parallax] Motion update failed', error);
+    }
 }
 
 function createRipple(event) {
@@ -45,7 +82,39 @@ function initPhone3D() {
     const heroSection = document.getElementById('hero');
     const phone = document.querySelector('.phone');
 
-    if (!supportsHoverInput || !heroSection || !phone || prefersReducedMotion) return;
+    if (!heroSection || !phone) {
+        console.info('[Drivarc diagnostics][phone-tilt] skipped', {
+            reason: 'missing-elements',
+            hasHeroSection: !!heroSection,
+            hasPhone: !!phone
+        });
+        return;
+    }
+
+    const phoneFeatureMatrix = window.drivarcRuntimeFeatures || {
+        isTouchCapable,
+        isMobile,
+        supportsHoverInput,
+        prefersReducedMotion
+    };
+
+    console.info('[Drivarc diagnostics][phone-tilt] feature matrix', phoneFeatureMatrix);
+
+    if (prefersReducedMotion) {
+        console.info('[Drivarc diagnostics][phone-tilt] disabled', { reason: 'prefers-reduced-motion' });
+        return;
+    }
+
+    if (window.innerWidth <= 768) {
+        console.info('[Drivarc diagnostics][phone-tilt] disabled', { reason: 'mobile-width', width: window.innerWidth });
+        return;
+    }
+
+    const supportsTransform3d = !window.CSS || typeof window.CSS.supports !== 'function' ? true : window.CSS.supports('transform', 'translate3d(0, 0, 0)');
+    if (!supportsTransform3d) {
+        console.warn('[Drivarc diagnostics][phone-tilt] disabled', { reason: 'transform-3d-unsupported' });
+        return;
+    }
 
     let isMouseOverHero = false;
     let rafId = null;
@@ -53,49 +122,94 @@ function initPhone3D() {
     let targetY = 0;
     let currentX = 0;
     let currentY = 0;
+    let loggedFirstInteraction = false;
 
     function lerp(start, end, factor) {
         return start + (end - start) * factor;
     }
 
-    function animate() {
-        currentX = lerp(currentX, targetX, 0.08);
-        currentY = lerp(currentY, targetY, 0.08);
+    function logFirstInteraction(eventType) {
+        if (loggedFirstInteraction) return;
+        loggedFirstInteraction = true;
+        console.info('[Drivarc diagnostics][phone-tilt] first interaction', {
+            eventType: eventType,
+            hoverMediaQuery: supportsHoverInput,
+            pointerEvents: 'PointerEvent' in window
+        });
+    }
 
-        if (isMouseOverHero) {
-            phone.style.animation = 'none';
-            phone.style.transform = `rotateY(${currentY}deg) rotateX(${currentX}deg)`;
-        } else {
+    function animate() {
+        try {
+            currentX = lerp(currentX, targetX, 0.08);
+            currentY = lerp(currentY, targetY, 0.08);
+
+            if (isMouseOverHero) {
+                phone.style.animation = 'none';
+                phone.style.transform = `translate3d(0, 0, 0) rotateY(${currentY}deg) rotateX(${currentX}deg)`;
+            } else {
+                phone.style.transform = '';
+                phone.style.animation = '';
+            }
+
+            rafId = requestFrame(animate);
+        } catch (error) {
+            console.error('[Drivarc diagnostics][phone-tilt] animation failed', error);
+            cancelFrame(rafId);
             phone.style.transform = '';
             phone.style.animation = '';
         }
-
-        rafId = requestAnimationFrame(animate);
     }
 
-    heroSection.addEventListener('mousemove', (e) => {
-        const rect = heroSection.getBoundingClientRect();
-        const centerX = rect.left + rect.width / 2;
-        const centerY = rect.top + rect.height / 2;
+    function updateTiltTarget(e) {
+        try {
+            if (e.type === 'pointermove' && e.pointerType && e.pointerType !== 'mouse' && e.pointerType !== 'pen') {
+                return;
+            }
 
-        const mouseX = ((e.clientX - centerX) / (rect.width / 2));
-        const mouseY = ((e.clientY - centerY) / (rect.height / 2));
+            const rect = heroSection.getBoundingClientRect();
+            if (!rect.width || !rect.height) {
+                console.warn('[Drivarc diagnostics][phone-tilt] skipped', { reason: 'zero-hero-rect' });
+                return;
+            }
 
-        const maxRotX = mouseY * -15; // Invert Y axis
-        const maxRotY = mouseX * 15;
+            const centerX = rect.left + rect.width / 2;
+            const centerY = rect.top + rect.height / 2;
 
-        targetX = maxRotX;
-        targetY = maxRotY;
-        isMouseOverHero = true;
-    });
+            const mouseX = (e.clientX - centerX) / (rect.width / 2);
+            const mouseY = (e.clientY - centerY) / (rect.height / 2);
 
-    heroSection.addEventListener('mouseleave', () => {
+            targetX = mouseY * -15;
+            targetY = mouseX * 15;
+            isMouseOverHero = true;
+            logFirstInteraction(e.type);
+        } catch (error) {
+            console.error('[Drivarc diagnostics][phone-tilt] input failed', error);
+        }
+    }
+
+    function resetTiltTarget() {
         isMouseOverHero = false;
         targetX = 0;
         targetY = 0;
-    });
+    }
 
-    rafId = requestAnimationFrame(animate);
+    heroSection.addEventListener('mousemove', updateTiltTarget, { passive: true });
+    heroSection.addEventListener('mouseleave', resetTiltTarget);
+
+    if ('PointerEvent' in window) {
+        heroSection.addEventListener('pointermove', updateTiltTarget, { passive: true });
+        heroSection.addEventListener('pointerleave', function (e) {
+            if (e.pointerType && e.pointerType !== 'mouse' && e.pointerType !== 'pen') return;
+            resetTiltTarget();
+        });
+    }
+
+    rafId = requestFrame(animate);
+    console.info('[Drivarc diagnostics][phone-tilt] enabled', {
+        hoverMediaQuery: supportsHoverInput,
+        pointerEvents: 'PointerEvent' in window,
+        viewportWidth: window.innerWidth
+    });
 }
 
 function animateCounter(element, target, duration = 1500) {
@@ -113,22 +227,27 @@ function animateCounter(element, target, duration = 1500) {
     }
 
     function update(currentTime) {
-        const elapsed = currentTime - startTime;
-        const progress = Math.min(elapsed / duration, 1);
-        const easedProgress = easeOutExpo(progress);
-        const currentValue = Math.round(start + (target - start) * easedProgress);
+        try {
+            const elapsed = currentTime - startTime;
+            const progress = Math.min(elapsed / duration, 1);
+            const easedProgress = easeOutExpo(progress);
+            const currentValue = Math.round(start + (target - start) * easedProgress);
 
-        element.textContent = currentValue.toLocaleString(currencyInfo.locale) + ' ' + currencyInfo.code;
-        element.classList.add('counting');
+            element.textContent = currentValue.toLocaleString(currencyInfo.locale) + ' ' + currencyInfo.code;
+            element.classList.add('counting');
 
-        if (progress < 1) {
-            requestAnimationFrame(update);
-        } else {
+            if (progress < 1) {
+                requestFrame(update);
+            } else {
+                element.classList.remove('counting');
+            }
+        } catch (error) {
+            console.error('[Drivarc diagnostics][counter] animation failed', error);
             element.classList.remove('counting');
         }
     }
 
-    requestAnimationFrame(update);
+    requestFrame(update);
 }
 
 const financeTotal = document.querySelector('.finance-total');
@@ -172,7 +291,7 @@ if (prefersReducedMotion) {
                     const delay = isMobile ? '0s' : `${idx * baseDelay}s`;
                     child.style.transitionDelay = delay;
                     // ensure delay takes effect before adding class
-                    requestAnimationFrame(() => child.classList.add('visible'));
+                    requestFrame(() => child.classList.add('visible'));
                     observer.unobserve(child);
                 });
 
