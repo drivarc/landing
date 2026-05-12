@@ -113,15 +113,6 @@ function ensureAnalyticsLoaded() {
 let analyticsLoadHandle = null;
 let analyticsLoadArmed = false;
 
-function activateDeferredStylesheet() {
-    const siteStyles = document.getElementById('siteStyles');
-    if (siteStyles && siteStyles.media !== 'all') {
-        siteStyles.media = 'all';
-    }
-}
-
-activateDeferredStylesheet();
-
 function loadAnalyticsNow() {
     if (analyticsLoadHandle !== null) {
         window.clearTimeout(analyticsLoadHandle);

@@ -85,7 +85,7 @@
       }
 
      try {
-        try {
+        if (PerformanceObserver.supportedEntryTypes && PerformanceObserver.supportedEntryTypes.indexOf('layout-shift') !== -1) {
           var onCLS = new PerformanceObserver(function(entries) {
             entries.getEntries().forEach(function(entry) {
               if (!entry.hadRecentInput) {
@@ -95,7 +95,7 @@
             });
           });
           onCLS.observe({ type: 'layout-shift', buffered: true });
-        } catch(e) {}
+        }
 
        var onLCP = new PerformanceObserver(function(entries) {
          var lastEntry = entries.getEntries()[entries.getEntries().length - 1];
