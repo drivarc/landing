@@ -75,8 +75,4 @@
     100% { transform: translate(-50%, -50%) translate(0, 0) scale(1); }
 }
 
-@media (prefers-reduced-motion: reduce) {
-    .aurora-blob {
-        animation: none !important;
-    }
-}
+/* prefers-reduced-motion bypassed via JS */

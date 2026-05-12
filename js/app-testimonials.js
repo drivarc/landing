@@ -10,7 +10,7 @@
   var diagnostics = function () {};
 
   var featureMatrix = window.drivarcRuntimeFeatures || {
-    prefersReducedMotion: window.matchMedia ? window.matchMedia('(prefers-reduced-motion: reduce)').matches : false,
+    prefersReducedMotion: false,
     supportsRequestAnimationFrame: typeof window.requestAnimationFrame === 'function',
     supportsTransform3d: !window.CSS || typeof window.CSS.supports !== 'function' ? true : window.CSS.supports('transform', 'translate3d(0, 0, 0)'),
     supportsMaskImage: !window.CSS || typeof window.CSS.supports !== 'function' ? true : window.CSS.supports('mask-image', 'linear-gradient(black, transparent)') || window.CSS.supports('-webkit-mask-image', 'linear-gradient(black, transparent)'),

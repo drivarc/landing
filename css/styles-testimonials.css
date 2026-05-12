@@ -183,20 +183,7 @@
   }
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .testimonials-wrapper {
-    mask-image: none;
-    -webkit-mask-image: none;
-  }
-
-  .testimonials-track {
-    will-change: auto;
-  }
-
-  .testimonial-card {
-    transition: none;
-  }
-}
+/* prefers-reduced-motion bypassed via JS */
 
 @media (max-width: 1024px) {
   .testimonials-section { padding: 50px 32px 60px; }

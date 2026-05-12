@@ -354,20 +354,7 @@
     }
 }
 
-/* Reduced Motion */
-@media (prefers-reduced-motion: reduce) {
-    .footer-link,
-    .footer-link::before,
-    .social-link {
-        transition: none !important;
-        transform: none !important;
-        box-shadow: none !important;
-    }
-
-    .footer-holiday {
-        animation: none;
-    }
-}
+/* Reduced Motion — bypassed via JS */
 
 /* Tablet/Desktop overrides */
 @media (min-width: 769px) {
