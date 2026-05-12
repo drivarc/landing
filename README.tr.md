@@ -27,7 +27,3 @@ Site çok sayıda dilde yayınlanır. Ana dil Türkçedir; İngilizce, Almanca, 
 - İngilizce README: [README.md](README.md)
 - Güvenlik bilgisi: [SECURITY.md](SECURITY.md)
 - Türkçe güvenlik notu: [SECURITY.tr.md](SECURITY.tr.md)
-
-## Katkıda bulunanlar için not
-
-Bu depo bilerek statik tutulur. Ana sayfalarda değişiklik yaptıysan, yerelleştirilmiş sürümlerin de güncel kalmasını sağla.

@@ -29,7 +29,3 @@ The site is published in 29 languages, starting with Turkish at the root and inc
 - Turkish security note: [SECURITY.tr.md](SECURITY.tr.md)
  - Copyright (EN): [COPYRIGHT.md](COPYRIGHT.md)
  - Copyright (TR): [COPYRIGHT.tr.md](COPYRIGHT.tr.md)
-
-## Notes for contributors
-
-This repo is intentionally static. If you update the root pages, keep the localized versions in sync.

@@ -74,15 +74,6 @@
     }, 16);
   }
 
-  function cancelFrame(handle) {
-    if (typeof window.cancelAnimationFrame === 'function') {
-      window.cancelAnimationFrame(handle);
-      return;
-    }
-
-    window.clearTimeout(handle);
-  }
-
   function normalizePosition(value) {
     if (cycleDistance <= 0) return value;
 
