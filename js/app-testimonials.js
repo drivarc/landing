@@ -36,8 +36,8 @@
     supportsTransform3d: featureMatrix.supportsTransform3d,
     supportsMaskImage: featureMatrix.supportsMaskImage,
     supportsPointerEvents: featureMatrix.supportsPointerEvents,
-    wrapperWidth: Math.round(wrapper.getBoundingClientRect().width),
-    trackWidth: Math.round(track.getBoundingClientRect().width),
+    wrapperWidth: 0,
+    trackWidth: 0,
     forceLog: true
   });
 
