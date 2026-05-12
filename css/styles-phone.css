@@ -1299,11 +1299,9 @@
     .hero-section::after {
         display: none;
     }
-    .hero-particles,
-    .hero-particle,
-    .hero-particle-glow {
-        display: none;
-    }
+    .hero-particles { opacity: 0.1; }
+    .hero-particle { width: 2px; height: 2px; }
+    .hero-particle-glow { width: 4px; height: 4px; filter: blur(4px); box-shadow: 0 0 6px 3px var(--accent-glow); }
     .hero-title,
     .hero-subtitle,
     .hero-actions,

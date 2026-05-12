@@ -276,6 +276,12 @@
     animation: fadeIn 0.3s ease forwards;
 }
 
+.cookie-consent.closing {
+    display: flex;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
 .cookie-consent-content {
     background: var(--bg-secondary);
     border: 1px solid var(--border);
@@ -414,6 +420,12 @@
 
 .cookie-settings-modal.show .cookie-settings-modal-content {
     animation: slideUp 0.35s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.cookie-settings-modal.closing {
+    display: flex;
+    opacity: 0;
+    transition: opacity 0.3s ease;
 }
 
 .cookie-settings-modal-content {
