@@ -10,7 +10,7 @@
   "cookie.analytics_title": "Analitik Çerezler",
   "cookie.consent_aria": "Çerez Onayı",
   "cookie.decline": "Reddet",
-  "cookie.description": "Size daha iyi bir deneyim sunmak için çerezler kullanıyoruz. Detaylı bilgi için \n                    Gizlilik Politikası'mızı inceleyebilirsiniz.",
+  "cookie.description": "Size daha iyi bir deneyim sunmak için çerezler kullanıyoruz. Detaylı bilgi için \n                    <a href=\"#\">Gizlilik Politikamızı</a> inceleyebilirsiniz.",
   "cookie.essential_desc": "Bu çerezler sitenin düzgün çalışması için gereklidir ve kapatılamaz.",
   "cookie.essential_title": "Zorunlu Çerezler",
   "cookie.settings_aria": "Çerez ayarlarını özelleştir",

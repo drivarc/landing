@@ -10,7 +10,7 @@
   "cookie.analytics_title": "분석 쿠키",
   "cookie.consent_aria": "쿠키 동의",
   "cookie.decline": "거절",
-  "cookie.description": "더 나은 경험을 제공하기 위해 쿠키를 사용합니다. 자세한 내용은 개인정보 보호정책을 참조하세요.",
+  "cookie.description": "더 나은 경험을 제공하기 위해 쿠키를 사용합니다. 자세한 내용은 <a href=\"#\">개인정보 보호정책</a>을 참조하세요.",
   "cookie.essential_desc": "이 쿠키는 사이트 정상 작동에 필요하며 비활성화할 수 없습니다.",
   "cookie.essential_title": "필수 쿠키",
   "cookie.settings_aria": "쿠키 설정 사용자 지정",

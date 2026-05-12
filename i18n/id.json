@@ -10,7 +10,7 @@
   "cookie.analytics_title": "Cookie Analitis",
   "cookie.consent_aria": "Persetujuan Cookie",
   "cookie.decline": "Tolak",
-  "cookie.description": "Kami menggunakan cookie untuk menawarkan Anda pengalaman yang lebih baik. Anda bisa meninjau Kebijakan Privasi kami untuk informasi lebih lanjut.",
+  "cookie.description": "Kami menggunakan cookie untuk menawarkan Anda pengalaman yang lebih baik. Anda bisa meninjau <a href=\"#\">Kebijakan Privasi</a> kami untuk informasi lebih lanjut.",
   "cookie.essential_desc": "Cookie ini perlu untuk fungsi situs web dan tidak bisa dinonaktifkan.",
   "cookie.essential_title": "Cookie Perlu",
   "cookie.settings_aria": "Sesuaikan pengaturan cookie",

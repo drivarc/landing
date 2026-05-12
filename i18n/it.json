@@ -10,7 +10,7 @@
   "cookie.analytics_title": "Cookie Analitici",
   "cookie.consent_aria": "Consenso Cookie",
   "cookie.decline": "Rifiuta",
-  "cookie.description": "Utilizziamo i cookie per offrirti una migliore esperienza. Puoi rivedere la nostra Politica sulla Privacy per maggiori informazioni.",
+  "cookie.description": "Utilizziamo i cookie per offrirti una migliore esperienza. Puoi rivedere la nostra <a href=\"#\">Politica sulla Privacy</a> per maggiori informazioni.",
   "cookie.essential_desc": "Questi cookie sono necessari per il funzionamento del sito e non possono essere disattivati.",
   "cookie.essential_title": "Cookie Essenziali",
   "cookie.settings_aria": "Personalizza impostazioni cookie",

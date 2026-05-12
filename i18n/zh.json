@@ -10,7 +10,7 @@
   "cookie.analytics_title": "分析",
   "cookie.consent_aria": "Cookie 同意",
   "cookie.decline": "拒绝",
-  "cookie.description": "我们使用 cookie 为您提供更好的体验。欲了解更多信息，请参阅我们的 隐私政策。",
+  "cookie.description": "我们使用 cookie 为您提供更好的体验。欲了解更多信息，请参阅我们的 <a href=\"#\">隐私政策</a>。",
   "cookie.essential_desc": "应用程序基本功能所需。",
   "cookie.essential_title": "必要",
   "cookie.settings_aria": "自定义 Cookie 设置",

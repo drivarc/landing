@@ -10,7 +10,7 @@
   "cookie.analytics_title": "Analytics",
   "cookie.consent_aria": "Cookie Consent",
   "cookie.decline": "Decline",
-  "cookie.description": "We use cookies to provide you with a better experience. For more information, please see our \n                    Privacy Policy.",
+  "cookie.description": "We use cookies to provide you with a better experience. For more information, please see our \n                    <a href=\"#\">Privacy Policy</a>.",
   "cookie.essential_desc": "Required for basic app functionality.",
   "cookie.essential_title": "Essential",
   "cookie.settings_aria": "Customize cookie settings",

@@ -10,7 +10,7 @@
   "cookie.analytics_title": "Cookies Analitice",
   "cookie.consent_aria": "Consimțământ Cookies",
   "cookie.decline": "Refuză",
-  "cookie.description": "Folosim cookies pentru a-ți oferi o experiență mai bună. Poți consulta Politica Noastră de Confidențialitate pentru mai multe informații.",
+  "cookie.description": "Folosim cookies pentru a-ți oferi o experiență mai bună. Poți consulta <a href=\"#\">Politica Noastră de Confidențialitate</a> pentru mai multe informații.",
   "cookie.essential_desc": "Aceste cookies sunt necesare pentru funcționarea site-ului și nu pot fi dezactivate.",
   "cookie.essential_title": "Cookies Necesare",
   "cookie.settings_aria": "Personalizează setările cookies",

@@ -10,7 +10,7 @@
   "cookie.analytics_title": "Analytische Cookies",
   "cookie.consent_aria": "Cookie Toestemming",
   "cookie.decline": "Weigeren",
-  "cookie.description": "We gebruiken cookies om u een betere ervaring te bieden. U kunt ons Privacybeleid raadplegen voor meer informatie.",
+  "cookie.description": "We gebruiken cookies om u een betere ervaring te bieden. U kunt ons <a href=\"#\">Privacybeleid</a> raadplegen voor meer informatie.",
   "cookie.essential_desc": "Deze cookies zijn noodzakelijk voor de werking van de site en kunnen niet worden uitgeschakeld.",
   "cookie.essential_title": "Noodzakelijke Cookies",
   "cookie.settings_aria": "Cookie-instellingen aanpassen",

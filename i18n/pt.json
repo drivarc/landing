@@ -10,7 +10,7 @@
   "cookie.analytics_title": "Cookies Analíticos",
   "cookie.consent_aria": "Consentimento de Cookies",
   "cookie.decline": "Recusar",
-  "cookie.description": "Usamos cookies para oferecer uma experiência melhor. Você pode revisar nossa Política de Privacidade para mais informações.",
+  "cookie.description": "Usamos cookies para oferecer uma experiência melhor. Você pode revisar nossa <a href=\"#\">Política de Privacidade</a> para mais informações.",
   "cookie.essential_desc": "Estes cookies são necessários para o funcionamento do site e não podem ser desativados.",
   "cookie.essential_title": "Cookies Essenciais",
   "cookie.settings_aria": "Personalizar configurações de cookies",

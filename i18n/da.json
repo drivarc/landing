@@ -10,7 +10,7 @@
   "cookie.analytics_title": "Analytiske Cookies",
   "cookie.consent_aria": "Cookie Samtykke",
   "cookie.decline": "Afvis",
-  "cookie.description": "Vi bruger cookies for at tilbyde dig en bedre oplevelse. Du kan gennemgå vores Privatlivspolitik for mere information.",
+  "cookie.description": "Vi bruger cookies for at tilbyde dig en bedre oplevelse. Du kan gennemgå vores <a href=\"#\">Privatlivspolitik</a> for mere information.",
   "cookie.essential_desc": "Disse cookies er nødvendige for sidens funktion og kan ikke deaktiveres.",
   "cookie.essential_title": "Nødvendige Cookies",
   "cookie.settings_aria": "Tilpas cookie-indstillinger",

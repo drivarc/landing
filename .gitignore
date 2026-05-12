@@ -31,3 +31,7 @@ __pycache__/
 /blob-report/
 /playwright/.cache/
 /playwright/.auth/
+
+# Brainstorm visual companion
+.superpowers/
+docs/superpowers/

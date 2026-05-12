@@ -10,7 +10,7 @@
   "cookie.analytics_title": "Analytické Cookies",
   "cookie.consent_aria": "Souhlas s Cookies",
   "cookie.decline": "Odmítnout",
-  "cookie.description": "Používáme cookies, abychom vám nabídli lepší zážitek. Můžete si pročíst naši Zásady Ochrany Osobních Údajů pro více informací.",
+  "cookie.description": "Používáme cookies, abychom vám nabídli lepší zážitek. Můžete si pročíst naši <a href=\"#\">Zásady Ochrany Osobních Údajů</a> pro více informací.",
   "cookie.essential_desc": "Tyto cookies jsou nezbytné pro fungování stránky a nelze je deaktivovat.",
   "cookie.essential_title": "Nezbytné Cookies",
   "cookie.settings_aria": "Přizpůsobit nastavení cookies",

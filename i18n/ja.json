@@ -10,7 +10,7 @@
   "cookie.analytics_title": "分析クッキー",
   "cookie.consent_aria": "クッキー同意",
   "cookie.decline": "拒否",
-  "cookie.description": "より良い体験を提供するためにクッキーを使用。詳細はプライバシーポリシーをご覧ください。",
+  "cookie.description": "より良い体験を提供するためにクッキーを使用。詳細は<a href=\"#\">プライバシーポリシー</a>をご覧ください。",
   "cookie.essential_desc": "これらのクッキーはサイトの正常な動作に必要で、無効にできない。",
   "cookie.essential_title": "必須クッキー",
   "cookie.settings_aria": "クッキー設定をカスタマイズ",

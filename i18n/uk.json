@@ -10,7 +10,7 @@
   "cookie.analytics_title": "Аналітичні Cookies",
   "cookie.consent_aria": "Згода на Cookies",
   "cookie.decline": "Відхилити",
-  "cookie.description": "Ми використовуємо cookies, щоб запропонувати вам кращий досвід. Ви можете переглянути нашу Політику Конфіденційності для отримання додаткової інформації.",
+  "cookie.description": "Ми використовуємо cookies, щоб запропонувати вам кращий досвід. Ви можете переглянути нашу <a href=\"#\">Політику Конфіденційності</a> для отримання додаткової інформації.",
   "cookie.essential_desc": "Ці cookies необхідні для роботи сайту і не можуть бути вимкнені.",
   "cookie.essential_title": "Необхідні Cookies",
   "cookie.settings_aria": "Налаштувати параметри cookies",

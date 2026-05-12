@@ -10,7 +10,7 @@
   "cookie.analytics_title": "Analyse",
   "cookie.consent_aria": "Cookie-Einwilligung",
   "cookie.decline": "Ablehnen",
-  "cookie.description": "Wir verwenden Cookies, um Ihnen ein besseres Erlebnis zu bieten. Weitere Informationen finden Sie in unserer \n                    Datenschutzerklärung.",
+  "cookie.description": "Wir verwenden Cookies, um Ihnen ein besseres Erlebnis zu bieten. Weitere Informationen finden Sie in unserer \n                    <a href=\"#\">Datenschutzerklärung</a>.",
   "cookie.essential_desc": "Für die Grundfunktionen der App erforderlich.",
   "cookie.essential_title": "Notwendig",
   "cookie.settings_aria": "Cookie-Einstellungen anpassen",

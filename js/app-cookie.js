@@ -251,33 +251,32 @@
         return '../privacy.html';
    }
 
-   function showBanner() {
-       var banner = document.querySelector('.cookie-consent');
-       var overlay = document.getElementById('cookieOverlay');
-       if (banner) {
-           var descLink = banner.querySelector('.cookie-consent-description a');
-           if (descLink) {
-               descLink.href = getPrivacyLink();
-           }
-           setTimeout(function() {
-               banner.classList.add('show');
-               if (overlay) overlay.classList.add('show');
-           }, 1000);
-       }
-   }
+    function showBanner() {
+        var banner = document.querySelector('.cookie-consent');
+        var overlay = document.getElementById('cookieOverlay');
+        if (banner) {
+            setTimeout(function() {
+                var descLink = banner.querySelector('.cookie-consent-description a');
+                if (descLink) {
+                    descLink.href = getPrivacyLink();
+                }
+                banner.classList.add('show');
+                if (overlay) overlay.classList.add('show');
+            }, 1000);
+        }
+    }
 
-   function hideBanner() {
-       var banner = document.querySelector('.cookie-consent');
-       var overlay = document.getElementById('cookieOverlay');
-       if (banner) {
-           banner.classList.remove('show');
-           banner.classList.add('hide');
-       }
-       if (overlay) {
-           overlay.classList.remove('show');
-           overlay.classList.add('hide');
-       }
-   }
+    function hideBanner() {
+        var banner = document.querySelector('.cookie-consent');
+        var overlay = document.getElementById('cookieOverlay');
+        if (banner) {
+            banner.classList.remove('show');
+        }
+        if (overlay) {
+            overlay.classList.remove('show');
+            overlay.classList.add('hide');
+        }
+    }
 
    function acceptAll() {
        var prefs = {

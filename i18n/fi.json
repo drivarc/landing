@@ -10,7 +10,7 @@
   "cookie.analytics_title": "Analyyttiset Evästeet",
   "cookie.consent_aria": "Eväste Suostumus",
   "cookie.decline": "Hylkää",
-  "cookie.description": "Käytämme evästeitä tarjotaksemme sinulle paremman kokemuksen. Voit tarkistaa Tietosuojakäytäntömme saadaksesi lisätietoja.",
+  "cookie.description": "Käytämme evästeitä tarjotaksemme sinulle paremman kokemuksen. Voit tarkistaa <a href=\"#\">Tietosuojakäytäntömme</a> saadaksesi lisätietoja.",
   "cookie.essential_desc": "Nämä evästeet ovat välttämättömiä sivuston toiminnalle ja niitä ei voi poistaa käytöstä.",
   "cookie.essential_title": "Välttämättömät Evästeet",
   "cookie.settings_aria": "Mukauta evästeasetuksia",

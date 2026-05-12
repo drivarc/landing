@@ -19,11 +19,11 @@ html[dir="rtl"][lang="he"] body {
 }
 
 [dir="rtl"] .cookie-consent-content {
-    flex-direction: row-reverse;
+    text-align: right;
 }
 
-[dir="rtl"] .cookie-consent-actions {
-    flex-direction: row-reverse;
+[dir="rtl"] .cookie-consent-text {
+    text-align: right;
 }
 
 [dir="rtl"] .cookie-consent-title,
@@ -31,12 +31,24 @@ html[dir="rtl"][lang="he"] body {
     text-align: right;
 }
 
+[dir="rtl"] .cookie-consent-actions {
+    flex-direction: row;
+}
+
 [dir="rtl"] .cookie-settings-modal-content {
     text-align: right;
     direction: rtl;
 }
 
+[dir="rtl"] .cookie-settings-title-row {
+    flex-direction: row-reverse;
+}
+
 [dir="rtl"] .cookie-option-header {
+    flex-direction: row-reverse;
+}
+
+[dir="rtl"] .cookie-option-label {
     flex-direction: row-reverse;
 }
 
@@ -51,11 +63,11 @@ html[dir="rtl"][lang="he"] body {
 
 @media (max-width: 768px) {
     [dir="rtl"] .cookie-consent-content {
-        flex-direction: column;
+        text-align: right;
     }
 
     [dir="rtl"] .cookie-consent-actions {
-        flex-direction: row-reverse;
+        flex-direction: row;
         flex-wrap: wrap;
     }
 
@@ -214,11 +226,11 @@ html[dir="rtl"][lang="he"] body {
 
 @media (max-width: 768px) {
     [dir="rtl"] .cookie-consent-content {
-        flex-direction: column;
+        text-align: right;
     }
 
     [dir="rtl"] .cookie-consent-actions {
-        flex-direction: row-reverse;
+        flex-direction: row;
         flex-wrap: wrap;
     }
 

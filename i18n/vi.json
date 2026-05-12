@@ -10,7 +10,7 @@
   "cookie.analytics_title": "Cookie Phân tích",
   "cookie.consent_aria": "Sự đồng ý Cookie",
   "cookie.decline": "Từ chối",
-  "cookie.description": "Chúng tôi sử dụng cookie để cung cấp trải nghiệm tốt hơn cho bạn. Bạn có thể xem Chính sách Quyền riêng tư của chúng tôi để biết thêm thông tin.",
+  "cookie.description": "Chúng tôi sử dụng cookie để cung cấp trải nghiệm tốt hơn cho bạn. Bạn có thể xem <a href=\"#\">Chính sách Quyền riêng tư</a> của chúng tôi để biết thêm thông tin.",
   "cookie.essential_desc": "Những cookie này cần thiết cho hoạt động của trang web và không thể bị vô hiệu hóa.",
   "cookie.essential_title": "Cookie Cần thiết",
   "cookie.settings_aria": "Tùy chỉnh cài đặt cookie",
