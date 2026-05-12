@@ -4,7 +4,9 @@ const supportsHoverInput = window.matchMedia
     ? window.matchMedia('(any-hover: hover)').matches || window.matchMedia('(hover: hover)').matches
     : !isTouchCapable;
 
-const prefersReducedMotion = false;
+const prefersReducedMotion = window.matchMedia
+    ? window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    : false;
 
 function supportsCssFeature(property, value) {
     if (!window.CSS || typeof window.CSS.supports !== 'function') return true;

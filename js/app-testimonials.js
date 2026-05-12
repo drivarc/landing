@@ -65,6 +65,13 @@
         return window.requestAnimationFrame(callback);
       }
     } catch (error) {
+      diagnostics('testimonials', {
+        phase: 'request-frame-fallback',
+        reason: 'requestAnimationFrame-threw',
+        errorName: error && error.name ? error.name : 'Error',
+        errorMessage: error && error.message ? error.message : String(error),
+        forceLog: true
+      });
     }
 
     return window.setTimeout(function () {
@@ -161,8 +168,26 @@
 
   function updateCycleDistance() {
     var n = cards.length;
-    var firstOriginal = track.children[n].getBoundingClientRect();
-    var firstClone = track.children[n * 2].getBoundingClientRect();
+    var requiredCloneIndex = n * 2;
+
+    if (n < 1 || track.children.length <= requiredCloneIndex) {
+      throw new Error(
+        'Insufficient testimonial children for measurement. children=' +
+          track.children.length +
+          ', cards=' +
+          n
+      );
+    }
+
+    var firstOriginalEl = track.children[n];
+    var firstCloneEl = track.children[requiredCloneIndex];
+
+    if (!firstOriginalEl || !firstCloneEl) {
+      throw new Error('Missing testimonial elements required for measurement.');
+    }
+
+    var firstOriginal = firstOriginalEl.getBoundingClientRect();
+    var firstClone = firstCloneEl.getBoundingClientRect();
     cycleDistance = firstClone.left - firstOriginal.left;
 
     if (!cycleDistance || cycleDistance < 1) {
