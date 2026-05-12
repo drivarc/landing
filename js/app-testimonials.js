@@ -193,33 +193,30 @@
     }
   }
 
-  function start() {
-    try {
-      measure();
-      if (fallbackApplied) return;
-
-      setTrackPosition(pos);
-      running = true;
-
-      diagnostics('testimonials', {
-        phase: autoScrollDisabled ? 'started-reduced-motion' : 'started',
-        maxDist: Math.round(cycleDistance),
-        speed: autoScrollDisabled ? 0 : speed,
-        cardCount: cards.length,
-        forceLog: true
-      });
-
-      if (section) section.setAttribute('data-testimonials-state', autoScrollDisabled ? 'reduced-motion' : 'running');
-
-      if (!autoScrollDisabled) {
-        animate();
-      }
-    } catch (error) {
-      activateStaticFallback('start-error', error);
+  function startAnimation() {
+    if (!autoScrollDisabled) {
+      animate();
     }
   }
 
-  requestFrame(start);
+  // Apply initial position synchronously so no frame renders without the transform
+  measure();
+  if (!fallbackApplied) {
+    setTrackPosition(pos);
+    running = true;
+
+    diagnostics('testimonials', {
+      phase: autoScrollDisabled ? 'started-reduced-motion' : 'started',
+      maxDist: Math.round(cycleDistance),
+      speed: autoScrollDisabled ? 0 : speed,
+      cardCount: cards.length,
+      forceLog: true
+    });
+
+    if (section) section.setAttribute('data-testimonials-state', autoScrollDisabled ? 'reduced-motion' : 'running');
+
+    requestFrame(startAnimation);
+  }
 
   var hoverTimer = null;
   var resizeTimer = null;
