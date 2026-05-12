@@ -306,5 +306,8 @@
   "og.image_alt": "Drivarc - Seguimiento y Gestión de Vehículos",
   "meta.keywords": "seguimiento vehículos, recordatorio mantenimiento, seguimiento combustible, gestión vehículos, Drivarc",
   "noscript.title": "JavaScript requerido",
-  "noscript.desc": "El sitio web de Drivarc requiere JavaScript. Habilite JavaScript en su navegador y vuelva a cargar la página."
+  "noscript.desc": "El sitio web de Drivarc requiere JavaScript. Habilite JavaScript en su navegador y vuelva a cargar la página.",
+  "hero.aria_label": "Sección hero de la página de inicio",
+  "lang.flag": "🇪🇸",
+  "lang.code": "ES"
 }

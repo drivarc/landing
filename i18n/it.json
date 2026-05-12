@@ -306,5 +306,8 @@
   "og.image_alt": "Drivarc - Monitoraggio e Gestione Veicoli",
   "meta.keywords": "tracciamento veicoli, promemoria manutenzione, tracciamento carburante, gestione veicoli, Drivarc",
   "noscript.title": "JavaScript necessario",
-  "noscript.desc": "Il sito web Drivarc richiede JavaScript. Abilita JavaScript nel tuo browser e ricarica la pagina."
+  "noscript.desc": "Il sito web Drivarc richiede JavaScript. Abilita JavaScript nel tuo browser e ricarica la pagina.",
+  "hero.aria_label": "Sezione hero della homepage",
+  "lang.flag": "🇮🇹",
+  "lang.code": "IT"
 }

@@ -306,5 +306,8 @@
   "og.image_alt": "Drivarc - Voertuigvolgsysteem en Beheer",
   "meta.keywords": "voertuigvolgen, onderhoudsherinnering, brandstofregistratie, voertuigbeheer, Drivarc",
   "noscript.title": "JavaScript vereist",
-  "noscript.desc": "De Drivarc-website vereist JavaScript. Schakel JavaScript in uw browser in en laad de pagina opnieuw."
+  "noscript.desc": "De Drivarc-website vereist JavaScript. Schakel JavaScript in uw browser in en laad de pagina opnieuw.",
+  "hero.aria_label": "Helden-sectie van de startpagina",
+  "lang.flag": "🇳🇱",
+  "lang.code": "NL"
 }

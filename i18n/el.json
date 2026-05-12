@@ -306,5 +306,8 @@
   "og.image_alt": "Drivarc - Ελληνικά",
   "meta.keywords": "vehicle tracking, maintenance reminder, fuel tracking, vehicle management, Drivarc",
   "noscript.title": "JavaScript Required",
-  "noscript.desc": "Drivarc website requires JavaScript. Please enable JavaScript in your browser and reload the page."
+  "noscript.desc": "Drivarc website requires JavaScript. Please enable JavaScript in your browser and reload the page.",
+  "hero.aria_label": "Ενότητα ήρωα της αρχικής σελίδας",
+  "lang.flag": "🇬🇷",
+  "lang.code": "EL"
 }

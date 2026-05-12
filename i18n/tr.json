@@ -306,5 +306,8 @@
   "og.image_alt": "Drivarc - Dijital Araç Yönetimi",
   "meta.keywords": "araç takip, bakım hatırlatıcı, yakıt takibi, araç yönetim, Drivarc",
   "noscript.title": "JavaScript Gerekli",
-  "noscript.desc": "Drivarc web sitesi JavaScript gerektirir. Lütfen tarayıcınızda JavaScripti etkinleştirin ve sayfayı yeniden yükleyin."
+  "noscript.desc": "Drivarc web sitesi JavaScript gerektirir. Lütfen tarayıcınızda JavaScripti etkinleştirin ve sayfayı yeniden yükleyin.",
+  "hero.aria_label": "Ana sayfa hero bölümü",
+  "lang.flag": "🇹🇷",
+  "lang.code": "TR"
 }

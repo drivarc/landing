@@ -306,5 +306,8 @@
   "og.image_alt": "Drivarc - Rastreamento e Gestão de Veículos",
   "meta.keywords": "rastreamento veículos, lembrete manutenção, rastreamento combustível, gerenciamento veículos, Drivarc",
   "noscript.title": "JavaScript necessário",
-  "noscript.desc": "O site Drivarc requer JavaScript. Ative o JavaScript no seu navegador e recarregue a página."
+  "noscript.desc": "O site Drivarc requer JavaScript. Ative o JavaScript no seu navegador e recarregue a página.",
+  "hero.aria_label": "Seção hero da página inicial",
+  "lang.flag": "🇧🇷",
+  "lang.code": "PT"
 }
