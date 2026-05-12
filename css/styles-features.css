@@ -81,7 +81,8 @@
     border-radius: var(--card-radius-lg);
     padding: var(--card-padding-lg);
     text-align: center;
-    transition: opacity 0.25s ease-out, transform 0.25s ease-out;
+    transition: opacity 0.25s ease-out, transform 0.25s ease-out,
+                border-color 0.3s ease, box-shadow 0.3s ease;
     transform: translateY(0);
     
     backface-visibility: hidden;
@@ -96,7 +97,6 @@
 .feature-card:hover {
     border-color: var(--accent-light);
     box-shadow: 0 4px 16px var(--accent-glow), 0 0 40px rgba(64, 95, 144, 0.2);
-    transition: none;
 }
 
 .feature-card.visible:hover {

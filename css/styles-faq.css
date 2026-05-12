@@ -91,7 +91,8 @@
     border: 1px solid var(--border);
     border-radius: 14px;
     overflow: hidden;
-    transition: opacity 0.35s ease-out, transform 0.35s ease-out;
+    transition: opacity 0.35s ease-out, transform 0.35s ease-out,
+                border-color 0.3s ease, box-shadow 0.3s ease;
     backface-visibility: hidden;
     -webkit-backface-visibility: hidden;
 }
@@ -99,7 +100,6 @@
 .faq-item:hover {
     border-color: var(--accent-light);
     box-shadow: 0 4px 20px var(--accent-glow), 0 0 40px rgba(64, 95, 144, 0.15);
-    transition: none;
 }
 
 .faq-item.active {

@@ -54,10 +54,11 @@
   var autoScrollDisabled = featureMatrix.prefersReducedMotion;
   var cloneMarker = '[data-testimonial-clone="true"]';
   var pos = 0;
-  var speed = 0.7;
+  var speed = 65;
   var cycleDistance = 0;
   var paused = autoScrollDisabled;
   var running = false;
+  var lastAnimationTime = 0;
 
   function requestFrame(callback) {
     try {
@@ -209,12 +210,17 @@
     }
   }
 
-  function animate() {
+  function animate(timestamp) {
     if (!running || fallbackApplied) return;
 
     try {
       if (!paused) {
-        setTrackPosition(pos - speed);
+        if (lastAnimationTime === 0) lastAnimationTime = timestamp;
+        var dt = Math.min(timestamp - lastAnimationTime, 50);
+        lastAnimationTime = timestamp;
+        setTrackPosition(pos - speed * (dt / 1000));
+      } else {
+        lastAnimationTime = 0;
       }
 
       requestFrame(animate);
@@ -223,9 +229,9 @@
     }
   }
 
-  function startAnimation() {
+  function startAnimation(timestamp) {
     if (!autoScrollDisabled) {
-      animate();
+      animate(timestamp || 0);
     }
   }
 
