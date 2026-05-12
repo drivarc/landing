@@ -152,20 +152,15 @@ function showHolidayText() {
                 ataturkPortrait.src = ataturkSrc;
             }
             showElement(ataturkPortrait);
-            requestAnimationFrame(function() {
-                ataturkPortrait.classList.add('loaded');
-            });
             headerInner.classList.add('has-ataturk');
         } else {
             hideElement(ataturkPortrait);
-            if (ataturkPortrait) ataturkPortrait.classList.remove('loaded');
             headerInner.classList.remove('has-ataturk');
         }
     } else {
         holidayText.classList.add('is-hidden');
         if (footerHoliday) footerHoliday.classList.add('is-hidden');
         hideElement(ataturkPortrait);
-        if (ataturkPortrait) ataturkPortrait.classList.remove('loaded');
         headerInner.classList.remove('has-ataturk');
     }
 }

@@ -37,6 +37,11 @@
     letter-spacing: -0.02em;
     color: var(--text-primary);
     margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
 }
 
 .problems-subtitle {

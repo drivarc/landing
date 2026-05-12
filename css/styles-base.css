@@ -339,18 +339,6 @@ body::before {
     pointer-events: none;
 }
 
-.section-title, .section-subtitle,
-.features-title, .features-subtitle,
-.problems-title, .problems-subtitle,
-.faq-title, .faq-subtitle,
-.testimonials-title, .testimonials-subtitle,
-.faq-cta-text,
-.cookie-consent-title, .cookie-consent-description,
-.cookie-settings-title,
-.beta-modal-title, .beta-modal-text {
-    transition: color 0.3s ease;
-}
-
 .page-content {
     flex: 1;
     padding-top: 64px;

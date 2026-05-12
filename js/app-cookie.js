@@ -287,15 +287,11 @@
         var overlay = document.getElementById('cookieOverlay');
         if (banner) {
             banner.classList.remove('show');
-            banner.classList.add('closing');
         }
         if (overlay) {
             overlay.classList.remove('show');
             overlay.classList.add('hide');
         }
-        setTimeout(function() {
-            if (banner) banner.classList.remove('closing');
-        }, 300);
     }
 
    function acceptAll() {
@@ -345,10 +341,6 @@
         var modal = document.getElementById('cookieSettingsModal');
         if (modal) {
             modal.classList.remove('show');
-            modal.classList.add('closing');
-            setTimeout(function() {
-                modal.classList.remove('closing');
-            }, 300);
         }
     }
 
