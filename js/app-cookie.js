@@ -246,9 +246,7 @@
    }
 
    function getPrivacyLink() {
-       var lang = getPageLang();
-       if (lang === DEFAULT_LANG) return 'privacy.html';
-        return '../privacy.html';
+       return 'privacy.html';
    }
 
     function showBanner() {
@@ -287,7 +285,7 @@
            marketing: false
        };
         saveConsent(prefs);
-        ensureAnalyticsLoaded();
+        window.drivarcEnsureAnalyticsLoaded();
         gtagConsentUpdate(true);
         hideBanner();
         showToast('saved');
@@ -369,8 +367,8 @@
             marketing: false
         };
         saveConsent(prefs);
-        if (analyticsEnabled) {
-            ensureAnalyticsLoaded();
+        if (analyticsEnabled && typeof window.drivarcEnsureAnalyticsLoaded === 'function') {
+            window.drivarcEnsureAnalyticsLoaded();
         }
         gtagConsentUpdate(analyticsEnabled);
         closeSettingsModal();
@@ -505,7 +503,7 @@
             if (prefs) {
                 if (prefs.analytics) {
                     gtagConsentUpdate(true);
-                    ensureAnalyticsLoaded();
+                    window.drivarcEnsureAnalyticsLoaded();
                 } else {
                     gtagConsentUpdate(false);
                 }
@@ -522,7 +520,7 @@
         } else {
             if (prefs.analytics) {
                 gtagConsentUpdate(true);
-                ensureAnalyticsLoaded();
+                window.drivarcEnsureAnalyticsLoaded();
             } else {
                 gtagConsentUpdate(false);
             }
