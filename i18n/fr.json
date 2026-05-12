@@ -301,5 +301,10 @@
   "twitter.description": "Gérez tous vos véhicules depuis une seule application avec Drivarc.",
   "twitter.title": "Drivarc - Suivi et Gestion de Véhicules",
   "testimonials.title": "Témoignages",
-  "testimonials.subtitle": "Les expériences des utilisateurs de Drivarc"
+  "testimonials.subtitle": "Les expériences des utilisateurs de Drivarc",
+  "og.locale": "fr_FR",
+  "og.image_alt": "Drivarc - Suivi et Gestion de Véhicules",
+  "meta.keywords": "suivi de véhicule, rappel entretien, suivi carburant, gestion véhicule, Drivarc",
+  "noscript.title": "JavaScript requis",
+  "noscript.desc": "Le site Web Drivarc nécessite JavaScript. Veuillez activer JavaScript dans votre navigateur et recharger la page."
 }

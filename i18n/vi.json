@@ -301,5 +301,10 @@
   "twitter.description": "Quản lý tất cả phương tiện của bạn với một ứng dụng duy nhất cùng Drivarc.",
   "twitter.title": "Drivarc - Theo dõi và Quản lý Phương tiện",
   "testimonials.title": "Đánh giá",
-  "testimonials.subtitle": "Trải nghiệm của người dùng Drivarc"
+  "testimonials.subtitle": "Trải nghiệm của người dùng Drivarc",
+  "og.locale": "vi_VN",
+  "og.image_alt": "Drivarc - Tiếng Việt",
+  "meta.keywords": "vehicle tracking, maintenance reminder, fuel tracking, vehicle management, Drivarc",
+  "noscript.title": "JavaScript Required",
+  "noscript.desc": "Drivarc website requires JavaScript. Please enable JavaScript in your browser and reload the page."
 }

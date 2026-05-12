@@ -301,5 +301,10 @@
   "testimonial.6.title": "Kapalı Beta Test Kullanıcısı",
   "testimonial.6.text": "Offline çalışabilmesi en sevdiğim özellik. İnternet olmasa bile verilerimi girebiliyorum.",
   "testimonial.7.title": "Kapalı Beta Test Kullanıcısı",
-  "testimonial.7.text": "Drivarc'ın akıllı bildirimleri sayesinde hiçbir bakım zamanını kaçırmıyorum. Çok detaylı ve kullanışlı bir araç yönetim uygulaması olmuş."
+  "testimonial.7.text": "Drivarc'ın akıllı bildirimleri sayesinde hiçbir bakım zamanını kaçırmıyorum. Çok detaylı ve kullanışlı bir araç yönetim uygulaması olmuş.",
+  "og.locale": "tr_TR",
+  "og.image_alt": "Drivarc - Dijital Araç Yönetimi",
+  "meta.keywords": "araç takip, bakım hatırlatıcı, yakıt takibi, araç yönetim, Drivarc",
+  "noscript.title": "JavaScript Gerekli",
+  "noscript.desc": "Drivarc web sitesi JavaScript gerektirir. Lütfen tarayıcınızda JavaScripti etkinleştirin ve sayfayı yeniden yükleyin."
 }

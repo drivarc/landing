@@ -301,5 +301,10 @@
   "twitter.description": "Drivarc-এর সাথে একটি অ্যাপ্লিকেশন থেকে আপনার সমস্ত গাড়ি পরিচালনা করুন।",
   "twitter.title": "Drivarc - গাড়ি ট্র্যাকিং এবং ব্যবস্থাপনা",
   "testimonials.title": "ব্যবহারকারীর মতামত",
-  "testimonials.subtitle": "Drivarc ব্যবহারকারীদের অভিজ্ঞতা"
+  "testimonials.subtitle": "Drivarc ব্যবহারকারীদের অভিজ্ঞতা",
+  "og.locale": "bn_BD",
+  "og.image_alt": "Drivarc - বাংলা",
+  "meta.keywords": "vehicle tracking, maintenance reminder, fuel tracking, vehicle management, Drivarc",
+  "noscript.title": "JavaScript Required",
+  "noscript.desc": "Drivarc website requires JavaScript. Please enable JavaScript in your browser and reload the page."
 }

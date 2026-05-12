@@ -301,5 +301,10 @@
   "twitter.description": "Hantera alla dina fordon med en app med Drivarc.",
   "twitter.title": "Drivarc - Fordonsspårning och Hantering",
   "testimonials.title": "Användaromdömen",
-  "testimonials.subtitle": "Upplevelser från Drivarc-användare"
+  "testimonials.subtitle": "Upplevelser från Drivarc-användare",
+  "og.locale": "sv_SE",
+  "og.image_alt": "Drivarc - Svenska",
+  "meta.keywords": "vehicle tracking, maintenance reminder, fuel tracking, vehicle management, Drivarc",
+  "noscript.title": "JavaScript Required",
+  "noscript.desc": "Drivarc website requires JavaScript. Please enable JavaScript in your browser and reload the page."
 }

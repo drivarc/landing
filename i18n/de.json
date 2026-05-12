@@ -301,5 +301,10 @@
   "twitter.description": "Verwalten Sie alle Ihre Fahrzeuge mit einer einzigen App mit Drivarc. Kraftstoff-Tracking, Wartungserinnerungen, Kostenanalyse und vieles mehr.",
   "twitter.title": "Drivarc - Fahrzeug-Tracking & Verwaltung",
   "testimonials.title": "Benutzerbewertungen",
-  "testimonials.subtitle": "Erfahrungen von Drivarc-Nutzern"
+  "testimonials.subtitle": "Erfahrungen von Drivarc-Nutzern",
+  "og.locale": "de_DE",
+  "og.image_alt": "Drivarc - Fahrzeug-Tracking & Verwaltung",
+  "meta.keywords": "Fahrzeugverfolgung, Wartungserinnerung, Kraftstoffverfolgung, Fahrzeugverwaltung, Drivarc",
+  "noscript.title": "JavaScript erforderlich",
+  "noscript.desc": "Die Drivarc-Website erfordert JavaScript. Bitte aktivieren Sie JavaScript in Ihrem Browser und laden Sie die Seite neu."
 }

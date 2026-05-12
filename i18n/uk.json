@@ -301,5 +301,10 @@
   "twitter.description": "Керуйте всіма своїми транспортними засобами за допомогою одного додатку Drivarc.",
   "twitter.title": "Drivarc - Відстеження та Керування Транспортними Засобами",
   "testimonials.title": "Відгуки",
-  "testimonials.subtitle": "Досвід користувачів Drivarc"
+  "testimonials.subtitle": "Досвід користувачів Drivarc",
+  "og.locale": "uk_UA",
+  "og.image_alt": "Drivarc - Українська",
+  "meta.keywords": "vehicle tracking, maintenance reminder, fuel tracking, vehicle management, Drivarc",
+  "noscript.title": "JavaScript Required",
+  "noscript.desc": "Drivarc website requires JavaScript. Please enable JavaScript in your browser and reload the page."
 }

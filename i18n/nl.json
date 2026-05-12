@@ -301,5 +301,10 @@
   "twitter.description": "Beheer al uw voertuigen met één app met Drivarc.",
   "twitter.title": "Drivarc - Voertuigvolgsysteem en Beheer",
   "testimonials.title": "Gebruikersrecensies",
-  "testimonials.subtitle": "Ervaringen van Drivarc-gebruikers"
+  "testimonials.subtitle": "Ervaringen van Drivarc-gebruikers",
+  "og.locale": "nl_NL",
+  "og.image_alt": "Drivarc - Voertuigvolgsysteem en Beheer",
+  "meta.keywords": "voertuigvolgen, onderhoudsherinnering, brandstofregistratie, voertuigbeheer, Drivarc",
+  "noscript.title": "JavaScript vereist",
+  "noscript.desc": "De Drivarc-website vereist JavaScript. Schakel JavaScript in uw browser in en laad de pagina opnieuw."
 }

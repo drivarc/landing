@@ -301,5 +301,10 @@
   "twitter.description": "使用 Drivarc 这一个应用管理您所有的车辆。燃油追踪、保养提醒、成本分析等等。",
   "twitter.title": "Drivarc - 车辆追踪与管理",
   "testimonials.title": "用户评价",
-  "testimonials.subtitle": "Drivarc用户的真实体验"
+  "testimonials.subtitle": "Drivarc用户的真实体验",
+  "og.locale": "zh_CN",
+  "og.image_alt": "Drivarc - 中文",
+  "meta.keywords": "vehicle tracking, maintenance reminder, fuel tracking, vehicle management, Drivarc",
+  "noscript.title": "JavaScript Required",
+  "noscript.desc": "Drivarc website requires JavaScript. Please enable JavaScript in your browser and reload the page."
 }

@@ -301,5 +301,10 @@
   "trust_badge.3": "Easy & Fast",
   "trust_badge.4": "User Friendly",
   "twitter.description": "Manage all your vehicles from a single app with Drivarc. Fuel tracking, maintenance reminders, cost analysis and much more.",
-  "twitter.title": "Drivarc - Vehicle Tracking & Management"
+  "twitter.title": "Drivarc - Vehicle Tracking & Management",
+  "og.locale": "en_US",
+  "og.image_alt": "Drivarc - Digital Vehicle Management",
+  "meta.keywords": "vehicle tracking, maintenance reminder, fuel tracking, vehicle management, Drivarc",
+  "noscript.title": "JavaScript Required",
+  "noscript.desc": "Drivarc website requires JavaScript. Please enable JavaScript in your browser and reload the page."
 }

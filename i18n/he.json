@@ -301,5 +301,10 @@
   "twitter.description": "נהל את כל כלי הרכב שלך עם אפליקציה אחת עם Drivarc.",
   "twitter.title": "Drivarc - מעקב וניהול רכב",
   "testimonials.title": "חוות דעת",
-  "testimonials.subtitle": "החוויות של משתמשי Drivarc"
+  "testimonials.subtitle": "החוויות של משתמשי Drivarc",
+  "og.locale": "he_IL",
+  "og.image_alt": "Drivarc - עברית",
+  "meta.keywords": "vehicle tracking, maintenance reminder, fuel tracking, vehicle management, Drivarc",
+  "noscript.title": "JavaScript Required",
+  "noscript.desc": "Drivarc website requires JavaScript. Please enable JavaScript in your browser and reload the page."
 }

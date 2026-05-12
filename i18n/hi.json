@@ -301,5 +301,10 @@
   "twitter.description": "Drivarc के साथ एक ही ऐप से अपने सभी वाहनों का प्रबंधन करें।",
   "twitter.title": "Drivarc - वाहन ट्रैकिंग और प्रबंधन",
   "testimonials.title": "उपयोगकर्ता समीक्षाएं",
-  "testimonials.subtitle": "Drivarc उपयोगकर्ताओं के अनुभव"
+  "testimonials.subtitle": "Drivarc उपयोगकर्ताओं के अनुभव",
+  "og.locale": "hi_IN",
+  "og.image_alt": "Drivarc - हिन्दी",
+  "meta.keywords": "vehicle tracking, maintenance reminder, fuel tracking, vehicle management, Drivarc",
+  "noscript.title": "JavaScript Required",
+  "noscript.desc": "Drivarc website requires JavaScript. Please enable JavaScript in your browser and reload the page."
 }

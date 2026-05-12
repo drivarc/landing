@@ -301,5 +301,10 @@
   "twitter.description": "Håndtér alle dine køretøjer med én app med Drivarc.",
   "twitter.title": "Drivarc - Køretøjssporing og Håndtering",
   "testimonials.title": "Brugeranmeldelser",
-  "testimonials.subtitle": "Oplevelser fra Drivarc-brugere"
+  "testimonials.subtitle": "Oplevelser fra Drivarc-brugere",
+  "og.locale": "da_DK",
+  "og.image_alt": "Drivarc - Dansk",
+  "meta.keywords": "vehicle tracking, maintenance reminder, fuel tracking, vehicle management, Drivarc",
+  "noscript.title": "JavaScript Required",
+  "noscript.desc": "Drivarc website requires JavaScript. Please enable JavaScript in your browser and reload the page."
 }

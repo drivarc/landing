@@ -301,5 +301,10 @@
   "twitter.description": "Drivarcですべての車両を1つのアプリで管理。",
   "twitter.title": "Drivarc - 車両追跡と管理",
   "testimonials.title": "ユーザーの声",
-  "testimonials.subtitle": "Drivarcユーザーの体験談"
+  "testimonials.subtitle": "Drivarcユーザーの体験談",
+  "og.locale": "ja_JP",
+  "og.image_alt": "Drivarc - 日本語",
+  "meta.keywords": "vehicle tracking, maintenance reminder, fuel tracking, vehicle management, Drivarc",
+  "noscript.title": "JavaScript Required",
+  "noscript.desc": "Drivarc website requires JavaScript. Please enable JavaScript in your browser and reload the page."
 }

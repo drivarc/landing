@@ -301,5 +301,10 @@
   "twitter.description": "Gestionați toate vehiculele cu o singură aplicație cu Drivarc.",
   "twitter.title": "Drivarc - Urmărirea și Gestionarea Vehiculelor",
   "testimonials.title": "Mărturii",
-  "testimonials.subtitle": "Experiențele utilizatorilor Drivarc"
+  "testimonials.subtitle": "Experiențele utilizatorilor Drivarc",
+  "og.locale": "ro_RO",
+  "og.image_alt": "Drivarc - Română",
+  "meta.keywords": "vehicle tracking, maintenance reminder, fuel tracking, vehicle management, Drivarc",
+  "noscript.title": "JavaScript Required",
+  "noscript.desc": "Drivarc website requires JavaScript. Please enable JavaScript in your browser and reload the page."
 }

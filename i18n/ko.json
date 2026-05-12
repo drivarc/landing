@@ -301,5 +301,10 @@
   "twitter.description": "Drivarc로 모든 차량을 하나의 앱에서 관리하세요.",
   "twitter.title": "Drivarc - 차량 추적 및 관리",
   "testimonials.title": "사용자 후기",
-  "testimonials.subtitle": "Drivarc 사용자들의 경험"
+  "testimonials.subtitle": "Drivarc 사용자들의 경험",
+  "og.locale": "ko_KR",
+  "og.image_alt": "Drivarc - 한국어",
+  "meta.keywords": "vehicle tracking, maintenance reminder, fuel tracking, vehicle management, Drivarc",
+  "noscript.title": "JavaScript Required",
+  "noscript.desc": "Drivarc website requires JavaScript. Please enable JavaScript in your browser and reload the page."
 }
