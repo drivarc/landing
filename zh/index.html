@@ -75,7 +75,7 @@
 	    <link rel="stylesheet" href="/css/styles-modals.css">
 	    <link rel="stylesheet" href="/css/styles-animations.css">
 	    <link rel="stylesheet" href="/css/styles-rtl.css">
-    
+	    <link rel="stylesheet" href="/css/styles-testimonials.css">
     
     <script src="/js/seo-jsonld.js" defer></script>
     <script src="/js/app-core.js" defer></script>
@@ -83,6 +83,7 @@
     <script src="/js/app-ui.js" defer></script>
     <script src="/js/app-cookie.js" defer></script>
     <script src="/js/app-i18n.js" defer></script>
+    <script src="/js/app-testimonials.js" defer></script>
   <!-- hreflang -->
     <link rel="alternate" hreflang="tr" href="https://drivarc.com/">
     <link rel="alternate" hreflang="en" href="https://drivarc.com/en/">
@@ -146,6 +147,7 @@
                 <a href="#hero" class="logo"><img src="../images/logo-256.png" srcset="../images/logo-256.png 1x" alt="Drivarc Logo" class="logo-img" width="128" height="36" loading="eager" fetchpriority="high"></a>
                 <nav class="nav" data-i18n="nav.aria_label" data-i18n-attr="aria-label" aria-label="主菜单">
                     <a href="#hero" class="active" data-i18n="nav.home">主页</a>
+                    <a href="#testimonials" data-i18n="nav.testimonials">评价</a>
                     <a href="#features" data-i18n="nav.features">功能</a>
                     <a href="#problems" data-i18n="nav.problems">问题</a>
                     <a href="#faq" data-i18n="nav.faq">常见问题</a>
@@ -440,6 +442,98 @@
             </div>
         </main>
     </div>
+
+    <section class="testimonials-section" id="testimonials" aria-labelledby="testimonials-title">
+      <div class="testimonials-inner">
+        <div class="testimonials-header animate-on-scroll">
+          <h2 class="testimonials-title" id="testimonials-title" data-i18n="testimonials.title">User Testimonials</h2>
+          <p class="testimonials-subtitle" data-i18n="testimonials.subtitle">What Drivarc users say</p>
+        </div>
+        <div class="testimonials-wrapper" id="testimonialsWrapper">
+          <div class="testimonials-swiper" id="testimonialsSwiper">
+          <div class="testimonials-track" id="testimonialsTrack">
+            <div class="testimonial-card">
+              <div class="testimonial-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+              <p class="testimonial-text" data-i18n-html="testimonial.1.text">使用Drivarc，我可以定期跟踪车辆开支。非常实用的应用程序。</p>
+              <div class="testimonial-author">
+                <div class="testimonial-avatar">ÖD</div>
+                <div>
+                  <div class="testimonial-name"><span data-i18n="testimonial.1.name">Özer D.</span> <span class="testimonial-sep">•</span> <span class="testimonial-city" data-i18n="testimonial.1.city">Clausthal-Zellerfeld</span></div>
+                  <div class="testimonial-role" data-i18n="testimonial.1.title">Beta 测试员</div>
+                </div>
+              </div>
+            </div>
+            <div class="testimonial-card">
+              <div class="testimonial-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+              <p class="testimonial-text" data-i18n-html="testimonial.2.text">得益于维护提醒，我从不错过任何保养。它确实让我的工作更轻松了。</p>
+              <div class="testimonial-author">
+                <div class="testimonial-avatar">GB</div>
+                <div>
+                  <div class="testimonial-name"><span data-i18n="testimonial.2.name">Gökberk Burak S.</span> <span class="testimonial-sep">•</span> <span class="testimonial-city" data-i18n="testimonial.2.city">Kırklareli</span></div>
+                  <div class="testimonial-role" data-i18n="testimonial.2.title">Beta 测试员</div>
+                </div>
+              </div>
+            </div>
+            <div class="testimonial-card">
+              <div class="testimonial-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+              <p class="testimonial-text" data-i18n-html="testimonial.3.text">通过燃油跟踪和成本分析，我可以清楚地看到每月的支出。一个很棒的工具！</p>
+              <div class="testimonial-author">
+                <div class="testimonial-avatar">Eİ</div>
+                <div>
+                  <div class="testimonial-name"><span data-i18n="testimonial.3.name">Emre İ.</span> <span class="testimonial-sep">•</span> <span class="testimonial-city" data-i18n="testimonial.3.city">Bursa</span></div>
+                  <div class="testimonial-role" data-i18n="testimonial.3.title">Beta 测试员</div>
+                </div>
+              </div>
+            </div>
+            <div class="testimonial-card">
+              <div class="testimonial-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+              <p class="testimonial-text" data-i18n-html="testimonial.4.text">我们用Drivarc管理所有公司车辆。多车支持正是我们一直在寻找的解决方案。</p>
+              <div class="testimonial-author">
+                <div class="testimonial-avatar">İY</div>
+                <div>
+                  <div class="testimonial-name"><span data-i18n="testimonial.4.name">İlker Y.</span> <span class="testimonial-sep">•</span> <span class="testimonial-city" data-i18n="testimonial.4.city">Bursa</span></div>
+                  <div class="testimonial-role" data-i18n="testimonial.4.title">Beta 测试员</div>
+                </div>
+              </div>
+            </div>
+            <div class="testimonial-card">
+              <div class="testimonial-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+              <p class="testimonial-text" data-i18n-html="testimonial.5.text">得益于收据扫描功能，我不再需要手动输入收据。节省了大量时间。</p>
+              <div class="testimonial-author">
+                <div class="testimonial-avatar">UK</div>
+                <div>
+                  <div class="testimonial-name"><span data-i18n="testimonial.5.name">Umut K.</span> <span class="testimonial-sep">•</span> <span class="testimonial-city" data-i18n="testimonial.5.city">Bursa</span></div>
+                  <div class="testimonial-role" data-i18n="testimonial.5.title">Beta 测试员</div>
+                </div>
+              </div>
+            </div>
+            <div class="testimonial-card">
+              <div class="testimonial-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+              <p class="testimonial-text" data-i18n-html="testimonial.6.text">离线功能是我最喜欢的。即使没有网络，我也可以输入数据。</p>
+              <div class="testimonial-author">
+                <div class="testimonial-avatar">BC</div>
+                <div>
+                  <div class="testimonial-name"><span data-i18n="testimonial.6.name">Bertuğ C.</span> <span class="testimonial-sep">•</span> <span class="testimonial-city" data-i18n="testimonial.6.city">Kırklareli</span></div>
+                  <div class="testimonial-role" data-i18n="testimonial.6.title">Beta 测试员</div>
+                </div>
+              </div>
+            </div>
+            <div class="testimonial-card">
+              <div class="testimonial-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+              <p class="testimonial-text" data-i18n-html="testimonial.7.text">得益于Drivarc的智能通知，我再也不会错过任何维护。一个非常详细和实用的车辆管理应用程序。</p>
+              <div class="testimonial-author">
+                <div class="testimonial-avatar">CC</div>
+                <div>
+                  <div class="testimonial-name"><span data-i18n="testimonial.7.name">Cemal Can K.</span> <span class="testimonial-sep">•</span> <span class="testimonial-city" data-i18n="testimonial.7.city">Bursa</span></div>
+                  <div class="testimonial-role" data-i18n="testimonial.7.title">Beta 测试员</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
     <section class="features-section" id="features" aria-labelledby="features-title">
         <div class="section-particles">

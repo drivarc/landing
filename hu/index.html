@@ -75,7 +75,7 @@
 	    <link rel="stylesheet" href="/css/styles-modals.css">
 	    <link rel="stylesheet" href="/css/styles-animations.css">
 	    <link rel="stylesheet" href="/css/styles-rtl.css">
-    
+	    <link rel="stylesheet" href="/css/styles-testimonials.css">
     
     <script src="/js/seo-jsonld.js" defer></script>
     <script src="/js/app-core.js" defer></script>
@@ -83,6 +83,7 @@
     <script src="/js/app-ui.js" defer></script>
     <script src="/js/app-cookie.js" defer></script>
     <script src="/js/app-i18n.js" defer></script>
+    <script src="/js/app-testimonials.js" defer></script>
   <!-- hreflang -->
     <link rel="alternate" hreflang="tr" href="https://drivarc.com/">
     <link rel="alternate" hreflang="en" href="https://drivarc.com/en/">
@@ -146,6 +147,7 @@
                 <a href="#hero" class="logo"><img src="../images/logo-256.png" srcset="../images/logo-256.png 1x" alt="Drivarc Logo" class="logo-img" width="128" height="36" loading="eager" fetchpriority="high"></a>
                 <nav class="nav" data-i18n="nav.aria_label" data-i18n-attr="aria-label" aria-label="Főmenü">
                     <a href="#hero" class="active" data-i18n="nav.home">Főoldal</a>
+                    <a href="#testimonials" data-i18n="nav.testimonials">Vélemények</a>
                     <a href="#features" data-i18n="nav.features">Jellemzők</a>
                     <a href="#problems" data-i18n="nav.problems">Problémák</a>
                     <a href="#faq" data-i18n="nav.faq">Gyakran Ismételt Kérdések</a>
@@ -440,6 +442,98 @@
             </div>
         </main>
     </div>
+
+    <section class="testimonials-section" id="testimonials" aria-labelledby="testimonials-title">
+      <div class="testimonials-inner">
+        <div class="testimonials-header animate-on-scroll">
+          <h2 class="testimonials-title" id="testimonials-title" data-i18n="testimonials.title">User Testimonials</h2>
+          <p class="testimonials-subtitle" data-i18n="testimonials.subtitle">What Drivarc users say</p>
+        </div>
+        <div class="testimonials-wrapper" id="testimonialsWrapper">
+          <div class="testimonials-swiper" id="testimonialsSwiper">
+          <div class="testimonials-track" id="testimonialsTrack">
+            <div class="testimonial-card">
+              <div class="testimonial-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+              <p class="testimonial-text" data-i18n-html="testimonial.1.text">A Drivarc segítségével rendszeresen nyomon követhetem a járműkiadásaimat. Nagyon praktikus alkalmazás.</p>
+              <div class="testimonial-author">
+                <div class="testimonial-avatar">ÖD</div>
+                <div>
+                  <div class="testimonial-name"><span data-i18n="testimonial.1.name">Özer D.</span> <span class="testimonial-sep">•</span> <span class="testimonial-city" data-i18n="testimonial.1.city">Clausthal-Zellerfeld</span></div>
+                  <div class="testimonial-role" data-i18n="testimonial.1.title">Béta tesztelő</div>
+                </div>
+              </div>
+            </div>
+            <div class="testimonial-card">
+              <div class="testimonial-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+              <p class="testimonial-text" data-i18n-html="testimonial.2.text">A karbantartási emlékeztetőknek köszönhetően soha nem maradok le egy szervizről sem. Nagyon megkönnyíti a munkámat.</p>
+              <div class="testimonial-author">
+                <div class="testimonial-avatar">GB</div>
+                <div>
+                  <div class="testimonial-name"><span data-i18n="testimonial.2.name">Gökberk Burak S.</span> <span class="testimonial-sep">•</span> <span class="testimonial-city" data-i18n="testimonial.2.city">Kırklareli</span></div>
+                  <div class="testimonial-role" data-i18n="testimonial.2.title">Béta tesztelő</div>
+                </div>
+              </div>
+            </div>
+            <div class="testimonial-card">
+              <div class="testimonial-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+              <p class="testimonial-text" data-i18n-html="testimonial.3.text">Az üzemanyag-követéssel és költségelemzéssel pontosan látom, mennyit költök havonta. Remek eszköz!</p>
+              <div class="testimonial-author">
+                <div class="testimonial-avatar">Eİ</div>
+                <div>
+                  <div class="testimonial-name"><span data-i18n="testimonial.3.name">Emre İ.</span> <span class="testimonial-sep">•</span> <span class="testimonial-city" data-i18n="testimonial.3.city">Bursa</span></div>
+                  <div class="testimonial-role" data-i18n="testimonial.3.title">Béta tesztelő</div>
+                </div>
+              </div>
+            </div>
+            <div class="testimonial-card">
+              <div class="testimonial-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+              <p class="testimonial-text" data-i18n-html="testimonial.4.text">Az összes céges járművünket a Drivarc segítségével kezeljük. A többjármű-támogatás pontosan az a megoldás volt, amit kerestünk.</p>
+              <div class="testimonial-author">
+                <div class="testimonial-avatar">İY</div>
+                <div>
+                  <div class="testimonial-name"><span data-i18n="testimonial.4.name">İlker Y.</span> <span class="testimonial-sep">•</span> <span class="testimonial-city" data-i18n="testimonial.4.city">Bursa</span></div>
+                  <div class="testimonial-role" data-i18n="testimonial.4.title">Béta tesztelő</div>
+                </div>
+              </div>
+            </div>
+            <div class="testimonial-card">
+              <div class="testimonial-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+              <p class="testimonial-text" data-i18n-html="testimonial.5.text">A nyugtabeolvasó funkciónak köszönhetően nem kell manuálisan beírnom a nyugtákat. Sok időt takarít meg.</p>
+              <div class="testimonial-author">
+                <div class="testimonial-avatar">UK</div>
+                <div>
+                  <div class="testimonial-name"><span data-i18n="testimonial.5.name">Umut K.</span> <span class="testimonial-sep">•</span> <span class="testimonial-city" data-i18n="testimonial.5.city">Bursa</span></div>
+                  <div class="testimonial-role" data-i18n="testimonial.5.title">Béta tesztelő</div>
+                </div>
+              </div>
+            </div>
+            <div class="testimonial-card">
+              <div class="testimonial-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+              <p class="testimonial-text" data-i18n-html="testimonial.6.text">Az offline funkció a kedvencem. Az adataimat internet nélkül is rögzíthetem.</p>
+              <div class="testimonial-author">
+                <div class="testimonial-avatar">BC</div>
+                <div>
+                  <div class="testimonial-name"><span data-i18n="testimonial.6.name">Bertuğ C.</span> <span class="testimonial-sep">•</span> <span class="testimonial-city" data-i18n="testimonial.6.city">Kırklareli</span></div>
+                  <div class="testimonial-role" data-i18n="testimonial.6.title">Béta tesztelő</div>
+                </div>
+              </div>
+            </div>
+            <div class="testimonial-card">
+              <div class="testimonial-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+              <p class="testimonial-text" data-i18n-html="testimonial.7.text">A Drivarc intelligens értesítéseinek köszönhetően soha nem maradok le egy karbantartásról sem. Egy nagyon részletes és hasznos járműkezelő alkalmazás.</p>
+              <div class="testimonial-author">
+                <div class="testimonial-avatar">CC</div>
+                <div>
+                  <div class="testimonial-name"><span data-i18n="testimonial.7.name">Cemal Can K.</span> <span class="testimonial-sep">•</span> <span class="testimonial-city" data-i18n="testimonial.7.city">Bursa</span></div>
+                  <div class="testimonial-role" data-i18n="testimonial.7.title">Béta tesztelő</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
     <section class="features-section" id="features" aria-labelledby="features-title">
         <div class="section-particles">

@@ -75,7 +75,7 @@
 	    <link rel="stylesheet" href="/css/styles-modals.css">
 	    <link rel="stylesheet" href="/css/styles-animations.css">
 	    <link rel="stylesheet" href="/css/styles-rtl.css">
-    
+	    <link rel="stylesheet" href="/css/styles-testimonials.css">
     
     <script src="/js/seo-jsonld.js" defer></script>
     <script src="/js/app-core.js" defer></script>
@@ -83,6 +83,7 @@
     <script src="/js/app-ui.js" defer></script>
     <script src="/js/app-cookie.js" defer></script>
     <script src="/js/app-i18n.js" defer></script>
+    <script src="/js/app-testimonials.js" defer></script>
   <!-- hreflang -->
     <link rel="alternate" hreflang="tr" href="https://drivarc.com/">
     <link rel="alternate" hreflang="en" href="https://drivarc.com/en/">
@@ -146,6 +147,7 @@
                 <a href="#hero" class="logo"><img src="../images/logo-256.png" srcset="../images/logo-256.png 1x" alt="Drivarc Logo" class="logo-img" width="128" height="36" loading="eager" fetchpriority="high"></a>
                 <nav class="nav" data-i18n="nav.aria_label" data-i18n-attr="aria-label" aria-label="Thực đơn chính">
                     <a href="#hero" class="active" data-i18n="nav.home">Trang chủ</a>
+                    <a href="#testimonials" data-i18n="nav.testimonials">Đánh giá</a>
                     <a href="#features" data-i18n="nav.features">Tính năng</a>
                     <a href="#problems" data-i18n="nav.problems">Vấn đề</a>
                     <a href="#faq" data-i18n="nav.faq">Câu hỏi Thường gặp</a>
@@ -440,6 +442,98 @@
             </div>
         </main>
     </div>
+
+    <section class="testimonials-section" id="testimonials" aria-labelledby="testimonials-title">
+      <div class="testimonials-inner">
+        <div class="testimonials-header animate-on-scroll">
+          <h2 class="testimonials-title" id="testimonials-title" data-i18n="testimonials.title">User Testimonials</h2>
+          <p class="testimonials-subtitle" data-i18n="testimonials.subtitle">What Drivarc users say</p>
+        </div>
+        <div class="testimonials-wrapper" id="testimonialsWrapper">
+          <div class="testimonials-swiper" id="testimonialsSwiper">
+          <div class="testimonials-track" id="testimonialsTrack">
+            <div class="testimonial-card">
+              <div class="testimonial-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+              <p class="testimonial-text" data-i18n-html="testimonial.1.text">Với Drivarc, tôi có thể theo dõi chi phí xe thường xuyên. Một ứng dụng rất thực tế.</p>
+              <div class="testimonial-author">
+                <div class="testimonial-avatar">ÖD</div>
+                <div>
+                  <div class="testimonial-name"><span data-i18n="testimonial.1.name">Özer D.</span> <span class="testimonial-sep">•</span> <span class="testimonial-city" data-i18n="testimonial.1.city">Clausthal-Zellerfeld</span></div>
+                  <div class="testimonial-role" data-i18n="testimonial.1.title">Người dùng thử Beta</div>
+                </div>
+              </div>
+            </div>
+            <div class="testimonial-card">
+              <div class="testimonial-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+              <p class="testimonial-text" data-i18n-html="testimonial.2.text">Nhờ nhắc nhở bảo dưỡng, tôi không bao giờ bỏ lỡ lịch bảo trì. Nó thực sự giúp công việc của tôi dễ dàng hơn.</p>
+              <div class="testimonial-author">
+                <div class="testimonial-avatar">GB</div>
+                <div>
+                  <div class="testimonial-name"><span data-i18n="testimonial.2.name">Gökberk Burak S.</span> <span class="testimonial-sep">•</span> <span class="testimonial-city" data-i18n="testimonial.2.city">Kırklareli</span></div>
+                  <div class="testimonial-role" data-i18n="testimonial.2.title">Người dùng thử Beta</div>
+                </div>
+              </div>
+            </div>
+            <div class="testimonial-card">
+              <div class="testimonial-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+              <p class="testimonial-text" data-i18n-html="testimonial.3.text">Với tính năng theo dõi nhiên liệu và phân tích chi phí, tôi thấy rõ số tiền chi tiêu hàng tháng. Một công cụ tuyệt vời!</p>
+              <div class="testimonial-author">
+                <div class="testimonial-avatar">Eİ</div>
+                <div>
+                  <div class="testimonial-name"><span data-i18n="testimonial.3.name">Emre İ.</span> <span class="testimonial-sep">•</span> <span class="testimonial-city" data-i18n="testimonial.3.city">Bursa</span></div>
+                  <div class="testimonial-role" data-i18n="testimonial.3.title">Người dùng thử Beta</div>
+                </div>
+              </div>
+            </div>
+            <div class="testimonial-card">
+              <div class="testimonial-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+              <p class="testimonial-text" data-i18n-html="testimonial.4.text">Chúng tôi quản lý tất cả xe công ty bằng Drivarc. Hỗ trợ nhiều xe chính là giải pháp chúng tôi đang tìm kiếm.</p>
+              <div class="testimonial-author">
+                <div class="testimonial-avatar">İY</div>
+                <div>
+                  <div class="testimonial-name"><span data-i18n="testimonial.4.name">İlker Y.</span> <span class="testimonial-sep">•</span> <span class="testimonial-city" data-i18n="testimonial.4.city">Bursa</span></div>
+                  <div class="testimonial-role" data-i18n="testimonial.4.title">Người dùng thử Beta</div>
+                </div>
+              </div>
+            </div>
+            <div class="testimonial-card">
+              <div class="testimonial-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+              <p class="testimonial-text" data-i18n-html="testimonial.5.text">Nhờ tính năng quét hóa đơn, tôi không cần nhập hóa đơn thủ công. Tiết kiệm rất nhiều thời gian.</p>
+              <div class="testimonial-author">
+                <div class="testimonial-avatar">UK</div>
+                <div>
+                  <div class="testimonial-name"><span data-i18n="testimonial.5.name">Umut K.</span> <span class="testimonial-sep">•</span> <span class="testimonial-city" data-i18n="testimonial.5.city">Bursa</span></div>
+                  <div class="testimonial-role" data-i18n="testimonial.5.title">Người dùng thử Beta</div>
+                </div>
+              </div>
+            </div>
+            <div class="testimonial-card">
+              <div class="testimonial-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+              <p class="testimonial-text" data-i18n-html="testimonial.6.text">Tính năng ngoại tuyến là yêu thích của tôi. Tôi có thể nhập dữ liệu ngay cả khi không có internet.</p>
+              <div class="testimonial-author">
+                <div class="testimonial-avatar">BC</div>
+                <div>
+                  <div class="testimonial-name"><span data-i18n="testimonial.6.name">Bertuğ C.</span> <span class="testimonial-sep">•</span> <span class="testimonial-city" data-i18n="testimonial.6.city">Kırklareli</span></div>
+                  <div class="testimonial-role" data-i18n="testimonial.6.title">Người dùng thử Beta</div>
+                </div>
+              </div>
+            </div>
+            <div class="testimonial-card">
+              <div class="testimonial-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+              <p class="testimonial-text" data-i18n-html="testimonial.7.text">Nhờ thông báo thông minh của Drivarc, tôi không bao giờ bỏ lỡ lịch bảo dưỡng. Một ứng dụng quản lý xe rất chi tiết và hữu ích.</p>
+              <div class="testimonial-author">
+                <div class="testimonial-avatar">CC</div>
+                <div>
+                  <div class="testimonial-name"><span data-i18n="testimonial.7.name">Cemal Can K.</span> <span class="testimonial-sep">•</span> <span class="testimonial-city" data-i18n="testimonial.7.city">Bursa</span></div>
+                  <div class="testimonial-role" data-i18n="testimonial.7.title">Người dùng thử Beta</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
     <section class="features-section" id="features" aria-labelledby="features-title">
         <div class="section-particles">

@@ -56,7 +56,7 @@
   var cloneMarker = '[data-testimonial-clone="true"]';
   var pos = 0;
   var speed = 0.7;
-  var maxDist = 0;
+  var cycleDistance = 0;
   var paused = false;
   var running = false;
 
@@ -81,6 +81,25 @@
     }
 
     window.clearTimeout(handle);
+  }
+
+  function normalizePosition(value) {
+    if (cycleDistance <= 0) return value;
+
+    while (value < -cycleDistance * 2) {
+      value += cycleDistance;
+    }
+
+    while (value > -cycleDistance) {
+      value -= cycleDistance;
+    }
+
+    return value;
+  }
+
+  function setTrackPosition(value) {
+    pos = normalizePosition(value);
+    track.style.transform = 'translate3d(' + pos + 'px, 0, 0)';
   }
 
   function activateStaticFallback(reason, error) {
@@ -152,18 +171,18 @@
   function measure() {
     try {
       var n = cards.length;
-      var first = track.children[n].getBoundingClientRect();
-      var last = track.children[n * 2 - 1].getBoundingClientRect();
-      maxDist = Math.round(last.right - first.left);
+      var firstOriginal = track.children[n].getBoundingClientRect();
+      var firstClone = track.children[n * 2].getBoundingClientRect();
+      cycleDistance = firstClone.left - firstOriginal.left;
 
-      if (!maxDist || maxDist < 1) {
-        throw new Error('Invalid slide distance: ' + maxDist);
+      if (!cycleDistance || cycleDistance < 1) {
+        throw new Error('Invalid slide distance: ' + cycleDistance);
       }
 
-      pos = -maxDist;
+      setTrackPosition(-cycleDistance);
       diagnostics('testimonials', {
         phase: 'measured',
-        maxDist: maxDist,
+        maxDist: Math.round(cycleDistance),
         cardCount: cards.length
       });
     } catch (error) {
@@ -176,13 +195,7 @@
 
     try {
       if (!paused) {
-        pos -= speed;
-        if (maxDist > 0) {
-          if (pos < -maxDist * 2) pos += maxDist;
-          if (pos > 0) pos -= maxDist;
-        }
-
-        track.style.transform = 'translate3d(' + pos + 'px, 0, 0)';
+        setTrackPosition(pos - speed);
       }
 
       requestFrame(animate);
@@ -196,12 +209,12 @@
       measure();
       if (fallbackApplied) return;
 
-      track.style.transform = 'translate3d(' + pos + 'px, 0, 0)';
+      setTrackPosition(pos);
       running = true;
 
       diagnostics('testimonials', {
         phase: 'started',
-        maxDist: maxDist,
+        maxDist: Math.round(cycleDistance),
         speed: speed,
         cardCount: cards.length,
         forceLog: true
@@ -260,10 +273,7 @@
     if (fallbackApplied) return;
     dragging = false;
     var dx = currentX - startX;
-    pos = pos + dx;
-    if (pos < -maxDist * 2) pos = -maxDist * 2;
-    if (pos > maxDist) pos = maxDist;
-    track.style.transform = 'translate3d(' + pos + 'px, 0, 0)';
+    setTrackPosition(pos + dx);
     swiper.style.transform = '';
     clearTimeout(hoverTimer);
     hoverTimer = setTimeout(function () {
@@ -334,7 +344,7 @@
         if (fallbackApplied) return;
         diagnostics('testimonials', {
           phase: 'resize-measured',
-          maxDist: maxDist,
+          maxDist: Math.round(cycleDistance),
           cardCount: cards.length
         });
       } catch (error) {
