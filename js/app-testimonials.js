@@ -53,11 +53,12 @@
   });
 
   var fallbackApplied = false;
+  var autoScrollDisabled = featureMatrix.prefersReducedMotion;
   var cloneMarker = '[data-testimonial-clone="true"]';
   var pos = 0;
   var speed = 0.7;
   var cycleDistance = 0;
-  var paused = false;
+  var paused = autoScrollDisabled;
   var running = false;
 
   function requestFrame(callback) {
@@ -111,6 +112,8 @@
     wrapper.classList.add('testimonials-static');
     if (section) section.classList.add('testimonials-static');
 
+    if (section) section.setAttribute('data-testimonials-state', 'fallback-' + reason);
+
     diagnostics('testimonials', {
       phase: 'static-fallback',
       reason: reason,
@@ -125,11 +128,19 @@
     });
   }
 
-  if (featureMatrix.prefersReducedMotion || !featureMatrix.supportsRequestAnimationFrame || !featureMatrix.supportsTransform3d) {
+  if (autoScrollDisabled) {
+    if (section) section.setAttribute('data-testimonials-state', 'reduced-motion');
+    diagnostics('testimonials', {
+      phase: 'reduced-motion-mode',
+      reason: 'prefers-reduced-motion',
+      cardCount: cards.length,
+      forceLog: true
+    });
+  }
+
+  if (!featureMatrix.supportsRequestAnimationFrame || !featureMatrix.supportsTransform3d) {
     activateStaticFallback(
-      featureMatrix.prefersReducedMotion
-        ? 'prefers-reduced-motion'
-        : (!featureMatrix.supportsRequestAnimationFrame ? 'requestAnimationFrame-missing' : 'transform-3d-unsupported')
+      !featureMatrix.supportsRequestAnimationFrame ? 'requestAnimationFrame-missing' : 'transform-3d-unsupported'
     );
     return;
   }
@@ -204,14 +215,18 @@
       running = true;
 
       diagnostics('testimonials', {
-        phase: 'started',
+        phase: autoScrollDisabled ? 'started-reduced-motion' : 'started',
         maxDist: Math.round(cycleDistance),
-        speed: speed,
+        speed: autoScrollDisabled ? 0 : speed,
         cardCount: cards.length,
         forceLog: true
       });
 
-      animate();
+      if (section) section.setAttribute('data-testimonials-state', autoScrollDisabled ? 'reduced-motion' : 'running');
+
+      if (!autoScrollDisabled) {
+        animate();
+      }
     } catch (error) {
       activateStaticFallback('start-error', error);
     }
@@ -230,6 +245,7 @@
   });
 
   wrapper.addEventListener('mouseleave', function () {
+    if (autoScrollDisabled) return;
     paused = false;
   });
 
@@ -240,6 +256,7 @@
     });
 
     wrapper.addEventListener('pointerleave', function (event) {
+      if (autoScrollDisabled) return;
       if (event.pointerType && event.pointerType !== 'mouse' && event.pointerType !== 'pen') return;
       paused = false;
     });
@@ -268,6 +285,7 @@
     swiper.style.transform = '';
     clearTimeout(hoverTimer);
     hoverTimer = setTimeout(function () {
+      if (autoScrollDisabled) return;
       paused = false;
     }, 50);
   }
@@ -323,7 +341,7 @@
   wrapper.addEventListener('touchcancel', function () {
     dragging = false;
     swiper.style.transform = '';
-    paused = false;
+    if (!autoScrollDisabled) paused = false;
     clearTimeout(hoverTimer);
   });
 
