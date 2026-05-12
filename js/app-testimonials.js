@@ -19,7 +19,7 @@
   };
 
   var featureMatrix = window.drivarcRuntimeFeatures || {
-    prefersReducedMotion: false,
+    prefersReducedMotion: typeof window.matchMedia === 'function' && window.matchMedia('(prefers-reduced-motion: reduce)').matches,
     supportsRequestAnimationFrame: typeof window.requestAnimationFrame === 'function',
     supportsTransform3d: !window.CSS || typeof window.CSS.supports !== 'function' ? true : window.CSS.supports('transform', 'translate3d(0, 0, 0)'),
     supportsMaskImage: !window.CSS || typeof window.CSS.supports !== 'function' ? true : window.CSS.supports('mask-image', 'linear-gradient(black, transparent)') || window.CSS.supports('-webkit-mask-image', 'linear-gradient(black, transparent)'),
@@ -254,15 +254,6 @@
   var currentX = 0;
   var dragging = false;
 
-  wrapper.addEventListener('mouseenter', function () {
-    paused = true;
-  });
-
-  wrapper.addEventListener('mouseleave', function () {
-    if (autoScrollDisabled) return;
-    paused = false;
-  });
-
   if ('PointerEvent' in window) {
     wrapper.addEventListener('pointerenter', function (event) {
       if (event.pointerType && event.pointerType !== 'mouse' && event.pointerType !== 'pen') return;
@@ -272,6 +263,15 @@
     wrapper.addEventListener('pointerleave', function (event) {
       if (autoScrollDisabled) return;
       if (event.pointerType && event.pointerType !== 'mouse' && event.pointerType !== 'pen') return;
+      paused = false;
+    });
+  } else {
+    wrapper.addEventListener('mouseenter', function () {
+      paused = true;
+    });
+
+    wrapper.addEventListener('mouseleave', function () {
+      if (autoScrollDisabled) return;
       paused = false;
     });
   }
