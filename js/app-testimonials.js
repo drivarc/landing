@@ -154,17 +154,20 @@
     track.appendChild(clone);
   });
 
+  function updateCycleDistance() {
+    var n = cards.length;
+    var firstOriginal = track.children[n].getBoundingClientRect();
+    var firstClone = track.children[n * 2].getBoundingClientRect();
+    cycleDistance = firstClone.left - firstOriginal.left;
+
+    if (!cycleDistance || cycleDistance < 1) {
+      throw new Error('Invalid slide distance: ' + cycleDistance);
+    }
+  }
+
   function measure() {
     try {
-      var n = cards.length;
-      var firstOriginal = track.children[n].getBoundingClientRect();
-      var firstClone = track.children[n * 2].getBoundingClientRect();
-      cycleDistance = firstClone.left - firstOriginal.left;
-
-      if (!cycleDistance || cycleDistance < 1) {
-        throw new Error('Invalid slide distance: ' + cycleDistance);
-      }
-
+      updateCycleDistance();
       setTrackPosition(-cycleDistance);
       diagnostics('testimonials', {
         phase: 'measured',
@@ -333,10 +336,10 @@
     clearTimeout(resizeTimer);
     resizeTimer = setTimeout(function () {
       try {
-        measure();
+        updateCycleDistance();
         if (fallbackApplied) return;
         diagnostics('testimonials', {
-          phase: 'resize-measured',
+          phase: 'resize-updated',
           maxDist: Math.round(cycleDistance),
           cardCount: cards.length
         });
