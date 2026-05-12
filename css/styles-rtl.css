@@ -138,13 +138,13 @@ html[dir="rtl"][lang="he"] body {
  .lang-option.active {
      border-radius: 6px;
      background-clip: padding-box;
-     color: var(--accent-light);
-     background: var(--active-bg);
+     color: var(--color-primary);
+     background: var(--color-primary-dim, rgba(99,133,242,0.15));
  }
 
  .lang-option.active .lang-code-badge {
-     color: var(--accent-light);
-     background: var(--active-bg);
+     color: var(--color-primary);
+     background: var(--color-primary-dim, rgba(99,133,242,0.15));
      font-weight: 700;
  }
 

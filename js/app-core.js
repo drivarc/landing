@@ -74,9 +74,50 @@ if (document.readyState === 'loading') {
 }
 
 const themeToggle = document.querySelector('.theme-toggle');
+const themeDropdown = document.querySelector('.theme-dropdown');
+const themeOptions = document.querySelectorAll('.theme-option');
 const iconMoon = document.querySelector('.icon-moon');
 const iconSun = document.querySelector('.icon-sun');
+const iconSystem = document.querySelector('.icon-system');
 const html = document.documentElement;
+const themeMq = window.matchMedia('(prefers-color-scheme: dark)');
+
+function getSystemTheme() {
+    return themeMq.matches ? 'dark' : 'light';
+}
+
+function applyTheme(mode) {
+    var resolvedTheme = mode === 'system' ? getSystemTheme() : mode;
+    html.setAttribute('data-theme', resolvedTheme);
+    localStorage.setItem('theme', mode);
+    if (iconMoon) iconMoon.classList.toggle('is-hidden', resolvedTheme !== 'dark');
+    if (iconSun) iconSun.classList.toggle('is-hidden', resolvedTheme !== 'light');
+    if (iconSystem) iconSystem.classList.toggle('is-hidden', mode !== 'system');
+}
+
+function updateDropdownSelection(mode) {
+    themeOptions.forEach(function(opt) {
+        var isSelected = opt.getAttribute('data-theme-value') === mode;
+        opt.classList.toggle('selected', isSelected);
+        opt.setAttribute('aria-selected', isSelected);
+    });
+}
+
+function openDropdown() {
+    if (!themeDropdown) return;
+    if (langDropdown) langDropdown.classList.remove('open');
+    if (langToggle) langToggle.setAttribute('aria-expanded', 'false');
+    var mode = localStorage.getItem('theme') || 'system';
+    updateDropdownSelection(mode);
+    themeDropdown.classList.add('open');
+    if (themeToggle) themeToggle.setAttribute('aria-expanded', 'true');
+}
+
+function closeDropdown() {
+    if (!themeDropdown) return;
+    themeDropdown.classList.remove('open');
+    if (themeToggle) themeToggle.setAttribute('aria-expanded', 'false');
+}
 
 function ensureAnalyticsLoaded() {
     if (typeof window.drivarcEnsureAnalyticsLoaded === 'function') {
@@ -198,37 +239,56 @@ if (!supportsHoverInput) {
     html.classList.add('touch-device');
 }
 
-const savedTheme = localStorage.getItem('theme') || 'dark';
-if (savedTheme === 'light') {
-    html.setAttribute('data-theme', 'light');
-    if (iconMoon) iconMoon.classList.add('is-hidden');
-    if (iconSun) iconSun.classList.remove('is-hidden');
-}
+var savedMode = localStorage.getItem('theme') || 'system';
+applyTheme(savedMode);
+
+themeMq.addEventListener('change', function() {
+    var mode = localStorage.getItem('theme') || 'system';
+    if (mode === 'system') {
+        applyTheme('system');
+    }
+});
 
 if (themeToggle) {
-    themeToggle.addEventListener('click', () => {
-        const currentTheme = html.getAttribute('data-theme');
-        const newTheme = currentTheme === 'light' ? 'dark' : 'light';
-        html.setAttribute('data-theme', newTheme);
-        if (iconMoon) iconMoon.classList.toggle('is-hidden', newTheme === 'light');
-        if (iconSun) iconSun.classList.toggle('is-hidden', newTheme !== 'light');
-        localStorage.setItem('theme', newTheme);
+    themeToggle.addEventListener('click', function(e) {
+        e.stopPropagation();
+        if (themeDropdown && themeDropdown.classList.contains('open')) {
+            closeDropdown();
+        } else {
+            openDropdown();
+        }
     });
+}
+
+themeOptions.forEach(function(opt) {
+    opt.addEventListener('click', function(e) {
+        e.stopPropagation();
+        var value = opt.getAttribute('data-theme-value');
+        applyTheme(value);
+        closeDropdown();
+    });
+});
+
+document.addEventListener('click', closeDropdown);
+
+if (themeDropdown) {
+    themeDropdown.addEventListener('click', function(e) { e.stopPropagation(); });
 }
 
 const langToggle = document.querySelector('.lang-toggle');
 const langDropdown = document.getElementById('langDropdown');
 
- if (langToggle) {
-     langToggle.setAttribute('aria-expanded', 'false');
-     langToggle.addEventListener('click', (e) => {
-         e.stopPropagation();
-         if (langDropdown) {
-             const isOpen = langDropdown.classList.toggle('open');
-             langToggle.setAttribute('aria-expanded', isOpen);
-         }
-     });
- }
+  if (langToggle) {
+      langToggle.setAttribute('aria-expanded', 'false');
+      langToggle.addEventListener('click', (e) => {
+          e.stopPropagation();
+          if (langDropdown) {
+              var isOpen = langDropdown.classList.toggle('open');
+              langToggle.setAttribute('aria-expanded', isOpen);
+          }
+          if (isOpen) closeDropdown();
+      });
+  }
  document.addEventListener('click', () => {
      if (langDropdown) {
          langDropdown.classList.remove('open');
