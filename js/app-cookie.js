@@ -34,27 +34,41 @@
      if (state.loaded) return Promise.resolve(true);
      if (state.promise) return state.promise;
 
-     state.loading = true;
-     state.promise = new Promise(function(resolve) {
-       applyConfig();
+      state.loading = true;
+      state.promise = new Promise(function(resolve) {
+        applyConfig();
 
-       var gaScript = document.createElement('script');
-       gaScript.async = true;
-       gaScript.src = GA_SRC;
-       gaScript.onload = function() {
-         state.loaded = true;
-         state.loading = false;
-         resolve(true);
-       };
-       gaScript.onerror = function() {
-         state.loading = false;
-         state.promise = null;
-         resolve(false);
-       };
-       gaScript.timeout = 10000;
+        var gaScript = document.createElement('script');
+        var settled = false;
+        var timeoutId = window.setTimeout(function() {
+          if (settled) return;
+          settled = true;
+          state.loading = false;
+          state.promise = null;
+          resolve(false);
+        }, 10000);
 
-       (document.head || document.documentElement).appendChild(gaScript);
-     });
+        gaScript.async = true;
+        gaScript.src = GA_SRC;
+        gaScript.onload = function() {
+          if (settled) return;
+          settled = true;
+          window.clearTimeout(timeoutId);
+          state.loaded = true;
+          state.loading = false;
+          resolve(true);
+        };
+        gaScript.onerror = function() {
+          if (settled) return;
+          settled = true;
+          window.clearTimeout(timeoutId);
+          state.loading = false;
+          state.promise = null;
+          resolve(false);
+        };
+
+        (document.head || document.documentElement).appendChild(gaScript);
+      });
 
      return state.promise;
    }
@@ -80,11 +94,11 @@
            event_label: id,
            value: Math.round(name === 'CLS' ? value * 1000 : value),
            non_interaction: true
-         });
-       }
+          });
+        }
       }
 
-     try {
+      try {
         if (PerformanceObserver.supportedEntryTypes && PerformanceObserver.supportedEntryTypes.indexOf('layout-shift') !== -1) {
           var onCLS = new PerformanceObserver(function(entries) {
             entries.getEntries().forEach(function(entry) {
@@ -97,42 +111,45 @@
           onCLS.observe({ type: 'layout-shift', buffered: true });
         }
 
-       var onLCP = new PerformanceObserver(function(entries) {
-         var lastEntry = entries.getEntries()[entries.getEntries().length - 1];
-         perfData.lcp = lastEntry.renderTime || lastEntry.startTime;
-         reportWebVital('LCP', perfData.lcp, lastEntry.name);
-       });
-       onLCP.observe({ type: 'largest-contentful-paint', buffered: true });
+        var onLCP = new PerformanceObserver(function(entries) {
+          var lastEntry = entries.getEntries()[entries.getEntries().length - 1];
+          perfData.lcp = lastEntry.renderTime || lastEntry.startTime;
+          reportWebVital('LCP', perfData.lcp, lastEntry.name);
+        });
+        onLCP.observe({ type: 'largest-contentful-paint', buffered: true });
 
-       var onFCP = new PerformanceObserver(function(entries) {
-         var fcpEntry = entries.getEntries().find(function(e) { return e.name === 'first-contentful-paint'; });
-         if (fcpEntry) {
-           perfData.fcp = fcpEntry.renderTime || fcpEntry.startTime;
-           reportWebVital('FCP', perfData.fcp, fcpEntry.name);
-         }
-       });
-       onFCP.observe({ type: 'paint', buffered: true });
+        var onFCP = new PerformanceObserver(function(entries) {
+          var fcpEntry = entries.getEntries().find(function(e) { return e.name === 'first-contentful-paint'; });
+          if (fcpEntry) {
+            perfData.fcp = fcpEntry.renderTime || fcpEntry.startTime;
+            reportWebVital('FCP', perfData.fcp, fcpEntry.name);
+          }
+        });
+        onFCP.observe({ type: 'paint', buffered: true });
 
-       var onFID = new PerformanceObserver(function(entries) {
-         var firstEntry = entries.getEntries()[0];
-         if (firstEntry) {
-           perfData.fid = firstEntry.processingStart - firstEntry.startTime;
-           reportWebVital('FID', perfData.fid, firstEntry.name);
-         }
-       });
-       onFID.observe({ type: 'first-input', buffered: true });
+        var onFID = new PerformanceObserver(function(entries) {
+          var firstEntry = entries.getEntries()[0];
+          if (firstEntry) {
+            perfData.fid = firstEntry.processingStart - firstEntry.startTime;
+            reportWebVital('FID', perfData.fid, firstEntry.name);
+          }
+        });
+        onFID.observe({ type: 'first-input', buffered: true });
 
-       var onTTFB = new PerformanceObserver(function(entries) {
-         var ttfbEntry = entries.getEntries()[0];
-         if (ttfbEntry) {
-           perfData.ttfb = ttfbEntry.responseStart - ttfbEntry.requestStart;
-           reportWebVital('TTFB', perfData.ttfb, ttfbEntry.name);
-         }
-       });
-       onTTFB.observe({ type: 'navigation', buffered: true });
+        var onTTFB = new PerformanceObserver(function(entries) {
+          var ttfbEntry = entries.getEntries()[0];
+          if (ttfbEntry) {
+            perfData.ttfb = ttfbEntry.responseStart - ttfbEntry.requestStart;
+            reportWebVital('TTFB', perfData.ttfb, ttfbEntry.name);
+          }
+        });
+        onTTFB.observe({ type: 'navigation', buffered: true });
 
-       window.__drivarcPerfData = perfData;
+        window.__drivarcPerfData = perfData;
       } catch(e) {
+        if (window.console && typeof window.console.warn === 'function') {
+          window.console.warn('Failed to initialize web vitals observers.', e);
+        }
       }
    }
 
@@ -153,6 +170,7 @@
    var CONSENT_COOKIE_NAME = 'cookie_policy';
    var CONSENT_COOKIE_DAYS = 365;
    var CONSENT_VERSION = '2';
+   var CONSENT_RETRY_DELAY_MS = 100;
 
    function readCookie(name) {
        var match = document.cookie.match(new RegExp('(^| )' + name + '=([^;]+)'));
@@ -194,7 +212,7 @@
                    'ad_personalization': granted ? 'granted' : 'denied',
                    'analytics_storage': granted ? 'granted' : 'denied'
                });
-               setTimeout(applyConsent, 100);
+                setTimeout(applyConsent, CONSENT_RETRY_DELAY_MS);
            }
        }
        applyConsent();

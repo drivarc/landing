@@ -97,7 +97,7 @@
   align-items: center;
   justify-content: center;
   box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-  transition: transform 0.2s, box-shadow 0.2s;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .toc-fab:hover { transform: scale(1.05); box-shadow: 0 6px 16px rgba(0,0,0,0.4); }
@@ -157,7 +157,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: background 0.2s;
+   transition: background 0.2s ease;
 }
 
 .toc-sheet-close:hover { background: var(--color-hover-bg); }
