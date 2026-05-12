@@ -1,7 +1,6 @@
 (function() {
    var GA_ID = 'G-28CR3Y25R3';
    var GA_SRC = 'https://www.googletagmanager.com/gtag/js?id=' + GA_ID;
-   var DEFAULT_LANG = 'tr';
    var state = window.__drivarcAnalyticsState || (window.__drivarcAnalyticsState = {
      loaded: false,
      loading: false,
@@ -149,6 +148,7 @@
 (function() {
    'use strict';
 
+   var DEFAULT_LANG = 'tr';
    var COOKIE_KEY = 'drivarc-cookie-consent';
    var CONSENT_COOKIE_NAME = 'cookie_policy';
    var CONSENT_COOKIE_DAYS = 365;
