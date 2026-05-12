@@ -307,6 +307,8 @@
   "og.locale": "ro_RO",
   "og.image_alt": "Drivarc - Română",
   "meta.keywords": "vehicle tracking, maintenance reminder, fuel tracking, vehicle management, Drivarc",
+  "toast.saved": "Preferințele tale au fost salvate.",
+  "toast.declined": "Cookie-urile au fost respinse.",
   "noscript.title": "JavaScript Required",
   "noscript.desc": "Drivarc website requires JavaScript. Please enable JavaScript in your browser and reload the page.",
   "hero.aria_label": "Secțiunea hero a paginii principale",

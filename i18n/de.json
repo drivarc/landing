@@ -307,6 +307,8 @@
   "og.locale": "de_DE",
   "og.image_alt": "Drivarc - Fahrzeug-Tracking & Verwaltung",
   "meta.keywords": "Fahrzeugverfolgung, Wartungserinnerung, Kraftstoffverfolgung, Fahrzeugverwaltung, Drivarc",
+  "toast.saved": "Ihre Einstellungen wurden gespeichert.",
+  "toast.declined": "Cookies wurden abgelehnt.",
   "noscript.title": "JavaScript erforderlich",
   "noscript.desc": "Die Drivarc-Website erfordert JavaScript. Bitte aktivieren Sie JavaScript in Ihrem Browser und laden Sie die Seite neu.",
   "hero.aria_label": "Startseiten-Heldenbereich",

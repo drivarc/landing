@@ -307,6 +307,8 @@
   "og.locale": "ko_KR",
   "og.image_alt": "Drivarc - 한국어",
   "meta.keywords": "vehicle tracking, maintenance reminder, fuel tracking, vehicle management, Drivarc",
+  "toast.saved": "설정이 저장되었습니다.",
+  "toast.declined": "쿠키가 거부되었습니다.",
   "noscript.title": "JavaScript Required",
   "noscript.desc": "Drivarc website requires JavaScript. Please enable JavaScript in your browser and reload the page.",
   "hero.aria_label": "홈페이지 히어로 섹션",

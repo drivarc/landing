@@ -307,6 +307,8 @@
   "og.locale": "id_ID",
   "og.image_alt": "Drivarc - Bahasa Indonesia",
   "meta.keywords": "vehicle tracking, maintenance reminder, fuel tracking, vehicle management, Drivarc",
+  "toast.saved": "Preferensi Anda telah disimpan.",
+  "toast.declined": "Cookie telah ditolak.",
   "noscript.title": "JavaScript Required",
   "noscript.desc": "Drivarc website requires JavaScript. Please enable JavaScript in your browser and reload the page.",
   "hero.aria_label": "Bagian hero halaman utama",

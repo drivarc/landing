@@ -307,6 +307,8 @@
   "og.locale": "zh_CN",
   "og.image_alt": "Drivarc - 中文",
   "meta.keywords": "vehicle tracking, maintenance reminder, fuel tracking, vehicle management, Drivarc",
+  "toast.saved": "您的偏好设置已保存。",
+  "toast.declined": "Cookie 已被拒绝。",
   "noscript.title": "JavaScript Required",
   "noscript.desc": "Drivarc website requires JavaScript. Please enable JavaScript in your browser and reload the page.",
   "hero.aria_label": "首页英雄区域",

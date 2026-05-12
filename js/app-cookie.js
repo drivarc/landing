@@ -286,53 +286,30 @@
            analytics: true,
            marketing: false
        };
-       saveConsent(prefs);
-       ensureAnalyticsLoaded();
-       gtagConsentUpdate(true);
-       hideBanner();
-       trackEvent('cookie_consent', { action: 'accept_all' });
-   }
-
-    function declineAll() {
-        var prefs = {
-            version: CONSENT_VERSION,
-            timestamp: new Date().toISOString(),
-            necessary: true,
-            analytics: false,
-            marketing: false
-        };
         saveConsent(prefs);
-        gtagConsentUpdate(false);
+        ensureAnalyticsLoaded();
+        gtagConsentUpdate(true);
         hideBanner();
-        trackEvent('cookie_consent', { action: 'decline_all' });
+        showToast('saved');
+        trackEvent('cookie_consent', { action: 'accept_all' });
     }
 
-   function openDeclineRepromptModal() {
-       hideBanner();
-       var modal = document.getElementById('declineRepromptModal');
-       if (modal) {
-           modal.classList.add('show');
-       }
-   }
+     function declineAll() {
+         var prefs = {
+             version: CONSENT_VERSION,
+             timestamp: new Date().toISOString(),
+             necessary: true,
+             analytics: false,
+             marketing: false
+         };
+         saveConsent(prefs);
+         gtagConsentUpdate(false);
+         hideBanner();
+         showToast('declined');
+         trackEvent('cookie_consent', { action: 'decline_all' });
+     }
 
-   function closeDeclineRepromptModal() {
-       var modal = document.getElementById('declineRepromptModal');
-       if (modal) {
-           modal.classList.remove('show');
-       }
-   }
-
-   function declineConfirmed() {
-       closeDeclineRepromptModal();
-       declineAll();
-   }
-
-   function acceptInstead() {
-       closeDeclineRepromptModal();
-       acceptAll();
-   }
-
-    function openSettingsModal() {
+     function openSettingsModal() {
         var modal = document.getElementById('cookieSettingsModal');
         if (modal) {
             var toggle = document.getElementById('cookieAnalyticsToggle');
@@ -351,6 +328,20 @@
         }
     }
 
+    function showToast(msgKey) {
+        var toast = document.getElementById('toast');
+        var msgEl = document.getElementById('toast-msg-' + msgKey);
+        if (!toast || !msgEl) return;
+        var icon = msgKey === 'declined'
+            ? '<svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18" style="flex-shrink:0;vertical-align:middle"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>'
+            : '<svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18" style="flex-shrink:0;vertical-align:middle"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>';
+        toast.innerHTML = icon + ' <span>' + msgEl.textContent + '</span>';
+        toast.classList.add('show');
+        setTimeout(function() {
+            toast.classList.remove('show');
+        }, 3000);
+    }
+
     function rejectAllSettings() {
         var prefs = {
             version: CONSENT_VERSION,
@@ -363,31 +354,33 @@
         gtagConsentUpdate(false);
         closeSettingsModal();
         hideBanner();
+        showToast('declined');
         trackEvent('cookie_consent', { action: 'reject_all' });
     }
 
    function saveModalSettings() {
-       var toggle = document.getElementById('cookieAnalyticsToggle');
-       var analyticsEnabled = toggle ? toggle.checked : false;
-       var prefs = {
-           version: CONSENT_VERSION,
-           timestamp: new Date().toISOString(),
-           necessary: true,
-           analytics: analyticsEnabled,
-           marketing: false
-       };
-       saveConsent(prefs);
-       if (analyticsEnabled) {
-           ensureAnalyticsLoaded();
-       }
-       gtagConsentUpdate(analyticsEnabled);
-       closeSettingsModal();
-       hideBanner();
-       trackEvent('cookie_consent', {
-           action: 'custom',
-           analytics: analyticsEnabled
-       });
-   }
+        var toggle = document.getElementById('cookieAnalyticsToggle');
+        var analyticsEnabled = toggle ? toggle.checked : false;
+        var prefs = {
+            version: CONSENT_VERSION,
+            timestamp: new Date().toISOString(),
+            necessary: true,
+            analytics: analyticsEnabled,
+            marketing: false
+        };
+        saveConsent(prefs);
+        if (analyticsEnabled) {
+            ensureAnalyticsLoaded();
+        }
+        gtagConsentUpdate(analyticsEnabled);
+        closeSettingsModal();
+        hideBanner();
+        showToast('saved');
+        trackEvent('cookie_consent', {
+            action: 'custom',
+            analytics: analyticsEnabled
+        });
+    }
 
    function initStoreClickTracking() {
        var gpBtn = document.querySelector('[data-modal="beta"]');
@@ -471,12 +464,6 @@
         var rejectBtn = document.querySelector('.cookie-consent-btn.reject-all');
         if (rejectBtn) rejectBtn.addEventListener('click', rejectAllSettings);
 
-        var declineConfirmedBtn = document.getElementById('declineConfirmed');
-        if (declineConfirmedBtn) declineConfirmedBtn.addEventListener('click', declineConfirmed);
-
-        var acceptInsteadBtn = document.getElementById('acceptInstead');
-        if (acceptInsteadBtn) acceptInsteadBtn.addEventListener('click', acceptInstead);
-
         var cookieModal = document.getElementById('cookieSettingsModal');
         if (cookieModal) {
             cookieModal.addEventListener('click', function(e) {
@@ -484,19 +471,9 @@
             });
         }
 
-        var declineModal = document.getElementById('declineRepromptModal');
-        if (declineModal) {
-            declineModal.addEventListener('click', function(e) {
-                if (e.target === declineModal) {
-                    closeDeclineRepromptModal();
-                }
-            });
-        }
-
         document.addEventListener('keydown', function(e) {
             if (e.key === 'Escape') {
                 closeSettingsModal();
-                closeDeclineRepromptModal();
             }
         });
     }
@@ -508,7 +485,7 @@
         var declineBtn = document.querySelector('.cookie-consent-btn.decline:not(.cookie-settings-close)');
         if (declineBtn) declineBtn.addEventListener('click', function(e) {
             e.preventDefault();
-            openDeclineRepromptModal();
+            declineAll();
         });
 
         var settingsBtn = document.querySelector('.cookie-consent-btn.settings');

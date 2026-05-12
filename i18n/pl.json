@@ -307,6 +307,8 @@
   "og.locale": "pl_PL",
   "og.image_alt": "Drivarc - Polski",
   "meta.keywords": "vehicle tracking, maintenance reminder, fuel tracking, vehicle management, Drivarc",
+  "toast.saved": "Twoje preferencje zostały zapisane.",
+  "toast.declined": "Ciasteczka zostały odrzucone.",
   "noscript.title": "JavaScript Required",
   "noscript.desc": "Drivarc website requires JavaScript. Please enable JavaScript in your browser and reload the page.",
   "hero.aria_label": "Sekcja hero strony głównej",

@@ -241,44 +241,9 @@
 }
 
 
-/* Decline Reprompt Modal */
-.decline-reprompt-modal {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: 10001;
-    display: none;
-    align-items: center;
-    justify-content: center;
-    background: rgba(0, 0, 0, 0.7);
-    backdrop-filter: blur(6px);
-    -webkit-backdrop-filter: blur(6px);
-    padding: 20px;
-}
-
-.decline-reprompt-modal.show {
-    display: flex;
-    animation: fadeIn 0.3s ease forwards;
-}
-
 @keyframes fadeIn {
     from { opacity: 0; }
     to { opacity: 1; }
-}
-
-.decline-reprompt-modal-content {
-    background: var(--bg-secondary);
-    border: 1px solid var(--border);
-    border-radius: 20px;
-    max-width: 480px;
-    width: 100%;
-    padding: 32px 28px;
-    box-sizing: border-box;
-    box-shadow: 0 24px 80px rgba(0, 0, 0, 0.6);
-    text-align: center;
-    animation: slideUp 0.35s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
 
 @keyframes slideUp {
@@ -291,83 +256,6 @@
         transform: translateY(0) scale(1);
     }
 }
-
-.decline-reprompt-icon {
-    width: 64px;
-    height: 64px;
-    margin: 0 auto 20px;
-    border-radius: 50%;
-    background: var(--accent-glow);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.decline-reprompt-icon svg {
-    width: 32px;
-    height: 32px;
-    fill: var(--accent);
-}
-
-.decline-reprompt-title {
-    font-size: 22px;
-    font-weight: 700;
-    color: var(--text-primary);
-    margin-bottom: 12px;
-}
-
-.decline-reprompt-description {
-    font-size: 14px;
-    color: var(--text-secondary);
-    line-height: 1.6;
-    margin-bottom: 28px;
-}
-
-.decline-reprompt-description strong {
-    color: var(--text-primary);
-    font-weight: 600;
-}
-
-.decline-reprompt-actions {
-    display: flex;
-    gap: 12px;
-    justify-content: center;
-    flex-wrap: wrap;
-}
-
-.decline-reprompt-btn {
-    padding: 12px 24px;
-    border-radius: 6px;
-    border: none;
-    font-size: 14px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.2s ease;
-    font-family: inherit;
-    white-space: nowrap;
-}
-
-.decline-reprompt-btn.decline-confirmed {
-    background: transparent;
-    color: var(--text-secondary);
-    border: 1px solid var(--border);
-}
-
-.decline-reprompt-btn.decline-confirmed:hover {
-    background: var(--hover-bg);
-    border-color: var(--text-muted);
-}
-
-.decline-reprompt-btn.accept-instead {
-    background: var(--accent);
-    color: var(--bg-primary);
-}
-
-.decline-reprompt-btn.accept-instead:hover {
-    opacity: 0.9;
-    transform: translateY(-1px);
-}
-
 
 /* Cookie Consent Modal */
 .cookie-consent {
@@ -497,11 +385,6 @@
 }
 
 .cookie-consent-btn:focus-visible {
-    outline: 2px solid var(--accent);
-    outline-offset: 2px;
-}
-
-.decline-reprompt-btn:focus-visible {
     outline: 2px solid var(--accent);
     outline-offset: 2px;
 }
@@ -877,49 +760,6 @@
     }
 
     
-    .decline-reprompt-modal-content {
-        padding: 24px 20px;
-    }
-
-    .decline-reprompt-icon {
-        width: 52px;
-        height: 52px;
-        margin-bottom: 16px;
-    }
-
-    .decline-reprompt-icon svg {
-        width: 26px;
-        height: 26px;
-    }
-
-    .decline-reprompt-title {
-        font-size: 18px;
-    }
-
-    .decline-reprompt-description {
-        font-size: 13px;
-        margin-bottom: 20px;
-    }
-
-    .decline-reprompt-actions {
-        flex-direction: column-reverse;
-    }
-
-    .decline-reprompt-btn {
-        width: 100%;
-        min-height: 48px;
-    }
-}
-
-@media (max-width: 768px) {
-    .decline-reprompt-modal-content {
-        max-width: 420px;
-        padding: 28px 24px;
-    }
-
-    .decline-reprompt-title {
-        font-size: 20px;
-    }
 }
 
 @media (max-width: 768px) {
@@ -974,4 +814,47 @@
 
 .scroll-nav-btn-label {
     display: none;
+}
+
+
+/* Toast / Snackbar */
+.toast {
+    position: fixed;
+    bottom: 24px;
+    left: 50%;
+    transform: translateX(-50%) translateY(100px);
+    z-index: 10002;
+    background: var(--bg-secondary);
+    color: var(--text-primary);
+    padding: 12px 24px;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+    font-size: 14px;
+    font-weight: 500;
+    opacity: 0;
+    transition: all 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+    pointer-events: none;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.toast.show {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+    pointer-events: auto;
+}
+
+
+@media (max-width: 768px) {
+    .toast {
+        bottom: 16px;
+        padding: 10px 20px;
+        font-size: 13px;
+        max-width: 90vw;
+        white-space: normal;
+        text-align: center;
+    }
 }

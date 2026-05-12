@@ -307,6 +307,8 @@
   "og.locale": "el_GR",
   "og.image_alt": "Drivarc - Ελληνικά",
   "meta.keywords": "vehicle tracking, maintenance reminder, fuel tracking, vehicle management, Drivarc",
+  "toast.saved": "Οι προτιμήσεις σας αποθηκεύτηκαν.",
+  "toast.declined": "Τα cookies απορρίφθηκαν.",
   "noscript.title": "JavaScript Required",
   "noscript.desc": "Drivarc website requires JavaScript. Please enable JavaScript in your browser and reload the page.",
   "hero.aria_label": "Ενότητα ήρωα της αρχικής σελίδας",

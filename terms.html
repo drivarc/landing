@@ -517,21 +517,12 @@ E-posta: contact@drivarc.com</div>
         </div>
     </div>
 
-    <div class="decline-reprompt-modal" id="declineRepromptModal" role="dialog" aria-label="Emin misiniz?" aria-modal="true" data-i18n="decline.aria_label" data-i18n-attr="aria-label">
-        <div class="decline-reprompt-modal-content">
-            <div class="decline-reprompt-icon">
-                <svg viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
-                </svg>
-            </div>
-            <h3 class="decline-reprompt-title" data-i18n="decline.title">Emin misiniz?</h3>
-            <p class="decline-reprompt-description" data-i18n="decline.desc">Çerezleri reddettiğinizde bazı özellikler düzgün çalışmayabilir. Kişiselleştirilmiş deneyim ve analizler için tüm çerezleri kabul etmenizi öneriyoruz.</p>
-            <div class="decline-reprompt-actions">
-                <button class="decline-reprompt-btn decline-confirmed" id="declineConfirmed" data-i18n="decline.confirm">Yine de Reddet</button>
-                <button class="decline-reprompt-btn accept-instead" id="acceptInstead" data-i18n="decline.accept">Kabul et</button>
-            </div>
-        </div>
-    </div>
 <script src="/js/app-toc.js" defer></script>
+    <div id="toast" class="toast" role="alert" aria-live="polite"></div>
+
+    <div hidden>
+        <span id="toast-msg-saved" data-i18n="toast.saved">Tercihleriniz kaydedildi.</span>
+        <span id="toast-msg-declined" data-i18n="toast.declined">Çerezler reddedildi.</span>
+    </div>
 </body>
 </html>

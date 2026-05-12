@@ -307,6 +307,8 @@
   "og.locale": "fr_FR",
   "og.image_alt": "Drivarc - Suivi et Gestion de Véhicules",
   "meta.keywords": "suivi de véhicule, rappel entretien, suivi carburant, gestion véhicule, Drivarc",
+  "toast.saved": "Vos préférences ont été enregistrées.",
+  "toast.declined": "Les cookies ont été refusés.",
   "noscript.title": "JavaScript requis",
   "noscript.desc": "Le site Web Drivarc nécessite JavaScript. Veuillez activer JavaScript dans votre navigateur et recharger la page.",
   "hero.aria_label": "Section héroïque de la page d'accueil",

@@ -307,6 +307,8 @@
   "og.locale": "th_TH",
   "og.image_alt": "Drivarc - ไทย",
   "meta.keywords": "vehicle tracking, maintenance reminder, fuel tracking, vehicle management, Drivarc",
+  "toast.saved": "บันทึกการตั้งค่าของคุณแล้ว",
+  "toast.declined": "คุกกี้ถูกปฏิเสธแล้ว",
   "noscript.title": "JavaScript Required",
   "noscript.desc": "Drivarc website requires JavaScript. Please enable JavaScript in your browser and reload the page.",
   "hero.aria_label": "ส่วนฮีโร่ของหน้าแรก",

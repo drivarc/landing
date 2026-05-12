@@ -537,21 +537,12 @@ Google AdMob може використовувати інформацію про
         </div>
     </div>
 
-    <div class="decline-reprompt-modal" id="declineRepromptModal" role="dialog" aria-label="Ви впевнені?" aria-modal="true" data-i18n="decline.aria_label" data-i18n-attr="aria-label">
-        <div class="decline-reprompt-modal-content">
-            <div class="decline-reprompt-icon">
-                <svg viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
-                </svg>
-            </div>
-            <h3 class="decline-reprompt-title" data-i18n="decline.title">Ви впевнені?</h3>
-            <p class="decline-reprompt-description" data-i18n="decline.desc">Відхиляючи cookies, деякі функції можуть не працювати правильно. Ми рекомендуємо прийняти всі cookies для персоналізованого досвіду та аналізу.</p>
-            <div class="decline-reprompt-actions">
-                <button class="decline-reprompt-btn decline-confirmed" id="declineConfirmed" data-i18n="decline.confirm">Все одно Відхилити</button>
-                <button class="decline-reprompt-btn accept-instead" id="acceptInstead" data-i18n="decline.accept">Прийняти</button>
-            </div>
-        </div>
-    </div>
 <script src="/js/app-toc.js" defer></script>
+    <div id="toast" class="toast" role="alert" aria-live="polite"></div>
+
+    <div hidden>
+        <span id="toast-msg-saved" data-i18n="toast.saved">Ваші налаштування збережено.</span>
+        <span id="toast-msg-declined" data-i18n="toast.declined">Файли cookie відхилено.</span>
+    </div>
 </body>
 </html>

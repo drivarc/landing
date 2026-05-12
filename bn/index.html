@@ -1126,20 +1126,12 @@
         </div>
     </div>
 
-    <div class="decline-reprompt-modal" id="declineRepromptModal" role="dialog" aria-label="আপনি কি নিশ্চিত?" aria-modal="true" data-i18n="decline.aria_label" data-i18n-attr="aria-label">
-        <div class="decline-reprompt-modal-content">
-            <div class="decline-reprompt-icon">
-                <svg viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
-                </svg>
-            </div>
-            <h3 class="decline-reprompt-title" data-i18n="decline.title">আপনি কি নিশ্চিত?</h3>
-            <p class="decline-reprompt-description" data-i18n="decline.desc">কুকি প্রত্যাখ্যান করার সময় কিছু বৈশিষ্ট্য সঠিকভাবে কাজ নাও করতে পারে। আমরা ব্যক্তিগত অভিজ্ঞতা এবং বিশ্লেষণের জন্য সমস্ত কুকি গ্রহণ করার পরামর্শ দিই।</p>
-            <div class="decline-reprompt-actions">
-                <button class="decline-reprompt-btn decline-confirmed" id="declineConfirmed" data-i18n="decline.confirm">তবুও প্রত্যাখ্যান করুন</button>
-                <button class="decline-reprompt-btn accept-instead" id="acceptInstead" data-i18n="decline.accept">গ্রহণ করুন</button>
-            </div>
-        </div>
+
+    <div id="toast" class="toast" role="alert" aria-live="polite"></div>
+
+    <div hidden>
+        <span id="toast-msg-saved" data-i18n="toast.saved">আপনার পছন্দগুলি সংরক্ষণ করা হয়েছে।</span>
+        <span id="toast-msg-declined" data-i18n="toast.declined">কুকিগুলি প্রত্যাখ্যান করা হয়েছে।</span>
     </div>
 </body>
 </html>

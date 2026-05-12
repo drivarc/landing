@@ -307,6 +307,8 @@
   "og.locale": "da_DK",
   "og.image_alt": "Drivarc - Dansk",
   "meta.keywords": "vehicle tracking, maintenance reminder, fuel tracking, vehicle management, Drivarc",
+  "toast.saved": "Dine præferencer er blevet gemt.",
+  "toast.declined": "Cookies er blevet afvist.",
   "noscript.title": "JavaScript Required",
   "noscript.desc": "Drivarc website requires JavaScript. Please enable JavaScript in your browser and reload the page.",
   "hero.aria_label": "Heltesektion på startsiden",
