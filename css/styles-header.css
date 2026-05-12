@@ -666,16 +666,7 @@
       font-weight: 700;
   }
 
-.lang-flag {
-    display: none;
-}
 
-.lang-flag-twemoji {
-    width: 1.2em;
-    height: 1.2em;
-    vertical-align: -0.15em;
-    margin: 0 4px;
-}
 
 .lang-code-badge {
     display: inline-flex;

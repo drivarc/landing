@@ -606,28 +606,6 @@ document.addEventListener('DOMContentLoaded', function() {
         if (toggleCode) toggleCode.textContent = htmlLang.toUpperCase();
 
        
-       // Fix Windows flag emojis
-       if (/Win|Windows/.test(navigator.platform || navigator.userAgent) && !/Firefox/.test(navigator.userAgent)) {
-           var flagMap = {
-               '🇹🇷': '1f1f9-1f1f7',
-               '🇬🇧': '1f1e6-1f1e7',
-               '🇩🇪': '1f1e9-1f1ea',
-               '🇷🇺': '1f1f7-1f1fa',
-               '🇸🇦': '1f1f8-1f1e6',
-               '🇨🇳': '1f1e8-1f1f3'
-           };
-           document.querySelectorAll('.lang-flag, .lang-flag-icon').forEach(function(el) {
-               var t = el.textContent.trim();
-               if (flagMap[t]) {
-                    var img = document.createElement('img');
-                    img.className = 'lang-flag-twemoji';
-                    img.src = 'https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/svg/' + flagMap[t] + '.svg';
-                    img.alt = t;
-                    el.textContent = '';
-                    el.appendChild(img);
-               }
-           });
-       }
 
    } catch (e) { /* ignore */ }
 });

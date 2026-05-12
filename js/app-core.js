@@ -339,22 +339,10 @@ if (headerDownloadDropdown) headerDownloadDropdown.addEventListener('click', (e)
           scroll.className = 'lang-scroll';
           fragment.appendChild(scroll);
 
-         // Replace flag emojis with language code badges and add ARIA attributes
-         options.forEach(function(opt) {
-             opt.setAttribute('role', 'option');
-             var flag = opt.querySelector('.lang-flag');
-             var code = opt.getAttribute('hreflang') || '';
-             if (flag) {
-                 var badge = document.createElement('span');
-                 badge.className = 'lang-code-badge';
-                 badge.textContent = code.toUpperCase();
-                 flag.parentNode.replaceChild(badge, flag);
-             }
-         });
-
-         // Hide toggle flag icon
-         var toggleFlagIcon = document.querySelector('.lang-flag-icon');
-         if (toggleFlagIcon) toggleFlagIcon.style.display = 'none';
+          // Add ARIA attributes
+          options.forEach(function(opt) {
+              opt.setAttribute('role', 'option');
+          });
 
          var grouped = {};
          options.forEach(function(opt) {
