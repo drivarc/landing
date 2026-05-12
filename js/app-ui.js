@@ -1,25 +1,28 @@
-const betaModal = document.getElementById('betaModal');
-function openBetaModal() {
-    if (!betaModal) return;
-    betaModal.style.display = 'flex';
-    requestAnimationFrame(() => betaModal.classList.add('show'));
-}
-function closeBetaModal() {
-    if (!betaModal) return;
-    betaModal.classList.remove('show');
-    setTimeout(() => betaModal.style.display = 'none', 300);
+const modals = {
+    beta: document.getElementById('betaModal'),
+    appstore: document.getElementById('appStoreModal')
+};
+
+function openModal(modal) {
+    if (!modal) return;
+    modal.style.display = 'flex';
+    requestAnimationFrame(() => modal.classList.add('show'));
 }
 
-const appStoreModal = document.getElementById('appStoreModal');
-function openAppStoreModal() {
-    if (!appStoreModal) return;
-    appStoreModal.style.display = 'flex';
-    requestAnimationFrame(() => appStoreModal.classList.add('show'));
+function closeModal(modal) {
+    if (!modal) return;
+    modal.classList.remove('show');
+    setTimeout(() => modal.style.display = 'none', 300);
 }
-function closeAppStoreModal() {
-    if (!appStoreModal) return;
-    appStoreModal.classList.remove('show');
-    setTimeout(() => appStoreModal.style.display = 'none', 300);
+
+function hideElement(el) {
+    if (!el) return;
+    el.classList.add('is-hidden');
+}
+
+function showElement(el) {
+    if (!el) return;
+    el.classList.remove('is-hidden');
 }
 
 document.addEventListener('click', (e) => {
@@ -35,25 +38,24 @@ document.addEventListener('click', (e) => {
     const modalOpenBtn = e.target.closest('[data-modal]');
     if (modalOpenBtn) {
         e.preventDefault();
-        const modalType = modalOpenBtn.getAttribute('data-modal');
-        if (modalType === 'beta') openBetaModal();
-        else if (modalType === 'appstore') openAppStoreModal();
+        openModal(modals[modalOpenBtn.getAttribute('data-modal')]);
         return;
     }
 
     const modalCloseBtn = e.target.closest('[data-close-modal]');
     if (modalCloseBtn) {
-        const modalType = modalCloseBtn.getAttribute('data-close-modal');
-        if (modalType === 'beta') closeBetaModal();
-        else if (modalType === 'appstore') closeAppStoreModal();
+        closeModal(modals[modalCloseBtn.getAttribute('data-close-modal')]);
         return;
     }
 
     const modalOverlay = e.target.closest('.beta-modal-overlay');
     if (modalOverlay) {
-        const overlayId = modalOverlay.id;
-        if (overlayId === 'betaModal') closeBetaModal();
-        else if (overlayId === 'appStoreModal') closeAppStoreModal();
+        for (const key in modals) {
+            if (modals[key] && modals[key].id === modalOverlay.id) {
+                closeModal(modals[key]);
+                break;
+            }
+        }
     }
 });
 
@@ -145,23 +147,20 @@ function showHolidayText() {
         if (footerHoliday) footerHoliday.classList.remove('is-hidden');
 
         if (holiday.showAtaturk && ataturkPortrait && shouldLoadAtaturkPortrait()) {
-            var ataturkSrc = getAtaturkPortraitSrc(ataturkPortrait);
+            const ataturkSrc = getAtaturkPortraitSrc(ataturkPortrait);
             if (ataturkSrc && ataturkPortrait.getAttribute('src') !== ataturkSrc) {
                 ataturkPortrait.src = ataturkSrc;
             }
-            ataturkPortrait.classList.remove('is-hidden');
-            ataturkPortrait.style.display = 'block';
+            showElement(ataturkPortrait);
             headerInner.classList.add('has-ataturk');
         } else {
-            ataturkPortrait.classList.add('is-hidden');
-            ataturkPortrait.style.display = 'none';
+            hideElement(ataturkPortrait);
             headerInner.classList.remove('has-ataturk');
         }
     } else {
         holidayText.classList.add('is-hidden');
         if (footerHoliday) footerHoliday.classList.add('is-hidden');
-        ataturkPortrait.classList.add('is-hidden');
-        ataturkPortrait.style.display = 'none';
+        hideElement(ataturkPortrait);
         headerInner.classList.remove('has-ataturk');
     }
 }
