@@ -7,7 +7,16 @@
   var section = document.getElementById('testimonials');
   if (!track || !wrapper || !swiper) return;
 
-  var diagnostics = function () {};
+  var diagnostics = function (scope, data) {
+    if (!window.__DRIVARC_DIAGNOSTICS__ && !(data && data.forceLog)) return;
+    if (typeof console === 'undefined') return;
+    var payload = data || {};
+    if (typeof console.debug === 'function') {
+      console.debug('[diagnostics:' + scope + ']', payload);
+    } else if (typeof console.log === 'function') {
+      console.log('[diagnostics:' + scope + ']', payload);
+    }
+  };
 
   var featureMatrix = window.drivarcRuntimeFeatures || {
     prefersReducedMotion: false,
@@ -66,15 +75,11 @@
   function normalizePosition(value) {
     if (cycleDistance <= 0) return value;
 
-    while (value < -cycleDistance * 2) {
-      value += cycleDistance;
-    }
+    var range = -cycleDistance * 2;
+    var normalized = (value - range) % cycleDistance;
+    if (normalized < 0) normalized += cycleDistance;
 
-    while (value > -cycleDistance) {
-      value -= cycleDistance;
-    }
-
-    return value;
+    return range + normalized;
   }
 
   function setTrackPosition(value) {
@@ -280,16 +285,27 @@
     e.preventDefault();
   });
 
-  document.addEventListener('mousemove', function (e) {
+  function onDocumentMouseMove(e) {
     if (!dragging) return;
     onDragMove(e.clientX);
     e.preventDefault();
-  });
+  }
 
-  document.addEventListener('mouseup', function (e) {
+  function onDocumentMouseUp() {
     if (!dragging) return;
     onDragEnd();
-  });
+  }
+
+  document.addEventListener('mousemove', onDocumentMouseMove);
+  document.addEventListener('mouseup', onDocumentMouseUp);
+
+  function cleanupDocumentListeners() {
+    document.removeEventListener('mousemove', onDocumentMouseMove);
+    document.removeEventListener('mouseup', onDocumentMouseUp);
+  }
+
+  window.addEventListener('pagehide', cleanupDocumentListeners);
+  window.addEventListener('beforeunload', cleanupDocumentListeners);
 
   wrapper.addEventListener('touchstart', function (e) {
     try {

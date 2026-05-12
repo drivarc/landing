@@ -1,6 +1,7 @@
 (function() {
    var GA_ID = 'G-28CR3Y25R3';
    var GA_SRC = 'https://www.googletagmanager.com/gtag/js?id=' + GA_ID;
+   var DEFAULT_LANG = 'tr';
    var state = window.__drivarcAnalyticsState || (window.__drivarcAnalyticsState = {
      loaded: false,
      loading: false,
@@ -241,13 +242,13 @@
 
    function getPageLang() {
        var html = document.documentElement;
-       return (html.getAttribute('lang') || 'tr').substring(0, 2);
+       return (html.getAttribute('lang') || DEFAULT_LANG).substring(0, 2);
    }
 
    function getPrivacyLink() {
        var lang = getPageLang();
-       if (lang === 'tr') return 'privacy.html';
-       return '../privacy.html';
+       if (lang === DEFAULT_LANG) return 'privacy.html';
+        return '../privacy.html';
    }
 
    function showBanner() {

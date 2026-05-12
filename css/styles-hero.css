@@ -614,29 +614,3 @@
     box-shadow: 0 10px 32px rgba(0, 112, 226, 0.5), 0 0 0 1px rgba(255,255,255,0.3) inset;
 }
 
-.google-play-text {
-    display: flex;
-    align-items: center;
-}
-.google-play-label {
-    font-size: 12px;
-    font-weight: 500;
-    opacity: 0.9;
-    line-height: 1;
-}
-.google-play-store {
-    font-size: 18px;
-    font-weight: 700;
-    letter-spacing: -0.01em;
-    line-height: 1;
-}
-.app-store-text {
-    display: flex;
-    align-items: center;
-}
-.app-store-name {
-    font-size: 18px;
-    font-weight: 700;
-    letter-spacing: -0.01em;
-    line-height: 1;
-}

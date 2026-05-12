@@ -257,10 +257,11 @@ const langDropdown = document.getElementById('langDropdown');
       langToggle.addEventListener('click', (e) => {
           e.stopPropagation();
           if (langDropdown) {
-              var isOpen = langDropdown.classList.toggle('open');
+              langDropdown.classList.toggle('open');
+              var isOpen = langDropdown.classList.contains('open');
               langToggle.setAttribute('aria-expanded', isOpen);
+              if (isOpen) closeDropdown();
           }
-          if (isOpen) closeDropdown();
       });
   }
  document.addEventListener('click', () => {
