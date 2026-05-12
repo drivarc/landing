@@ -1027,7 +1027,7 @@
 
 [data-theme="light"] .activity-icon-wrapper {
     background: linear-gradient(135deg, #C4EED0, #a5d6a7);
-    border-color: #ffffff;
+    border-color: var(--phone-screen);
 }
 
 .activity-icon-svg {
@@ -1135,32 +1135,32 @@
 
 .maintenance-status-card .status-icon.overdue {
     background: rgba(255, 180, 171, 0.2);
-    color: #ffb4ab;
+    color: var(--error);
 }
 
 [data-theme="light"] .maintenance-status-card .status-icon.overdue {
     background: rgba(186, 26, 26, 0.15);
-    color: #ba1a1a;
+    color: var(--error);
 }
 
 .maintenance-status-card .status-icon.pending {
     background: rgba(169, 199, 255, 0.2);
-    color: #a9c7ff;
+    color: var(--accent);
 }
 
 [data-theme="light"] .maintenance-status-card .status-icon.pending {
     background: rgba(64, 95, 144, 0.15);
-    color: #405f90;
+    color: var(--accent);
 }
 
 .maintenance-status-card .status-icon.in-progress {
     background: rgba(165, 214, 167, 0.2);
-    color: #A5D6A7;
+    color: var(--success);
 }
 
 [data-theme="light"] .maintenance-status-card .status-icon.in-progress {
     background: rgba(196, 238, 208, 0.3);
-    color: #074D24;
+    color: var(--success);
 }
 
 .maintenance-status-card .status-info {
@@ -1237,8 +1237,8 @@
 }
 
 [data-theme="light"] .nav-fab {
-    background: #405f90;
-    color: #ffffff;
+    background: var(--accent);
+    color: var(--bg-primary);
 }
 
 

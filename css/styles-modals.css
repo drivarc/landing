@@ -608,6 +608,24 @@
     color: var(--text-primary);
 }
 
+.cookie-option-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 3px;
+    background: var(--accent-glow);
+    color: var(--accent);
+    font-size: 11px;
+    font-weight: 600;
+    padding: 2px 7px;
+    border-radius: 10px;
+    white-space: nowrap;
+    margin-left: 6px;
+}
+
+.cookie-option-badge svg {
+    flex-shrink: 0;
+}
+
 .cookie-option-toggle {
     position: relative;
     width: 48px;
@@ -680,6 +698,16 @@
 .cookie-settings-actions .cookie-consent-btn {
     box-sizing: border-box;
     max-width: 100%;
+}
+
+.cookie-consent-btn.reject-all {
+    background: transparent;
+    color: var(--error);
+    border: 1.5px solid var(--error);
+}
+
+.cookie-consent-btn.reject-all:hover {
+    background: var(--error-bg);
 }
 
 @media (max-width: 768px) {

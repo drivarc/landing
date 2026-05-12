@@ -451,7 +451,7 @@
 
     .mobile-nav-icon:hover {
         background: rgba(142, 144, 153, 0.1);
-        color: #e2e2e9;
+        color: var(--text-primary);
         border-color: rgba(142, 144, 153, 0.5);
     }
 

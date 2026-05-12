@@ -332,23 +332,39 @@
        acceptAll();
    }
 
-   function openSettingsModal() {
-       var modal = document.getElementById('cookieSettingsModal');
-       if (modal) {
-           var toggle = document.getElementById('cookieAnalyticsToggle');
-           if (toggle) {
-               toggle.checked = true;
-           }
-           modal.classList.add('show');
-       }
-   }
+    function openSettingsModal() {
+        var modal = document.getElementById('cookieSettingsModal');
+        if (modal) {
+            var toggle = document.getElementById('cookieAnalyticsToggle');
+            if (toggle) {
+                var prefs = readConsent();
+                toggle.checked = prefs ? prefs.analytics : false;
+            }
+            modal.classList.add('show');
+        }
+    }
 
-   function closeSettingsModal() {
-       var modal = document.getElementById('cookieSettingsModal');
-       if (modal) {
-           modal.classList.remove('show');
-       }
-   }
+    function closeSettingsModal() {
+        var modal = document.getElementById('cookieSettingsModal');
+        if (modal) {
+            modal.classList.remove('show');
+        }
+    }
+
+    function rejectAllSettings() {
+        var prefs = {
+            version: CONSENT_VERSION,
+            timestamp: new Date().toISOString(),
+            necessary: true,
+            analytics: false,
+            marketing: false
+        };
+        saveConsent(prefs);
+        gtagConsentUpdate(false);
+        closeSettingsModal();
+        hideBanner();
+        trackEvent('cookie_consent', { action: 'reject_all' });
+    }
 
    function saveModalSettings() {
        var toggle = document.getElementById('cookieAnalyticsToggle');
@@ -451,6 +467,9 @@
 
         var saveBtn = document.querySelector('.cookie-settings-save');
         if (saveBtn) saveBtn.addEventListener('click', saveModalSettings);
+
+        var rejectBtn = document.querySelector('.cookie-consent-btn.reject-all');
+        if (rejectBtn) rejectBtn.addEventListener('click', rejectAllSettings);
 
         var declineConfirmedBtn = document.getElementById('declineConfirmed');
         if (declineConfirmedBtn) declineConfirmedBtn.addEventListener('click', declineConfirmed);

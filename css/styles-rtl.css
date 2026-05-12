@@ -52,6 +52,11 @@ html[dir="rtl"][lang="he"] body {
     flex-direction: row-reverse;
 }
 
+[dir="rtl"] .cookie-option-badge {
+    margin-left: 0;
+    margin-right: 6px;
+}
+
 [dir="rtl"] .cookie-settings-actions {
     flex-direction: row-reverse;
 }
