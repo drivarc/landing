@@ -82,21 +82,20 @@
            non_interaction: true
          });
        }
-       if (window.console && window.console.log) {
-         console.log('[Web Vitals] ' + name + ': ' + Math.round(value * 100) / 100 + ' (' + id + ')');
-       }
-     }
+      }
 
      try {
-       var onCLS = new PerformanceObserver(function(entries) {
-         entries.getEntries().forEach(function(entry) {
-           if (!entry.hadRecentInput) {
-             perfData.cls = entry.value;
-             reportWebVital('CLS', entry.value, entry.id);
-           }
-         });
-       });
-       onCLS.observe({ type: 'layout-shift', buffered: true });
+        try {
+          var onCLS = new PerformanceObserver(function(entries) {
+            entries.getEntries().forEach(function(entry) {
+              if (!entry.hadRecentInput) {
+                perfData.cls = entry.value;
+                reportWebVital('CLS', entry.value, entry.id);
+              }
+            });
+          });
+          onCLS.observe({ type: 'layout-shift', buffered: true });
+        } catch(e) {}
 
        var onLCP = new PerformanceObserver(function(entries) {
          var lastEntry = entries.getEntries()[entries.getEntries().length - 1];
@@ -133,11 +132,8 @@
        onTTFB.observe({ type: 'navigation', buffered: true });
 
        window.__drivarcPerfData = perfData;
-     } catch(e) {
-       if (window.console && window.console.warn) {
-         console.warn('[Web Vitals] Init failed:', e.message);
-       }
-     }
+      } catch(e) {
+      }
    }
 
    if (document.readyState === 'complete' || document.readyState === 'interactive') {
@@ -217,9 +213,8 @@
    function saveConsent(preferences) {
        try {
            localStorage.setItem(COOKIE_KEY, JSON.stringify(preferences));
-       } catch (e) {
-           console.warn('[CookieConsent] localStorage write failed:', e);
-       }
+        } catch (e) {
+        }
        writeCookie(CONSENT_COOKIE_NAME, JSON.stringify(preferences), CONSENT_COOKIE_DAYS);
    }
 
@@ -640,10 +635,8 @@ document.addEventListener('DOMContentLoaded', function() {
 // Service Worker Registration
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', () => {
-    navigator.serviceWorker.register('/sw.js').then(registration => {
-      console.log('[SW] Registered with scope:', registration.scope);
-    }).catch(err => {
-      console.log('[SW] Registration failed:', err);
+    navigator.serviceWorker.register('/sw.js').then(() => {
+    }).catch(() => {
     });
   });
 }

@@ -7,18 +7,7 @@
   var section = document.getElementById('testimonials');
   if (!track || !wrapper || !swiper) return;
 
-  var diagnostics = window.drivarcDiagnostics && typeof window.drivarcDiagnostics.log === 'function'
-    ? window.drivarcDiagnostics.log
-    : function (scope, details) {
-        var payload = { scope: scope, timestamp: new Date().toISOString() };
-        if (details && typeof details === 'object') {
-          Object.keys(details).forEach(function (key) {
-            payload[key] = details[key];
-          });
-        }
-        console.info('[Drivarc diagnostics][' + scope + ']', payload);
-        return payload;
-      };
+  var diagnostics = function () {};
 
   var featureMatrix = window.drivarcRuntimeFeatures || {
     prefersReducedMotion: window.matchMedia ? window.matchMedia('(prefers-reduced-motion: reduce)').matches : false,
@@ -67,7 +56,6 @@
         return window.requestAnimationFrame(callback);
       }
     } catch (error) {
-      console.error('[Drivarc diagnostics][testimonials] requestAnimationFrame failed', error);
     }
 
     return window.setTimeout(function () {
@@ -122,10 +110,6 @@
       forceLog: true
     });
 
-    console.warn('[Drivarc diagnostics][testimonials] static fallback', {
-      reason: reason,
-      error: error ? error.message : undefined
-    });
   }
 
   if (autoScrollDisabled) {

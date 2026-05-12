@@ -33,24 +33,7 @@ const runtimeFeatureMatrix = {
     supportsResizeObserver: typeof window.ResizeObserver === 'function'
 };
 
-function logRuntimeDiagnostics(scope, details) {
-    var payload = Object.assign({
-        scope: scope,
-        userAgent: navigator.userAgent,
-        timestamp: new Date().toISOString()
-    }, runtimeFeatureMatrix, details || {});
-
-    console.info('[Drivarc diagnostics][' + scope + ']', payload);
-    return payload;
-}
-
 window.drivarcRuntimeFeatures = runtimeFeatureMatrix;
-window.drivarcDiagnostics = {
-    features: runtimeFeatureMatrix,
-    log: logRuntimeDiagnostics
-};
-
-logRuntimeDiagnostics('core', { phase: 'feature-matrix' });
 
 // Set CSS variables from data attributes
 function setCssVarsFromData() {

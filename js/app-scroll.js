@@ -5,7 +5,6 @@ function requestFrame(callback) {
             return window.requestAnimationFrame(callback);
         }
     } catch (error) {
-        console.error('[Drivarc diagnostics][motion] requestAnimationFrame failed', error);
     }
 
     return window.setTimeout(function () {
@@ -49,7 +48,6 @@ function handleGridParallaxMotion(e) {
     try {
         updateGridParallax(e);
     } catch (error) {
-        console.error('[Drivarc diagnostics][grid-parallax] Motion update failed', error);
     }
 }
 
@@ -82,39 +80,14 @@ function initPhone3D() {
     const heroSection = document.getElementById('hero');
     const phone = document.querySelector('.phone');
 
-    if (!heroSection || !phone) {
-        console.info('[Drivarc diagnostics][phone-tilt] skipped', {
-            reason: 'missing-elements',
-            hasHeroSection: !!heroSection,
-            hasPhone: !!phone
-        });
-        return;
-    }
+    if (!heroSection || !phone) return;
 
-    const phoneFeatureMatrix = window.drivarcRuntimeFeatures || {
-        isTouchCapable,
-        isMobile,
-        supportsHoverInput,
-        prefersReducedMotion
-    };
+    if (prefersReducedMotion) return;
 
-    console.info('[Drivarc diagnostics][phone-tilt] feature matrix', phoneFeatureMatrix);
-
-    if (prefersReducedMotion) {
-        console.info('[Drivarc diagnostics][phone-tilt] disabled', { reason: 'prefers-reduced-motion' });
-        return;
-    }
-
-    if (window.innerWidth <= 768) {
-        console.info('[Drivarc diagnostics][phone-tilt] disabled', { reason: 'mobile-width', width: window.innerWidth });
-        return;
-    }
+    if (window.innerWidth <= 768) return;
 
     const supportsTransform3d = !window.CSS || typeof window.CSS.supports !== 'function' ? true : window.CSS.supports('transform', 'translate3d(0, 0, 0)');
-    if (!supportsTransform3d) {
-        console.warn('[Drivarc diagnostics][phone-tilt] disabled', { reason: 'transform-3d-unsupported' });
-        return;
-    }
+    if (!supportsTransform3d) return;
 
     let isMouseOverHero = false;
     let rafId = null;
@@ -122,20 +95,9 @@ function initPhone3D() {
     let targetY = 0;
     let currentX = 0;
     let currentY = 0;
-    let loggedFirstInteraction = false;
 
     function lerp(start, end, factor) {
         return start + (end - start) * factor;
-    }
-
-    function logFirstInteraction(eventType) {
-        if (loggedFirstInteraction) return;
-        loggedFirstInteraction = true;
-        console.info('[Drivarc diagnostics][phone-tilt] first interaction', {
-            eventType: eventType,
-            hoverMediaQuery: supportsHoverInput,
-            pointerEvents: 'PointerEvent' in window
-        });
     }
 
     function animate() {
@@ -153,7 +115,6 @@ function initPhone3D() {
 
             rafId = requestFrame(animate);
         } catch (error) {
-            console.error('[Drivarc diagnostics][phone-tilt] animation failed', error);
             cancelFrame(rafId);
             phone.style.transform = '';
             phone.style.animation = '';
@@ -167,10 +128,7 @@ function initPhone3D() {
             }
 
             const rect = heroSection.getBoundingClientRect();
-            if (!rect.width || !rect.height) {
-                console.warn('[Drivarc diagnostics][phone-tilt] skipped', { reason: 'zero-hero-rect' });
-                return;
-            }
+            if (!rect.width || !rect.height) return;
 
             const centerX = rect.left + rect.width / 2;
             const centerY = rect.top + rect.height / 2;
@@ -181,9 +139,7 @@ function initPhone3D() {
             targetX = mouseY * -15;
             targetY = mouseX * 15;
             isMouseOverHero = true;
-            logFirstInteraction(e.type);
         } catch (error) {
-            console.error('[Drivarc diagnostics][phone-tilt] input failed', error);
         }
     }
 
@@ -205,11 +161,6 @@ function initPhone3D() {
     }
 
     rafId = requestFrame(animate);
-    console.info('[Drivarc diagnostics][phone-tilt] enabled', {
-        hoverMediaQuery: supportsHoverInput,
-        pointerEvents: 'PointerEvent' in window,
-        viewportWidth: window.innerWidth
-    });
 }
 
 function animateCounter(element, target, duration = 1500) {
@@ -242,7 +193,6 @@ function animateCounter(element, target, duration = 1500) {
                 element.classList.remove('counting');
             }
         } catch (error) {
-            console.error('[Drivarc diagnostics][counter] animation failed', error);
             element.classList.remove('counting');
         }
     }
