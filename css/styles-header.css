@@ -463,9 +463,9 @@
     }
 
     .mobile-nav-icon:hover {
-        background: rgba(142, 144, 153, 0.1);
+        background: var(--color-hover-bg);
         color: var(--text-primary);
-        border-color: rgba(142, 144, 153, 0.5);
+        border-color: var(--color-border);
     }
 
     .mobile-nav-icon svg {
