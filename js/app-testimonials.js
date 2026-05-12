@@ -241,13 +241,56 @@
     });
   }
 
+  function onDragStart(clientX) {
+    dragging = true;
+    startX = clientX;
+    currentX = clientX;
+    paused = true;
+    clearTimeout(hoverTimer);
+  }
+
+  function onDragMove(clientX) {
+    if (!dragging || fallbackApplied) return;
+    currentX = clientX;
+    var dx = currentX - startX;
+    swiper.style.transform = 'translate3d(' + dx + 'px, 0, 0)';
+  }
+
+  function onDragEnd() {
+    if (fallbackApplied) return;
+    dragging = false;
+    var dx = currentX - startX;
+    pos = pos + dx;
+    if (pos < -maxDist * 2) pos = -maxDist * 2;
+    if (pos > maxDist) pos = maxDist;
+    track.style.transform = 'translate3d(' + pos + 'px, 0, 0)';
+    swiper.style.transform = '';
+    clearTimeout(hoverTimer);
+    hoverTimer = setTimeout(function () {
+      paused = false;
+    }, 50);
+  }
+
+  wrapper.addEventListener('mousedown', function (e) {
+    if (e.button !== 0) return;
+    onDragStart(e.clientX);
+    e.preventDefault();
+  });
+
+  document.addEventListener('mousemove', function (e) {
+    if (!dragging) return;
+    onDragMove(e.clientX);
+    e.preventDefault();
+  });
+
+  document.addEventListener('mouseup', function (e) {
+    if (!dragging) return;
+    onDragEnd();
+  });
+
   wrapper.addEventListener('touchstart', function (e) {
     try {
-      dragging = true;
-      startX = e.touches[0].clientX;
-      currentX = startX;
-      paused = true;
-      clearTimeout(hoverTimer);
+      onDragStart(e.touches[0].clientX);
       diagnostics('testimonials', {
         phase: 'touchstart',
         cardCount: cards.length
@@ -259,12 +302,9 @@
 
   wrapper.addEventListener('touchmove', function (e) {
     if (!dragging || fallbackApplied) return;
-
     try {
-      currentX = e.touches[0].clientX;
-      var dx = currentX - startX;
       e.preventDefault();
-      swiper.style.transform = 'translate3d(' + dx + 'px, 0, 0)';
+      onDragMove(e.touches[0].clientX);
     } catch (error) {
       activateStaticFallback('touchmove-error', error);
     }
@@ -272,19 +312,8 @@
 
   wrapper.addEventListener('touchend', function () {
     if (fallbackApplied) return;
-
     try {
-      dragging = false;
-      var dx = currentX - startX;
-      pos = pos + dx;
-      if (pos < -maxDist * 2) pos = -maxDist * 2;
-      if (pos > maxDist) pos = maxDist;
-      track.style.transform = 'translate3d(' + pos + 'px, 0, 0)';
-      swiper.style.transform = '';
-      clearTimeout(hoverTimer);
-      hoverTimer = setTimeout(function () {
-        paused = false;
-      }, 50);
+      onDragEnd();
     } catch (error) {
       activateStaticFallback('touchend-error', error);
     }

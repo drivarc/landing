@@ -40,6 +40,8 @@
   position: relative;
   overflow: hidden;
   touch-action: pan-y;
+  user-select: none;
+  -webkit-user-select: none;
   mask-image: linear-gradient(
     to right,
     transparent 0%,
