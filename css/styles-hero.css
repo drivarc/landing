@@ -84,7 +84,8 @@
     --badge-dot-ring: rgba(214, 227, 255, 0.85);
     --badge-pulse-color: rgba(214, 227, 255, 0.7);
 
-    display: inline-flex;
+    display: flex;
+    justify-content: center;
     align-items: center;
     gap: 8px;
     padding: 6px 16px;
@@ -95,7 +96,8 @@
     color: var(--badge-text);
     font-size: 14px;
     font-weight: 500;
-    margin-bottom: 24px;
+    margin: 0 0 24px 0;
+    width: fit-content;
     transition: all 0.3s ease;
     cursor: default;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
@@ -109,25 +111,22 @@
     display: inline-block;
     box-shadow:
         0 0 0 1px var(--badge-dot-ring),
-        0 0 10px rgba(169, 199, 255, 0.55);
-    animation: badge-pulse 2s infinite ease-in-out;
+        0 0 10px color-mix(in srgb, var(--badge-dot-color), transparent 40%);
+    animation: badge-breath 1s ease-in-out infinite;
 }
 
-@keyframes badge-pulse {
-    0% {
-        transform: scale(1);
-        opacity: 1;
-        box-shadow: 0 0 0 0 var(--badge-pulse-color);
+@keyframes badge-breath {
+    0%, 100% {
+        opacity: 0.2;
+        box-shadow:
+            0 0 0 1px var(--badge-dot-ring),
+            0 0 0px var(--badge-dot-color);
     }
     50% {
-        transform: scale(1.2);
-        opacity: 0.7;
-        box-shadow: 0 0 0 6px transparent;
-    }
-    100% {
-        transform: scale(1);
         opacity: 1;
-        box-shadow: 0 0 0 0 transparent;
+        box-shadow:
+            0 0 0 1px var(--badge-dot-ring),
+            0 0 15px color-mix(in srgb, var(--badge-dot-color), transparent 20%);
     }
 }
 
