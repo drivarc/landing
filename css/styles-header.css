@@ -110,11 +110,16 @@
     height: 14px;
     flex-shrink: 0;
     fill: currentColor;
+    transition: transform 0.2s ease;
 }
 
 .nav a:hover {
     color: var(--text-primary);
     background: var(--hover-bg);
+}
+
+.nav a:hover svg {
+    animation: iconPulse 0.4s ease;
 }
 
 .nav a.active {
@@ -296,6 +301,11 @@
 .control-btn.header-download-btn svg {
     width: 18px;
     height: 18px;
+    transition: transform 0.2s ease;
+}
+
+.header-download-btn:hover svg {
+    animation: iconPulse 0.4s ease;
 }
 
 .header-download-text {
@@ -425,6 +435,11 @@
     height: 18px;
     fill: currentColor;
     flex-shrink: 0;
+    transition: transform 0.2s ease;
+}
+
+.control-btn:hover svg {
+    animation: iconPulse 0.4s ease;
 }
 
 .control-btn .btn-label {
