@@ -312,5 +312,6 @@
   "noscript.title": "JavaScript Required",
   "noscript.desc": "Drivarc website requires JavaScript. Please enable JavaScript in your browser and reload the page.",
   "hero.aria_label": "होमपेज हीरो सेक्शन",
-  "lang.code": "HI"
+  "lang.code": "HI",
+  "hero.badge": "Drivarc अभी क्लोज्ड बीटा चरण में है"
 }

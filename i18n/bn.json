@@ -312,5 +312,6 @@
   "noscript.title": "JavaScript Required",
   "noscript.desc": "Drivarc website requires JavaScript. Please enable JavaScript in your browser and reload the page.",
   "hero.aria_label": "হোমপেজ হিরো সেকশন",
-  "lang.code": "BN"
+  "lang.code": "BN",
+  "hero.badge": "ড্রিভার্ক এখন ক্লোজড বিটা পর্যায়ে রয়েছে"
 }

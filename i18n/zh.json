@@ -312,5 +312,6 @@
   "noscript.title": "JavaScript Required",
   "noscript.desc": "Drivarc website requires JavaScript. Please enable JavaScript in your browser and reload the page.",
   "hero.aria_label": "首页英雄区域",
-  "lang.code": "ZH"
+  "lang.code": "ZH",
+  "hero.badge": "Drivarc 目前处于封闭测试阶段"
 }

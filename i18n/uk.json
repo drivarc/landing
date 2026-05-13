@@ -312,5 +312,6 @@
   "noscript.title": "JavaScript Required",
   "noscript.desc": "Drivarc website requires JavaScript. Please enable JavaScript in your browser and reload the page.",
   "hero.aria_label": "Геройська секція головної сторінки",
-  "lang.code": "UK"
+  "lang.code": "UK",
+  "hero.badge": "Drivarc наразі перебуває у закритій бета-версії"
 }

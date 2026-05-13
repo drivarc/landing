@@ -312,5 +312,6 @@
   "noscript.title": "JavaScript Required",
   "noscript.desc": "Drivarc website requires JavaScript. Please enable JavaScript in your browser and reload the page.",
   "hero.aria_label": "Bagian hero halaman utama",
-  "lang.code": "ID"
+  "lang.code": "ID",
+  "hero.badge": "Drivarc saat ini berada dalam beta tertutup"
 }

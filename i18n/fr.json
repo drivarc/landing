@@ -312,5 +312,6 @@
   "noscript.title": "JavaScript requis",
   "noscript.desc": "Le site Web Drivarc nécessite JavaScript. Veuillez activer JavaScript dans votre navigateur et recharger la page.",
   "hero.aria_label": "Section héroïque de la page d'accueil",
-  "lang.code": "FR"
+  "lang.code": "FR",
+  "hero.badge": "Drivarc est actuellement en bêta fermée"
 }

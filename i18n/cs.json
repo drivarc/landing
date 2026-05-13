@@ -312,5 +312,6 @@
   "noscript.title": "JavaScript Required",
   "noscript.desc": "Drivarc website requires JavaScript. Please enable JavaScript in your browser and reload the page.",
   "hero.aria_label": "Hrdinská sekce domovské stránky",
-  "lang.code": "CS"
+  "lang.code": "CS",
+  "hero.badge": "Drivarc je momentálně v uzavřené beta verzi"
 }

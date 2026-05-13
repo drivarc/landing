@@ -75,6 +75,38 @@
     flex: 0 0 auto;
 }
 
+.hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 16px;
+    background: rgba(29, 32, 36, 0.6);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(169, 199, 255, 0.3);
+    border-radius: 100px;
+    color: var(--color-primary-light);
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 24px;
+    transition: all 0.3s ease;
+    cursor: default;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.hero-badge-icon {
+    font-size: 16px;
+}
+
+.hero-badge-text {
+    white-space: nowrap;
+}
+
+.hero-badge:hover {
+    transform: scale(1.05);
+    border-color: rgba(169, 199, 255, 0.6);
+    box-shadow: 0 0 15px rgba(169, 199, 255, 0.2);
+}
+
 .hero-title {
     font-size: clamp(32px, 4vw, 48px);
     font-weight: 700;

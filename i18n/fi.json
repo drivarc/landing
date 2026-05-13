@@ -312,5 +312,6 @@
   "noscript.title": "JavaScript Required",
   "noscript.desc": "Drivarc website requires JavaScript. Please enable JavaScript in your browser and reload the page.",
   "hero.aria_label": "Sanktiosio etusivulla",
-  "lang.code": "FI"
+  "lang.code": "FI",
+  "hero.badge": "Drivarc on tällä hetkellä suljetussa beta-vaiheessa"
 }
