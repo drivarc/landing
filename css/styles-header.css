@@ -475,8 +475,8 @@
     }
 
     .mobile-nav-icon.active {
-        background: var(--color-primary);
-        color: var(--color-on-primary);
+        background: var(--color-surface-container-high);
+        color: var(--color-primary);
         border-color: var(--color-primary);
     }
 }
