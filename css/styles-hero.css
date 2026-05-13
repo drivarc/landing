@@ -314,6 +314,7 @@
     }
 
     .hero-text { text-align: center; }
+    .hero-badge { margin-left: auto; margin-right: auto; }
     .hero-subtitle {
         margin-left: auto;
         margin-right: auto;
