@@ -6,23 +6,18 @@
   .terms-page-layout {
     max-width: 1060px;
     margin: 0 auto;
-    display: flex;
-    gap: 40px;
-    align-items: flex-start;
   }
 
   .terms-page-layout .terms-container {
-    flex: 1;
-    min-width: 0;
     margin: 0;
   }
 
   .toc-sidebar {
     display: block;
-    width: 220px;
-    flex-shrink: 0;
-    position: sticky;
+    position: fixed;
+    right: 0;
     top: 100px;
+    width: 220px;
     max-height: calc(100vh - 120px);
     overflow-y: auto;
     scrollbar-width: thin;
