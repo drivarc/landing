@@ -4,20 +4,25 @@
 
 @media (min-width: 1100px) {
   .terms-page-layout {
+    display: flex;
+    width: 100%;
+    max-width: 1600px;
+    margin: 0 auto;
+    align-items: flex-start;
+  }
+
+  .terms-page-layout .terms-container {
+    flex: 1;
     max-width: 1060px;
     margin: 0 auto;
   }
 
-  .terms-page-layout .terms-container {
-    margin: 0;
-  }
-
   .toc-sidebar {
     display: block;
-    position: fixed;
-    right: 0;
+    position: sticky;
     top: 100px;
     width: 220px;
+    margin-left: auto;
     max-height: calc(100vh - 120px);
     overflow-y: auto;
     scrollbar-width: thin;

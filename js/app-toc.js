@@ -117,7 +117,7 @@
           });
         }
       });
-    }, { rootMargin: '-80px 0px -50% 0px' });
+    }, { rootMargin: '-80px 0px -80% 0px' });
 
     sections.forEach(function (s) { observer.observe(s); });
 
