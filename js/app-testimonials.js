@@ -257,8 +257,12 @@
   var hoverTimer = null;
   var resizeTimer = null;
   var startX = 0;
+  var startY = 0;
   var currentX = 0;
+  var currentY = 0;
   var dragging = false;
+  var isDraggingHorizontally = null;
+  var dragTouchId = null;
 
   if ('PointerEvent' in window) {
     wrapper.addEventListener('pointerenter', function (event) {
@@ -282,27 +286,46 @@
     });
   }
 
-  function onDragStart(clientX) {
+  function onDragStart(clientX, clientY) {
     dragging = true;
     startX = clientX;
+    startY = clientY;
     currentX = clientX;
+    currentY = clientY;
+    isDraggingHorizontally = null;
     paused = true;
     clearTimeout(hoverTimer);
   }
 
-  function onDragMove(clientX) {
+  function onDragMove(clientX, clientY) {
     if (!dragging || fallbackApplied) return;
     currentX = clientX;
-    var dx = currentX - startX;
-    swiper.style.transform = 'translate3d(' + dx + 'px, 0, 0)';
+    currentY = clientY;
+    
+    if (isDraggingHorizontally === null) {
+      var dx = Math.abs(currentX - startX);
+      var dy = Math.abs(currentY - startY);
+      if (dx > 5 || dy > 5) {
+        isDraggingHorizontally = dx > dy;
+      }
+    }
+    
+    if (isDraggingHorizontally) {
+      var dx = currentX - startX;
+      swiper.style.transform = 'translate3d(' + dx + 'px, 0, 0)';
+    }
   }
 
   function onDragEnd() {
     if (fallbackApplied) return;
     dragging = false;
-    var dx = currentX - startX;
-    setTrackPosition(pos + dx);
+    if (isDraggingHorizontally) {
+      var dx = currentX - startX;
+      setTrackPosition(pos + dx);
+    }
     swiper.style.transform = '';
+    isDraggingHorizontally = null;
+    dragTouchId = null;
     clearTimeout(hoverTimer);
     hoverTimer = setTimeout(function () {
       if (autoScrollDisabled) return;
@@ -312,14 +335,16 @@
 
   wrapper.addEventListener('mousedown', function (e) {
     if (e.button !== 0) return;
-    onDragStart(e.clientX);
+    onDragStart(e.clientX, e.clientY);
     e.preventDefault();
   });
 
   function onDocumentMouseMove(e) {
     if (!dragging) return;
-    onDragMove(e.clientX);
-    e.preventDefault();
+    onDragMove(e.clientX, e.clientY);
+    if (isDraggingHorizontally) {
+      e.preventDefault();
+    }
   }
 
   function onDocumentMouseUp() {
@@ -338,36 +363,48 @@
   window.addEventListener('pagehide', cleanupDocumentListeners);
   window.addEventListener('beforeunload', cleanupDocumentListeners);
 
+  // Touch: scroll-safe swipe detection
+  // Do NOT use passive:false — it blocks mobile scroll entirely.
+  // Track touch on the wrapper only when horizontal swipe is likely.
   wrapper.addEventListener('touchstart', function (e) {
     try {
-      onDragStart(e.touches[0].clientX);
-      diagnostics('testimonials', {
-        phase: 'touchstart',
-        cardCount: cards.length
-      });
+      if (dragTouchId !== null) return;
+      dragTouchId = e.changedTouches[0].identifier;
+      onDragStart(e.touches[0].clientX, e.touches[0].clientY);
     } catch (error) {
       activateStaticFallback('touchstart-error', error);
     }
-  });
+  }, { passive: true });
 
   wrapper.addEventListener('touchmove', function (e) {
     if (!dragging || fallbackApplied) return;
     try {
-      e.preventDefault();
-      onDragMove(e.touches[0].clientX);
+      // Only handle the tracked touch
+      var touch = null;
+      for (var i = 0; i < e.changedTouches.length; i++) {
+        if (e.changedTouches[i].identifier === dragTouchId) {
+          touch = e.changedTouches[i];
+          break;
+        }
+      }
+      if (!touch) return;
+      
+      onDragMove(touch.clientX, touch.clientY);
+      // Cannot preventDefault in passive mode — scroll is always preserved.
+      // Horizontal swipe visual feedback still works.
     } catch (error) {
       activateStaticFallback('touchmove-error', error);
     }
-  }, { passive: false });
+  }, { passive: true });
 
-  wrapper.addEventListener('touchend', function () {
+  wrapper.addEventListener('touchend', function (e) {
     if (fallbackApplied) return;
     try {
       onDragEnd();
     } catch (error) {
       activateStaticFallback('touchend-error', error);
     }
-  });
+  }, { passive: true });
 
   wrapper.addEventListener('touchcancel', function () {
     dragging = false;
