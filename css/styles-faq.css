@@ -146,6 +146,14 @@
     transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), fill 0.2s ease;
 }
 
+.faq-question svg:not(.faq-chevron) {
+    transition: transform 0.2s ease;
+}
+
+.faq-question:hover svg:not(.faq-chevron) {
+    animation: iconPulse 0.4s ease;
+}
+
 .faq-item.active .faq-chevron {
     transform: rotate(180deg);
     fill: var(--accent-light);
@@ -241,6 +249,11 @@
 
 .btn-faq-cta svg {
     flex-shrink: 0;
+    transition: transform 0.2s ease;
+}
+
+.btn-faq-cta:hover svg {
+    animation: iconPulse 0.4s ease;
 }
 
 @media (max-width: 1024px) {
