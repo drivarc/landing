@@ -286,6 +286,15 @@
     }
 }
 
+@keyframes floatBadge {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-6px);
+    }
+}
+
 /* Fade-in-up sync and stagger helpers */
 :root {
     --anim-duration: 0.56s;

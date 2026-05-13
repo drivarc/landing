@@ -80,6 +80,42 @@ function closeLegalModal(id) {
 function openTermsModal() { openLegalModal('termsModal'); }
 function openPrivacyModal() { openLegalModal('privacyModal'); }
 
+function initAuroraMouseTracking() {
+    const blobs = document.querySelectorAll('.aurora-blob');
+    if (blobs.length === 0) return;
+
+    let curX = 0, curY = 0;
+    let tgtX = 0, tgtY = 0;
+    const strengths = [25, 35, 18];
+    let rafId = null;
+
+    function onMove(e) {
+        const w = window.innerWidth, h = window.innerHeight;
+        tgtX = ((e.clientX / w) - 0.5) * 2;
+        tgtY = ((e.clientY / h) - 0.5) * 2;
+    }
+
+    window.addEventListener('mousemove', onMove, { passive: true });
+    if ('PointerEvent' in window) {
+        window.addEventListener('pointermove', onMove, { passive: true });
+    }
+
+    function tick() {
+        curX += (tgtX - curX) * 0.05;
+        curY += (tgtY - curY) * 0.05;
+
+        blobs.forEach((blob, i) => {
+            const s = strengths[i] !== undefined ? strengths[i] : 20;
+            blob.style.marginLeft = `${curX * s}px`;
+            blob.style.marginTop = `${curY * s}px`;
+        });
+
+        rafId = requestAnimationFrame(tick);
+    }
+
+    tick();
+}
+
 function initAnimations() {
     initPhone3D();
 
@@ -88,6 +124,7 @@ function initAnimations() {
         if ('PointerEvent' in window) {
             window.addEventListener('pointermove', handleGridParallaxMotion, { passive: true });
         }
+        initAuroraMouseTracking();
     }
 
     window.addEventListener('scroll', updateScrollProgress, { passive: true });
