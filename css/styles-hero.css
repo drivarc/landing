@@ -76,15 +76,23 @@
 }
 
 .hero-badge {
+    /* variables allow theme-specific overrides */
+    --badge-bg: rgba(29, 32, 36, 0.6);
+    --badge-text: var(--color-primary-light);
+    --badge-border: rgba(169, 199, 255, 0.3);
+    --badge-dot-color: #d6e3ff;
+    --badge-dot-ring: rgba(214, 227, 255, 0.85);
+    --badge-pulse-color: rgba(214, 227, 255, 0.7);
+
     display: inline-flex;
     align-items: center;
     gap: 8px;
     padding: 6px 16px;
-    background: rgba(29, 32, 36, 0.6);
+    background: var(--badge-bg);
     backdrop-filter: blur(10px);
-    border: 1px solid rgba(169, 199, 255, 0.3);
+    border: 1px solid var(--badge-border);
     border-radius: 100px;
-    color: var(--color-primary-light);
+    color: var(--badge-text);
     font-size: 14px;
     font-weight: 500;
     margin-bottom: 24px;
@@ -93,8 +101,34 @@
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
-.hero-badge-icon {
-    font-size: 16px;
+.hero-badge-dot {
+    width: 8px;
+    height: 8px;
+    background-color: var(--badge-dot-color);
+    border-radius: 50%;
+    display: inline-block;
+    box-shadow:
+        0 0 0 1px var(--badge-dot-ring),
+        0 0 10px rgba(169, 199, 255, 0.55);
+    animation: badge-pulse 2s infinite ease-in-out;
+}
+
+@keyframes badge-pulse {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+        box-shadow: 0 0 0 0 var(--badge-pulse-color);
+    }
+    50% {
+        transform: scale(1.2);
+        opacity: 0.7;
+        box-shadow: 0 0 0 6px transparent;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+        box-shadow: 0 0 0 0 transparent;
+    }
 }
 
 .hero-badge-text {
@@ -644,5 +678,14 @@
 
 [data-theme="light"] .btn-app-store:hover {
     box-shadow: 0 10px 32px rgba(0, 112, 226, 0.5), 0 0 0 1px rgba(255,255,255,0.3) inset;
+}
+
+[data-theme="light"] .hero-badge {
+    --badge-bg: #d6e3ff;
+    --badge-text: #264777;
+    --badge-border: #a9c7ff;
+    --badge-dot-color: #405f90;
+    --badge-pulse-color: rgba(64, 95, 144, 0.45);
+    box-shadow: 0 4px 12px rgba(38, 71, 119, 0.08);
 }
 
