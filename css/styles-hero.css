@@ -112,7 +112,7 @@
     box-shadow:
         0 0 0 1px var(--badge-dot-ring),
         0 0 10px color-mix(in srgb, var(--badge-dot-color), transparent 40%);
-    animation: badge-breath 1s ease-in-out infinite;
+    animation: badge-breath 2s ease-in-out infinite;
 }
 
 @keyframes badge-breath {
