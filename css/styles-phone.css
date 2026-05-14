@@ -239,12 +239,6 @@
     animation: counterPulse 0.1s ease-out;
 }
 
-@keyframes counterPulse {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.02); }
-    100% { transform: scale(1); }
-}
-
 .feature-card .feature-icon {
     transition: transform 0.3s ease-out, background 0.3s ease;
 }
@@ -253,30 +247,9 @@
     animation: iconBounce 0.5s cubic-bezier(0.36, 0.07, 0.19, 0.97);
 }
 
-@keyframes iconBounce {
-    0% { transform: scale(1) translateY(0); }
-    25% { transform: scale(1.15) translateY(-5px); }
-    50% { transform: scale(0.95) translateY(0); }
-    75% { transform: scale(1.05) translateY(-2px); }
-    100% { transform: scale(1) translateY(0); }
-}
-
-
 .feature-card.visible .feature-icon {
     animation: iconGlow 0.6s ease-out forwards;
 }
-
-@keyframes iconGlow {
-    0% {
-        box-shadow: 0 0 0 0 var(--accent-glow);
-        background: var(--accent-glow);
-    }
-    100% {
-        box-shadow: 0 0 20px 5px var(--accent-glow);
-        background: var(--accent-glow);
-    }
-}
-
 
 .problem-arrow {
     position: relative;
@@ -1016,29 +989,9 @@
 }
 
 .activity-card:hover {
-    background: var(--surface-container-high);
-    transform: translateX(4px);
-    box-shadow: 0 4px 16px var(--accent-glow);
-}
-
-.activity-card:hover .activity-icon-wrapper {
-    transform: scale(1.1);
-    background: var(--accent-glow);
-}
-
-.activity-card:hover .activity-trailing svg {
-    transform: translateX(4px);
-}
-
-.activity-card:hover {
     background: var(--surface-container-highest);
     transform: translateX(4px);
     box-shadow: 0 4px 20px var(--accent-glow), 0 0 30px rgba(64, 95, 144, 0.15);
-}
-
-.activity-card:hover .activity-icon-wrapper {
-    transform: scale(1.1);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
 }
 
 .activity-icon-wrapper {
@@ -1116,45 +1069,15 @@
 }
 
 .activity-trailing svg {
-    width: 20px;
-    height: 20px;
-    fill: var(--text-muted);
-    transition: transform 0.3s ease, fill 0.3s ease;
-}
-
-.activity-card:hover .activity-trailing svg {
-    transform: translateX(4px);
-    fill: var(--accent-light);
-}
-
-.activity-trailing svg {
-    width: 20px;
-    height: 20px;
-    fill: currentColor;
-    transition: transform 0.3s ease;
-}
-
-.activity-card:hover .activity-trailing svg {
-    transform: translateX(4px);
-    fill: var(--accent-light);
-}
-
-.activity-trailing svg {
-    width: 20px;
-    height: 20px;
-    fill: var(--text-muted);
-    transition: transform 0.3s ease, fill 0.3s ease;
-}
-
-.activity-card:hover .activity-trailing svg {
-    transform: translateX(4px);
-    fill: var(--accent-light);
-}
-
-.activity-trailing svg {
     width: 16px;
     height: 16px;
     fill: currentColor;
+    transition: transform 0.3s ease, fill 0.3s ease;
+}
+
+.activity-card:hover .activity-trailing svg {
+    transform: translateX(4px);
+    fill: var(--accent-light);
 }
 
 
@@ -1173,26 +1096,6 @@
     background: var(--surface-container);
     border-radius: 10px;
     transition: background 0.2s ease, transform 0.2s ease;
-}
-
-.maintenance-status-card .status-item:hover {
-    background: var(--surface-container-high);
-    transform: translateX(4px);
-}
-
-.maintenance-status-card .status-icon {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-    transition: transform 0.3s ease;
-}
-
-.maintenance-status-card .status-item:hover .status-icon {
-    transform: scale(1.1) rotate(5deg);
 }
 
 .maintenance-status-card .status-item:hover {
