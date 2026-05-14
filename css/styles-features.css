@@ -192,7 +192,7 @@
     .features-section {
         padding: 40px 16px 44px;
     }
-    .features-title { padding-top: 0; }
+    .features-title { padding-top: 0; flex-direction: column; gap: 4px; }
     .features-header { margin-bottom: 36px; }
     .features-label { font-size: 11px; }
     .features-title { font-size: 20px; }

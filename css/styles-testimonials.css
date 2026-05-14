@@ -228,7 +228,7 @@
 
 @media (max-width: 480px) {
   .testimonials-section { padding: 40px 12px 44px; }
-  .testimonials-title { padding-top: 0; font-size: 20px; }
+  .testimonials-title { padding-top: 0; font-size: 20px; flex-direction: column; gap: 4px; }
   .testimonials-subtitle { font-size: 13px; }
   .testimonials-header { margin-bottom: 28px; }
   .testimonial-card { width: 72vw; padding: 14px; }

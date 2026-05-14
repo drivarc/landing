@@ -371,7 +371,7 @@ html.touch-device .maintenance-status-card .status-item:hover {
 
 @media (max-width: 480px) {
     .problems-grid { grid-template-columns: 1fr; }
-    .problems-title { font-size: 20px; }
+    .problems-title { font-size: 20px; flex-direction: column; gap: 4px; }
     .problem-card {
         padding: var(--space-sm);
         border-radius: var(--card-radius-sm);
