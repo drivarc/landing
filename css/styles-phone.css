@@ -1306,18 +1306,18 @@
         transform: none;
     }
     .hero-actions {
-        flex-direction: column;
-        align-items: stretch;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
         width: 100%;
-        max-width: 300px;
-        margin-inline: auto;
+        gap: 12px;
     }
     .btn-google-play,
     .btn-app-store {
-        flex: none;
+        flex: 1 1 0%;
         min-width: 0;
-        width: 100%;
         max-width: none;
+        justify-content: center;
     }
     .scroll-progress-bar-fill {
         animation: none;
@@ -1334,13 +1334,16 @@
     .phone-container { display: none; }
     .hero-phone { display: none; }
     .hero-actions {
-        flex-direction: column;
-        align-items: stretch;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        gap: 10px;
         max-width: 320px;
         margin-inline: auto;
     }
     .trust-badges {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, 1fr);
     }
 }
 

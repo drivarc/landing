@@ -322,9 +322,15 @@
     }
     .hero-actions { justify-content: center; }
     .trust-badges {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
         justify-content: center;
-        flex-wrap: wrap;
         gap: 12px;
+        margin-top: 24px;
+    }
+    .trust-badge {
+        justify-content: center;
+        padding: 6px;
     }
 }
 
@@ -345,9 +351,8 @@
     }
     .btn-google-play,
     .btn-app-store {
-        flex: 1;
+        flex: 1 1 0%;
         max-width: none;
-        width: 100%;
         justify-content: center;
         padding: 14px 16px;
     }
@@ -356,9 +361,15 @@
     .google-play-icon,
     .app-store-icon { width: 21px; height: 21px; }
     .trust-badges {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
         justify-content: center;
-        flex-wrap: wrap;
-        gap: 12px;
+        gap: 10px;
+        margin-top: 24px;
+    }
+    .trust-badge {
+        justify-content: center;
+        padding: 6px;
     }
 }
 
@@ -367,8 +378,8 @@
         padding: 100px 24px 80px;
         gap: 32px;
     }
-    .hero-title { 
-        font-size: 24px; 
+    .hero-title {
+        font-size: 24px;
         line-height: 1.2;
     }
     .hero-subtitle {
@@ -386,9 +397,8 @@
     }
     .btn-google-play,
     .btn-app-store {
-        flex: 1;
+        flex: 1 1 0%;
         max-width: none !important;
-        width: 100%;
         justify-content: center;
         padding: 12px 14px;
     }
@@ -397,28 +407,28 @@
     .google-play-store,
     .app-store-name { font-size: 13px; }
     .google-play-label { font-size: 10px; }
-    .trust-badges { 
+    .trust-badges {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         gap: 10px;
         margin-top: 24px;
     }
-    .trust-badge { 
+    .trust-badge {
         justify-content: center;
         padding: 6px;
     }
 }
 
 @media (max-width: 375px) {
-    .hero-content { 
+    .hero-content {
         padding: 70px 14px 40px !important;
         gap: 28px;
     }
-    .hero-title { 
-        font-size: 22px; 
+    .hero-title {
+        font-size: 22px;
     }
-    .hero-subtitle { 
-        font-size: 12px; 
+    .hero-subtitle {
+        font-size: 12px;
         margin-bottom: 20px;
     }
 
@@ -429,9 +439,8 @@
     }
     .btn-google-play,
     .btn-app-store {
-        flex: 1;
+        flex: 1 1 0%;
         max-width: none !important;
-        width: 100%;
         justify-content: center;
         padding: 11px 14px;
     }
@@ -440,12 +449,12 @@
     .google-play-store,
     .app-store-name { font-size: 14px; }
     .google-play-label { font-size: 11px; }
-    .trust-badges { 
+    .trust-badges {
         grid-template-columns: 1fr;
         gap: 8px;
         margin-top: 20px;
     }
-    .trust-badge { 
+    .trust-badge {
         justify-content: flex-start;
         padding: 8px 12px;
         background: var(--surface-container);
