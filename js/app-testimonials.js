@@ -93,6 +93,9 @@
   function setTrackPosition(value) {
     pos = normalizePosition(value);
     track.style.transform = 'translate3d(' + pos + 'px, 0, 0)';
+    if (!track.style.transform || track.style.transform.indexOf('translate3d') === -1) {
+      activateStaticFallback('csp-blocked');
+    }
   }
 
   function activateStaticFallback(reason, error) {
