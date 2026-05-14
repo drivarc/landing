@@ -141,7 +141,7 @@
 }
 
 .hero-title {
-    font-size: clamp(32px, 4vw, 48px);
+    font-size: clamp(36px, 4vw, 48px);
     font-weight: 700;
     line-height: 1.4;
     letter-spacing: -0.02em;
@@ -704,5 +704,12 @@
     --badge-dot-color: #405f90;
     --badge-pulse-color: rgba(64, 95, 144, 0.45);
     box-shadow: 0 4px 12px rgba(38, 71, 119, 0.08);
+}
+
+@media (max-width: 480px) {
+    .hero-subtitle {
+        font-size: 16px;
+        line-height: 1.6;
+    }
 }
 

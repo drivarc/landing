@@ -425,3 +425,10 @@ html[lang="arm"] {
 html[dir="rtl"] {
     font-family: var(--font-family-arabic);
 }
+
+@media (max-width: 480px) {
+    body {
+        font-size: 16px;
+        line-height: 1.6;
+    }
+}
