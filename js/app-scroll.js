@@ -374,17 +374,23 @@ if (allSectionsExist) {
         const scrollDiff = currentScrollY - lastScrollY;
 
         if (currentScrollY <= 10) {
+            // Sayfanın en üstünde - header göster
             header.classList.remove('header--hidden');
             if (progressBar) progressBar.classList.remove('scroll-progress-bar--top');
-        } else if (scrollDiff > 5) {
-            header.classList.add('header--hidden');
-            if (progressBar) progressBar.classList.add('scroll-progress-bar--top');
-        } else if (scrollDiff < -5) {
-            header.classList.remove('header--hidden');
-            if (progressBar) progressBar.classList.remove('scroll-progress-bar--top');
+        } else if (Math.abs(scrollDiff) > 10) {
+            // 10px threshold geçildi
+            if (scrollDiff > 0) {
+                // Aşağı scroll - header gizle
+                header.classList.add('header--hidden');
+                if (progressBar) progressBar.classList.add('scroll-progress-bar--top');
+            } else {
+                // Yukarı scroll - header göster
+                header.classList.remove('header--hidden');
+                if (progressBar) progressBar.classList.remove('scroll-progress-bar--top');
+            }
+            lastScrollY = currentScrollY;
         }
 
-        lastScrollY = currentScrollY;
         ticking = false;
     }
 
