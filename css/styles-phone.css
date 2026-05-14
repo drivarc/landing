@@ -53,16 +53,18 @@
 .scroll-progress-bar-fill {
     height: 100%;
     width: 0%;
-    background: linear-gradient(90deg, #5a8fd8, #c4daff, #5a8fd8);
-    background-size: 200% 100%;
-    animation: shimmerProgress 3s ease-in-out infinite;
+    background: linear-gradient(90deg, #5a8fd8 0%, #c4daff 25%, #a9c7ff 50%, #c4daff 75%, #5a8fd8 100%);
+    background-size: 300% 100%;
+    animation: shimmerProgress 2.5s ease-in-out infinite;
     border-radius: 0 2px 2px 0;
-    transition: width 0.1s ease-out;
+    transition: width 0.15s ease-out;
+    box-shadow: 0 0 8px rgba(90, 143, 216, 0.4);
 }
 
 @keyframes shimmerProgress {
-    0%, 100% { background-position: 0% 50%; }
+    0% { background-position: 0% 50%; }
     50% { background-position: 100% 50%; }
+    100% { background-position: 200% 50%; }
 }
 
 
@@ -164,7 +166,8 @@
 
 .section-title {
     opacity: 0;
-    animation: phoneElIn 0.4s ease-out forwards;
+    transform: translateY(-8px);
+    animation: phoneElIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 .section-title:nth-of-type(1) {
@@ -173,6 +176,12 @@
 
 .section-title:nth-of-type(2) {
     animation-delay: 1.85s;
+}
+
+.maintenance-status-card {
+    opacity: 0;
+    transform: translateY(12px) scale(0.96);
+    animation: phoneCardIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) 1.75s forwards;
 }
 
 .app-card.alert-card {
@@ -188,7 +197,8 @@
     }
 }
 
-.app-card.activity-card {
+.app-card.activity-card,
+.activity-card {
     opacity: 0;
     transform: translateX(-15px);
     animation: phoneSlideIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) 1.95s forwards;
@@ -994,22 +1004,41 @@
 
 
 .activity-card {
-    margin: 0 var(--space-md) var(--space-sm);
-    background: var(--surface-container-high);
-    border-radius: 6px;
-    padding: var(--space-sm);
+    margin: 0 var(--space-md) var(--space-md);
+    padding: var(--space-md);
+    background: var(--surface-container);
+    border-radius: 16px;
     display: flex;
-    align-items: flex-start;
-    gap: var(--space-sm);
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    align-items: center;
+    gap: var(--space-md);
     cursor: pointer;
-    transition: all 0.2s ease;
+    transition: all 0.25s ease;
+}
+
+.activity-card:hover {
+    background: var(--surface-container-high);
+    transform: translateX(4px);
+    box-shadow: 0 4px 16px var(--accent-glow);
+}
+
+.activity-card:hover .activity-icon-wrapper {
+    transform: scale(1.1);
+    background: var(--accent-glow);
+}
+
+.activity-card:hover .activity-trailing svg {
+    transform: translateX(4px);
 }
 
 .activity-card:hover {
     background: var(--surface-container-highest);
-    transform: translateY(-1px);
+    transform: translateX(4px);
     box-shadow: 0 4px 20px var(--accent-glow), 0 0 30px rgba(64, 95, 144, 0.15);
+}
+
+.activity-card:hover .activity-icon-wrapper {
+    transform: scale(1.1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
 }
 
 .activity-icon-wrapper {
@@ -1023,6 +1052,7 @@
     background: linear-gradient(135deg, #1B5E2E, #0d4018);
     border: 3px solid var(--phone-screen);
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 [data-theme="light"] .activity-icon-wrapper {
@@ -1081,9 +1111,44 @@
 }
 
 .activity-trailing {
+    margin-left: auto;
     flex-shrink: 0;
-    color: var(--text-muted);
-    align-self: center;
+}
+
+.activity-trailing svg {
+    width: 20px;
+    height: 20px;
+    fill: var(--text-muted);
+    transition: transform 0.3s ease, fill 0.3s ease;
+}
+
+.activity-card:hover .activity-trailing svg {
+    transform: translateX(4px);
+    fill: var(--accent-light);
+}
+
+.activity-trailing svg {
+    width: 20px;
+    height: 20px;
+    fill: currentColor;
+    transition: transform 0.3s ease;
+}
+
+.activity-card:hover .activity-trailing svg {
+    transform: translateX(4px);
+    fill: var(--accent-light);
+}
+
+.activity-trailing svg {
+    width: 20px;
+    height: 20px;
+    fill: var(--text-muted);
+    transition: transform 0.3s ease, fill 0.3s ease;
+}
+
+.activity-card:hover .activity-trailing svg {
+    transform: translateX(4px);
+    fill: var(--accent-light);
 }
 
 .activity-trailing svg {
@@ -1103,12 +1168,31 @@
 .maintenance-status-card .status-item {
     display: flex;
     align-items: center;
-    gap: var(--space-sm);
-    padding: var(--space-sm);
+    gap: 12px;
+    padding: 12px;
+    background: var(--surface-container);
+    border-radius: 10px;
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.maintenance-status-card .status-item:hover {
     background: var(--surface-container-high);
-    border-radius: 6px;
-    cursor: pointer;
-    transition: all 0.2s ease;
+    transform: translateX(4px);
+}
+
+.maintenance-status-card .status-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: transform 0.3s ease;
+}
+
+.maintenance-status-card .status-item:hover .status-icon {
+    transform: scale(1.1) rotate(5deg);
 }
 
 .maintenance-status-card .status-item:hover {
@@ -1125,6 +1209,12 @@
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
+    transition: transform 0.3s ease;
+}
+
+.maintenance-status-card .status-item:hover .status-icon {
+    transform: scale(1.15) rotate(5deg);
+    animation: iconPulse 0.5s ease;
 }
 
 .maintenance-status-card .status-icon svg {

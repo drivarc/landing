@@ -123,6 +123,11 @@
     width: 28px;
     height: 28px;
     fill: var(--accent-light);
+    transition: transform 0.3s ease;
+}
+
+.feature-card:hover .feature-icon svg {
+    animation: iconBounce 0.6s ease;
 }
 
 .feature-icon svg.feature-icon-car-svg {
