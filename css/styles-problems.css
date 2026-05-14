@@ -365,7 +365,7 @@ html.touch-device .maintenance-status-card .status-item:hover {
     }
     .problems-section {
         min-height: auto;
-        padding: 60px 20px 60px;
+        padding: 32px 24px 64px;
     }
 }
 

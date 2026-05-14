@@ -330,8 +330,8 @@
 
 @media (max-width: 768px) {
     .hero-content {
-        padding: 100px 20px 60px !important;
-        gap: 32px;
+        padding: 100px 24px 80px;
+        gap: 48px;
     }
     .hero-title { font-size: 28px; }
     .hero-subtitle { font-size: 14px; }
@@ -363,9 +363,9 @@
 }
 
 @media (max-width: 480px) {
-    .hero-content { 
-        padding: 72px 16px 24px !important;
-        gap: 24px;
+    .hero-content {
+        padding: 100px 24px 80px;
+        gap: 32px;
     }
     .hero-title { 
         font-size: 24px; 

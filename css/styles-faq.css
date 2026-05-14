@@ -296,7 +296,7 @@
     .faq-section {
         min-height: auto !important;
         height: auto !important;
-        padding: 40px 16px 10px !important;
+        padding: 32px 24px 64px;
         overflow: visible;
     }
     .faq-question { padding: var(--space-md) var(--space-sm); font-size: 14px; }
