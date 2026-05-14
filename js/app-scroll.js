@@ -357,3 +357,43 @@ if (allSectionsExist) {
     updateActiveNavLink();
     updateScrollProgress();
 } // end if (allSectionsExist)
+
+// Mobile: hide header on scroll down, show on scroll up
+(function () {
+    if (!isMobile) return;
+
+    const header = document.querySelector('.header');
+    const progressBar = document.querySelector('.scroll-progress-bar');
+    if (!header) return;
+
+    let lastScrollY = window.scrollY;
+    let ticking = false;
+
+    function handleScroll() {
+        const currentScrollY = window.scrollY;
+        const scrollDiff = currentScrollY - lastScrollY;
+
+        if (currentScrollY <= 10) {
+            header.classList.remove('header--hidden');
+            if (progressBar) progressBar.classList.remove('scroll-progress-bar--top');
+        } else if (scrollDiff > 5) {
+            header.classList.add('header--hidden');
+            if (progressBar) progressBar.classList.add('scroll-progress-bar--top');
+        } else if (scrollDiff < -5) {
+            header.classList.remove('header--hidden');
+            if (progressBar) progressBar.classList.remove('scroll-progress-bar--top');
+        }
+
+        lastScrollY = currentScrollY;
+        ticking = false;
+    }
+
+    window.addEventListener('scroll', function () {
+        if (!ticking) {
+            requestFrame(function () {
+                handleScroll();
+            });
+            ticking = true;
+        }
+    }, { passive: true });
+})();
