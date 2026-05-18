@@ -160,7 +160,7 @@ function supportsWebp() {
 }
 
 function shouldLoadAtaturkPortrait() {
-    return window.matchMedia('(min-width: 1025px)').matches;
+    return true;
 }
 
 function getAtaturkPortraitSrc(ataturkPortrait) {
