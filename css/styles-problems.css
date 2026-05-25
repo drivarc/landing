@@ -62,8 +62,9 @@
 .problem-card {
     background: var(--surface-container);
     border-radius: var(--card-radius-lg);
-    padding: var(--card-padding-md);
     border: 1px solid var(--border);
+    padding: var(--card-padding-md);
+    overflow: hidden;
     transform: translateY(0) scale(1);
     backface-visibility: hidden;
     -webkit-backface-visibility: hidden;
@@ -74,6 +75,10 @@
                 transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
                 box-shadow 0.3s ease,
                 border-color 0.3s ease;
+}
+
+[data-theme="light"] .problem-card {
+    background: var(--surface-container-high);
 }
 
 .problem-card.visible {
@@ -133,10 +138,6 @@ html.touch-device .problem-card:hover {
     border-color: var(--border) !important;
 }
 
-html.touch-device .problem-card:hover .problem-layout::after {
-    opacity: 1;
-}
-
 html.touch-device .faq-item:hover {
     border-color: var(--border) !important;
 }
@@ -145,7 +146,6 @@ html.touch-device .activity-card:hover,
 html.touch-device .maintenance-status-card .status-item:hover {
     background: var(--surface-container-high);
 }
-
 
 .problem-layout {
     display: grid;
@@ -166,7 +166,6 @@ html.touch-device .maintenance-status-card .status-item:hover {
     transform: translateX(-50%);
     transition: opacity 0.3s ease;
 }
-
 
 .problem-panel {
     padding: 0 var(--space-sm);
@@ -195,19 +194,35 @@ html.touch-device .maintenance-status-card .status-item:hover {
 }
 
 .problem-icon.pain {
-    background: var(--error-bg);
+    background: #ba1a1a;
 }
 
 .problem-icon.pain svg {
-    fill: var(--error);
+    fill: #ffffff;
 }
 
 .problem-icon.solution {
-    background: var(--success-bg);
+    background: #074D24;
 }
 
 .problem-icon.solution svg {
-    fill: var(--success);
+    fill: #ffffff;
+}
+
+[data-theme="dark"] .problem-icon.pain {
+    background: #93000a;
+}
+
+[data-theme="dark"] .problem-icon.pain svg {
+    fill: #ffdad6;
+}
+
+[data-theme="dark"] .problem-icon.solution {
+    background: #1B5E2E;
+}
+
+[data-theme="dark"] .problem-icon.solution svg {
+    fill: #A5D6A7;
 }
 
 .problem-tag {
@@ -233,26 +248,46 @@ html.touch-device .maintenance-status-card .status-item:hover {
     flex-shrink: 0;
 }
 
+.problem-tag.pain {
+    background: #ba1a1a;
+    color: #ffffff;
+    border-left: 2px solid rgba(255,255,255,0.4);
+}
+
 .problem-tag.pain::before {
     clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
-    background: var(--error);
+    background: #ffffff;
+}
+
+.problem-tag.solution {
+    background: #074D24;
+    color: #ffffff;
+    border-left: 2px solid rgba(255,255,255,0.4);
 }
 
 .problem-tag.solution::before {
     clip-path: circle(50% at 50% 50%);
-    background: var(--success);
+    background: #ffffff;
 }
 
-.problem-tag.pain {
-    background: var(--error-bg);
-    color: var(--error);
-    border-left: 2px solid var(--error);
+[data-theme="dark"] .problem-tag.pain {
+    background: #93000a;
+    color: #ffdad6;
+    border-left: 2px solid rgba(255,218,214,0.4);
 }
 
-.problem-tag.solution {
-    background: var(--success-bg);
-    color: var(--success);
-    border-left: 2px solid var(--success);
+[data-theme="dark"] .problem-tag.pain::before {
+    background: #ffdad6;
+}
+
+[data-theme="dark"] .problem-tag.solution {
+    background: #1B5E2E;
+    color: #A5D6A7;
+    border-left: 2px solid rgba(165,214,167,0.4);
+}
+
+[data-theme="dark"] .problem-tag.solution::before {
+    background: #A5D6A7;
 }
 
 .problem-title {
@@ -305,7 +340,6 @@ html.touch-device .maintenance-status-card .status-item:hover {
 @media (max-width: 768px) {
     .problems-grid { grid-template-columns: 1fr; }
     .problems-title { font-size: 22px; }
-    .problem-card { padding: var(--space-md); }
     .problem-layout { display: flex; flex-direction: column; gap: var(--space-md); }
     .problem-layout::after { display: none; }
     .problems-section {
@@ -318,7 +352,6 @@ html.touch-device .maintenance-status-card .status-item:hover {
     .problems-grid { grid-template-columns: 1fr; }
     .problems-title { font-size: 20px; flex-direction: column; gap: 4px; }
     .problem-card {
-        padding: var(--space-sm);
         border-radius: var(--card-radius-sm);
     }
     .problem-icon {
@@ -339,7 +372,7 @@ html.touch-device .maintenance-status-card .status-item:hover {
 @media (max-width: 375px) {
     .problems-title { font-size: 18px; }
     .problems-subtitle { font-size: 12px; }
-    .problem-card { padding: var(--space-xs); }
+
     .problem-icon {
         width: 28px;
         height: 28px;
@@ -353,7 +386,7 @@ html.touch-device .maintenance-status-card .status-item:hover {
     .problems-section { padding: 40px 12px 40px; }
     .problems-title { font-size: 16px; }
     .problems-subtitle { font-size: 11px; }
-    .problem-card { padding: var(--space-2xs); }
+
     .problem-icon {
         width: 24px;
         height: 24px;
