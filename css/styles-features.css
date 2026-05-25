@@ -81,7 +81,7 @@
 }
 
 .feature-card {
-    background: linear-gradient(135deg, var(--surface-container) 0%, rgba(64, 95, 144, 0.08) 100%);
+    background: var(--surface-container);
     border: 1px solid var(--border);
     border-radius: var(--card-radius-lg);
     padding: var(--card-padding-lg);

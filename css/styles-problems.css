@@ -60,7 +60,7 @@
 }
 
 .problem-card {
-    background: linear-gradient(135deg, var(--surface-container) 0%, rgba(108, 86, 114, 0.06) 100%);
+    background: var(--surface-container);
     border-radius: var(--card-radius-lg);
     padding: var(--card-padding-md);
     border: 1px solid var(--border);
@@ -93,11 +93,11 @@
     }
 
     .problem-card:hover .problem-panel--solution {
-        background: linear-gradient(135deg, rgba(165, 214, 167, 0.12) 0%, rgba(165, 214, 167, 0.06) 100%);
+        background: var(--surface-container-highest);
     }
 
     .problem-card:hover .problem-panel--pain {
-        background: linear-gradient(135deg, rgba(255, 180, 171, 0.08) 0%, rgba(255, 180, 171, 0.04) 100%);
+        background: var(--surface-container-highest);
     }
 
     .problem-card:hover .problem-layout::after {
@@ -142,11 +142,11 @@ html.touch-device .problem-card:hover {
 }
 
     html.touch-device .problem-card:hover .problem-panel--solution {
-        background: linear-gradient(135deg, rgba(165, 214, 167, 0.06) 0%, rgba(165, 214, 167, 0.03) 100%);
+        background: var(--surface-container-highest);
     }
 
     html.touch-device .problem-card:hover .problem-panel--pain {
-        background: linear-gradient(135deg, rgba(255, 180, 171, 0.06) 0%, rgba(255, 180, 171, 0.03) 100%);
+        background: var(--surface-container-highest);
     }
 
 html.touch-device .problem-card:hover .problem-layout::after {
@@ -203,12 +203,12 @@ html.touch-device .maintenance-status-card .status-item:hover {
 }
 
 .problem-panel--pain {
-    background: linear-gradient(135deg, rgba(255, 180, 171, 0.08) 0%, rgba(255, 180, 171, 0.04) 100%);
+    background: var(--surface-container-high);
     border-right: 1px solid rgba(255, 180, 171, 0.2);
 }
 
 .problem-panel--solution {
-    background: linear-gradient(135deg, rgba(165, 214, 167, 0.08) 0%, rgba(165, 214, 167, 0.04) 100%);
+    background: var(--surface-container-high);
     border-left: 1px solid rgba(165, 214, 167, 0.2);
 }
 
