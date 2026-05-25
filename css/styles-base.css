@@ -78,7 +78,7 @@
     --color-text-muted: #8e9099;
     --color-accent-glow: rgba(169, 199, 255, 0.12);
     --color-border: rgba(142, 144, 153, 0.3);
-    --color-card-bg: linear-gradient(135deg, #264777, #405f90);
+    --color-card-bg: #264777;
     --color-phone-frame: #191c20;
     --color-phone-screen: #111318;
     --color-phone-shadow: rgba(0, 0, 0, 0.5);
@@ -202,7 +202,7 @@ html {
     --color-text-muted: #74777f;
     --color-accent-glow: rgba(64, 95, 144, 0.15);
     --color-border: rgba(116, 119, 127, 0.3);
-    --color-card-bg: linear-gradient(135deg, #405f90, #264777);
+    --color-card-bg: #405f90;
     --color-phone-frame: #191c20;
     --color-phone-screen: #ffffff;
     --color-phone-shadow: rgba(0, 0, 0, 0.15);
