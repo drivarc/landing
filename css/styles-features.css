@@ -136,14 +136,14 @@
 }
 
 .feature-name {
-    font-size: 15px;
+    font-size: 17px;
     font-weight: 600;
     color: var(--text-primary);
     margin-bottom: 8px;
 }
 
 .feature-desc {
-    font-size: 13px;
+    font-size: 15px;
     color: var(--text-secondary);
     line-height: 1.5;
 }
@@ -208,8 +208,8 @@
         border-radius: var(--card-radius-md);
     }
     .feature-icon svg { width: 24px; height: 24px; }
-    .feature-name { font-size: 14px; }
-    .feature-desc { font-size: 12px; }
+    .feature-name { font-size: 15px; }
+    .feature-desc { font-size: 13px; }
 }
 
 @media (max-width: 375px) {
@@ -222,8 +222,8 @@
         margin-bottom: var(--space-xs);
     }
     .feature-icon svg { width: 22px; height: 22px; }
-    .feature-name { font-size: 13px; }
-    .feature-desc { font-size: 11px; }
+    .feature-name { font-size: 14px; }
+    .feature-desc { font-size: 12px; }
 }
 
 @media (max-width: 360px) {
@@ -243,8 +243,8 @@
         margin-bottom: var(--space-2xs);
     }
     .feature-icon svg { width: 20px; height: 20px; }
-    .feature-name { font-size: 12px; }
-    .feature-desc { font-size: 10px; }
+    .feature-name { font-size: 13px; }
+    .feature-desc { font-size: 11px; }
 }
 
 @media (max-width: 768px) {

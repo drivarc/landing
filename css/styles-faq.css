@@ -76,7 +76,7 @@
 }
 
 .faq-footer-link {
-    font-size: 13px;
+    font-size: 14px;
     color: var(--text-muted);
     text-decoration: none;
     transition: color 0.2s ease;
@@ -87,7 +87,7 @@
 }
 
 .faq-footer-copy {
-    font-size: 12px;
+    font-size: 13px;
     color: var(--text-muted);
 }
 
@@ -129,7 +129,7 @@
     background: transparent;
     border: none;
     color: var(--text-primary);
-    font-size: 15px;
+    font-size: 17px;
     font-weight: 600;
     font-family: inherit;
     cursor: pointer;
@@ -189,7 +189,7 @@
 
 .faq-answer-inner {
     padding: 0 var(--card-padding-md) var(--space-md);
-    font-size: 14px;
+    font-size: 16px;
     color: var(--text-secondary);
     line-height: 1.6;
     transform: translateY(-8px);
@@ -215,7 +215,7 @@
 }
 
 .faq-cta-text {
-    font-size: 15px;
+    font-size: 17px;
     font-weight: 500;
     color: var(--text-secondary);
     margin-bottom: var(--space-md);
@@ -230,7 +230,7 @@
     color: var(--accent-light);
     border-radius: 6px;
     border: 1px solid var(--accent-light);
-    font-size: 14px;
+    font-size: 16px;
     font-weight: 600;
     text-decoration: none;
     will-change: transform, box-shadow;
@@ -243,7 +243,7 @@
 }
 
 .faq-cta-text {
-    font-size: 15px;
+    font-size: 17px;
     font-weight: 500;
     color: var(--text-secondary);
     margin-bottom: 16px;
@@ -258,7 +258,7 @@
     color: var(--accent-light);
     border-radius: 6px;
     border: 1px solid var(--accent-light);
-    font-size: 14px;
+    font-size: 16px;
     font-weight: 600;
     text-decoration: none;
     will-change: transform, box-shadow;
@@ -299,8 +299,8 @@
         padding: 32px 24px 64px;
         overflow: visible;
     }
-    .faq-question { padding: var(--space-md) var(--space-sm); font-size: 14px; }
-    .faq-answer-inner { padding: 0 var(--space-sm) var(--space-md); font-size: 13px; }
+    .faq-question { padding: var(--space-md) var(--space-sm); font-size: 15px; }
+    .faq-answer-inner { padding: 0 var(--space-sm) var(--space-md); font-size: 14px; }
     
     .scroll-nav { display: none; }
     .faq-footer { flex-direction: column; gap: var(--space-sm); }
@@ -316,31 +316,31 @@
     .faq-subtitle { font-size: 13px; }
     .faq-list { gap: var(--space-xs); }
     .faq-item { border-radius: var(--card-radius-sm); }
-    .faq-question { padding: var(--space-sm) var(--space-md); font-size: 13px; }
+    .faq-question { padding: var(--space-sm) var(--space-md); font-size: 14px; }
     .faq-chevron { width: 18px; height: 18px; }
-    .faq-answer-inner { padding: 0 var(--space-md) var(--space-sm); font-size: 12px; }
+    .faq-answer-inner { padding: 0 var(--space-md) var(--space-sm); font-size: 13px; }
     .faq-cta { margin-top: var(--space-md); padding-top: var(--space-sm); }
-    .faq-cta-text { font-size: 13px; }
-    .btn-faq-cta { padding: var(--space-sm) var(--space-md); font-size: 13px; }
+    .faq-cta-text { font-size: 14px; }
+    .btn-faq-cta { padding: var(--space-sm) var(--space-md); font-size: 14px; }
 }
 
 @media (max-width: 375px) {
     .faq-title { font-size: 18px; }
     .faq-subtitle { font-size: 12px; }
-    .faq-question { padding: var(--space-sm) var(--space-sm); font-size: 12px; }
+    .faq-question { padding: var(--space-sm) var(--space-sm); font-size: 13px; }
     .faq-chevron { width: 16px; height: 16px; }
-    .faq-answer-inner { padding: 0 var(--space-sm) var(--space-sm); font-size: 11px; }
-    .faq-cta-text { font-size: 12px; }
-    .btn-faq-cta { padding: var(--space-xs) var(--space-md); font-size: 12px; }
+    .faq-answer-inner { padding: 0 var(--space-sm) var(--space-sm); font-size: 12px; }
+    .faq-cta-text { font-size: 13px; }
+    .btn-faq-cta { padding: var(--space-xs) var(--space-md); font-size: 13px; }
 }
 
 @media (max-width: 320px) {
     .faq-section { padding: 40px 12px 10px; }
     .faq-title { font-size: 16px; }
     .faq-subtitle { font-size: 11px; }
-    .faq-question { padding: var(--space-xs) var(--space-sm); font-size: 11px; }
+    .faq-question { padding: var(--space-xs) var(--space-sm); font-size: 12px; }
     .faq-chevron { width: 14px; height: 14px; }
-    .faq-answer-inner { padding: 0 var(--space-sm) var(--space-xs); font-size: 10px; }
-    .faq-cta-text { font-size: 12px; }
-    .btn-faq-cta { padding: var(--space-xs) var(--space-md); font-size: 12px; }
+    .faq-answer-inner { padding: 0 var(--space-sm) var(--space-xs); font-size: 11px; }
+    .faq-cta-text { font-size: 13px; }
+    .btn-faq-cta { padding: var(--space-xs) var(--space-md); font-size: 13px; }
 }

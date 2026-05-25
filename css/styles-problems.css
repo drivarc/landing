@@ -92,14 +92,6 @@
         animation: iconPulse 0.6s ease;
     }
 
-    .problem-card:hover .problem-panel--solution {
-        background: var(--surface-container-highest);
-    }
-
-    .problem-card:hover .problem-panel--pain {
-        background: var(--surface-container-highest);
-    }
-
     .problem-card:hover .problem-layout::after {
         opacity: 0.5;
     }
@@ -141,14 +133,6 @@ html.touch-device .problem-card:hover {
     border-color: var(--border) !important;
 }
 
-    html.touch-device .problem-card:hover .problem-panel--solution {
-        background: var(--surface-container-highest);
-    }
-
-    html.touch-device .problem-card:hover .problem-panel--pain {
-        background: var(--surface-container-highest);
-    }
-
 html.touch-device .problem-card:hover .problem-layout::after {
     opacity: 1;
 }
@@ -163,6 +147,14 @@ html.touch-device .maintenance-status-card .status-item:hover {
 }
 
 
+.problem-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    align-items: stretch;
+    position: relative;
+}
+
 .problem-layout::after {
     content: '';
     position: absolute;
@@ -175,41 +167,10 @@ html.touch-device .maintenance-status-card .status-item:hover {
     transition: opacity 0.3s ease;
 }
 
-.problem-layout {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 0;
-    align-items: stretch;
-    position: relative;
-}
-
-
-.problem-layout::after {
-    content: '';
-    position: absolute;
-    top: 10%;
-    bottom: 10%;
-    left: 50%;
-    width: 1px;
-    background: linear-gradient(180deg, transparent, var(--border) 30%, var(--border) 70%, transparent);
-    transform: translateX(-50%);
-}
-
 
 .problem-panel {
-    padding: var(--space-md);
-    border-radius: 6px;
+    padding: 0 var(--space-sm);
     transition: background 0.3s ease;
-}
-
-.problem-panel--pain {
-    background: var(--surface-container-high);
-    border-right: 1px solid rgba(255, 180, 171, 0.2);
-}
-
-.problem-panel--solution {
-    background: var(--surface-container-high);
-    border-left: 1px solid rgba(165, 214, 167, 0.2);
 }
 
 .problem-header {
@@ -250,7 +211,7 @@ html.touch-device .maintenance-status-card .status-item:hover {
 }
 
 .problem-tag {
-    font-size: 10px;
+    font-size: 11px;
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.06em;
@@ -295,7 +256,7 @@ html.touch-device .maintenance-status-card .status-item:hover {
 }
 
 .problem-title {
-    font-size: 14px;
+    font-size: 16px;
     font-weight: 600;
     color: var(--text-primary);
     margin-bottom: var(--space-xs);
@@ -303,16 +264,9 @@ html.touch-device .maintenance-status-card .status-item:hover {
 }
 
 .problem-desc {
-    font-size: 12px;
+    font-size: 14px;
     color: var(--text-secondary);
     line-height: 1.5;
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
-    display: box;
-    line-clamp: 3;
-    box-orient: vertical;
-    overflow: hidden;
 }
 
 .problem-divider {
@@ -352,17 +306,8 @@ html.touch-device .maintenance-status-card .status-item:hover {
     .problems-grid { grid-template-columns: 1fr; }
     .problems-title { font-size: 22px; }
     .problem-card { padding: var(--space-md); }
-    .problem-layout { display: flex; flex-direction: column; gap: 0; }
+    .problem-layout { display: flex; flex-direction: column; gap: var(--space-md); }
     .problem-layout::after { display: none; }
-    .problem-panel { padding: var(--space-sm); }
-    .problem-panel--pain {
-        border-right: none;
-        border-bottom: 1px solid rgba(255, 82, 82, 0.1);
-    }
-    .problem-panel--solution {
-        border-left: none;
-        border-top: 1px solid rgba(76, 175, 80, 0.1);
-    }
     .problems-section {
         min-height: auto;
         padding: 32px 24px 64px;
@@ -376,7 +321,6 @@ html.touch-device .maintenance-status-card .status-item:hover {
         padding: var(--space-sm);
         border-radius: var(--card-radius-sm);
     }
-    .problem-panel { padding: var(--space-xs); }
     .problem-icon {
         width: 32px;
         height: 32px;
@@ -384,30 +328,25 @@ html.touch-device .maintenance-status-card .status-item:hover {
     }
     .problem-icon svg { width: 16px; height: 16px; }
     .problem-tag {
-        font-size: 9px;
+        font-size: 10px;
         padding: 2px 6px;
         margin-bottom: var(--space-2xs);
     }
-    .problem-title { font-size: 13px; }
-    .problem-desc {
-        font-size: 11px;
-        -webkit-line-clamp: 2;
-        line-clamp: 2;
-    }
+    .problem-title { font-size: 14px; }
+    .problem-desc { font-size: 13px; }
 }
 
 @media (max-width: 375px) {
     .problems-title { font-size: 18px; }
     .problems-subtitle { font-size: 12px; }
     .problem-card { padding: var(--space-xs); }
-    .problem-panel { padding: var(--space-2xs); }
     .problem-icon {
         width: 28px;
         height: 28px;
     }
     .problem-icon svg { width: 14px; height: 14px; }
-    .problem-title { font-size: 12px; }
-    .problem-desc { font-size: 10px; }
+    .problem-title { font-size: 13px; }
+    .problem-desc { font-size: 12px; }
 }
 
 @media (max-width: 320px) {
@@ -415,13 +354,12 @@ html.touch-device .maintenance-status-card .status-item:hover {
     .problems-title { font-size: 16px; }
     .problems-subtitle { font-size: 11px; }
     .problem-card { padding: var(--space-2xs); }
-    .problem-panel { padding: var(--space-2xs); }
     .problem-icon {
         width: 24px;
         height: 24px;
     }
     .problem-icon svg { width: 12px; height: 12px; }
-    .problem-tag { font-size: 8px; }
-    .problem-title { font-size: 11px; }
-    .problem-desc { font-size: 9px; }
+    .problem-tag { font-size: 9px; }
+    .problem-title { font-size: 12px; }
+    .problem-desc { font-size: 11px; }
 }
