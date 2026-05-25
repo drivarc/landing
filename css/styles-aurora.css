@@ -11,7 +11,7 @@
 }
 
 [data-theme="light"] .aurora-background {
-    background-image: radial-gradient(circle, rgba(64, 95, 144, 0.05) 1px, transparent 1.5px);
+    background-image: radial-gradient(circle, rgba(64, 95, 144, 0.16) 1px, transparent 1.5px);
 }
 
 /* prefers-reduced-motion bypassed via JS */
