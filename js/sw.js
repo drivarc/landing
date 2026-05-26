@@ -13,7 +13,7 @@ const ASSETS_TO_CACHE = [
   '/css/styles-modals.css',
   '/css/styles-animations.css',
   '/css/styles-rtl.css',
-  '/css/styles-aurora.css',
+  '/css/styles-dotfield.css',
 
   '/css/critical.css',
   '/js/seo-jsonld.js',

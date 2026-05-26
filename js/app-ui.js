@@ -80,23 +80,10 @@ function closeLegalModal(id) {
 function openTermsModal() { openLegalModal('termsModal'); }
 function openPrivacyModal() { openLegalModal('privacyModal'); }
 
-function initAuroraMouseTracking() {
-    // removed — aurora blobs replaced with dot field
-}
-
 function initAnimations() {
     initPhone3D();
-
-    if (!prefersReducedMotion) {
-        window.addEventListener('mousemove', handleGridParallaxMotion, { passive: true });
-        if ('PointerEvent' in window) {
-            window.addEventListener('pointermove', handleGridParallaxMotion, { passive: true });
-        }
-        initAuroraMouseTracking();
-    }
-
+    initDotParallax();
     window.addEventListener('scroll', updateScrollProgress, { passive: true });
-
     updateScrollProgress();
 }
 

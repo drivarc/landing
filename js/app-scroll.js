@@ -30,25 +30,50 @@ function updateScrollProgress() {
     scrollProgress.style.width = progress + '%';
 }
 
-const gridBg = document.querySelector('.grid-background');
-function updateGridParallax(e) {
-    if (!gridBg || prefersReducedMotion) return;
-    const x = (e.clientX / window.innerWidth - 0.5) * 20;
-    const y = (e.clientY / window.innerHeight - 0.5) * 20;
-    gridBg.style.transform = `translate3d(${x}px, ${y}px, 0)`;
-}
+function initDotParallax() {
+    const far = document.querySelector('.dot-field--far');
+    const mid = document.querySelector('.dot-field--mid');
+    const near = document.querySelector('.dot-field--near');
+    if (!far || !mid || !near) return;
 
-function handleGridParallaxMotion(e) {
     if (prefersReducedMotion) return;
 
-    if (e.type === 'pointermove' && e.pointerType && e.pointerType !== 'mouse' && e.pointerType !== 'pen') {
-        return;
+    let rafId = null;
+    let targetX = 0;
+    let mouseX = 0;
+    let scrollY = 0;
+
+    function onScroll() {
+        scrollY = window.scrollY;
     }
 
-    try {
-        updateGridParallax(e);
-    } catch (error) {
+    function onPointerMove(e) {
+        if (e.pointerType && e.pointerType !== 'mouse' && e.pointerType !== 'pen') return;
+        targetX = (e.clientX / window.innerWidth - 0.5) * 2;
     }
+
+    function animate() {
+        try {
+            mouseX += (targetX - mouseX) * 0.06;
+
+            far.style.backgroundPosition = `${mouseX * 5}px ${scrollY * 0.03}px`;
+            mid.style.backgroundPosition = `${mouseX * 12}px ${scrollY * 0.10}px`;
+            near.style.backgroundPosition = `${mouseX * 25}px ${scrollY * 0.25}px`;
+
+            rafId = requestFrame(animate);
+        } catch (error) {
+            cancelFrame(rafId);
+        }
+    }
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('mousemove', onPointerMove, { passive: true });
+    if ('PointerEvent' in window) {
+        window.addEventListener('pointermove', onPointerMove, { passive: true });
+    }
+
+    onScroll();
+    rafId = requestFrame(animate);
 }
 
 function createRipple(event) {
