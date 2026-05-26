@@ -79,7 +79,7 @@
 .btn-footer-store:hover {
     color: var(--accent-light);
     transform: translateY(-2px);
-    background: rgba(255, 255, 255, 0.05);
+    background: var(--hover-bg);
 }
 
 .btn-footer-store:hover::before {
@@ -138,8 +138,8 @@
     position: absolute;
     inset: 0;
     border-radius: 6px;
-    background: linear-gradient(135deg, rgba(169, 199, 255, 0.15), rgba(100, 150, 255, 0.08));
-    border: 1px solid rgba(169, 199, 255, 0.4);
+    background: linear-gradient(135deg, color-mix(in srgb, var(--accent-light) 15%, transparent), color-mix(in srgb, var(--accent-light) 8%, transparent));
+    border: 1px solid color-mix(in srgb, var(--accent-light) 40%, transparent);
     opacity: 0;
     transition: opacity 0.2s ease;
     z-index: -1;
@@ -156,11 +156,11 @@
 .footer-link:focus-visible {
     outline: 2px solid var(--accent);
     outline-offset: 4px;
-    background: rgba(169, 199, 255, 0.08);
+    background: var(--hover-bg);
 }
 
 .footer-link:active {
-    background: linear-gradient(135deg, rgba(169, 199, 255, 0.2), rgba(100, 150, 255, 0.12));
+    background: var(--active-bg);
     transform: scale(0.96);
 }
 
@@ -198,7 +198,7 @@
 .social-link:hover {
     color: var(--accent-light);
     transform: translateY(-2px);
-    background: rgba(255, 255, 255, 0.05);
+    background: var(--hover-bg);
 }
 
 .social-link:focus-visible {

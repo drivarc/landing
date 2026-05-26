@@ -156,12 +156,12 @@ html[dir="rtl"][lang="he"] body {
      border-radius: 6px;
      background-clip: padding-box;
      color: var(--color-primary);
-     background: var(--color-primary-dim, rgba(99,133,242,0.15));
+     background: var(--active-bg);
  }
 
  .lang-option.active .lang-code-badge {
      color: var(--color-primary);
-     background: var(--color-primary-dim, rgba(99,133,242,0.15));
+     background: var(--active-bg);
      font-weight: 700;
  }
 

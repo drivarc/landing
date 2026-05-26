@@ -30,12 +30,12 @@
 .scroll-progress-bar-fill {
     height: 100%;
     width: 0%;
-    background: linear-gradient(90deg, #5a8fd8 0%, #c4daff 25%, #a9c7ff 50%, #c4daff 75%, #5a8fd8 100%);
+    background: linear-gradient(90deg, #405f90 0%, #5d89b8 25%, #7a9ec8 50%, #5d89b8 75%, #405f90 100%);
     background-size: 300% 100%;
     animation: shimmerProgress 2.5s ease-in-out infinite;
     border-radius: 0 2px 2px 0;
     transition: width 0.15s ease-out;
-    box-shadow: 0 0 8px rgba(90, 143, 216, 0.4);
+    box-shadow: 0 0 8px rgba(64, 95, 144, 0.4);
 }
 
 @keyframes shimmerProgress {
