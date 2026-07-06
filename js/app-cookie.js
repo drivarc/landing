@@ -416,17 +416,13 @@
     }
 
    function initStoreClickTracking() {
-       var gpBtn = document.querySelector('[data-modal="beta"]');
+       var gpBtn = document.querySelector('.btn-google-play, .btn-footer-google-play');
        if (gpBtn) {
            gpBtn.addEventListener('click', function(e) {
-               e.preventDefault();
                trackEvent('store_click', {
                    'store': 'google_play',
                    'page_language': getPageLang()
                });
-               if (typeof window.openBetaModal === 'function') {
-                   window.openBetaModal();
-               }
            });
        }
 

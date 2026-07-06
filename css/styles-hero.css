@@ -77,12 +77,12 @@
 
 .hero-badge {
     /* variables allow theme-specific overrides */
-    --badge-bg: rgba(29, 32, 36, 0.6);
-    --badge-text: var(--color-primary-light);
-    --badge-border: rgba(169, 199, 255, 0.3);
-    --badge-dot-color: #d6e3ff;
-    --badge-dot-ring: rgba(214, 227, 255, 0.85);
-    --badge-pulse-color: rgba(214, 227, 255, 0.7);
+    --badge-bg: rgba(40, 20, 5, 0.6);
+    --badge-text: #ffb347;
+    --badge-border: rgba(255, 150, 50, 0.3);
+    --badge-dot-color: #ff6b00;
+    --badge-dot-ring: rgba(255, 107, 0, 0.85);
+    --badge-pulse-color: rgba(255, 107, 0, 0.7);
 
     display: flex;
     justify-content: center;
@@ -100,7 +100,7 @@
     width: fit-content;
     transition: all 0.3s ease;
     cursor: default;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 15px rgba(255, 107, 0, 0.15);
 }
 
 .hero-badge-dot {
@@ -136,8 +136,8 @@
 
 .hero-badge:hover {
     transform: scale(1.05);
-    border-color: rgba(169, 199, 255, 0.6);
-    box-shadow: 0 0 15px rgba(169, 199, 255, 0.2);
+    border-color: rgba(255, 150, 50, 0.6);
+    box-shadow: 0 0 15px rgba(255, 107, 0, 0.3);
 }
 
 .hero-title {
@@ -703,12 +703,12 @@
 }
 
 [data-theme="light"] .hero-badge {
-    --badge-bg: #d6e3ff;
-    --badge-text: #264777;
-    --badge-border: #a9c7ff;
-    --badge-dot-color: #405f90;
-    --badge-pulse-color: rgba(64, 95, 144, 0.45);
-    box-shadow: 0 4px 12px rgba(38, 71, 119, 0.08);
+    --badge-bg: #fff4e6;
+    --badge-text: #c45500;
+    --badge-border: #ffb366;
+    --badge-dot-color: #e65100;
+    --badge-pulse-color: rgba(230, 81, 0, 0.35);
+    box-shadow: 0 4px 12px rgba(230, 81, 0, 0.1);
 }
 
 @media (max-width: 480px) {

@@ -1,5 +1,4 @@
 const modals = {
-    beta: document.getElementById('betaModal'),
     appstore: document.getElementById('appStoreModal')
 };
 
