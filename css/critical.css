@@ -215,7 +215,6 @@ body.index-page {
 /* Mobile styles */
 @media (max-width: 800px) {
     .nav,
-    .phone-container,
     .hero-phone,
     .hero-section {
         padding-top: 64px;
