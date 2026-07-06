@@ -68,7 +68,7 @@
 
 .hero-text {
     flex: 1;
-    text-align: left;
+    text-align: start;
 }
 
 .hero-phone {
@@ -177,7 +177,7 @@
     z-index: -1;
     background: none;
     color: var(--color-primary);
-    filter: blur(25px);
+    filter: blur(20px);
     opacity: 0.7;
     font-weight: 700;
     letter-spacing: inherit;
@@ -481,17 +481,18 @@
 }
 
 @media (max-width: 768px) and (orientation: landscape) {
-    .hero-content { 
+    .hero-content {
         padding: 64px 20px 24px !important;
         gap: 20px;
     }
     .hero-title { font-size: 22px; }
-    .hero-subtitle { 
-        font-size: 13px; 
+    .hero-subtitle {
+        font-size: 13px;
         margin-bottom: 16px;
     }
+    .hero-phone { display: none; }
 
-    .trust-badges { 
+    .trust-badges {
         display: flex;
         flex-wrap: wrap;
         gap: 8px;

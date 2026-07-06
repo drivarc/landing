@@ -295,6 +295,18 @@
     }
 }
 
+.trust-badge {
+    will-change: transform;
+}
+
+.hero-badge {
+    will-change: transform;
+}
+
+.hero-brand {
+    will-change: background-position, filter;
+}
+
 /* Fade-in-up sync and stagger helpers */
 :root {
     --anim-duration: 0.56s;

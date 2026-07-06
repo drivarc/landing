@@ -29,13 +29,13 @@
 }
 
 [data-theme="light"] .dot-field--far {
-    background-image: radial-gradient(circle, rgba(64, 95, 144, 0.10) 1px, transparent 1px);
+    background-image: radial-gradient(circle, rgba(64, 95, 144, 0.18) 1px, transparent 1px);
 }
 
 [data-theme="light"] .dot-field--mid {
-    background-image: radial-gradient(circle, rgba(64, 95, 144, 0.16) 1px, transparent 1.5px);
+    background-image: radial-gradient(circle, rgba(64, 95, 144, 0.25) 1px, transparent 1.5px);
 }
 
 [data-theme="light"] .dot-field--near {
-    background-image: radial-gradient(circle, rgba(64, 95, 144, 0.10) 1.5px, transparent 2px);
+    background-image: radial-gradient(circle, rgba(64, 95, 144, 0.18) 1.5px, transparent 2px);
 }
