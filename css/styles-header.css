@@ -81,9 +81,27 @@
     display: block;
 }
 
+.logo-img:first-child {
+    filter: drop-shadow(0 0 6px rgba(0, 116, 255, 0.4));
+}
+
+.logo-wordmark {
+    display: none;
+}
+
+@media (min-width: 801px) {
+    .logo-wordmark {
+        display: block;
+    }
+}
+
 
 [data-theme="light"] .logo-img {
     filter: brightness(0) saturate(100%) invert(35%) sepia(45%) saturate(350%) hue-rotate(192deg) brightness(95%) contrast(90%);
+}
+
+[data-theme="light"] .logo-img:first-child {
+    filter: brightness(0) saturate(100%) invert(35%) sepia(45%) saturate(350%) hue-rotate(192deg) brightness(95%) contrast(90%) drop-shadow(0 0 6px rgba(0, 116, 255, 0.4));
 }
 
 .nav {
