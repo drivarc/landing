@@ -211,8 +211,11 @@ body.index-page {
 
 /* Mobile styles */
 @media (max-width: 800px) {
+    .hero-phone {
+        display: none;
+    }
+
     .nav,
-    .hero-phone,
     .hero-section {
         padding-top: 64px;
     }
