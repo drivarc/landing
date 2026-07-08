@@ -36,13 +36,11 @@
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 24px;
-    height: 64px;
+    height: 80px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 0;
     position: relative;
-    transition: gap 0.3s ease;
 }
 
 .logo {
@@ -63,7 +61,6 @@
 
 
 .header-inner.has-ataturk {
-    justify-content: flex-start;
     gap: 12px;
 }
 
@@ -79,7 +76,7 @@
 }
 
 .logo-img {
-    height: 36px;
+    height: 48px;
     width: auto;
     display: block;
 }
@@ -93,9 +90,6 @@
     display: flex;
     align-items: center;
     gap: 32px;
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
 }
 
 .nav a {

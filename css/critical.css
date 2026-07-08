@@ -75,13 +75,13 @@ body.index-page {
 }
 
 .header-inner {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 24px;
-    height: 64px;
-    display: flex;
     align-items: center;
+    display: flex;
+    height: 80px;
     justify-content: space-between;
+    margin: 0 auto;
+    max-width: 1200px;
+    padding: 0 24px;
     position: relative;
 }
 
@@ -92,7 +92,7 @@ body.index-page {
 }
 
 .logo-img {
-    height: 36px;
+    height: 48px;
     width: auto;
     display: block;
 }
@@ -199,12 +199,9 @@ body.index-page {
 }
 
 .nav {
-    display: flex;
     align-items: center;
+    display: flex;
     gap: 32px;
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
 }
 
 .nav a {

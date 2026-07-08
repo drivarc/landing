@@ -1,0 +1,718 @@
+- generic [active] [ref=e1]:
+  - link "İçeriğe atla" [ref=e2] [cursor=pointer]:
+    - /url: "#main-content"
+  - generic "Ana sayfa hero bölümü" [ref=e3]:
+    - banner [ref=e4]:
+      - generic [ref=e5]:
+        - link "Drivarc Logo" [ref=e6] [cursor=pointer]:
+          - /url: "#hero"
+          - img "Drivarc Logo" [ref=e7]
+        - navigation "Ana menü" [ref=e8]:
+          - link "Ana Sayfa" [ref=e9] [cursor=pointer]:
+            - /url: "#hero"
+            - img [ref=e10]
+            - generic [ref=e12]: Ana Sayfa
+          - link "Yorumlar" [ref=e13] [cursor=pointer]:
+            - /url: "#testimonials"
+            - img [ref=e14]
+            - generic [ref=e16]: Yorumlar
+          - link "Özellikler" [ref=e17] [cursor=pointer]:
+            - /url: "#features"
+            - img [ref=e18]
+            - generic [ref=e20]: Özellikler
+          - link "Sorunlar" [ref=e21] [cursor=pointer]:
+            - /url: "#problems"
+            - img [ref=e22]
+            - generic [ref=e24]: Sorunlar
+          - link "SSS" [ref=e25] [cursor=pointer]:
+            - /url: "#faq"
+            - img [ref=e26]
+            - generic [ref=e28]: SSS
+        - generic [ref=e29]:
+          - generic [ref=e30]:
+            - button "Tema Değiştir" [ref=e31] [cursor=pointer]:
+              - img [ref=e32]
+              - img [ref=e34]
+            - listbox "Theme selection":
+              - option "Koyu":
+                - generic:
+                  - img
+                - generic: Koyu
+              - option "Açık":
+                - generic:
+                  - img
+                - generic: Açık
+              - option "Sistem":
+                - generic:
+                  - img
+                - generic: Sistem
+          - button "Dil Değiştir" [ref=e37] [cursor=pointer]:
+            - generic [ref=e38]: TR
+    - main [ref=e39]:
+      - generic [ref=e40]:
+        - status [ref=e41]:
+          - generic [ref=e43]: Drivarc Şu An Kapalı Beta Aşamasında
+        - heading "DRİVARC DRİVARC ile dijital araç yönetiminin özgürlüğünü keşfedin" [level=1] [ref=e44]:
+          - generic [ref=e45]: DRİVARC DRİVARC
+          - text: ile dijital araç yönetiminin
+          - text: özgürlüğünü keşfedin
+        - generic [ref=e46]:
+          - link "Google Play" [ref=e47] [cursor=pointer]:
+            - /url: "#"
+            - img [ref=e48]
+            - generic [ref=e54]: Google Play
+          - link "App Store" [ref=e55] [cursor=pointer]:
+            - /url: "#"
+            - img [ref=e56]
+            - generic [ref=e59]: App Store
+        - generic [ref=e60]:
+          - generic [ref=e61]:
+            - img [ref=e63]
+            - generic [ref=e65]: Güvenli Veri
+          - generic [ref=e66]:
+            - img [ref=e68]
+            - generic [ref=e70]: İnternetsiz Çalışma
+          - generic [ref=e71]:
+            - img [ref=e73]
+            - generic [ref=e75]: Kolay ve Hızlı
+          - generic [ref=e76]:
+            - img [ref=e78]
+            - generic [ref=e80]: Kullanıcı Dostu
+      - generic [ref=e86]:
+        - generic [ref=e88]:
+          - generic [ref=e89]:
+            - generic [ref=e90]: 9:41
+            - img [ref=e92]:
+              - generic [ref=e104]: D
+          - generic [ref=e105]:
+            - img [ref=e106]
+            - img [ref=e111]
+            - img [ref=e113]
+        - generic [ref=e118]:
+          - generic [ref=e119]:
+            - img [ref=e121]
+            - generic [ref=e123]: Ana Sayfa
+          - generic [ref=e125]:
+            - img [ref=e128]
+            - generic [ref=e132]:
+              - generic [ref=e133]: 2023 BMW 320i
+              - generic [ref=e134]: 34 ABC 123
+          - generic [ref=e135]:
+            - img [ref=e138]
+            - generic [ref=e141]:
+              - generic [ref=e142]:
+                - generic [ref=e143]: Toplam Harcama
+                - generic [ref=e144]:
+                  - img [ref=e145]
+                  - generic [ref=e147]: +%8.2
+              - generic [ref=e148]: 14.150 TL
+              - generic [ref=e149]: Geçen döneme göre ↑2.150 TL tasarruf
+          - generic [ref=e150]: Bakım Durumları
+          - generic [ref=e151]:
+            - generic [ref=e152]:
+              - img [ref=e154]
+              - generic [ref=e156]:
+                - generic [ref=e157]: "2"
+                - generic [ref=e158]: Gecikmiş
+            - generic [ref=e159]:
+              - img [ref=e161]
+              - generic [ref=e163]:
+                - generic [ref=e164]: "1"
+                - generic [ref=e165]: Bekleyen
+            - generic [ref=e166]:
+              - img [ref=e168]
+              - generic [ref=e170]:
+                - generic [ref=e171]: "1"
+                - generic [ref=e172]: Devam Eden
+          - generic [ref=e173]: Son Aktiviteler
+          - generic [ref=e174] [cursor=pointer]:
+            - img [ref=e176]
+            - generic [ref=e178]:
+              - generic [ref=e180]: Yakıt Eklendi
+              - generic [ref=e181]: 1.250 TL - 40.0 L x 31.25 TL
+              - generic [ref=e182]:
+                - img [ref=e183]
+                - generic [ref=e185]: 2 saat önce
+            - img [ref=e187]
+          - generic [ref=e189] [cursor=pointer]:
+            - img [ref=e191]
+            - generic [ref=e193]:
+              - generic [ref=e195]: Bakım Yapıldı
+              - generic [ref=e196]: 2.400 TL - Periyodik Bakım
+              - generic [ref=e197]:
+                - img [ref=e198]
+                - generic [ref=e200]: 5 gün önce
+            - img [ref=e202]
+          - generic [ref=e204] [cursor=pointer]:
+            - img [ref=e206]
+            - generic [ref=e208]:
+              - generic [ref=e210]: Gider Eklendi
+              - generic [ref=e211]: 850 TL - Otopark Ücreti
+              - generic [ref=e212]:
+                - img [ref=e213]
+                - generic [ref=e215]: 1 hafta önce
+            - img [ref=e217]
+        - generic [ref=e219]:
+          - img [ref=e221] [cursor=pointer]
+          - generic:
+            - img
+          - img [ref=e224] [cursor=pointer]
+    - region "Kullanıcı Yorumları" [ref=e226]:
+      - generic [ref=e227]:
+        - generic [ref=e228]:
+          - heading "Kullanıcı Yorumları" [level=2] [ref=e229]:
+            - img [ref=e230]
+            - generic [ref=e232]: Kullanıcı Yorumları
+          - paragraph [ref=e233]: Drivarc kullanıcılarının deneyimleri
+        - generic [ref=e236]:
+          - generic [ref=e237]:
+            - generic [ref=e238]:
+              - generic [ref=e239]: ★
+              - generic [ref=e240]: ★
+              - generic [ref=e241]: ★
+              - generic [ref=e242]: ★
+              - generic [ref=e243]: ★
+            - paragraph [ref=e244]: Drivarc sayesinde araç masraflarımı düzenli takip edebiliyorum. Çok kullanışlı bir uygulama.
+            - generic [ref=e245]:
+              - generic [ref=e246]: ÖD
+              - generic [ref=e247]:
+                - generic [ref=e248]: Özer D. • Clausthal-Zellerfeld
+                - generic [ref=e249]: Kapalı Beta Test Kullanıcısı
+          - generic [ref=e250]:
+            - generic [ref=e251]:
+              - generic [ref=e252]: ★
+              - generic [ref=e253]: ★
+              - generic [ref=e254]: ★
+              - generic [ref=e255]: ★
+              - generic [ref=e256]: ★
+            - paragraph [ref=e257]: Bakım hatırlatıcıları sayesinde hiçbir bakımı kaçırmıyorum. Gerçekten işimi kolaylaştırdı.
+            - generic [ref=e258]:
+              - generic [ref=e259]: GB
+              - generic [ref=e260]:
+                - generic [ref=e261]: Gökberk Burak S. • Kırklareli
+                - generic [ref=e262]: Kapalı Beta Test Kullanıcısı
+          - generic [ref=e263]:
+            - generic [ref=e264]:
+              - generic [ref=e265]: ★
+              - generic [ref=e266]: ★
+              - generic [ref=e267]: ★
+              - generic [ref=e268]: ★
+              - generic [ref=e269]: ★
+            - paragraph [ref=e270]: Yakıt takibi ve maliyet analizleri sayesinde aylık ne kadar harcadığımı net görebiliyorum. Harika bir araç!
+            - generic [ref=e271]:
+              - generic [ref=e272]: Eİ
+              - generic [ref=e273]:
+                - generic [ref=e274]: Emre İ. • Bursa
+                - generic [ref=e275]: Kapalı Beta Test Kullanıcısı
+          - generic [ref=e276]:
+            - generic [ref=e277]:
+              - generic [ref=e278]: ★
+              - generic [ref=e279]: ★
+              - generic [ref=e280]: ★
+              - generic [ref=e281]: ★
+              - generic [ref=e282]: ★
+            - paragraph [ref=e283]: Birden fazla aracım var ve hepsini tek hesapta yönetmek çok kolay. Her aracın yakıt, bakım ve masraf kayıtları ayrı ayrı takip edilebiliyor.
+            - generic [ref=e284]:
+              - generic [ref=e285]: İY
+              - generic [ref=e286]:
+                - generic [ref=e287]: İlker Y. • Bursa
+                - generic [ref=e288]: Kapalı Beta Test Kullanıcısı
+          - generic [ref=e289]:
+            - generic [ref=e290]:
+              - generic [ref=e291]: ★
+              - generic [ref=e292]: ★
+              - generic [ref=e293]: ★
+              - generic [ref=e294]: ★
+              - generic [ref=e295]: ★
+            - paragraph [ref=e296]: Fiş tarama özelliği sayesinde fişleri manuel girmek zorunda kalmıyorum. Çok zaman kazandırıyor.
+            - generic [ref=e297]:
+              - generic [ref=e298]: UK
+              - generic [ref=e299]:
+                - generic [ref=e300]: Umut K. • Bursa
+                - generic [ref=e301]: Kapalı Beta Test Kullanıcısı
+          - generic [ref=e302]:
+            - generic [ref=e303]:
+              - generic [ref=e304]: ★
+              - generic [ref=e305]: ★
+              - generic [ref=e306]: ★
+              - generic [ref=e307]: ★
+              - generic [ref=e308]: ★
+            - paragraph [ref=e309]: Offline çalışabilmesi en sevdiğim özellik. İnternet olmasa bile verilerimi girebiliyorum.
+            - generic [ref=e310]:
+              - generic [ref=e311]: BC
+              - generic [ref=e312]:
+                - generic [ref=e313]: Bertuğ C. • Kırklareli
+                - generic [ref=e314]: Kapalı Beta Test Kullanıcısı
+          - generic [ref=e315]:
+            - generic [ref=e316]:
+              - generic [ref=e317]: ★
+              - generic [ref=e318]: ★
+              - generic [ref=e319]: ★
+              - generic [ref=e320]: ★
+              - generic [ref=e321]: ★
+            - paragraph [ref=e322]: XP ve seviye sistemi sayesinde araç yönetimi artık çok daha keyifli. Her yakıt kaydında puan kazanmak ve rozetler toplamak gerçekten motive edici!
+            - generic [ref=e323]:
+              - generic [ref=e324]: CC
+              - generic [ref=e325]:
+                - generic [ref=e326]: Cemal Can K. • Bursa
+                - generic [ref=e327]: Kapalı Beta Test Kullanıcısı
+          - generic [ref=e328]:
+            - generic [ref=e329]:
+              - generic [ref=e330]: ★
+              - generic [ref=e331]: ★
+              - generic [ref=e332]: ★
+              - generic [ref=e333]: ★
+              - generic [ref=e334]: ★
+            - paragraph [ref=e335]: Drivarc sayesinde araç masraflarımı düzenli takip edebiliyorum. Çok kullanışlı bir uygulama.
+            - generic [ref=e336]:
+              - generic [ref=e337]: ÖD
+              - generic [ref=e338]:
+                - generic [ref=e339]: Özer D. • Clausthal-Zellerfeld
+                - generic [ref=e340]: Kapalı Beta Test Kullanıcısı
+          - generic [ref=e341]:
+            - generic [ref=e342]:
+              - generic [ref=e343]: ★
+              - generic [ref=e344]: ★
+              - generic [ref=e345]: ★
+              - generic [ref=e346]: ★
+              - generic [ref=e347]: ★
+            - paragraph [ref=e348]: Bakım hatırlatıcıları sayesinde hiçbir bakımı kaçırmıyorum. Gerçekten işimi kolaylaştırdı.
+            - generic [ref=e349]:
+              - generic [ref=e350]: GB
+              - generic [ref=e351]:
+                - generic [ref=e352]: Gökberk Burak S. • Kırklareli
+                - generic [ref=e353]: Kapalı Beta Test Kullanıcısı
+          - generic [ref=e354]:
+            - generic [ref=e355]:
+              - generic [ref=e356]: ★
+              - generic [ref=e357]: ★
+              - generic [ref=e358]: ★
+              - generic [ref=e359]: ★
+              - generic [ref=e360]: ★
+            - paragraph [ref=e361]: Yakıt takibi ve maliyet analizleri sayesinde aylık ne kadar harcadığımı net görebiliyorum. Harika bir araç!
+            - generic [ref=e362]:
+              - generic [ref=e363]: Eİ
+              - generic [ref=e364]:
+                - generic [ref=e365]: Emre İ. • Bursa
+                - generic [ref=e366]: Kapalı Beta Test Kullanıcısı
+          - generic [ref=e367]:
+            - generic [ref=e368]:
+              - generic [ref=e369]: ★
+              - generic [ref=e370]: ★
+              - generic [ref=e371]: ★
+              - generic [ref=e372]: ★
+              - generic [ref=e373]: ★
+            - paragraph [ref=e374]: Birden fazla aracım var ve hepsini tek hesapta yönetmek çok kolay. Her aracın yakıt, bakım ve masraf kayıtları ayrı ayrı takip edilebiliyor.
+            - generic [ref=e375]:
+              - generic [ref=e376]: İY
+              - generic [ref=e377]:
+                - generic [ref=e378]: İlker Y. • Bursa
+                - generic [ref=e379]: Kapalı Beta Test Kullanıcısı
+          - generic [ref=e380]:
+            - generic [ref=e381]:
+              - generic [ref=e382]: ★
+              - generic [ref=e383]: ★
+              - generic [ref=e384]: ★
+              - generic [ref=e385]: ★
+              - generic [ref=e386]: ★
+            - paragraph [ref=e387]: Fiş tarama özelliği sayesinde fişleri manuel girmek zorunda kalmıyorum. Çok zaman kazandırıyor.
+            - generic [ref=e388]:
+              - generic [ref=e389]: UK
+              - generic [ref=e390]:
+                - generic [ref=e391]: Umut K. • Bursa
+                - generic [ref=e392]: Kapalı Beta Test Kullanıcısı
+          - generic [ref=e393]:
+            - generic [ref=e394]:
+              - generic [ref=e395]: ★
+              - generic [ref=e396]: ★
+              - generic [ref=e397]: ★
+              - generic [ref=e398]: ★
+              - generic [ref=e399]: ★
+            - paragraph [ref=e400]: Offline çalışabilmesi en sevdiğim özellik. İnternet olmasa bile verilerimi girebiliyorum.
+            - generic [ref=e401]:
+              - generic [ref=e402]: BC
+              - generic [ref=e403]:
+                - generic [ref=e404]: Bertuğ C. • Kırklareli
+                - generic [ref=e405]: Kapalı Beta Test Kullanıcısı
+          - generic [ref=e406]:
+            - generic [ref=e407]:
+              - generic [ref=e408]: ★
+              - generic [ref=e409]: ★
+              - generic [ref=e410]: ★
+              - generic [ref=e411]: ★
+              - generic [ref=e412]: ★
+            - paragraph [ref=e413]: XP ve seviye sistemi sayesinde araç yönetimi artık çok daha keyifli. Her yakıt kaydında puan kazanmak ve rozetler toplamak gerçekten motive edici!
+            - generic [ref=e414]:
+              - generic [ref=e415]: CC
+              - generic [ref=e416]:
+                - generic [ref=e417]: Cemal Can K. • Bursa
+                - generic [ref=e418]: Kapalı Beta Test Kullanıcısı
+          - generic [ref=e419]:
+            - generic [ref=e420]:
+              - generic [ref=e421]: ★
+              - generic [ref=e422]: ★
+              - generic [ref=e423]: ★
+              - generic [ref=e424]: ★
+              - generic [ref=e425]: ★
+            - paragraph [ref=e426]: Drivarc sayesinde araç masraflarımı düzenli takip edebiliyorum. Çok kullanışlı bir uygulama.
+            - generic [ref=e427]:
+              - generic [ref=e428]: ÖD
+              - generic [ref=e429]:
+                - generic [ref=e430]: Özer D. • Clausthal-Zellerfeld
+                - generic [ref=e431]: Kapalı Beta Test Kullanıcısı
+          - generic [ref=e432]:
+            - generic [ref=e433]:
+              - generic [ref=e434]: ★
+              - generic [ref=e435]: ★
+              - generic [ref=e436]: ★
+              - generic [ref=e437]: ★
+              - generic [ref=e438]: ★
+            - paragraph [ref=e439]: Bakım hatırlatıcıları sayesinde hiçbir bakımı kaçırmıyorum. Gerçekten işimi kolaylaştırdı.
+            - generic [ref=e440]:
+              - generic [ref=e441]: GB
+              - generic [ref=e442]:
+                - generic [ref=e443]: Gökberk Burak S. • Kırklareli
+                - generic [ref=e444]: Kapalı Beta Test Kullanıcısı
+          - generic [ref=e445]:
+            - generic [ref=e446]:
+              - generic [ref=e447]: ★
+              - generic [ref=e448]: ★
+              - generic [ref=e449]: ★
+              - generic [ref=e450]: ★
+              - generic [ref=e451]: ★
+            - paragraph [ref=e452]: Yakıt takibi ve maliyet analizleri sayesinde aylık ne kadar harcadığımı net görebiliyorum. Harika bir araç!
+            - generic [ref=e453]:
+              - generic [ref=e454]: Eİ
+              - generic [ref=e455]:
+                - generic [ref=e456]: Emre İ. • Bursa
+                - generic [ref=e457]: Kapalı Beta Test Kullanıcısı
+          - generic [ref=e458]:
+            - generic [ref=e459]:
+              - generic [ref=e460]: ★
+              - generic [ref=e461]: ★
+              - generic [ref=e462]: ★
+              - generic [ref=e463]: ★
+              - generic [ref=e464]: ★
+            - paragraph [ref=e465]: Birden fazla aracım var ve hepsini tek hesapta yönetmek çok kolay. Her aracın yakıt, bakım ve masraf kayıtları ayrı ayrı takip edilebiliyor.
+            - generic [ref=e466]:
+              - generic [ref=e467]: İY
+              - generic [ref=e468]:
+                - generic [ref=e469]: İlker Y. • Bursa
+                - generic [ref=e470]: Kapalı Beta Test Kullanıcısı
+          - generic [ref=e471]:
+            - generic [ref=e472]:
+              - generic [ref=e473]: ★
+              - generic [ref=e474]: ★
+              - generic [ref=e475]: ★
+              - generic [ref=e476]: ★
+              - generic [ref=e477]: ★
+            - paragraph [ref=e478]: Fiş tarama özelliği sayesinde fişleri manuel girmek zorunda kalmıyorum. Çok zaman kazandırıyor.
+            - generic [ref=e479]:
+              - generic [ref=e480]: UK
+              - generic [ref=e481]:
+                - generic [ref=e482]: Umut K. • Bursa
+                - generic [ref=e483]: Kapalı Beta Test Kullanıcısı
+          - generic [ref=e484]:
+            - generic [ref=e485]:
+              - generic [ref=e486]: ★
+              - generic [ref=e487]: ★
+              - generic [ref=e488]: ★
+              - generic [ref=e489]: ★
+              - generic [ref=e490]: ★
+            - paragraph [ref=e491]: Offline çalışabilmesi en sevdiğim özellik. İnternet olmasa bile verilerimi girebiliyorum.
+            - generic [ref=e492]:
+              - generic [ref=e493]: BC
+              - generic [ref=e494]:
+                - generic [ref=e495]: Bertuğ C. • Kırklareli
+                - generic [ref=e496]: Kapalı Beta Test Kullanıcısı
+          - generic [ref=e497]:
+            - generic [ref=e498]:
+              - generic [ref=e499]: ★
+              - generic [ref=e500]: ★
+              - generic [ref=e501]: ★
+              - generic [ref=e502]: ★
+              - generic [ref=e503]: ★
+            - paragraph [ref=e504]: XP ve seviye sistemi sayesinde araç yönetimi artık çok daha keyifli. Her yakıt kaydında puan kazanmak ve rozetler toplamak gerçekten motive edici!
+            - generic [ref=e505]:
+              - generic [ref=e506]: CC
+              - generic [ref=e507]:
+                - generic [ref=e508]: Cemal Can K. • Bursa
+                - generic [ref=e509]: Kapalı Beta Test Kullanıcısı
+    - region "Aracınızı yönetmenin en kolay yolu" [ref=e510]:
+      - generic [ref=e511]:
+        - generic [ref=e512]:
+          - heading "Aracınızı yönetmenin en kolay yolu" [level=2] [ref=e513]:
+            - img [ref=e514]
+            - generic [ref=e516]: Aracınızı yönetmenin en kolay yolu
+          - paragraph [ref=e517]: Drivarc ile tüm araç ihtiyaçlarınız tek bir uygulamada.
+        - generic [ref=e518]:
+          - generic [ref=e519]:
+            - img [ref=e521]
+            - generic [ref=e523]: Yakıt Takibi
+            - generic [ref=e524]: Yakıt alımlarını hızla kaydedin; tüketim ve maliyet raporlarını görüntüleyin.
+          - generic [ref=e525]:
+            - img [ref=e527]
+            - generic [ref=e529]: Akıllı Fiş Tarama
+            - generic [ref=e530]: Yakıt fişlerinizi kamerayla tarayın, bilgileri otomatik olarak kaydedin. Zaman kazanın, hata yapmayın.
+          - generic [ref=e531]:
+            - img [ref=e533]
+            - generic [ref=e535]: Bakım Hatırlatıcıları
+            - generic [ref=e536]: Yağ değişimi, filtre bakımı, lastik rotasyonu... Hiçbir bakım zamanını kaçırmayın, akıllı bildirimlerle haberdar olun.
+          - generic [ref=e537]:
+            - img [ref=e539]
+            - generic [ref=e541]: Masraf Takibi
+            - generic [ref=e542]: Tüm araç masraflarınızı kategorilere göre kaydedin. Sigorta, muayene, otopark, ceza ve daha fazlası için detaylı takip.
+          - generic [ref=e543]:
+            - img [ref=e545]
+            - generic [ref=e547]: Detaylı Raporlar
+            - generic [ref=e548]: Görsel grafiklerle maliyet dağılımınızı görün. Aylık ve yıllık raporlar oluşturun, PDF olarak dışa aktarın.
+          - generic [ref=e549]:
+            - img [ref=e551]
+            - generic [ref=e555]: Çoklu Araç Desteği
+            - generic [ref=e556]: Birden fazla aracı tek hesapta yönetin. Her aracın yakıt, bakım ve masraf kayıtlarını ayrı ayrı takip edin.
+          - generic [ref=e557]:
+            - img [ref=e559]
+            - generic [ref=e561]: Her Kaydında Kazan
+            - generic [ref=e562]:
+              - text: Her yakıt aldığında, her bakım yaptırdığında XP kazan, seviye atla. En üst seviyeye ulaşanlara
+              - strong [ref=e563]: sınırsız PRO üyelik
+              - text: hediye! Araç yönetirken ödül kazanmanın keyfini çıkar.
+          - generic [ref=e564]:
+            - img [ref=e566]
+            - generic [ref=e569]: Sade, Hızlı ve Güvenli (Offline)
+            - generic [ref=e570]: Performans odaklı ince ayarlanmış lokal veritabanı sayesinde çevrimdışı dahi ışık hızında çalışır, bağlandığında arka planda güvenle eşitlenir.
+          - generic [ref=e571]:
+            - img [ref=e573]
+            - generic [ref=e575]: PDF Dışa Aktarma
+            - generic [ref=e576]: Tüm araç verilerinizi profesyonel PDF raporları olarak dışa aktarın. Sigorta, satış veya kişisel arşiv için ideal.
+    - region "Araç yönetiminde yaşadığınız sorunları biliyoruz" [ref=e577]:
+      - generic [ref=e578]:
+        - generic [ref=e579]:
+          - heading "Araç yönetiminde yaşadığınız sorunları biliyoruz" [level=2] [ref=e580]:
+            - img [ref=e581]
+            - generic [ref=e583]: Araç yönetiminde yaşadığınız sorunları biliyoruz
+          - paragraph [ref=e584]: Drivarc ile her soruna pratik bir çözüm sunuyoruz.
+        - generic [ref=e585]:
+          - generic [ref=e587]:
+            - generic [ref=e589]:
+              - img [ref=e591]
+              - generic [ref=e593]:
+                - generic [ref=e594]: Sorun
+                - heading "Yakıt harcamalarımı takip edemiyorum" [level=3] [ref=e595]
+                - paragraph [ref=e596]: Her yakıt alımını not almak zor ve zaman alıcı. Ay sonunda nereye ne kadar harcadığınızı bilmiyorsunuz.
+            - generic [ref=e598]:
+              - img [ref=e600]
+              - generic [ref=e602]:
+                - generic [ref=e603]: Çözüm
+                - heading "Otomatik yakıt geçmişi ve analiz" [level=3] [ref=e604]
+                - paragraph [ref=e605]: Her yakıt alımınızı saniyeler içinde kaydedin. Aylık ve yıllık raporlarla harcamalarınızı görün.
+          - generic [ref=e607]:
+            - generic [ref=e609]:
+              - img [ref=e611]
+              - generic [ref=e613]:
+                - generic [ref=e614]: Sorun
+                - heading "Bakım zamanını kaçırıyorum" [level=3] [ref=e615]
+                - paragraph [ref=e616]: Yağ değişimi, lastik rotasyonu, filtre bakımı... Hangi bakımın ne zaman geleceğini hatırlamak zor.
+            - generic [ref=e618]:
+              - img [ref=e620]
+              - generic [ref=e622]:
+                - generic [ref=e623]: Çözüm
+                - heading "Akıllı bakım hatırlatıcıları" [level=3] [ref=e624]
+                - paragraph [ref=e625]: Km ve tarih bazlı akıllı hatırlatıcılar. Bir bakım kaçırma riski yok.
+          - generic [ref=e627]:
+            - generic [ref=e629]:
+              - img [ref=e631]
+              - generic [ref=e633]:
+                - generic [ref=e634]: Sorun
+                - heading "Aracımın toplam maliyetini bilmiyorum" [level=3] [ref=e635]
+                - paragraph [ref=e636]: Yakıt, bakım, sigorta, vergi... Tüm masrafların toplamını görmek imkansız gibi.
+            - generic [ref=e638]:
+              - img [ref=e640]
+              - generic [ref=e642]:
+                - generic [ref=e643]: Çözüm
+                - heading "Detaylı maliyet analizi" [level=3] [ref=e644]
+                - paragraph [ref=e645]: Tüm masraflarınızı kategorize edin ve grafiklerle görün. Bütçenizi kontrol edin.
+          - generic [ref=e647]:
+            - generic [ref=e649]:
+              - img [ref=e651]
+              - generic [ref=e653]:
+                - generic [ref=e654]: Sorun
+                - heading "Not defteri ile takip ediyorum" [level=3] [ref=e655]
+                - paragraph [ref=e656]: Kağıt üzerinde not almak güvenilir değil. Kaybolabilir, yıpranabilir veya okunaksız olabilir.
+            - generic [ref=e658]:
+              - img [ref=e660]
+              - generic [ref=e662]:
+                - generic [ref=e663]: Çözüm
+                - heading "Dijital ve güvenli saklama" [level=3] [ref=e664]
+                - paragraph [ref=e665]: Verileriniz cihazınızda güvenle saklanır, internet olmasa bile erişin. İsterseniz tek tuşla buluta yedekleyin.
+          - generic [ref=e667]:
+            - generic [ref=e669]:
+              - img [ref=e671]
+              - generic [ref=e673]:
+                - generic [ref=e674]: Sorun
+                - heading "Yakıt tüketimimi merak ediyorum" [level=3] [ref=e675]
+                - paragraph [ref=e676]: Aracımın ortalama yakıt tüketimini bilmiyorum. Verimli mi kullanıyorum?
+            - generic [ref=e678]:
+              - img [ref=e680]
+              - generic [ref=e682]:
+                - generic [ref=e683]: Çözüm
+                - heading "Otomatik tüketim hesaplama" [level=3] [ref=e684]
+                - paragraph [ref=e685]: Her yakıt alımında ortalama tüketiminizi otomatik hesaplar.
+          - generic [ref=e687]:
+            - generic [ref=e689]:
+              - img [ref=e691]
+              - generic [ref=e693]:
+                - generic [ref=e694]: Sorun
+                - heading "Araç satışında sorun yaşıyorum" [level=3] [ref=e695]
+                - paragraph [ref=e696]: Aracımı satarken bakım geçmişi ve harcamalar hakkında bilgi veremiyorum.
+            - generic [ref=e698]:
+              - img [ref=e700]
+              - generic [ref=e702]:
+                - generic [ref=e703]: Çözüm
+                - heading "Tam geçmiş raporu" [level=3] [ref=e704]
+                - paragraph [ref=e705]: Geçmiş ekranıyla tüm bakım, yakıt ve masraf kayıtlarınızı kronolojik takip edin. PDF olarak dışa aktarın.
+          - generic [ref=e707]:
+            - generic [ref=e709]:
+              - img [ref=e711]
+              - generic [ref=e713]:
+                - generic [ref=e714]: Sorun
+                - heading "Birden fazla aracı takip edemiyorum" [level=3] [ref=e715]
+                - paragraph [ref=e716]: Her araç için ayrı defter tutmak zor. Tüm araçların masraf ve bakım durumunu tek yerden göremiyorum.
+            - generic [ref=e718]:
+              - img [ref=e720]
+              - generic [ref=e722]:
+                - generic [ref=e723]: Çözüm
+                - heading "Tek hesap, çoklu araç yönetimi" [level=3] [ref=e724]
+                - paragraph [ref=e725]: Tüm araçlarınızı tek hesapta yönetin. Her aracın yakıt, bakım ve masraf kayıtlarını ayrı ayrı filtreleyin.
+          - generic [ref=e727]:
+            - generic [ref=e729]:
+              - img [ref=e731]
+              - generic [ref=e733]:
+                - generic [ref=e734]: Sorun
+                - heading "Her fişi tek tek girmek yoruyor" [level=3] [ref=e735]
+                - paragraph [ref=e736]: Yakıt fişlerini elle girmek zaman alıyor ve hatalara yol açıyor.
+            - generic [ref=e738]:
+              - img [ref=e740]
+              - generic [ref=e742]:
+                - generic [ref=e743]: Çözüm
+                - heading "OCR ile akıllı fiş tarama" [level=3] [ref=e744]
+                - paragraph [ref=e745]: Fişinizi fotoğraflayın, bilgiler otomatik dolsun. Saniyeler içinde kaydedin, hata yapmayın.
+    - region "Merak Ettikleriniz" [ref=e746]:
+      - generic [ref=e747]:
+        - generic [ref=e748]:
+          - heading "Merak Ettikleriniz" [level=2] [ref=e749]:
+            - img [ref=e750]
+            - generic [ref=e752]: Merak Ettikleriniz
+          - paragraph [ref=e753]: Kullanıcılarımızın en çok sorduğu soruların cevaplarını burada bulabilirsiniz.
+        - generic [ref=e754]:
+          - generic [ref=e755]:
+            - button "Drivarc ücretsiz mi?" [ref=e756] [cursor=pointer]:
+              - img [ref=e757]
+              - generic [ref=e759]: Drivarc ücretsiz mi?
+              - img [ref=e760]
+            - generic [ref=e762]: Evet, Drivarc'ı ücretsiz olarak indirebilir ve temel özelliklerini kullanabilirsiniz.
+          - generic [ref=e763]:
+            - button "Verilerim güvende mi?" [ref=e764] [cursor=pointer]:
+              - img [ref=e765]
+              - generic [ref=e767]: Verilerim güvende mi?
+              - img [ref=e768]
+            - generic [ref=e770]: Evet. Drivarc verilerinizi güvenli bir şekilde depolar ve gizliliğinizi korur. İsteğe bağlı olarak Google Drive yedeklemesini kullanabilirsiniz.
+          - generic [ref=e771]:
+            - button "İnternetsiz kullanabilir miyim?" [ref=e772] [cursor=pointer]:
+              - img [ref=e773]
+              - generic [ref=e775]: İnternetsiz kullanabilir miyim?
+              - img [ref=e776]
+            - generic [ref=e778]: Evet, Drivarc offline çalışabilir. Verilerinizi internet bağlantısı olmadan girebilir ve görüntüleyebilirsiniz. İnternete bağlandığınızda verileriniz otomatik olarak senkronize edilir.
+          - generic [ref=e779]:
+            - button "Birden fazla aracı ekleyebilir miyim?" [ref=e780] [cursor=pointer]:
+              - img [ref=e781]
+              - generic [ref=e783]: Birden fazla aracı ekleyebilir miyim?
+              - img [ref=e784]
+            - generic [ref=e786]: Evet, birden fazla araç ekleme gibi ek özellikler premium sürümde mevcuttur.
+          - generic [ref=e787]:
+            - button "Çoklu yakıt desteği (elektrik, hibrit, LPG, CNG, benzin, dizel) mevcut mu?" [ref=e788] [cursor=pointer]:
+              - img [ref=e789]
+              - generic [ref=e791]: Çoklu yakıt desteği (elektrik, hibrit, LPG, CNG, benzin, dizel) mevcut mu?
+              - img [ref=e792]
+            - generic [ref=e794]: Evet. Benzin, dizel, LPG, CNG, elektrik ve hibrit yakıtları destekler; bir araç birden fazla yakıt kaydı tutabilir ve maliyet karşılaştırmaları ile tahminler sağlanır.
+          - generic [ref=e795]:
+            - button "Hangi platformlarda çalışır?" [ref=e796] [cursor=pointer]:
+              - img [ref=e797]
+              - generic [ref=e799]: Hangi platformlarda çalışır?
+              - img [ref=e800]
+            - generic [ref=e802]: Şu an yalnızca Android cihazlarda çalışıyor. iOS versiyonu da planlarımız arasında, yakında desteklenecek.
+          - generic [ref=e803]:
+            - button "Verilerimi dışa aktarabilir miyim?" [ref=e804] [cursor=pointer]:
+              - img [ref=e805]
+              - generic [ref=e807]: Verilerimi dışa aktarabilir miyim?
+              - img [ref=e808]
+            - generic [ref=e810]: Evet, ancak bu özellik premium sürümde mevcuttur. Yakıt geçmişinizi, bakım kayıtlarınızı ve maliyet raporlarınızı dışa aktarabilirsiniz.
+          - generic [ref=e811]:
+            - button "Fişlerimi OCR ile tarayabilir miyim?" [ref=e812] [cursor=pointer]:
+              - img [ref=e813]
+              - generic [ref=e815]: Fişlerimi OCR ile tarayabilir miyim?
+              - img [ref=e816]
+            - generic [ref=e818]: Bu özellik premium sürümde mevcuttur ancak 30 saniyelik reklam izleyerek ücretsiz kullanıcılar da kullanabilir.
+          - generic [ref=e819]:
+            - button "XP kazanıp seviye atlayabilir miyim?" [ref=e820] [cursor=pointer]:
+              - img [ref=e821]
+              - generic [ref=e823]: XP kazanıp seviye atlayabilir miyim?
+              - img [ref=e824]
+            - generic [ref=e826]: Evet! Her yakıt, bakım ve masraf kaydında XP kazanır, seviye atlar ve rozetler toplarsınız. En üst seviyeye ulaşanlar sınırsız PRO üyelik kazanır!
+        - generic [ref=e827]:
+          - paragraph [ref=e828]: Başka sorunuz mu var?
+          - link "Bizimle İletişime Geçin" [ref=e829] [cursor=pointer]:
+            - /url: mailto:contact@drivarc.com
+            - img [ref=e830]
+            - generic [ref=e832]: Bizimle İletişime Geçin
+  - contentinfo "Site altbilgisi" [ref=e833]:
+    - generic [ref=e834]:
+      - generic [ref=e836]:
+        - link "Google Play" [ref=e837] [cursor=pointer]:
+          - /url: "#"
+          - img [ref=e838]
+        - link "App Store" [ref=e843] [cursor=pointer]:
+          - /url: "#"
+          - img [ref=e844]
+      - generic [ref=e847]:
+        - link "Kullanım Şartları" [ref=e848] [cursor=pointer]:
+          - /url: terms.html
+          - img [ref=e849]
+          - generic [ref=e851]: Kullanım Şartları
+        - generic [ref=e852]: "|"
+        - link "Gizlilik Politikası" [ref=e853] [cursor=pointer]:
+          - /url: privacy.html
+          - img [ref=e854]
+          - generic [ref=e856]: Gizlilik Politikası
+        - generic [ref=e857]: "|"
+        - link "Çerez Tercihleri" [ref=e858] [cursor=pointer]:
+          - /url: "#"
+          - img [ref=e859]
+          - generic [ref=e861]: Çerez Tercihleri
+      - generic "Drivarc sosyal" [ref=e863]:
+        - link "Drivarc Instagram" [ref=e864] [cursor=pointer]:
+          - /url: https://www.instagram.com/drivarc.app
+          - img [ref=e865]
+        - link "Drivarc X" [ref=e867] [cursor=pointer]:
+          - /url: https://x.com/drivarc_app
+          - img [ref=e868]
+        - link "Drivarc LinkedIn" [ref=e871] [cursor=pointer]:
+          - /url: https://www.linkedin.com/company/drivarc/
+          - img [ref=e872]
+      - paragraph [ref=e874]: © 2026 Drivarc. Tüm hakları saklıdır.
+  - dialog "Çerez Onayı" [ref=e876]:
+    - generic [ref=e877]:
+      - img [ref=e879]
+      - generic [ref=e881]:
+        - heading "Çerez Tercihleriniz" [level=3] [ref=e882]
+        - paragraph [ref=e883]:
+          - text: Size daha iyi bir deneyim sunmak için çerezler kullanıyoruz. Detaylı bilgi için
+          - link "Gizlilik Politikamızı" [ref=e884] [cursor=pointer]:
+            - /url: privacy.html
+          - text: inceleyebilirsiniz.
+      - generic [ref=e885]:
+        - button "Kabul et" [ref=e886] [cursor=pointer]
+        - button "Reddet" [ref=e887] [cursor=pointer]
+        - button "Çerez ayarlarını özelleştir" [ref=e888] [cursor=pointer]:
+          - img [ref=e889]
+  - alert

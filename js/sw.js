@@ -37,7 +37,7 @@ const ASSETS_TO_CACHE = [
   '/ar/index.html',
   '/zh/',
   '/zh/index.html',
-  '/images/logo-256.png',
+  '/images/SVGYaziArkaplansiz.svg',
   '/images/ataturk-240.webp',
   '/fonts/Inter-400.woff2',
   '/fonts/Inter-500.woff2',
