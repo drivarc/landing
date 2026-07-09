@@ -95,6 +95,16 @@
     }
 }
 
+@media (max-width: 800px) {
+    .logo-wordmark {
+        display: none !important;
+    }
+}
+
+html.touch-device .logo-wordmark {
+    display: none !important;
+}
+
 
 [data-theme="light"] .logo-img {
     filter: brightness(0) saturate(100%) invert(35%) sepia(45%) saturate(350%) hue-rotate(192deg) brightness(95%) contrast(90%);

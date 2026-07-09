@@ -328,6 +328,14 @@
         justify-content: center;
         padding: 6px;
     }
+
+    .hero-phone {
+        display: none;
+    }
+}
+
+html.touch-device .hero-phone {
+    display: none;
 }
 
 @media (max-width: 768px) {
