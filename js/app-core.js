@@ -225,21 +225,10 @@ if (headerDownloadBtn) {
 document.addEventListener('click', () => { if (headerDownloadDropdown) headerDownloadDropdown.classList.remove('open'); });
 if (headerDownloadDropdown) headerDownloadDropdown.addEventListener('click', (e) => e.stopPropagation());
 
-// Header CTA - Hide when hero is visible
+// Header CTA - always visible
 const headerCta = document.querySelector('.header-cta-link');
-const heroSection = document.getElementById('hero');
-
-if (headerCta && heroSection) {
-    var heroObserver = new IntersectionObserver(function(entries) {
-        entries.forEach(function(entry) {
-            headerCta.classList.toggle('header-cta-visible', !entry.isIntersecting);
-        });
-    }, { threshold: 0 });
-    
-    heroObserver.observe(heroSection);
-    
-    // Initial state
-    headerCta.classList.toggle('header-cta-visible', !(heroSection.getBoundingClientRect().bottom > 0));
+if (headerCta) {
+    headerCta.classList.add('header-cta-visible');
 }
 
  // Language search and region grouping

@@ -349,9 +349,23 @@
 
 .final-cta-section {
     position: relative;
-    padding: 60px 24px 60px;
+    padding: 60px 24px 80px;
     background: transparent;
-    z-index: 1;
+    z-index: 2;
+}
+
+/* Backdrop glow that spans across sections — won't be clipped */
+.final-cta-section::before {
+    content: '';
+    position: absolute;
+    top: -60px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    height: calc(100% + 120px);
+    background: radial-gradient(ellipse, color-mix(in srgb, var(--accent-light) 12%, transparent) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 0;
 }
 
 .final-cta-inner {
@@ -363,19 +377,65 @@
 
 .final-cta-content {
     text-align: center;
-    background: var(--surface-container);
-    border: 1px solid var(--border);
+    background: linear-gradient(135deg, var(--surface-container), color-mix(in srgb, var(--color-primary) 4%, var(--surface-container)));
+    border: 1px solid color-mix(in srgb, var(--accent-light) 25%, transparent);
     border-radius: 20px;
-    padding: 48px 40px;
-    box-shadow: 0 8px 32px var(--accent-glow);
+    padding: 52px 44px;
+    box-shadow: 0 8px 40px var(--accent-glow), 0 0 0 1px color-mix(in srgb, var(--accent-light) 10%, transparent) inset;
+    position: relative;
+    overflow: hidden;
+    animation: finalCtaEntrance 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+    animation-play-state: paused;
+}
+
+.final-cta-section.visible .final-cta-content {
+    animation-play-state: running;
+}
+
+.final-cta-content::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--accent-light), transparent);
+    opacity: 0.5;
+}
+
+.final-cta-content::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 20px;
+    background: linear-gradient(135deg, color-mix(in srgb, var(--accent-light) 12%, transparent), transparent 50%, color-mix(in srgb, var(--accent-light) 6%, transparent));
+    z-index: -1;
+    pointer-events: none;
+}
+
+
+
+@keyframes finalCtaEntrance {
+    from {
+        opacity: 0;
+        transform: translateY(30px) scale(0.97);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
 }
 
 .final-cta-title {
-    font-size: clamp(22px, 2.8vw, 30px);
+    font-size: clamp(24px, 3vw, 32px);
     font-weight: 700;
     line-height: 1.3;
     letter-spacing: -0.02em;
     color: var(--text-primary);
+    background: linear-gradient(135deg, var(--text-primary), var(--accent-light));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
     margin-bottom: 12px;
 }
 
@@ -383,7 +443,7 @@
     font-size: clamp(14px, 1.4vw, 16px);
     color: var(--text-secondary);
     line-height: 1.6;
-    margin-bottom: 28px;
+    margin-bottom: 32px;
     max-width: 480px;
     margin-left: auto;
     margin-right: auto;
@@ -398,20 +458,20 @@
 
 .final-cta-btn.btn-google-play,
 .final-cta-btn.btn-app-store {
-    padding: 14px 28px;
-    font-size: 15px;
+    padding: 16px 32px;
+    font-size: 16px;
     white-space: nowrap;
 }
 
 .final-cta-btn .google-play-store,
 .final-cta-btn .app-store-name {
-    font-size: 15px;
+    font-size: 16px;
 }
 
 .final-cta-btn .google-play-icon,
 .final-cta-btn .app-store-icon {
-    width: 20px;
-    height: 20px;
+    width: 22px;
+    height: 22px;
 }
 
 .final-cta-btn.btn-google-play,
@@ -443,22 +503,22 @@
     text-align: center;
 }
 
-/* Mobile: objection text full-width to match buttons */
+/* Mobile: objection text wraps, full-width to match buttons */
 @media (max-width: 768px) {
     .btn-obj-text {
         max-width: none;
+        white-space: normal;
+        font-size: 11px;
+        line-height: 1.3;
     }
 }
 
 @media (max-width: 480px) {
     .btn-obj-text {
         max-width: none !important;
-    }
-}
-
-@media (max-width: 375px) {
-    .btn-obj-text {
-        max-width: none !important;
+        white-space: normal;
+        font-size: 11px;
+        line-height: 1.3;
     }
 }
 
@@ -520,10 +580,10 @@
 
 @media (max-width: 768px) {
     .final-cta-section {
-        padding: 40px 24px 40px;
+        padding: 40px 24px 48px;
     }
     .final-cta-content {
-        padding: 36px 28px;
+        padding: 40px 28px;
     }
     .final-cta-actions {
         flex-direction: row;
@@ -533,25 +593,47 @@
     .final-cta-btn.btn-app-store {
         flex: 1 1 0%;
         justify-content: center;
+        padding: 10px 12px;
+        font-size: 12px;
+        gap: 6px;
+    }
+    .final-cta-btn .google-play-icon,
+    .final-cta-btn .app-store-icon {
+        width: 16px;
+        height: 16px;
+    }
+    .final-cta-btn .google-play-store,
+    .final-cta-btn .app-store-name {
+        font-size: 12px;
     }
 }
 
 @media (max-width: 480px) {
     .final-cta-section {
-        padding: 32px 16px 32px;
+        padding: 32px 16px 40px;
     }
     .final-cta-content {
-        padding: 28px 20px;
+        padding: 32px 20px;
         border-radius: 16px;
     }
     .final-cta-desc {
         margin-bottom: 24px;
+    }
+    .final-cta-actions {
+        gap: 10px;
     }
 }
 
 @media (max-width: 375px) {
     .final-cta-content {
         padding: 24px 16px;
+        border-radius: 14px;
+    }
+    .final-cta-title {
+        font-size: 20px;
+    }
+    .final-cta-desc {
+        font-size: 13px;
     }
     .final-cta-actions {
         flex-direction: column;
@@ -560,5 +642,17 @@
     .final-cta-btn.btn-google-play,
     .final-cta-btn.btn-app-store {
         width: 100%;
+        padding: 12px 16px;
+        font-size: 12px;
+        gap: 8px;
+    }
+    .final-cta-btn .google-play-icon,
+    .final-cta-btn .app-store-icon {
+        width: 16px;
+        height: 16px;
+    }
+    .final-cta-btn .google-play-store,
+    .final-cta-btn .app-store-name {
+        font-size: 12px;
     }
 }

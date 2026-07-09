@@ -115,6 +115,25 @@
     animation: fadeInUp 0.4s var(--anim-easing) 0.15s forwards;
 }
 
+.btn-objection-row {
+    opacity: 0;
+    transform: translateY(12px);
+    animation: fadeInUp 0.4s var(--anim-easing) 0.25s forwards;
+}
+
+.btn-objection-row .btn-obj-text {
+    opacity: 0;
+    transform: translateY(40px);
+}
+
+.btn-objection-row .btn-obj-text:first-child {
+    animation: fadeInUp 0.35s var(--anim-easing) 0.35s forwards;
+}
+
+.btn-objection-row .btn-obj-text:last-child {
+    animation: fadeInUp 0.35s var(--anim-easing) 0.48s forwards;
+}
+
 /* Color-Animation Synergy: Semantic color transitions */
 @keyframes successGlow {
     0%, 100% { box-shadow: 0 0 8px var(--success); }
