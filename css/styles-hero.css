@@ -212,73 +212,69 @@
     display: flex;
     align-items: center;
     gap: 12px;
+    margin-bottom: 0;
 }
 
 
 .trust-badges {
     display: flex;
     align-items: center;
-    gap: 16px;
-    margin-top: 32px;
+    gap: 10px;
+    margin-top: 28px;
+    flex-wrap: wrap;
 }
 
 .trust-badge {
     display: flex;
     align-items: center;
     gap: 6px;
-    animation: floatBadge 3s ease-in-out infinite;
+    padding: 5px 14px;
+    background: var(--hover-bg);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid var(--color-border);
+    border-radius: 100px;
+    cursor: default;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.trust-badge:nth-child(1) {
-    animation-delay: 0s;
-}
-
-.trust-badge:nth-child(2) {
-    animation-delay: 0.5s;
-}
-
-.trust-badge:nth-child(3) {
-    animation-delay: 1s;
-}
-
-.trust-badge:nth-child(4) {
-    animation-delay: 1.5s;
+.trust-badge:hover {
+    background: var(--hover-bg);
+    border-color: var(--accent-light);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px var(--accent-glow);
 }
 
 .trust-badge-icon {
-    width: 28px;
-    height: 28px;
-    border-radius: 7px;
+    width: 18px;
+    height: 18px;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
+    transition: transform 0.3s ease;
 }
 
 .trust-badge-icon svg {
-    width: 18px;
-    height: 18px;
-    fill: currentColor;
+    width: 14px;
+    height: 14px;
+    fill: var(--accent-light);
+    transition: fill 0.3s ease;
 }
 
-.trust-badge-icon.free {
-    background: var(--success-bg);
-    color: var(--success);
-}
-
-.trust-badge-icon.secure {
-    background: var(--accent-glow);
-    color: var(--accent-light);
-}
-
-.trust-badge-icon.no-ads {
-    background: var(--tertiary-bg);
-    color: var(--tertiary);
+.trust-badge:hover .trust-badge-icon svg {
+    fill: var(--text-primary);
 }
 
 .trust-badge-text {
-    font-size: 14px;
+    font-size: 12px;
     font-weight: 500;
+    color: var(--text-muted);
+    white-space: nowrap;
+    transition: color 0.3s ease;
+}
+
+.trust-badge:hover .trust-badge-text {
     color: var(--text-secondary);
 }
 
@@ -318,15 +314,23 @@
     }
     .hero-actions { justify-content: center; }
     .trust-badges {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
+        display: flex;
+        flex-wrap: wrap;
         justify-content: center;
-        gap: 12px;
+        gap: 8px;
         margin-top: 24px;
+        max-width: 100%;
     }
     .trust-badge {
-        justify-content: center;
-        padding: 6px;
+        justify-content: flex-start;
+        padding: 5px 12px;
+        background: var(--hover-bg);
+        backdrop-filter: blur(8px);
+        border: 1px solid var(--color-border);
+        border-radius: 100px;
+    }
+    .trust-badge:not(:last-child)::after {
+        display: none;
     }
 
     .hero-phone {
@@ -365,15 +369,19 @@ html.touch-device .hero-phone {
     .google-play-icon,
     .app-store-icon { width: 21px; height: 21px; }
     .trust-badges {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
+        display: flex;
+        flex-wrap: wrap;
         justify-content: center;
-        gap: 10px;
+        gap: 8px;
         margin-top: 24px;
+        max-width: 100%;
     }
     .trust-badge {
-        justify-content: center;
-        padding: 6px;
+        padding: 5px 12px;
+        background: var(--accent-glow);
+        backdrop-filter: blur(8px);
+        border: 1px solid var(--color-border);
+        border-radius: 100px;
     }
 }
 
@@ -412,14 +420,19 @@ html.touch-device .hero-phone {
     .app-store-name { font-size: 13px; }
     .google-play-label { font-size: 10px; }
     .trust-badges {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 10px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 8px;
         margin-top: 24px;
+        max-width: 100%;
     }
     .trust-badge {
-        justify-content: center;
-        padding: 6px;
+        padding: 5px 12px;
+        background: var(--accent-glow);
+        backdrop-filter: blur(8px);
+        border: 1px solid var(--color-border);
+        border-radius: 100px;
     }
 }
 
@@ -454,15 +467,19 @@ html.touch-device .hero-phone {
     .app-store-name { font-size: 14px; }
     .google-play-label { font-size: 11px; }
     .trust-badges {
-        grid-template-columns: 1fr;
-        gap: 8px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 6px;
         margin-top: 20px;
+        max-width: 100%;
     }
     .trust-badge {
-        justify-content: flex-start;
-        padding: 8px 12px;
-        background: var(--surface-container);
-        border-radius: 6px;
+        padding: 4px 10px;
+        background: var(--accent-glow);
+        backdrop-filter: blur(8px);
+        border: 1px solid var(--color-border);
+        border-radius: 100px;
     }
 }
 
@@ -482,10 +499,18 @@ html.touch-device .hero-phone {
     .trust-badges { 
         display: flex;
         flex-wrap: wrap;
-        gap: 8px;
+        justify-content: center;
+        gap: 6px;
         margin-top: 16px;
+        max-width: 100%;
     }
-    .trust-badge { padding: 6px 10px; }
+    .trust-badge {
+        padding: 4px 10px;
+        background: var(--accent-glow);
+        backdrop-filter: blur(8px);
+        border: 1px solid var(--color-border);
+        border-radius: 100px;
+    }
 }
 
 @media (max-width: 768px) and (orientation: landscape) {
@@ -503,8 +528,17 @@ html.touch-device .hero-phone {
     .trust-badges {
         display: flex;
         flex-wrap: wrap;
-        gap: 8px;
+        justify-content: center;
+        gap: 6px;
         margin-top: 16px;
+        max-width: 100%;
+    }
+    .trust-badge {
+        padding: 4px 10px;
+        background: var(--accent-glow);
+        backdrop-filter: blur(8px);
+        border: 1px solid var(--color-border);
+        border-radius: 100px;
     }
 }
 .btn-google-play {
@@ -523,6 +557,7 @@ html.touch-device .hero-phone {
     position: relative;
     overflow: hidden;
     white-space: nowrap;
+    animation: ctaPulse 3s ease-in-out 0.5s 2;
 }
 
 .btn-google-play::before {
@@ -612,6 +647,7 @@ html.touch-device .hero-phone {
     overflow: hidden;
     cursor: pointer;
     white-space: nowrap;
+    animation: ctaPulseBlue 3s ease-in-out 0.5s 2;
 }
 
 .btn-app-store::before {

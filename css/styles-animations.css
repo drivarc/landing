@@ -286,12 +286,23 @@
     }
 }
 
-@keyframes floatBadge {
+
+
+@keyframes ctaPulse {
     0%, 100% {
-        transform: translateY(0);
+        box-shadow: 0 6px 24px rgba(1, 135, 95, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.1) inset, 0 0 0 0 rgba(1, 135, 95, 0);
     }
     50% {
-        transform: translateY(-6px);
+        box-shadow: 0 6px 24px rgba(1, 135, 95, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.1) inset, 0 0 25px 5px rgba(1, 135, 95, 0.35);
+    }
+}
+
+@keyframes ctaPulseBlue {
+    0%, 100% {
+        box-shadow: 0 6px 24px rgba(0, 112, 226, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.1) inset, 0 0 0 0 rgba(0, 112, 226, 0);
+    }
+    50% {
+        box-shadow: 0 6px 24px rgba(0, 112, 226, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.1) inset, 0 0 25px 5px rgba(0, 112, 226, 0.35);
     }
 }
 

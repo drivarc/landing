@@ -66,36 +66,36 @@
 
 
 :root {
-    /* Dark Mode - Default */
+    /* Dark Mode - Default (Deepened) */
     --color-primary: #a9c7ff;
     --color-primary-dark: #264777;
     --color-on-primary: #ffffff;
-    --color-bg-primary: #111318;
-    --color-bg-secondary: #1d2024;
-    --color-bg-header: rgba(17, 19, 24, 0.8);
-    --color-text-primary: #e2e2e9;
+    --color-bg-primary: #0a0b0f;
+    --color-bg-secondary: #131519;
+    --color-bg-header: rgba(10, 11, 15, 0.85);
+    --color-text-primary: #ededf4;
     --color-text-secondary: #c4c6cf;
     --color-text-muted: #8e9099;
-    --color-accent-glow: rgba(169, 199, 255, 0.12);
-    --color-border: rgba(142, 144, 153, 0.3);
+    --color-accent-glow: rgba(169, 199, 255, 0.18);
+    --color-border: rgba(142, 144, 153, 0.25);
     --color-card-bg: #264777;
     --color-phone-frame: #191c20;
-    --color-phone-screen: #111318;
-    --color-phone-shadow: rgba(0, 0, 0, 0.5);
-    --color-hover-bg: rgba(255, 255, 255, 0.06);
-    --color-active-bg: rgba(169, 199, 255, 0.15);
-    --color-dropdown-bg: #1d2024;
-    --color-surface-container: #1d2024;
-    --color-surface-container-high: #282a2f;
-    --color-surface-container-highest: #33353a;
+    --color-phone-screen: #0a0b0f;
+    --color-phone-shadow: rgba(0, 0, 0, 0.6);
+    --color-hover-bg: rgba(255, 255, 255, 0.08);
+    --color-active-bg: rgba(169, 199, 255, 0.18);
+    --color-dropdown-bg: #15171c;
+    --color-surface-container: #15171c;
+    --color-surface-container-high: #1d2026;
+    --color-surface-container-highest: #262930;
     --color-success: #A5D6A7;
-    --color-success-bg: rgba(27, 94, 46, 0.15);
+    --color-success-bg: rgba(27, 94, 46, 0.2);
     --color-error: #ffb4ab;
-    --color-error-bg: rgba(255, 180, 171, 0.15);
+    --color-error-bg: rgba(255, 180, 171, 0.2);
     --color-tertiary: #dcbce1;
-    --color-tertiary-bg: rgba(220, 188, 225, 0.15);
+    --color-tertiary-bg: rgba(220, 188, 225, 0.2);
     --color-warning: #FFF59D;
-    --color-warning-bg: rgba(141, 110, 0, 0.15);
+    --color-warning-bg: rgba(141, 110, 0, 0.2);
     /* Legacy mappings */
     --bg-primary: var(--color-bg-primary);
     --bg-secondary: var(--color-bg-secondary);

@@ -311,23 +311,6 @@
     }
 }
 
-.trust-badge {
-    transition: transform 0.2s ease;
-}
-
-.trust-badge:hover {
-    transform: translateY(-2px);
-    filter: drop-shadow(0 0 20px rgba(64, 95, 144, 0.3));
-}
-
-.trust-badge-icon {
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.trust-badge:hover .trust-badge-icon {
-    transform: scale(1.1);
-}
-
 
 .nav a {
     overflow: hidden;
