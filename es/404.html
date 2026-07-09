@@ -67,6 +67,13 @@
             text-align: center;
             max-width: 480px;
         }
+        .error-logo {
+            display: block;
+            width: 72px;
+            height: auto;
+            margin: 0 auto 20px;
+            filter: drop-shadow(0 0 8px rgba(0, 116, 255, 0.3));
+        }
         .error-code {
             font-size: clamp(80px, 15vw, 120px);
             font-weight: 700;
@@ -112,6 +119,9 @@
         @media (prefers-color-scheme: light) {
             body { background: #f9f9ff; color: #191c20; }
             .error-description { color: #44474e; }
+            .error-logo {
+                filter: brightness(0) saturate(100%) invert(35%) sepia(45%) saturate(350%) hue-rotate(192deg) brightness(95%) contrast(90%) drop-shadow(0 0 6px rgba(0, 116, 255, 0.3));
+            }
         }
     </style>
     <script src="/js/404.js" defer></script>
@@ -152,6 +162,7 @@
 </head>
 <body>
     <div class="error-container">
+        <img src="../images/SVGLogoArkaplansız.svg" alt="" class="error-logo" width="72" height="56" loading="eager">
         <div class="error-code">404</div>
         <h1 class="error-title" data-i18n="error.404.h1" id="error-title">Página no encontrada</h1>
         <p class="error-description" data-i18n="error.404.desc" id="error-description">La página que buscas no existe o se ha movido. Puedes volver a la página principal para continuar.</p>

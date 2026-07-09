@@ -31,6 +31,20 @@
     50% { background-position: 100% 50%; }
 }
 
+/* SVG Logo Gradient — smooth SMIL sweep (x1/x2 animated inside SVG) */
+/* Color stops defined via CSS variables for theme support */
+:root {
+    --brand-grad-1: var(--color-primary);
+    --brand-grad-2: #d6e3ff;
+    --brand-grad-3: var(--color-primary);
+}
+
+[data-theme="light"] {
+    --brand-grad-1: var(--color-primary);
+    --brand-grad-2: #9bb5d4;
+    --brand-grad-3: var(--color-primary);
+}
+
 /* Staggered entrance animation groups */
 :root {
     --anim-duration: 0.4s;
@@ -101,12 +115,6 @@
     animation: fadeInUp 0.4s var(--anim-easing) 0.15s forwards;
 }
 
-.trust-badges {
-    opacity: 0;
-    transform: translateY(10px);
-    animation: fadeInUp 0.4s var(--anim-easing) 0.25s forwards;
-}
-
 /* Color-Animation Synergy: Semantic color transitions */
 @keyframes successGlow {
     0%, 100% { box-shadow: 0 0 8px var(--success); }
@@ -148,10 +156,6 @@
 }
 
 /* Brand motion signature: all micro-interactions use brand easing */
-.trust-badge:hover .trust-badge-icon svg {
-    animation: iconPulse 0.35s var(--anim-easing);
-}
-
 .feature-card:hover .feature-icon svg {
     animation: iconPulse 0.35s var(--anim-easing);
 }
@@ -270,11 +274,6 @@
     --color-transition: background 0.25s var(--anim-easing),
                         color 0.25s var(--anim-easing),
                         fill 0.25s var(--anim-easing);
-}
-
-.trust-badge {
-    will-change: transform;
-    transition: var(--brand-transition);
 }
 
 .hero-badge {

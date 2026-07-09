@@ -141,52 +141,46 @@
     transition: color 0.3s ease;
 }
 
-.hero-brand {
-    background: linear-gradient(135deg, var(--color-primary) 0%, #d6e3ff 30%, var(--color-primary) 50%, #d6e3ff 70%, var(--color-primary) 100%);
-    background-size: 300% auto;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    font-weight: 700;
-    letter-spacing: 0.02em;
+/* SVG Logo in Hero */
+.hero-brand-svg {
+    display: inline;
     position: relative;
-    display: inline-block;
-    line-height: 1.5;
-    animation: gradientFlow 5s ease-in-out infinite;
+    filter: drop-shadow(0 0 20px color-mix(in srgb, var(--color-primary), transparent 50%));
+    animation: svgGlowPulse 3s ease-in-out infinite alternate;
+    will-change: filter;
 }
 
-@keyframes gradientFlow {
-    0%, 100% { background-position: 0% center; }
-    50% { background-position: 300% center; }
+.hero-brand-svg-img {
+    width: auto;
+    height: 1em;
+    max-height: 80px;
+    display: inline;
+    vertical-align: baseline;
 }
 
-.hero-brand::after {
-    content: 'DRİVARC';
-    position: absolute;
-    left: 0;
-    top: 0;
-    z-index: -1;
-    background: none;
-    color: var(--color-primary);
-    filter: blur(20px);
-    opacity: 0.7;
+@keyframes svgGlowPulse {
+    0% {
+        filter: drop-shadow(0 0 18px color-mix(in srgb, var(--color-primary), transparent 55%));
+    }
+    100% {
+        filter: drop-shadow(0 0 35px color-mix(in srgb, var(--color-primary), transparent 25%));
+    }
+}
+
+/* Text after the SVG logo */
+.hero-title-after {
     font-weight: 700;
-    letter-spacing: inherit;
-    line-height: inherit;
-    animation: glowPulse 3s ease-in-out infinite alternate;
+    color: var(--text-primary);
 }
 
-@keyframes glowPulse {
-    0% { 
-        filter: blur(25px);
-        opacity: 0.7;
-        transform: scale(1);
-    }
-    100% { 
-        filter: blur(35px);
-        opacity: 0.9;
-        transform: scale(1.02);
-    }
+/* Hero Slogan */
+.hero-slogan {
+    display: block;
+    font-size: clamp(15px, 1.8vw, 20px);
+    font-weight: 500;
+    color: var(--text-secondary);
+    letter-spacing: 0.04em;
+    margin-top: 8px;
 }
 
 .hero-subtitle {
@@ -207,69 +201,13 @@
     margin-bottom: 0;
 }
 
-
-.trust-badges {
-    display: flex;
-    align-items: center;
+.hero-actions .btn-google-play,
+.hero-actions .btn-app-store {
+    flex: 1 1 0%;
+    max-width: 220px;
     justify-content: center;
-    gap: 10px;
-    margin-top: 28px;
-    flex-wrap: wrap;
 }
 
-.trust-badge {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    padding: 5px 14px;
-    background: var(--hover-bg);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    border: 1px solid var(--color-border);
-    border-radius: 100px;
-    cursor: default;
-    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.trust-badge:hover {
-    background: var(--hover-bg);
-    border-color: var(--accent-light);
-    transform: translateY(-1px);
-    box-shadow: 0 4px 12px var(--accent-glow);
-}
-
-.trust-badge-icon {
-    width: 18px;
-    height: 18px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-    transition: transform 0.3s ease;
-}
-
-.trust-badge-icon svg {
-    width: 14px;
-    height: 14px;
-    fill: var(--accent-light);
-    transition: fill 0.3s ease;
-}
-
-.trust-badge:hover .trust-badge-icon svg {
-    fill: var(--text-primary);
-}
-
-.trust-badge-text {
-    font-size: 12px;
-    font-weight: 500;
-    color: var(--text-muted);
-    white-space: nowrap;
-    transition: color 0.3s ease;
-}
-
-.trust-badge:hover .trust-badge-text {
-    color: var(--text-secondary);
-}
 
 @media (max-width: 1024px) {
     .hero-content {
@@ -301,25 +239,6 @@
         max-width: 100%;
     }
     .hero-actions { justify-content: center; }
-    .trust-badges {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 8px;
-        margin-top: 24px;
-        max-width: 100%;
-    }
-    .trust-badge {
-        justify-content: flex-start;
-        padding: 5px 12px;
-        background: var(--hover-bg);
-        backdrop-filter: blur(8px);
-        border: 1px solid var(--color-border);
-        border-radius: 100px;
-    }
-    .trust-badge:not(:last-child)::after {
-        display: none;
-    }
 }
 
 @media (max-width: 768px) {
@@ -348,21 +267,7 @@
     .app-store-name { font-size: 14px; }
     .google-play-icon,
     .app-store-icon { width: 21px; height: 21px; }
-    .trust-badges {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 8px;
-        margin-top: 24px;
-        max-width: 100%;
-    }
-    .trust-badge {
-        padding: 5px 12px;
-        background: var(--accent-glow);
-        backdrop-filter: blur(8px);
-        border: 1px solid var(--color-border);
-        border-radius: 100px;
-    }
+
 }
 
 @media (max-width: 480px) {
@@ -372,7 +277,7 @@
     }
     .hero-title {
         font-size: 24px;
-        line-height: 1.2;
+        line-height: 1.4;
     }
     .hero-subtitle {
         font-size: 14px;
@@ -399,21 +304,7 @@
     .google-play-store,
     .app-store-name { font-size: 13px; }
     .google-play-label { font-size: 10px; }
-    .trust-badges {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 8px;
-        margin-top: 24px;
-        max-width: 100%;
-    }
-    .trust-badge {
-        padding: 5px 12px;
-        background: var(--accent-glow);
-        backdrop-filter: blur(8px);
-        border: 1px solid var(--color-border);
-        border-radius: 100px;
-    }
+
 }
 
 @media (max-width: 375px) {
@@ -446,21 +337,6 @@
     .google-play-store,
     .app-store-name { font-size: 14px; }
     .google-play-label { font-size: 11px; }
-    .trust-badges {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 6px;
-        margin-top: 20px;
-        max-width: 100%;
-    }
-    .trust-badge {
-        padding: 4px 10px;
-        background: var(--accent-glow);
-        backdrop-filter: blur(8px);
-        border: 1px solid var(--color-border);
-        border-radius: 100px;
-    }
 }
 
 @media (max-width: 320px) {
@@ -469,28 +345,13 @@
         gap: 20px;
     }
     .hero-title { 
-        font-size: 20px; 
+        font-size: 20px;
     }
     .hero-subtitle { 
         font-size: 12px; 
         margin-bottom: 16px;
     }
 
-    .trust-badges { 
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 6px;
-        margin-top: 16px;
-        max-width: 100%;
-    }
-    .trust-badge {
-        padding: 4px 10px;
-        background: var(--accent-glow);
-        backdrop-filter: blur(8px);
-        border: 1px solid var(--color-border);
-        border-radius: 100px;
-    }
 }
 
 @media (max-width: 768px) and (orientation: landscape) {
@@ -502,21 +363,6 @@
     .hero-subtitle {
         font-size: 13px;
         margin-bottom: 16px;
-    }
-    .trust-badges {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 6px;
-        margin-top: 16px;
-        max-width: 100%;
-    }
-    .trust-badge {
-        padding: 4px 10px;
-        background: var(--accent-glow);
-        backdrop-filter: blur(8px);
-        border: 1px solid var(--color-border);
-        border-radius: 100px;
     }
 }
 .btn-google-play {
@@ -690,19 +536,9 @@
     line-height: 1;
 }
 
-[data-theme="light"] .hero-brand {
-    background: linear-gradient(135deg, var(--color-primary) 0%, #7da0c7 30%, var(--color-primary) 50%, #7da0c7 70%, var(--color-primary) 100%);
-    background-size: 300% auto;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    animation: gradientFlow 5s ease-in-out infinite;
-}
-
-[data-theme="light"] .hero-brand::after {
-    color: var(--color-primary);
-    filter: blur(25px);
-    opacity: 0.5;
+/* Light theme SVG glow - softer */
+[data-theme="light"] .hero-brand-svg {
+    filter: drop-shadow(0 0 12px color-mix(in srgb, var(--color-primary), transparent 60%));
 }
 
 [data-theme="light"] .btn-google-play {

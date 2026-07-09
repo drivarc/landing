@@ -85,25 +85,6 @@
     filter: drop-shadow(0 0 6px rgba(0, 116, 255, 0.4));
 }
 
-.logo-wordmark {
-    display: none;
-}
-
-@media (min-width: 801px) {
-    .logo-wordmark {
-        display: block;
-    }
-}
-
-@media (max-width: 800px) {
-    .logo-wordmark {
-        display: none !important;
-    }
-}
-
-html.touch-device .logo-wordmark {
-    display: none !important;
-}
 
 
 [data-theme="light"] .logo-img {
