@@ -310,5 +310,7 @@
   "hero.title_after": "— everything under control",
   "hero.slogan": "Offline, private, yours!",
   "header.play_cta": "Google Play",
-  "header.play_cta_text": "ダウンロード"
+  "header.play_cta_text": "ダウンロード",
+  "terms.data_deletion.title": "データ削除リクエスト",
+  "terms.data_deletion.text": "Drivarcアプリから直接お使いのデバイスですべてのデータを削除できます。データはDrivarcサーバーには保存されません — お使いのデバイスにローカルに保存されます。\n\n<strong>データを削除するには：</strong>\n• Drivarcアプリを開く\n• 設定に移動\n• 「データを削除」をタップ\n• 生体認証またはデバイスの画面ロックで確認\n• すべてのデータ（車両、メンテナンス記録、燃料記録、支出、写真）が完全に削除されます\n\n<strong>保存されるデータ：</strong> 法的義務により、支払い記録は10年間保持されます。Drivarcはこの情報にアクセスできません；RevenueCatとGoogle Play Storeのみが保持します。\n\nお問い合わせ：contact@drivarc.com"
 }

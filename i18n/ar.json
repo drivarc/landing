@@ -310,5 +310,7 @@
   "hero.title_after": "— everything under control",
   "hero.slogan": "Offline, private, yours!",
   "header.play_cta": "Google Play",
-  "header.play_cta_text": "تحميل"
+  "header.play_cta_text": "تحميل",
+  "terms.data_deletion.title": "طلب حذف البيانات",
+  "terms.data_deletion.text": "يمكنك حذف جميع بياناتك من تطبيق Drivarc مباشرة على جهازك. لا يتم تخزين بياناتك على خوادم Drivarc — بل يتم تخزينها محلياً على جهازك.\n\n<strong>لحذف بياناتك:</strong>\n• افتح تطبيق Drivarc\n• اذهب إلى الإعدادات\n• اضغط على \"حذف البيانات\"\n• قم بالتأكيد باستخدام المصادقة البيومترica أو قفل شاشة الجهاز\n• ستتم إزالة جميع بياناتك (السيارات، سجلات الصيانة، سجلات الوقود، المصاريف، الصور) نهائياً\n\n<strong>البيانات المحتفظ بها:</strong> يتم الاحتفاظ بسجلات المدفوعات لمدة 10 سنوات وفقاً للالتزامات القانونية. لا يمكن لـ Drivarc الوصول إلى هذه المعلومات؛ يتم الاحتفاظ بها فقط من قبل RevenueCat و Google Play Store.\n\nالتواصل: contact@drivarc.com"
 }

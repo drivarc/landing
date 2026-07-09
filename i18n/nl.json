@@ -310,5 +310,7 @@
   "hero.title_after": "— everything under control",
   "hero.slogan": "Offline, private, yours!",
   "header.play_cta": "Google Play",
-  "header.play_cta_text": "Downloaden"
+  "header.play_cta_text": "Downloaden",
+  "terms.data_deletion.title": "Verzoek tot Gegevensverwijdering",
+  "terms.data_deletion.text": "U kunt al uw gegevens rechtstreeks vanuit de Drivarc-app op uw apparaat verwijderen. Uw gegevens worden niet op Drivarc-servers opgeslagen — ze worden lokaal op uw apparaat opgeslagen.\n\n<strong>Om uw gegevens te verwijderen:</strong>\n• Open de Drivarc-app\n• Ga naar Instellingen\n• Tik op \"Gegevens verwijderen\"\n• Bevestig met biometrische authenticatie of apparaatvergrendeling\n• Al uw gegevens (voertuigen, onderhoudsrecords, brandstofrecords, uitgaven, foto's) worden permanent verwijderd\n\n<strong>Bewaarde gegevens:</strong> Betalingsrecords worden 10 jaar bewaard vanwege wettelijke verplichtingen. Drivarc heeft geen toegang tot deze informatie; deze wordt alleen bewaard door RevenueCat en Google Play Store.\n\nContact: contact@drivarc.com"
 }

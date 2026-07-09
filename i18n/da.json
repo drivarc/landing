@@ -310,5 +310,7 @@
   "hero.title_after": "— everything under control",
   "hero.slogan": "Offline, private, yours!",
   "header.play_cta": "Google Play",
-  "header.play_cta_text": "Hent"
+  "header.play_cta_text": "Hent",
+  "terms.data_deletion.title": "Anmodning om sletning af data",
+  "terms.data_deletion.text": "Du kan slette alle dine data fra Drivarc-appen direkte på din enhed. Dine data opbevares ikke på Drivarc-servere — de opbevares lokalt på din enhed.\n\n<strong>For at slette dine data:</strong>\n• Åbn Drivarc-appen\n• Gå til Indstillinger\n• Tryk på \"Slet data\"\n• Bekræft med biometrisk godkendelse eller enhedslås\n• Alle dine data (køretøjer, vedligeholdelsesposter, brændstofposter, udgifter, fotos) vil blive permanent slettet\n\n<strong>Opbevarede data:</strong> Betalingsposter opbevares i 10 år i henhold til juridiske forpligtelser. Drivarc har ikke adgang til disse oplysninger; de opbevares kun af RevenueCat og Google Play Store.\n\nKontakt: contact@drivarc.com"
 }

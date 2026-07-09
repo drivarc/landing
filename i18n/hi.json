@@ -310,5 +310,7 @@
   "hero.title_after": "— everything under control",
   "hero.slogan": "Offline, private, yours!",
   "header.play_cta": "Google Play",
-  "header.play_cta_text": "डाउनलोड"
+  "header.play_cta_text": "डाउनलोड",
+  "terms.data_deletion.title": "डेटा हटाने का अनुरोध",
+  "terms.data_deletion.text": "आप अपने डिवाइस पर सीधे Drivarc ऐप से अपना सारा डेटा हटा सकते हैं। आपका डेटा Drivarc सर्वर पर संग्रहीत नहीं है — यह आपके डिवाइस पर स्थानीय रूप से संग्रहीत है।\n\n<strong>अपना डेटा हटाने के लिए:</strong>\n• Drivarc ऐप खोलें\n• सेटिंग्स में जाएं\n• \"डेटा हटाएं\" पर टैप करें\n• बायोमेट्रिक प्रमाणीकरण या डिवाइस स्क्रीन लॉक से पुष्टि करें\n• आपका सारा डेटा (वाहन, रखरखाव रिकॉर्ड, ईंधन रिकॉर्ड, खर्च, फ़ोटो) स्थायी रूप से हटा दिया जाएगा\n\n<strong>संग्रहीत डेटा:</strong> कानूनी बाध्यताओं के कारण भुगतान रिकॉर्ड 10 वर्षों तक रखे जाते हैं। Drivarc इस जानकारी तक नहीं पहुँच सकता; यह केवल RevenueCat और Google Play Store द्वारा रखा जाता है।\n\n联系：contact@drivarc.com"
 }

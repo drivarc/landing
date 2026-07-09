@@ -310,5 +310,7 @@
   "hero.title_after": "— everything under control",
   "hero.slogan": "Offline, private, yours!",
   "header.play_cta": "Google Play",
-  "header.play_cta_text": "להוריד"
+  "header.play_cta_text": "להוריד",
+  "terms.data_deletion.title": "בקשת מחיקת נתונים",
+  "terms.data_deletion.text": "תוכלים למחוק את כל הנתונים שלך מאפליקציית Drivarc ישירות מהמכשיר שלך. הנתונים שלך לא מאוחסנים בשרתי Drivarc — הם מאוחסנים מקומית במכשיר שלך.\n\n<strong>למחיקת הנתונים שלך:</strong>\n• פתח את אפליקציית Drivarc\n• עבור להגדרות\n• הקש על \"מחק נתונים\"\n• אשר עם אימות ביומטרי או נעילת מסך\n• כל הנתונים שלך (רכבים, רישומי תחזוקה, רישומי דלק, הוצאות, תמונות) יימחקו לצמיתות\n\n<strong>נתונים נשמרים:</strong> רישומי תשלום נשמרים למשך 10 שנים מחובות חוקיות. Drivarc לא יכול לגשת למידע זה; הוא נשמר רק על ידי RevenueCat ו-Google Play Store.\n\n联系：contact@drivarc.com"
 }

@@ -310,5 +310,7 @@
   "hero.title_after": "— everything under control",
   "hero.slogan": "Offline, private, yours!",
   "header.play_cta": "Google Play",
-  "header.play_cta_text": "Lataa"
+  "header.play_cta_text": "Lataa",
+  "terms.data_deletion.title": "Poistopyyntö",
+  "terms.data_deletion.text": "Voit poistaa kaikki tietosi Drivarc-sovelluksesta suoraan laitteeltasi. Tietosi ei tallenneta Drivarc-palvelimille — ne tallennetaan paikallisesti laitteellesi.\n\n<strong>Tietojen poistamiseksi:</strong>\n• Avaa Drivarc-sovellus\n• Siirry asetuksiin\n• Napauta \"Poista tiedot\"\n• Vahvista biometrisellä todennuksella tai laitteen lukituksella\n• Kaikki tietosi (ajoneuvot, huoltokehot, polttoainekehot, kulut, valokuvat) poistetaan pysyvästi\n\n<strong>Säilytettävät tiedot:** Maksutiedot säilytetään 10 vuotta oikeudellisten velvoitteiden vuoksi. Drivarc ei pääse näihin tietoihin käsiksi — niitä säilyttävät vain RevenueCat ja Google Play Store.\n\nYhteys: contact@drivarc.com"
 }

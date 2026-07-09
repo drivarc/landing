@@ -310,5 +310,7 @@
   "hero.title_after": "— everything under control",
   "hero.slogan": "Offline, private, yours!",
   "header.play_cta": "Google Play",
-  "header.play_cta_text": "Tải xuống"
+  "header.play_cta_text": "Tải xuống",
+  "terms.data_deletion.title": "Yêu Cầu Xóa Dữ Liệu",
+  "terms.data_deletion.text": "Bạn có thể xóa toàn bộ dữ liệu từ ứng dụng Drivarc trực tiếp trên thiết bị của mình. Dữ liệu của bạn không được lưu trên máy chủ Drivarc — dữ liệu được lưu cục bộ trên thiết bị của bạn.\n\n<strong>Để xóa dữ liệu:</strong>\n• Mở ứng dụng Drivarc\n• Vào Cài đặt\n• Nhấn \"Xóa dữ liệu\"\n• Xác nhận bằng xác thực sinh trắc học hoặc khóa màn hình\n• Toàn bộ dữ liệu của bạn (xe, hồ sơ bảo dưỡng, hồ sơ nhiên liệu, chi phí, ảnh) sẽ bị xóa vĩnh viễn\n\n<strong>Dữ liệu được lưu trữ:</strong> Hồ sơ thanh toán được lưu giữ trong 10 năm theo nghĩa vụ pháp lý. Drivarc không thể truy cập thông tin này; chúng chỉ được lưu giữ bởi RevenueCat và Google Play Store.\n\nLiên hệ: contact@drivarc.com"
 }

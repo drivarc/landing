@@ -310,5 +310,7 @@
   "hero.title_after": "— everything under control",
   "hero.slogan": "Offline, private, yours!",
   "header.play_cta": "Google Play",
-  "header.play_cta_text": "Stáhnout"
+  "header.play_cta_text": "Stáhnout",
+  "terms.data_deletion.title": "Žádost o smazání dat",
+  "terms.data_deletion.text": "Všechna svá data můžete smazat přímo z aplikace Drivarc ve svém zařízení. Vaše data nejsou uložena na serverech Drivarc — jsou uložena lokálně ve vašem zařízení.\n\n<strong>Ke smazání dat:</strong>\n• Otevřete aplikaci Drivarc\n• Přejděte do Nastavení\n• Klepněte na „Smazat data\"\n• Potvrďte biometrickým ověřením nebo zámkem obrazovky\n• Všechna vaše data (vozidla, záznamy údržby, záznamy paliva, výdaje, fotografie) budou trvale smazána\n\n<strong>Uchovávaná data:</strong> Záznamy plateb jsou uchovávány po dobu 10 let z důvodu právních povinností. Drivarc k těmto informacím nemá přístup; jsou uchovávány pouze společnostmi RevenueCat a Google Play Store.\n\nKontakt: contact@drivarc.com"
 }

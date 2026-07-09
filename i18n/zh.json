@@ -310,5 +310,7 @@
   "hero.title_after": "— everything under control",
   "hero.slogan": "Offline, private, yours!",
   "header.play_cta": "Google Play",
-  "header.play_cta_text": "下载"
+  "header.play_cta_text": "下载",
+  "terms.data_deletion.title": "数据删除请求",
+  "terms.data_deletion.text": "您可以直接从设备上的 Drivarc 应用删除所有数据。您的数据不会存储在 Drivarc 服务器上 — 它们存储在您的设备本地。\n\n<strong>要删除您的数据：</strong>\n• 打开 Drivarc 应用\n• 转到设置\n• 点击 \"删除数据\"\n• 使用生物识别认证或设备屏幕锁确认\n• 您的所有数据（车辆、维护记录、燃料记录、支出、照片）将被永久删除\n\n<strong>保留的数据：</strong> 支付记录根据法律义务保留10年。Drivarc 无法访问此信息；仅由 RevenueCat 和 Google Play Store 保留。\n\n联系：contact@drivarc.com"
 }

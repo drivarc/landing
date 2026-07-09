@@ -310,5 +310,7 @@
   "hero.title_after": "— everything under control",
   "hero.slogan": "Offline, private, yours!",
   "header.play_cta": "Google Play",
-  "header.play_cta_text": "ডাউনলোড"
+  "header.play_cta_text": "ডাউনলোড",
+  "terms.data_deletion.title": "ডেটা মুছে ফেলার অনুরোধ",
+  "terms.data_deletion.text": "আপনি আপনার ডিভাইসে সরাসরি Drivarc অ্যাপ থেকে আপনার সমস্ত ডেটা মুছে ফেলতে পারেন। আপনার ডেটা Drivarc সার্ভারে সংরক্ষিত হয় না — এটি আপনার ডিভাইসে স্থানীয়ভাবে সংরক্ষিত হয়।\n\n<strong>আপনার ডেটা মুছে ফেলতে:</strong>\n• Drivarc অ্যাপ খুলুন\n• সেটিংসে যান\n• \"ডেটা মুছুন\" ট্যাপ করুন\n• বায়োমেট্রিক প্রমাণীকরণ বা ডিভাইস স্ক্রিন লক দিয়ে নিশ্চিত করুন\n• আপনার সমস্ত ডেটা (গাড়ি, রক্ষণাবেক্ষণ রেকর্ড, জ্বালানি রেকর্ড, খরচ, ছবি) স্থায়ীভাবে মুছে ফেলা হবে\n\n<strong>সংরক্ষিত ডেটা:</strong> আইনি বাধ্যবাধকতার কারণে পেমেন্ট রেকর্ড ১০ বছর সংরক্ষিত থাকে। Drivarc এই তথ্যে প্রবেশ করতে পারে না; শুধুমাত্র RevenueCat এবং Google Play Store দ্বারা রাখা হয়।\n\nযোগাযোগ: contact@drivarc.com"
 }

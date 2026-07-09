@@ -310,5 +310,7 @@
   "hero.title_after": "— everything under control",
   "hero.slogan": "Offline, private, yours!",
   "header.play_cta": "Google Play",
-  "header.play_cta_text": "Letöltés"
+  "header.play_cta_text": "Letöltés",
+  "terms.data_deletion.title": "Adatok törlésének kérelme",
+  "terms.data_deletion.text": "Az adatait közvetlenül az eszközéről törölheti a Drivarc alkalmazásból. Adatai nem a Drivarc szerverein tárolódnak — helyileg az eszközén tárolódnak.\n\n<strong>Adatai törléséhez:</strong>\n• Nyissa meg a Drivarc alkalmazást\n• Menjen a Beállításokba\n• Érintse meg az \"Adatok törlése\" lehetőséget\n• Erősítse meg biometrikus azonosítással vagy képernyőzárral\n• Az összes adat (járművek, karbantartási nyilvántartások, üzemanyag-nyilvántartások, kiadások, fényképek) véglegesen törlődik\n\n<strong>Megőrzött adatok:</strong> A fizetési nyilvántartások jogi kötelezettségek miatt 10 évig megőrzésre kerülnek. A Drivarc nem fér hozzá ezekhez az információkhoz; csak a RevenueCat és a Google Play Store őrzi meg azokat.\n\nKapcsolat: contact@drivarc.com"
 }

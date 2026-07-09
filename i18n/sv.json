@@ -310,5 +310,7 @@
   "hero.title_after": "— everything under control",
   "hero.slogan": "Offline, private, yours!",
   "header.play_cta": "Google Play",
-  "header.play_cta_text": "Ladda ner"
+  "header.play_cta_text": "Ladda ner",
+  "terms.data_deletion.title": "Begäran om radering av data",
+  "terms.data_deletion.text": "Du kan radera all din data från Drivarc-appen direkt på din enhet. Din data lagras inte på Drivarc-servrar — den lagras lokalt på din enhet.\n\n<strong>För att radera din data:</strong>\n• Öppna Drivarc-appen\n• Gå till Inställningar\n• Tryck på \"Radera data\"\n• Bekräfta med biometrisk autentisering eller enhetslås\n• All din data (fordon, underhållsregister, bränsleregister, utgifter, foton) kommer att raderas permanent\n\n<strong>Lagrad data:</strong> Betalningsregister lagras i 10 år på grund av juridiska skyldigheter. Drivarc har inte tillgång till denna information; den lagras bara av RevenueCat och Google Play Store.\n\nKontakt: contact@drivarc.com"
 }

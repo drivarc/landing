@@ -310,5 +310,7 @@
   "hero.title_after": "— everything under control",
   "hero.slogan": "Offline, private, yours!",
   "header.play_cta": "Google Play",
-  "header.play_cta_text": "Unduh"
+  "header.play_cta_text": "Unduh",
+  "terms.data_deletion.title": "Permintaan Penghapusan Data",
+  "terms.data_deletion.text": "Anda dapat menghapus semua data Anda dari aplikasi Drivarc langsung di perangkat Anda. Data Anda tidak disimpan di server Drivarc — data disimpan secara lokal di perangkat Anda.\n\n<strong>Untuk menghapus data Anda:</strong>\n• Buka aplikasi Drivarc\n• Buka Pengaturan\n• Ketuk \"Hapus Data\"\n• Konfirmasi dengan autentikasi biometrik atau kunci layar perangkat\n• Semua data Anda (kendaraan, catatan perawatan, catatan bahan bakar, pengeluaran, foto) akan dihapus secara permanen\n\n<strong>Data yang disimpan:</strong> Catatan pembayaran disimpan selama 10 tahun sesuai kewajiban hukum. Drivarc tidak dapat mengakses informasi ini; hanya disimpan oleh RevenueCat dan Google Play Store.\n\nKontak: contact@drivarc.com"
 }

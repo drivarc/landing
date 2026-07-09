@@ -310,5 +310,7 @@
   "hero.title_after": "— everything under control",
   "hero.slogan": "Offline, private, yours!",
   "header.play_cta": "Google Play",
-  "header.play_cta_text": "Descarcă"
+  "header.play_cta_text": "Descarcă",
+  "terms.data_deletion.title": "Cerere de Ștergere a Datelor",
+  "terms.data_deletion.text": "Puteți șterge toate datele dvs. din aplicația Drivarc direct de pe dispozitivul dvs. Datele dvs. nu sunt stocate pe serverele Drivarc — sunt stocate local pe dispozitivul dvs.\n\n<strong>Pentru a șterge datele dvs.:</strong>\n• Deschideți aplicația Drivarc\n• Mergeți la Setări\n• Apăsați \"Șterge datele\"\n• Confirmați cu autentificare biometrică sau blocare ecran\n• Toate datele dvs. (vehicule, înregistrări de întreținere, înregistrări de combustibil, cheltuieli, fotografii) vor fi șterse permanent\n\n<strong>Date păstrate:</strong> Înregistrările de plată sunt păstrate timp de 10 ani din obligații legale. Drivarc nu poate accesa aceste informații; sunt păstrate doar de RevenueCat și Google Play Store.\n\nContact: contact@drivarc.com"
 }
