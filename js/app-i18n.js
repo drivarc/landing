@@ -28,6 +28,16 @@
     }
   }
 
+  function fixCookieDescriptionLinks() {
+    var cookieDescription = document.querySelector('[data-i18n-html="cookie.description"]');
+    if (!cookieDescription) return;
+
+    var links = cookieDescription.querySelectorAll('a');
+    for (var i = 0; i < links.length; i++) {
+      links[i].setAttribute('href', 'privacy.html');
+    }
+  }
+
   function init() {
     var lang = document.documentElement.lang || 'tr';
     if (cache[lang]) {
@@ -43,6 +53,7 @@
           var translations = JSON.parse(xhr.responseText);
           cache[lang] = translations;
           applyTranslations(translations);
+          fixCookieDescriptionLinks();
         } catch (e) {
           // invalid JSON, fallback to HTML text
         }
