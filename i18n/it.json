@@ -291,7 +291,6 @@
   "testimonials.title": "Recensioni",
   "theme.dark_label": "Dark",
   "theme.light_label": "Light",
-  "theme.system_label": "System",
   "theme_toggle.aria": "Cambia Tema",
   "toast.declined": "I cookie sono stati rifiutati.",
   "toast.saved": "Le tue preferenze sono state salvate.",
@@ -309,5 +308,7 @@
   "final_cta.btn": "Download from Google Play",
   "final_cta.btn_as": "Coming Soon on App Store",
   "hero.title_after": "— everything under control",
-  "hero.slogan": "Offline, private, yours!"
+  "hero.slogan": "Offline, private, yours!",
+  "header.play_cta": "Google Play",
+  "header.play_cta_text": "Scarica"
 }

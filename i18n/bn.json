@@ -291,7 +291,6 @@
   "testimonials.title": "ব্যবহারকারীর মতামত",
   "theme.dark_label": "Dark",
   "theme.light_label": "Light",
-  "theme.system_label": "System",
   "theme_toggle.aria": "থিম পরিবর্তন করুন",
   "toast.declined": "কুকিগুলি প্রত্যাখ্যান করা হয়েছে।",
   "toast.saved": "আপনার পছন্দগুলি সংরক্ষণ করা হয়েছে।",
@@ -309,5 +308,7 @@
   "final_cta.btn": "Download from Google Play",
   "final_cta.btn_as": "Coming Soon on App Store",
   "hero.title_after": "— everything under control",
-  "hero.slogan": "Offline, private, yours!"
+  "hero.slogan": "Offline, private, yours!",
+  "header.play_cta": "Google Play",
+  "header.play_cta_text": "ডাউনলোড"
 }

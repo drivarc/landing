@@ -291,7 +291,6 @@
   "testimonials.title": "Brukervurderinger",
   "theme.dark_label": "Dark",
   "theme.light_label": "Light",
-  "theme.system_label": "System",
   "theme_toggle.aria": "Bytt Tema",
   "toast.declined": "Cookies er avvist.",
   "toast.saved": "Innstillingene dine er lagret.",
@@ -309,5 +308,7 @@
   "final_cta.btn": "Download from Google Play",
   "final_cta.btn_as": "Coming Soon on App Store",
   "hero.title_after": "— everything under control",
-  "hero.slogan": "Offline, private, yours!"
+  "hero.slogan": "Offline, private, yours!",
+  "header.play_cta": "Google Play",
+  "header.play_cta_text": "Last ned"
 }

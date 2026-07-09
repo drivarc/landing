@@ -59,49 +59,15 @@ if (document.readyState === 'loading') {
 }
 
 const themeToggle = document.querySelector('.theme-toggle');
-const themeDropdown = document.querySelector('.theme-dropdown');
-const themeOptions = document.querySelectorAll('.theme-option');
 const iconMoon = document.querySelector('.icon-moon');
 const iconSun = document.querySelector('.icon-sun');
-const iconSystem = document.querySelector('.icon-system');
 const html = document.documentElement;
-const themeMq = window.matchMedia('(prefers-color-scheme: dark)');
-
-function getSystemTheme() {
-    return themeMq.matches ? 'dark' : 'light';
-}
 
 function applyTheme(mode) {
-    var resolvedTheme = mode === 'system' ? getSystemTheme() : mode;
-    html.setAttribute('data-theme', resolvedTheme);
+    html.setAttribute('data-theme', mode);
     localStorage.setItem('theme', mode);
-    if (iconMoon) iconMoon.classList.toggle('is-hidden', resolvedTheme !== 'dark');
-    if (iconSun) iconSun.classList.toggle('is-hidden', resolvedTheme !== 'light');
-    if (iconSystem) iconSystem.classList.toggle('is-hidden', mode !== 'system');
-}
-
-function updateDropdownSelection(mode) {
-    themeOptions.forEach(function(opt) {
-        var isSelected = opt.getAttribute('data-theme-value') === mode;
-        opt.classList.toggle('selected', isSelected);
-        opt.setAttribute('aria-selected', isSelected);
-    });
-}
-
-function openDropdown() {
-    if (!themeDropdown) return;
-    if (langDropdown) langDropdown.classList.remove('open');
-    if (langToggle) langToggle.setAttribute('aria-expanded', 'false');
-    var mode = localStorage.getItem('theme') || 'system';
-    updateDropdownSelection(mode);
-    themeDropdown.classList.add('open');
-    if (themeToggle) themeToggle.setAttribute('aria-expanded', 'true');
-}
-
-function closeDropdown() {
-    if (!themeDropdown) return;
-    themeDropdown.classList.remove('open');
-    if (themeToggle) themeToggle.setAttribute('aria-expanded', 'false');
+    if (iconMoon) iconMoon.classList.toggle('is-hidden', mode !== 'dark');
+    if (iconSun) iconSun.classList.toggle('is-hidden', mode !== 'light');
 }
 
 function ensureAnalyticsLoaded() {
@@ -215,44 +181,20 @@ if (!supportsHoverInput) {
     html.classList.add('touch-device');
 }
 
-var savedMode = localStorage.getItem('theme') || 'system';
+var savedMode = localStorage.getItem('theme') || 'dark';
 applyTheme(savedMode);
-
-themeMq.addEventListener('change', function() {
-    var mode = localStorage.getItem('theme') || 'system';
-    if (mode === 'system') {
-        applyTheme('system');
-    }
-});
 
 if (themeToggle) {
     themeToggle.addEventListener('click', function(e) {
         e.stopPropagation();
-        if (themeDropdown && themeDropdown.classList.contains('open')) {
-            closeDropdown();
-        } else {
-            openDropdown();
-        }
+        var currentMode = localStorage.getItem('theme') || 'dark';
+        var newMode = currentMode === 'dark' ? 'light' : 'dark';
+        applyTheme(newMode);
     });
 }
 
-themeOptions.forEach(function(opt) {
-    opt.addEventListener('click', function(e) {
-        e.stopPropagation();
-        var value = opt.getAttribute('data-theme-value');
-        applyTheme(value);
-        closeDropdown();
-    });
-});
-
-document.addEventListener('click', closeDropdown);
-
-if (themeDropdown) {
-    themeDropdown.addEventListener('click', function(e) { e.stopPropagation(); });
-}
-
-const langToggle = document.querySelector('.lang-toggle');
-const langDropdown = document.getElementById('langDropdown');
+const langToggle = document.querySelector('.lang-toggle') || document.querySelector('.footer-lang-toggle');
+const langDropdown = document.getElementById('langDropdown') || document.getElementById('langDropdownFooter');
 
   if (langToggle) {
       langToggle.setAttribute('aria-expanded', 'false');
@@ -283,6 +225,23 @@ if (headerDownloadBtn) {
 document.addEventListener('click', () => { if (headerDownloadDropdown) headerDownloadDropdown.classList.remove('open'); });
 if (headerDownloadDropdown) headerDownloadDropdown.addEventListener('click', (e) => e.stopPropagation());
 
+// Header CTA - Hide when hero is visible
+const headerCta = document.querySelector('.header-cta-link');
+const heroSection = document.getElementById('hero');
+
+if (headerCta && heroSection) {
+    var heroObserver = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+            headerCta.classList.toggle('header-cta-visible', !entry.isIntersecting);
+        });
+    }, { threshold: 0 });
+    
+    heroObserver.observe(heroSection);
+    
+    // Initial state
+    headerCta.classList.toggle('header-cta-visible', !(heroSection.getBoundingClientRect().bottom > 0));
+}
+
  // Language search and region grouping
  (function() {
      var langRegions = {
@@ -298,7 +257,7 @@ if (headerDownloadDropdown) headerDownloadDropdown.addEventListener('click', (e)
      var regionOrder = ['Avrupa', 'Asya', 'Orta Do\u011fu'];
 
      function initLangSearch() {
-         var dropdown = document.getElementById('langDropdown');
+         var dropdown = document.getElementById('langDropdown') || document.getElementById('langDropdownFooter');
          if (!dropdown) return;
          var existing = dropdown.querySelector('.lang-search');
          if (existing) return;
@@ -334,7 +293,7 @@ if (headerDownloadDropdown) headerDownloadDropdown.addEventListener('click', (e)
          search.placeholder = '';
          search.setAttribute('aria-label', 'Dil ara');
          search.setAttribute('autocomplete', 'off');
-         search.setAttribute('aria-controls', 'langDropdown');
+         search.setAttribute('aria-controls', dropdown.id);
          search.setAttribute('aria-autocomplete', 'list');
          searchWrapper.appendChild(search);
 
@@ -480,7 +439,7 @@ if (headerDownloadDropdown) headerDownloadDropdown.addEventListener('click', (e)
          fragment.appendChild(liveRegion);
 
           // Auto-focus search when dropdown opens
-          var toggle = document.querySelector('.lang-toggle');
+          var toggle = document.querySelector('.lang-toggle') || document.querySelector('.footer-lang-toggle');
           if (toggle) {
               toggle.addEventListener('click', function() {
                   setTimeout(function() {

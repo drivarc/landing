@@ -291,7 +291,6 @@
   "testimonials.title": "사용자 후기",
   "theme.dark_label": "Dark",
   "theme.light_label": "Light",
-  "theme.system_label": "System",
   "theme_toggle.aria": "테마 변경",
   "toast.declined": "쿠키가 거부되었습니다.",
   "toast.saved": "설정이 저장되었습니다.",
@@ -309,5 +308,7 @@
   "final_cta.btn": "Download from Google Play",
   "final_cta.btn_as": "Coming Soon on App Store",
   "hero.title_after": "— everything under control",
-  "hero.slogan": "Offline, private, yours!"
+  "hero.slogan": "Offline, private, yours!",
+  "header.play_cta": "Google Play",
+  "header.play_cta_text": "다운로드"
 }
