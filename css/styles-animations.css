@@ -247,14 +247,26 @@
     animation: progressGlow 3s ease-in-out infinite;
 }
 
-/* Delight: Testimonial card star shine on hover */
-.testimonial-stars {
+/* Delight: Testimonial card unified hover lift */
+.testimonial-stars,
+.testimonial-text,
+.testimonial-author {
     transition: transform 0.3s var(--anim-easing);
+}
+
+.testimonial-author {
+    transform-origin: left center;
 }
 
 @media (hover: hover) and (pointer: fine) {
     .testimonial-card:hover .testimonial-stars {
         transform: scale(1.1);
+    }
+    .testimonial-card:hover .testimonial-text {
+        transform: scale(1.03);
+    }
+    .testimonial-card:hover .testimonial-author {
+        transform: scale(1.03);
     }
 }
 

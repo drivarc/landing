@@ -177,6 +177,85 @@ function getCurrencyInfo() {
     return currencyMapping[lang] || { code: 'USD', locale: 'en-US' };
 }
 
+// === Hero Stars (Static + Shooting) ===
+function initHeroStars() {
+    if (prefersReducedMotion) return;
+    
+    var hero = document.getElementById('hero');
+    if (!hero) return;
+    
+    var container = hero.querySelector('.hero-stars');
+    if (container) return;
+    
+    container = document.createElement('div');
+    container.className = 'hero-stars';
+    container.setAttribute('aria-hidden', 'true');
+    hero.insertBefore(container, hero.firstChild);
+    
+    // Static background stars (2-3)
+    var staticCount = 2 + Math.floor(Math.random() * 2);
+    for (var i = 0; i < staticCount; i++) {
+        var s = document.createElement('div');
+        s.className = 'hero-star-static';
+        var sx = 10 + Math.random() * 80;
+        var sy = 10 + Math.random() * 75;
+        var delay = Math.random() * 5;
+        var twinkleDur = 2 + Math.random() * 3;
+        s.style.cssText = [
+            'left: ' + sx + '%;',
+            'top: ' + sy + '%;',
+            'animation-delay: ' + delay + 's;',
+            'animation-duration: ' + twinkleDur + 's;'
+        ].join(' ');
+        container.appendChild(s);
+    }
+    
+    // Shooting star
+    var star = document.createElement('div');
+    star.className = 'hero-shooting-star';
+    container.appendChild(star);
+    
+    var directions = [
+        { dx: '800px', dy: '500px' },
+        { dx: '600px', dy: '450px' },
+        { dx: '700px', dy: '350px' },
+        { dx: '500px', dy: '400px' },
+        { dx: '900px', dy: '300px' }
+    ];
+    
+    function fireStar() {
+        var dir = directions[Math.floor(Math.random() * directions.length)];
+        var x = Math.random() * 100;
+        var y = Math.random() * 100;
+        var dur = 1 + Math.random() * 0.8;
+        var size = 3 + Math.random() * 2;
+        var op = 0.5 + Math.random() * 0.4;
+        
+        star.style.cssText = [
+            'left: ' + x + '%;',
+            'top: ' + y + '%;',
+            '--dx: ' + dir.dx + ';',
+            '--dy: ' + dir.dy + ';',
+            '--dur: ' + dur + 's;',
+            '--star-op: ' + op + ';',
+            'width: ' + size + 'px;',
+            'height: ' + size + 'px;',
+            'animation: heroStarDrift ' + dur + 's ease-out 0s 1;'
+        ].join(' ');
+        
+        var pause = 5 + Math.random() * 2;
+        setTimeout(fireStar, dur * 1000 + pause * 1000);
+    }
+    
+    setTimeout(fireStar, 1500);
+}
+
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initHeroStars);
+} else {
+    initHeroStars();
+}
+
 if (!supportsHoverInput) {
     html.classList.add('touch-device');
 }
