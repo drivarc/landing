@@ -121,6 +121,10 @@
     }
 }
 
+.hero-badge-icon {
+    flex-shrink: 0;
+}
+
 .hero-badge-text {
     white-space: nowrap;
 }
