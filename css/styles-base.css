@@ -311,7 +311,7 @@ body {
     font-family: var(--font-family-base);
     background-color: var(--bg-primary);
     color: var(--text-primary);
-    transition: background-color 0.3s ease, color 0.3s ease;
+    transition: background-color 0.35s var(--anim-easing), color 0.35s var(--anim-easing);
     display: block;
     position: relative;
     font-weight: var(--font-weight-body);
@@ -332,7 +332,7 @@ body::before {
     right: 0;
     bottom: 0;
     background-color: var(--bg-primary);
-    transition: background-color 0.3s ease;
+    transition: background-color 0.35s var(--anim-easing);
     z-index: -1;
     pointer-events: none;
 }

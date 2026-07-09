@@ -125,7 +125,8 @@ if (prefersReducedMotion) {
             const group = el.closest('.features-grid, .problems-grid, .faq-list, .features-inner, .problems-inner');
             if (group && !group.dataset.animated) {
                 const children = Array.from(group.querySelectorAll('.animate-on-scroll'));
-                const baseDelay = parseFloat(group.dataset.staggerDelay) || 0.12; // seconds
+                // Use CSS custom property for staggering, fallback to 0.1s
+                const baseDelay = parseFloat(group.dataset.staggerDelay) || 0.1; // seconds (sync with --stagger-step)
 
                 children.forEach((child, idx) => {
                     const delay = isMobile ? '0s' : `${idx * baseDelay}s`;

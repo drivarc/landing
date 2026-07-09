@@ -53,7 +53,7 @@
     transform: translateY(0);
 }
 
-/* Card hover lift effect */
+/* Feedback Loop: Card hover + press states */
 .feature-card,
 .problem-card,
 .testimonial-card {
@@ -66,11 +66,26 @@
     .feature-card:hover,
     .problem-card:hover {
         transform: translateY(-4px);
+        border-color: var(--accent-light);
     }
     
     .testimonial-card:hover {
         transform: translateY(-2px);
     }
+}
+
+/* Press feedback (active state) */
+.feature-card:active,
+.problem-card:active {
+    transform: translateY(-1px) scale(0.99);
+    transition-duration: 0.1s;
+}
+
+.btn-google-play:active,
+.btn-app-store:active,
+.btn-faq-cta:active {
+    transform: scale(0.97) !important;
+    transition-duration: 0.08s !important;
 }
 
 /* Smooth section entrance */
@@ -92,6 +107,27 @@
     animation: fadeInUp 0.4s var(--anim-easing) 0.25s forwards;
 }
 
+/* Color-Animation Synergy: Semantic color transitions */
+@keyframes successGlow {
+    0%, 100% { box-shadow: 0 0 8px var(--success); }
+    50% { box-shadow: 0 0 20px var(--success), 0 0 40px var(--success); }
+}
+
+@keyframes errorGlow {
+    0%, 100% { box-shadow: 0 0 8px var(--error); }
+    50% { box-shadow: 0 0 20px var(--error), 0 0 40px var(--error); }
+}
+
+/* Problem cards: semantic glow on panel hover */
+@media (hover: hover) and (pointer: fine) {
+    .problem-panel--pain:hover {
+        animation: errorGlow 1.5s ease-in-out infinite;
+    }
+    .problem-panel--solution:hover {
+        animation: successGlow 1.5s ease-in-out infinite;
+    }
+}
+
 /* CTA buttons single pulse on load */
 @keyframes ctaPulse {
     0%, 100% {
@@ -111,14 +147,32 @@
     }
 }
 
-/* Trast badge micro interaction */
+/* Brand motion signature: all micro-interactions use brand easing */
 .trust-badge:hover .trust-badge-icon svg {
-    animation: iconPulse 0.4s ease;
+    animation: iconPulse 0.35s var(--anim-easing);
 }
 
-/* Feature icon micro interaction on hover */
 .feature-card:hover .feature-icon svg {
-    animation: iconPulse 0.4s ease;
+    animation: iconPulse 0.35s var(--anim-easing);
+}
+
+/* Color synergy on feature icon hover (accent-light transitions) */
+.feature-card:hover .feature-icon {
+    background: var(--accent-light);
+    transition: background 0.25s var(--anim-easing);
+}
+
+.feature-card:hover .feature-icon svg {
+    fill: var(--color-on-primary, #ffffff);
+    transition: fill 0.25s var(--anim-easing);
+}
+
+.feature-icon {
+    transition: background 0.25s var(--anim-easing);
+}
+
+.feature-icon svg {
+    transition: fill 0.25s var(--anim-easing);
 }
 
 /* Problem card micro interaction */
@@ -152,8 +206,33 @@
     border-radius: 50%;
     background: rgba(255, 255, 255, 0.4);
     transform: scale(0);
-    animation: rippleAnim 0.6s ease-out forwards;
+    animation: rippleAnim 0.5s var(--anim-easing) forwards;
     pointer-events: none;
+}
+
+/* Delight: Scroll progress glow effect */
+@keyframes progressGlow {
+    0%, 100% {
+        box-shadow: 0 1px 3px var(--color-primary);
+    }
+    50% {
+        box-shadow: 0 1px 8px var(--color-primary), 0 0 12px var(--accent-glow);
+    }
+}
+
+.scroll-progress-bar-fill {
+    animation: progressGlow 3s ease-in-out infinite;
+}
+
+/* Delight: Testimonial card star shine on hover */
+.testimonial-stars {
+    transition: transform 0.3s var(--anim-easing);
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .testimonial-card:hover .testimonial-stars {
+        transform: scale(1.1);
+    }
 }
 
 /* Snow animation */
@@ -181,17 +260,53 @@
     }
 }
 
-/* Trust badge, hero-badge, hero-brand GPU hints */
+/* Brand Personality: Consistent motion language across all interactive elements */
+:root {
+    --brand-transition: transform 0.2s var(--anim-easing),
+                        border-color 0.2s var(--anim-easing),
+                        box-shadow 0.2s var(--anim-easing),
+                        background 0.2s var(--anim-easing),
+                        opacity 0.25s var(--anim-easing);
+    --color-transition: background 0.25s var(--anim-easing),
+                        color 0.25s var(--anim-easing),
+                        fill 0.25s var(--anim-easing);
+}
+
 .trust-badge {
     will-change: transform;
+    transition: var(--brand-transition);
 }
 
 .hero-badge {
     will-change: transform;
+    transition: var(--brand-transition);
 }
 
 .hero-brand {
     will-change: background-position, filter;
+}
+
+.feature-card {
+    will-change: transform;
+    transition: var(--brand-transition);
+}
+
+.faq-item {
+    will-change: transform, border-color;
+    transition: border-color 0.2s var(--anim-easing),
+                box-shadow 0.2s var(--anim-easing);
+}
+
+.testimonial-card {
+    will-change: transform;
+}
+
+/* Spatial Memory: Section reveal transitions */
+.hero-section,
+.features-section,
+.problems-section,
+.faq-section {
+    transition: opacity 0.4s var(--anim-easing);
 }
 
 /* stagger step helper */

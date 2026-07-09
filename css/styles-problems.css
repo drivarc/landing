@@ -125,7 +125,7 @@ html.touch-device .feature-card:hover {
     border-color: var(--border) !important;
 }
 
-html.touch-device html.touch-device .feature-card:hover .feature-icon,
+html.touch-device .feature-card:hover .feature-icon,
 html.touch-device .trust-badge:hover .trust-badge-icon {
     animation: none !important;
     transform: none !important;

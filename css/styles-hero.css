@@ -10,11 +10,7 @@
 }
 
 
-.hero-section,
-.features-section,
-.problems-section,
-.faq-section {
-    transition: opacity 0.4s ease;
+.hero-section {
     opacity: 1;
     pointer-events: auto;
 }
@@ -94,7 +90,6 @@
     font-weight: 500;
     margin: 0 auto 24px;
     width: fit-content;
-    transition: all 0.3s ease;
     cursor: default;
     box-shadow: 0 4px 15px rgba(255, 107, 0, 0.15);
 }
