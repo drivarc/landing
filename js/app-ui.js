@@ -79,36 +79,7 @@ function closeLegalModal(id) {
 function openTermsModal() { openLegalModal('termsModal'); }
 function openPrivacyModal() { openLegalModal('privacyModal'); }
 
-function initPhoneTabs() {
-    var navItems = document.querySelectorAll('.nav-item[data-tab-target]');
-    var tabs = document.querySelectorAll('.phone-tab');
-    var scrollContent = document.querySelector('.phone-screen-content');
-
-    navItems.forEach(function(item) {
-        item.addEventListener('click', function() {
-            var target = item.getAttribute('data-tab-target');
-            if (!target) return;
-
-            navItems.forEach(function(n) { n.classList.remove('active'); });
-            item.classList.add('active');
-
-            tabs.forEach(function(t) {
-                t.classList.remove('active');
-                if (t.getAttribute('data-tab') === target) {
-                    t.classList.add('active');
-                }
-            });
-
-            if (scrollContent) {
-                scrollContent.scrollTop = 0;
-            }
-        });
-    });
-}
-
 function initAnimations() {
-    initPhone3D();
-    initPhoneTabs();
     initDotParallax();
     window.addEventListener('scroll', updateScrollProgress, { passive: true });
     updateScrollProgress();

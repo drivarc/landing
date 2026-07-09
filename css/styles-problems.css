@@ -93,9 +93,7 @@
         transform: translateY(-4px) scale(1);
     }
 
-    .problem-card:hover .problem-icon.solution {
-        animation: iconPulse 0.6s ease;
-    }
+    /* Handled by animations.css transform scale */
 
     .problem-card:hover .problem-layout::after {
         opacity: 0.5;
@@ -127,8 +125,7 @@ html.touch-device .feature-card:hover {
     border-color: var(--border) !important;
 }
 
-html.touch-device .feature-card:hover .feature-icon,
-html.touch-device .problem-card:hover .problem-icon.solution,
+html.touch-device html.touch-device .feature-card:hover .feature-icon,
 html.touch-device .trust-badge:hover .trust-badge-icon {
     animation: none !important;
     transform: none !important;

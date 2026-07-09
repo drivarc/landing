@@ -124,10 +124,6 @@ body.index-page {
     flex: 1;
 }
 
-.hero-phone {
-    flex: 0 0 auto;
-}
-
 .hero-title {
     font-size: clamp(32px, 4vw, 48px);
     font-weight: 700;
@@ -211,9 +207,6 @@ body.index-page {
 
 /* Mobile styles */
 @media (max-width: 800px) {
-    .hero-phone {
-        display: none;
-    }
 
     .nav,
     .hero-section {

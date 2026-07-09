@@ -43,13 +43,12 @@
 .hero-content {
     position: relative;
     z-index: 2;
-    max-width: 1200px;
+    max-width: 900px;
     margin: 0 auto;
     padding: 120px 24px 120px;
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    gap: 100px;
+    justify-content: center;
     flex: 1;
     min-height: 0;
 }
@@ -68,11 +67,8 @@
 
 .hero-text {
     flex: 1;
-    text-align: start;
-}
-
-.hero-phone {
-    flex: 0 0 auto;
+    text-align: center;
+    max-width: 720px;
 }
 
 .hero-badge {
@@ -84,7 +80,7 @@
     --badge-dot-ring: rgba(255, 107, 0, 0.85);
     --badge-pulse-color: rgba(255, 107, 0, 0.7);
 
-    display: flex;
+    display: inline-flex;
     justify-content: center;
     align-items: center;
     gap: 8px;
@@ -96,7 +92,7 @@
     color: var(--badge-text);
     font-size: 14px;
     font-weight: 500;
-    margin: 0 0 24px 0;
+    margin: 0 auto 24px;
     width: fit-content;
     transition: all 0.3s ease;
     cursor: default;
@@ -211,6 +207,7 @@
 .hero-actions {
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 12px;
     margin-bottom: 0;
 }
@@ -219,6 +216,7 @@
 .trust-badges {
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 10px;
     margin-top: 28px;
     flex-wrap: wrap;
@@ -280,15 +278,10 @@
 
 @media (max-width: 1024px) {
     .hero-content {
-        gap: 50px;
         padding: 110px 32px 80px;
     }
     .hero-title { font-size: 36px; }
     .hero-subtitle { font-size: 16px; }
-
-    .hero-phone {
-        transform: scale(0.8);
-    }
 }
 
 @media (max-width: 800px) {
@@ -332,14 +325,6 @@
     .trust-badge:not(:last-child)::after {
         display: none;
     }
-
-    .hero-phone {
-        display: none;
-    }
-}
-
-html.touch-device .hero-phone {
-    display: none;
 }
 
 @media (max-width: 768px) {
@@ -523,8 +508,6 @@ html.touch-device .hero-phone {
         font-size: 13px;
         margin-bottom: 16px;
     }
-    .hero-phone { display: none; }
-
     .trust-badges {
         display: flex;
         flex-wrap: wrap;
@@ -557,7 +540,7 @@ html.touch-device .hero-phone {
     position: relative;
     overflow: hidden;
     white-space: nowrap;
-    animation: ctaPulse 3s ease-in-out 0.5s 2;
+    animation: ctaPulse 3s ease-in-out 0.5s 1;
 }
 
 .btn-google-play::before {
@@ -647,7 +630,7 @@ html.touch-device .hero-phone {
     overflow: hidden;
     cursor: pointer;
     white-space: nowrap;
-    animation: ctaPulseBlue 3s ease-in-out 0.5s 2;
+    animation: ctaPulseBlue 3s ease-in-out 0.5s 1;
 }
 
 .btn-app-store::before {

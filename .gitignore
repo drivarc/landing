@@ -36,3 +36,4 @@ __pycache__/
 # Brainstorm visual companion
 .superpowers/
 docs/superpowers/
+.agents.md
