@@ -486,6 +486,26 @@
     }
 }
 
+.final-cta-logo {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.final-cta-logo-svg {
+    width: 48px;
+    height: 48px;
+    filter: drop-shadow(0 0 12px rgba(96, 165, 250, 0.3));
+    transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+.final-cta-logo-svg:hover {
+    transform: scale(1.1);
+}
+
 .final-cta-title {
     font-size: clamp(24px, 3vw, 32px);
     font-weight: 700;
@@ -497,6 +517,10 @@
     -webkit-text-fill-color: transparent;
     background-clip: text;
     margin-bottom: 12px;
+    text-align: center;
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .final-cta-desc {
@@ -507,6 +531,7 @@
     max-width: 480px;
     margin-left: auto;
     margin-right: auto;
+    text-align: center;
 }
 
 .final-cta-actions {
@@ -634,9 +659,9 @@
     text-decoration: none;
     cursor: pointer;
     display: inline-flex;
-    align-items: baseline;
+    align-items: center;
     gap: 0;
-    vertical-align: baseline;
+    vertical-align: middle;
     transition: color 0.2s ease;
 }
 
