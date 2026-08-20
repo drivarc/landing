@@ -1,4 +1,4 @@
-const CACHE_NAME = 'dlanding-cache-v9';
+const CACHE_NAME = 'dlanding-cache-v10';
 const ASSETS_TO_CACHE = [
   '/',
   '/index.html',
@@ -128,30 +128,52 @@ self.addEventListener('fetch', event => {
     return;
   }
 
+  if (event.request.method !== 'GET') {
+    return;
+  }
+
+  const isHTML = event.request.mode === 'navigate' || url.pathname.endsWith('.html') || url.pathname.endsWith('/');
+  const isCSS = url.pathname.endsWith('.css');
+  const isJS = url.pathname.endsWith('.js');
+
+  // Network-first for HTML, CSS, JS — users always see the latest deploy
+  if (isHTML || isCSS || isJS) {
+    event.respondWith(
+      fetch(event.request).then(networkResponse => {
+        if (networkResponse && networkResponse.status === 200 && networkResponse.type === 'basic') {
+          const responseToCache = networkResponse.clone();
+          caches.open(CACHE_NAME).then(cache => {
+            cache.put(event.request, responseToCache);
+          });
+        }
+        return networkResponse;
+      }).catch(() => {
+        return caches.match(event.request).then(cachedResponse => {
+          if (cachedResponse) return cachedResponse;
+          if (isHTML) {
+            return caches.match('/index.html').catch(() => caches.match('/404.html'));
+          }
+          return new Response('Offline', { status: 503, statusText: 'Offline' });
+        });
+      })
+    );
+    return;
+  }
+
+  // Cache-first for static assets (images, fonts, icons)
   event.respondWith(
     caches.match(event.request).then(cachedResponse => {
       if (cachedResponse) {
         return cachedResponse;
       }
-
       return fetch(event.request).then(response => {
-        if (!response || response.status !== 200 || response.type !== 'basic') {
-          return response;
-        }
-
-        if (event.request.method === 'GET') {
+        if (response && response.status === 200 && response.type === 'basic') {
           const responseToCache = response.clone();
           caches.open(CACHE_NAME).then(cache => {
             cache.put(event.request, responseToCache);
           });
         }
-
         return response;
-      }).catch(() => {
-        if (event.request.mode === 'navigate') {
-          return caches.match('/index.html').catch(() => caches.match('/404.html'));
-        }
-        return new Response('Offline', { status: 503, statusText: 'Offline' });
       });
     })
   );
