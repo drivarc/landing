@@ -29,25 +29,45 @@
     margin-bottom: 8px;
 }
 
+.faq-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--accent-glow);
+    color: var(--accent-light);
+    margin: 0 auto 16px;
+    transition: transform 0.16s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.faq-icon:hover {
+    transform: scale(1.05);
+}
+
 .faq-title {
-    padding-top: 40px;
     font-size: clamp(24px, 3vw, 32px);
     font-weight: 700;
     line-height: 1.2;
     letter-spacing: -0.02em;
     color: var(--text-primary);
     margin-bottom: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    flex-wrap: wrap;
+    text-align: center;
+    max-width: 380px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .faq-subtitle {
-    font-size: clamp(13px, 1.4vw, 15px);
+    font-size: 15px;
+    font-weight: 400;
     color: var(--text-secondary);
-    line-height: 1.5;
+    line-height: 1.6;
+    margin: 0 auto;
+    text-align: center;
+    max-width: 400px;
+    letter-spacing: -0.01em;
 }
 
 .faq-list {
@@ -606,6 +626,37 @@
 .section-logo {
     vertical-align: middle;
     margin-right: 3px;
+}
+
+/* Subtitle brand link — section-logo + brand name as clickable link */
+.subtitle-brand-link {
+    color: var(--text-secondary);
+    text-decoration: none;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: baseline;
+    gap: 0;
+    vertical-align: baseline;
+    transition: color 0.2s ease;
+}
+
+.subtitle-brand-link .section-logo {
+    flex-shrink: 0;
+}
+
+.subtitle-brand-link span:last-child {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    text-decoration-color: var(--text-secondary);
+    transition: text-decoration-color 0.2s ease;
+}
+
+.subtitle-brand-link:hover {
+    color: var(--accent);
+}
+
+.subtitle-brand-link:hover span:last-child {
+    text-decoration-color: var(--accent);
 }
 
 .hero-social-proof-text svg {

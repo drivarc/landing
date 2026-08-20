@@ -27,11 +27,14 @@
 }
 
 
-.hero-section,
+.hero-section {
+    min-height: 100vh;
+    position: relative;
+}
+
 .features-section,
 .problems-section,
 .faq-section {
-    min-height: 100vh;
     position: relative;
 }
 
