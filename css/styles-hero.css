@@ -151,7 +151,6 @@
     position: relative;
     filter: drop-shadow(0 0 20px color-mix(in srgb, var(--color-primary), transparent 50%));
     animation: svgGlowPulse 3s ease-in-out infinite alternate;
-    will-change: filter;
 }
 
 .hero-brand-svg-img {

@@ -37,3 +37,5 @@ __pycache__/
 .superpowers/
 docs/superpowers/
 .agents.md
+.agents/skills/
+skills-lock.json
