@@ -89,11 +89,8 @@
 @media (hover: hover) and (pointer: fine) {
     .problem-card:hover {
         border-color: var(--accent-light);
-        box-shadow: 0 8px 32px rgba(64, 95, 144, 0.15), 0 0 50px rgba(64, 95, 144, 0.2);
         transform: translateY(-4px) scale(1);
     }
-
-    /* Handled by animations.css transform scale */
 
     .problem-card:hover .problem-layout::after {
         opacity: 0.5;

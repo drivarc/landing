@@ -633,3 +633,26 @@ if (headerCta) {
          initLangSearch();
      }
  })();
+
+// Hero entrance transitions — add .visible class to trigger CSS transitions
+(function() {
+    if (prefersReducedMotion) {
+        // Show immediately for reduced motion
+        document.querySelectorAll('.hero-title, .hero-actions, .btn-objection-row').forEach(function(el) {
+            el.classList.add('visible');
+        });
+        return;
+    }
+    // Staggered entrance with delays matching old animation timing
+    var targets = [
+        { sel: '.hero-title', delay: 50 },
+        { sel: '.hero-actions', delay: 150 },
+        { sel: '.btn-objection-row', delay: 250 }
+    ];
+    targets.forEach(function(t) {
+        var el = document.querySelector(t.sel);
+        if (el) {
+            setTimeout(function() { el.classList.add('visible'); }, t.delay);
+        }
+    });
+})();

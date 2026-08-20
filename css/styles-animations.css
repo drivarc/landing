@@ -58,7 +58,6 @@
     transform: translateY(18px);
     transition: opacity var(--anim-duration) var(--anim-easing),
                 transform var(--anim-duration) var(--anim-easing);
-    will-change: transform, opacity;
 }
 
 /* Visible state applied by JS when element is in view */
@@ -102,58 +101,52 @@
     transition-duration: 0.08s !important;
 }
 
-/* Smooth section entrance */
+/* Smooth section entrance — transitions for interruptibility */
 .hero-title {
     opacity: 0;
     transform: translateY(24px);
-    animation: fadeInUp 0.4s var(--anim-easing) 0.05s forwards;
+    transition: opacity 0.4s var(--anim-easing), transform 0.4s var(--anim-easing);
+}
+.hero-title.visible {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .hero-actions {
     opacity: 0;
     transform: translateY(16px);
-    animation: fadeInUp 0.4s var(--anim-easing) 0.15s forwards;
+    transition: opacity 0.4s var(--anim-easing) 0.1s, transform 0.4s var(--anim-easing) 0.1s;
+}
+.hero-actions.visible {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .btn-objection-row {
     opacity: 0;
     transform: translateY(12px);
-    animation: fadeInUp 0.4s var(--anim-easing) 0.25s forwards;
+    transition: opacity 0.4s var(--anim-easing) 0.2s, transform 0.4s var(--anim-easing) 0.2s;
+}
+.btn-objection-row.visible {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .btn-objection-row .btn-obj-text {
     opacity: 0;
     transform: translateY(40px);
+    transition: opacity 0.35s var(--anim-easing) 0.3s, transform 0.35s var(--anim-easing) 0.3s;
+}
+.btn-objection-row.visible .btn-obj-text {
+    opacity: 1;
+    transform: translateY(0);
+}
+.btn-objection-row.visible .btn-obj-text:last-child {
+    transition-delay: 0.4s;
 }
 
-.btn-objection-row .btn-obj-text:first-child {
-    animation: fadeInUp 0.35s var(--anim-easing) 0.35s forwards;
-}
 
-.btn-objection-row .btn-obj-text:last-child {
-    animation: fadeInUp 0.35s var(--anim-easing) 0.48s forwards;
-}
 
-/* Color-Animation Synergy: Semantic color transitions */
-@keyframes successGlow {
-    0%, 100% { box-shadow: 0 0 8px var(--success); }
-    50% { box-shadow: 0 0 20px var(--success), 0 0 40px var(--success); }
-}
-
-@keyframes errorGlow {
-    0%, 100% { box-shadow: 0 0 8px var(--error); }
-    50% { box-shadow: 0 0 20px var(--error), 0 0 40px var(--error); }
-}
-
-/* Problem cards: semantic glow on panel hover */
-@media (hover: hover) and (pointer: fine) {
-    .problem-panel--pain:hover {
-        animation: errorGlow 1.5s ease-in-out infinite;
-    }
-    .problem-panel--solution:hover {
-        animation: successGlow 1.5s ease-in-out infinite;
-    }
-}
 
 /* CTA buttons single pulse on load */
 @keyframes ctaPulse {
@@ -233,6 +226,35 @@
     pointer-events: none;
 }
 
+/* Accessibility: reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    .hero-title,
+    .hero-actions,
+    .btn-objection-row,
+    .btn-objection-row .btn-obj-text {
+        transition: opacity 0.2s ease;
+        transform: none;
+    }
+    .animate-on-scroll {
+        transition: opacity 0.2s ease;
+        transform: none;
+    }
+    .hero-badge-dot,
+    .hero-brand-svg,
+    .scroll-progress-bar-fill {
+        animation: none;
+    }
+    .ripple {
+        animation: none;
+        opacity: 0;
+    }
+    .feature-card:hover .feature-icon svg,
+    .faq-question:hover svg:not(.faq-chevron),
+    .btn-faq-cta:hover svg {
+        animation: none;
+    }
+}
+
 /* Delight: Scroll progress glow effect */
 @keyframes progressGlow {
     0%, 100% {
@@ -308,27 +330,16 @@
 }
 
 .hero-badge {
-    will-change: transform;
     transition: var(--brand-transition);
 }
 
-.hero-brand {
-    will-change: background-position, filter;
-}
-
 .feature-card {
-    will-change: transform;
     transition: var(--brand-transition);
 }
 
 .faq-item {
-    will-change: transform, border-color;
     transition: border-color 0.2s var(--anim-easing),
                 box-shadow 0.2s var(--anim-easing);
-}
-
-.testimonial-card {
-    will-change: transform;
 }
 
 /* Spatial Memory: Section reveal transitions */

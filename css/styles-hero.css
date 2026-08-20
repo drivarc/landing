@@ -106,6 +106,13 @@
     animation: badge-breath 2s ease-in-out infinite;
 }
 
+@media (prefers-reduced-motion: reduce) {
+    .hero-badge-dot {
+        animation: none;
+        opacity: 1;
+    }
+}
+
 @keyframes badge-breath {
     0%, 100% {
         opacity: 0.2;
@@ -151,6 +158,12 @@
     position: relative;
     filter: drop-shadow(0 0 20px color-mix(in srgb, var(--color-primary), transparent 50%));
     animation: svgGlowPulse 3s ease-in-out infinite alternate;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .hero-brand-svg {
+        animation: none;
+    }
 }
 
 .hero-brand-svg-img {
