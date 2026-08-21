@@ -1,7 +1,7 @@
 {
   "ci": {
     "collect": {
-      "staticDistDir": ".",
+      "startServerCommand": "npx http-server . -p 9001 -s",
       "numberOfRuns": 1
     },
     "assert": {

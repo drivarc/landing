@@ -50,12 +50,12 @@ jobs:
         uses: treosh/lighthouse-ci-action@v12
         with:
           urls: |
-            /index.html
-            /en/index.html
-            /de/index.html
-            /ru/index.html
-            /ar/index.html
-            /zh/index.html
+            http://localhost:9001/index.html
+            http://localhost:9001/en/index.html
+            http://localhost:9001/de/index.html
+            http://localhost:9001/ru/index.html
+            http://localhost:9001/ar/index.html
+            http://localhost:9001/zh/index.html
           configPath: ./lighthouserc.json
           uploadArtifacts: true
 
