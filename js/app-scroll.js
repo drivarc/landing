@@ -27,7 +27,7 @@ function updateScrollProgress() {
     const scrollTop = window.scrollY;
     const docHeight = document.documentElement.scrollHeight - window.innerHeight;
     const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
-    scrollProgress.style.width = progress + '%';
+    scrollProgress.style.transform = 'scaleX(' + (progress / 100) + ')';
 }
 
 function initDotParallax() {

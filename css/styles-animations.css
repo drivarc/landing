@@ -255,18 +255,14 @@
     }
 }
 
-/* Delight: Scroll progress glow effect */
-@keyframes progressGlow {
-    0%, 100% {
-        box-shadow: 0 1px 3px var(--color-primary);
-    }
-    50% {
-        box-shadow: 0 1px 8px var(--color-primary), 0 0 12px var(--accent-glow);
-    }
+/* Scroll progress shimmer — GPU-composited, no box-shadow */
+@keyframes progressShimmer {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
 }
 
 .scroll-progress-bar-fill {
-    animation: progressGlow 3s ease-in-out infinite;
+    animation: progressShimmer 3s ease-in-out infinite;
 }
 
 /* Delight: Testimonial card unified hover lift */
