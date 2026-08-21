@@ -68,6 +68,11 @@
     text-align: center;
     max-width: 400px;
     letter-spacing: -0.01em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 4px;
 }
 
 .faq-list {
@@ -651,6 +656,7 @@
 .section-logo {
     vertical-align: middle;
     margin-right: 3px;
+    flex-shrink: 0;
 }
 
 /* Subtitle brand link — section-logo + brand name as clickable link */
